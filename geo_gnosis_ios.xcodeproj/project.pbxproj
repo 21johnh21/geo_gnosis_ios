@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F827D59129777AF4007DE110 /* geo_gnosis_iosApp.swift */; };
+		F827D59429777AF4007DE110 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F827D59329777AF4007DE110 /* ContentView.swift */; };
+		F827D59629777AF5007DE110 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F827D59529777AF5007DE110 /* Assets.xcassets */; };
+		F827D59929777AF5007DE110 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F827D59829777AF5007DE110 /* Preview Assets.xcassets */; };
+		F827D5A329777AF5007DE110 /* geo_gnosis_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F827D5A229777AF5007DE110 /* geo_gnosis_iosTests.swift */; };
+		F827D5AD29777AF5007DE110 /* geo_gnosis_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F827D5AC29777AF5007DE110 /* geo_gnosis_iosUITests.swift */; };
+		F827D5AF29777AF5007DE110 /* geo_gnosis_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F827D5AE29777AF5007DE110 /* geo_gnosis_iosUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F827D59F29777AF5007DE110 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F827D58629777AF4007DE110 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F827D58D29777AF4007DE110;
+			remoteInfo = geo_gnosis_ios;
+		};
+		F827D5A929777AF5007DE110 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F827D58629777AF4007DE110 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F827D58D29777AF4007DE110;
+			remoteInfo = geo_gnosis_ios;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F827D58E29777AF4007DE110 /* geo_gnosis_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = geo_gnosis_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F827D59129777AF4007DE110 /* geo_gnosis_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = geo_gnosis_iosApp.swift; sourceTree = "<group>"; };
+		F827D59329777AF4007DE110 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F827D59529777AF5007DE110 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F827D59829777AF5007DE110 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F827D59E29777AF5007DE110 /* geo_gnosis_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = geo_gnosis_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F827D5A229777AF5007DE110 /* geo_gnosis_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = geo_gnosis_iosTests.swift; sourceTree = "<group>"; };
+		F827D5A829777AF5007DE110 /* geo_gnosis_iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = geo_gnosis_iosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F827D5AC29777AF5007DE110 /* geo_gnosis_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = geo_gnosis_iosUITests.swift; sourceTree = "<group>"; };
+		F827D5AE29777AF5007DE110 /* geo_gnosis_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = geo_gnosis_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F827D58B29777AF4007DE110 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F827D59B29777AF5007DE110 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F827D5A529777AF5007DE110 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F827D58529777AF4007DE110 = {
+			isa = PBXGroup;
+			children = (
+				F827D59029777AF4007DE110 /* geo_gnosis_ios */,
+				F827D5A129777AF5007DE110 /* geo_gnosis_iosTests */,
+				F827D5AB29777AF5007DE110 /* geo_gnosis_iosUITests */,
+				F827D58F29777AF4007DE110 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F827D58F29777AF4007DE110 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F827D58E29777AF4007DE110 /* geo_gnosis_ios.app */,
+				F827D59E29777AF5007DE110 /* geo_gnosis_iosTests.xctest */,
+				F827D5A829777AF5007DE110 /* geo_gnosis_iosUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F827D59029777AF4007DE110 /* geo_gnosis_ios */ = {
+			isa = PBXGroup;
+			children = (
+				F827D59129777AF4007DE110 /* geo_gnosis_iosApp.swift */,
+				F827D59329777AF4007DE110 /* ContentView.swift */,
+				F827D59529777AF5007DE110 /* Assets.xcassets */,
+				F827D59729777AF5007DE110 /* Preview Content */,
+			);
+			path = geo_gnosis_ios;
+			sourceTree = "<group>";
+		};
+		F827D59729777AF5007DE110 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F827D59829777AF5007DE110 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F827D5A129777AF5007DE110 /* geo_gnosis_iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				F827D5A229777AF5007DE110 /* geo_gnosis_iosTests.swift */,
+			);
+			path = geo_gnosis_iosTests;
+			sourceTree = "<group>";
+		};
+		F827D5AB29777AF5007DE110 /* geo_gnosis_iosUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F827D5AC29777AF5007DE110 /* geo_gnosis_iosUITests.swift */,
+				F827D5AE29777AF5007DE110 /* geo_gnosis_iosUITestsLaunchTests.swift */,
+			);
+			path = geo_gnosis_iosUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F827D58D29777AF4007DE110 /* geo_gnosis_ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F827D5B229777AF5007DE110 /* Build configuration list for PBXNativeTarget "geo_gnosis_ios" */;
+			buildPhases = (
+				F827D58A29777AF4007DE110 /* Sources */,
+				F827D58B29777AF4007DE110 /* Frameworks */,
+				F827D58C29777AF4007DE110 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = geo_gnosis_ios;
+			productName = geo_gnosis_ios;
+			productReference = F827D58E29777AF4007DE110 /* geo_gnosis_ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F827D59D29777AF5007DE110 /* geo_gnosis_iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F827D5B529777AF5007DE110 /* Build configuration list for PBXNativeTarget "geo_gnosis_iosTests" */;
+			buildPhases = (
+				F827D59A29777AF5007DE110 /* Sources */,
+				F827D59B29777AF5007DE110 /* Frameworks */,
+				F827D59C29777AF5007DE110 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F827D5A029777AF5007DE110 /* PBXTargetDependency */,
+			);
+			name = geo_gnosis_iosTests;
+			productName = geo_gnosis_iosTests;
+			productReference = F827D59E29777AF5007DE110 /* geo_gnosis_iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F827D5A729777AF5007DE110 /* geo_gnosis_iosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F827D5B829777AF5007DE110 /* Build configuration list for PBXNativeTarget "geo_gnosis_iosUITests" */;
+			buildPhases = (
+				F827D5A429777AF5007DE110 /* Sources */,
+				F827D5A529777AF5007DE110 /* Frameworks */,
+				F827D5A629777AF5007DE110 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F827D5AA29777AF5007DE110 /* PBXTargetDependency */,
+			);
+			name = geo_gnosis_iosUITests;
+			productName = geo_gnosis_iosUITests;
+			productReference = F827D5A829777AF5007DE110 /* geo_gnosis_iosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F827D58629777AF4007DE110 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					F827D58D29777AF4007DE110 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					F827D59D29777AF5007DE110 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = F827D58D29777AF4007DE110;
+					};
+					F827D5A729777AF5007DE110 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = F827D58D29777AF4007DE110;
+					};
+				};
+			};
+			buildConfigurationList = F827D58929777AF4007DE110 /* Build configuration list for PBXProject "geo_gnosis_ios" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F827D58529777AF4007DE110;
+			productRefGroup = F827D58F29777AF4007DE110 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F827D58D29777AF4007DE110 /* geo_gnosis_ios */,
+				F827D59D29777AF5007DE110 /* geo_gnosis_iosTests */,
+				F827D5A729777AF5007DE110 /* geo_gnosis_iosUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F827D58C29777AF4007DE110 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F827D59929777AF5007DE110 /* Preview Assets.xcassets in Resources */,
+				F827D59629777AF5007DE110 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F827D59C29777AF5007DE110 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F827D5A629777AF5007DE110 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F827D58A29777AF4007DE110 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F827D59429777AF4007DE110 /* ContentView.swift in Sources */,
+				F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F827D59A29777AF5007DE110 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F827D5A329777AF5007DE110 /* geo_gnosis_iosTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F827D5A429777AF5007DE110 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F827D5AD29777AF5007DE110 /* geo_gnosis_iosUITests.swift in Sources */,
+				F827D5AF29777AF5007DE110 /* geo_gnosis_iosUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F827D5A029777AF5007DE110 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F827D58D29777AF4007DE110 /* geo_gnosis_ios */;
+			targetProxy = F827D59F29777AF5007DE110 /* PBXContainerItemProxy */;
+		};
+		F827D5AA29777AF5007DE110 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F827D58D29777AF4007DE110 /* geo_gnosis_ios */;
+			targetProxy = F827D5A929777AF5007DE110 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F827D5B029777AF5007DE110 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F827D5B129777AF5007DE110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F827D5B329777AF5007DE110 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"geo_gnosis_ios/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-1johnh21.geo-gnosis-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F827D5B429777AF5007DE110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"geo_gnosis_ios/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-1johnh21.geo-gnosis-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F827D5B629777AF5007DE110 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-1johnh21.geo-gnosis-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/geo_gnosis_ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/geo_gnosis_ios";
+			};
+			name = Debug;
+		};
+		F827D5B729777AF5007DE110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-1johnh21.geo-gnosis-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/geo_gnosis_ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/geo_gnosis_ios";
+			};
+			name = Release;
+		};
+		F827D5B929777AF5007DE110 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-1johnh21.geo-gnosis-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = geo_gnosis_ios;
+			};
+			name = Debug;
+		};
+		F827D5BA29777AF5007DE110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-1johnh21.geo-gnosis-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = geo_gnosis_ios;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F827D58929777AF4007DE110 /* Build configuration list for PBXProject "geo_gnosis_ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F827D5B029777AF5007DE110 /* Debug */,
+				F827D5B129777AF5007DE110 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F827D5B229777AF5007DE110 /* Build configuration list for PBXNativeTarget "geo_gnosis_ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F827D5B329777AF5007DE110 /* Debug */,
+				F827D5B429777AF5007DE110 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F827D5B529777AF5007DE110 /* Build configuration list for PBXNativeTarget "geo_gnosis_iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F827D5B629777AF5007DE110 /* Debug */,
+				F827D5B729777AF5007DE110 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F827D5B829777AF5007DE110 /* Build configuration list for PBXNativeTarget "geo_gnosis_iosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F827D5B929777AF5007DE110 /* Debug */,
+				F827D5BA29777AF5007DE110 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F827D58629777AF4007DE110 /* Project object */;
+}
