@@ -13,9 +13,12 @@ struct MapView: View {
     @State private var region = MKCoordinateRegion()
 
     var body: some View {
-        Map(coordinateRegion: $region)
+        Map(coordinateRegion: $region,
+            interactionModes: MapInteractionModes.pan
+            )
             .onAppear {
                 setRegion(coordinate)
+                
             }
     }
 

@@ -12,6 +12,8 @@ struct map: View {
     //var timer: Timer = Timer()
     @ObservedObject var timerHelper = TimerHelper()
     @State var guess: String = ""
+    let data = LocationData2().locations
+    
     var seconds = 0.0 //DELETE
     //self.timerHelper.StartTimer()
     var body: some View {
@@ -20,8 +22,8 @@ struct map: View {
             VStack {
                 MapView(coordinate:
                             CLLocationCoordinate2D(
-                                latitude: 44,
-                                longitude: -85)
+                                latitude: data[0].lat,
+                                longitude: data[0].lng)
                 )
                 .ignoresSafeArea(edges: .top)
                 TextField("Answer...",text: $guess)

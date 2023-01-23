@@ -16,7 +16,6 @@ struct start: View {
                 Spacer()
                 NavigationLink(destination: map()){
                     Text("Start Game")
-                    Text(data[0].admin_name)
                 }
             }
         }
