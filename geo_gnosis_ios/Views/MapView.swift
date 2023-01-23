@@ -18,7 +18,6 @@ struct MapView: View {
             )
             .onAppear {
                 setRegion(coordinate)
-                
             }
     }
 

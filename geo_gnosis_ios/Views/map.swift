@@ -28,8 +28,7 @@ struct map: View {
                 .ignoresSafeArea(edges: .top)
                 TextField("Answer...",text: $guess)
                     .onSubmit{
-                        ValidateAnswer(guess: "", answer: "")
-                        
+                        ValidateAnswer(guess: guess, answer: data[0].country)
                     }
                 
                 //.focused($emailFieldIsFocused)
@@ -57,6 +56,7 @@ struct map: View {
             
             //go to next round
             //store round data
+            print("Correct!")
         }
         else{
             
