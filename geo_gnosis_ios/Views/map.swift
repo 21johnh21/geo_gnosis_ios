@@ -51,15 +51,17 @@ struct map: View {
     }
     
     
-    func ValidateAnswer (guess: String, answer: String){
+    func ValidateAnswer (guess: String, answer: String) {
         if(guess == answer){
             
-            //go to next round
-            //store round data
             print("Correct!")
+            //go to next round
+            //return EndGame()
+            //store round data
+         
         }
         else{
-            
+           // return map()
             //clear textField
             //send give user feed back
             //animation
