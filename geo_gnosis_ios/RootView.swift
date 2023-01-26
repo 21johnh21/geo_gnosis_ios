@@ -31,9 +31,28 @@ struct RootView: View {
                 } else if id == String(describing: map.self) {
                     map()
                 }
-                else{
+                else if id == String(describing: EndGame.self){
                     EndGame()
                 }
+//                else if id == String(describing: RootView.self){
+//                    RootView()
+//                }
+                else{
+                    
+                }
+                
+                
+//                switch(id){
+//                case (String(describing: start.self)):
+//                    start()
+//                case (String(describing: start.self)):
+//                    map()
+//                case (String(describing: start.self)):
+//                    EndGame()
+//                default (String(describing: start.self)):
+//                    RootView()
+//
+//                }
             }
         }
         .environmentObject(coordinator)

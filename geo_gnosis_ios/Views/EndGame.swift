@@ -11,6 +11,7 @@ import MapKit
 struct EndGame: View {
     
     let data = LocationData2().locations
+    @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
         ScrollView {
@@ -19,6 +20,20 @@ struct EndGame: View {
                 Text("Final Score: ").padding(.leading)
                 Spacer()
                 Text("0:00").padding(.trailing)
+            }
+            HStack{
+                Button {
+                    //will need to add logic here to load new data  data
+                    coordinator.show(map.self)
+                } label: {
+                    Text("Play Again")
+                }.padding(.leading)
+                Spacer()
+                Button {
+                    coordinator.popToRoot()
+                } label: {
+                    Text("Return to Menu")
+                }.padding(.trailing)
             }
             MapView(coordinate:
                         CLLocationCoordinate2D(
