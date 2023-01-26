@@ -13,9 +13,12 @@ struct start: View {
     var body: some View {
         NavigationView {
             VStack{
+                Text("Start Game").font(.title).padding(.top)
+                Image("worldLogo2")
+                Text("Game Mode").font(.headline).padding()
                 Spacer()
                 NavigationLink(destination: map()){
-                    Text("Start Game")
+                    Text("Start Game").padding(.bottom)
                 }
             }
         }
