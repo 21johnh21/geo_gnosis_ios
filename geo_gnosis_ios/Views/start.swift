@@ -10,16 +10,24 @@ import SwiftUI
 struct start: View {
     
     let data = LocationData2().locations
+    @EnvironmentObject private var coordinator: Coordinator
+    
     var body: some View {
+        
         NavigationView {
             VStack{
                 Text("Start Game").font(.title).padding(.top)
                 Image("worldLogo2")
                 Text("Game Mode").font(.headline).padding()
                 Spacer()
-                NavigationLink(destination: map()){
-                    Text("Start Game").padding(.bottom)
+                
+                Button {
+                    coordinator.show(map.self)
+                } label: {
+                    Text("Start Game")
                 }
+//                NavigationLink(destination: map()){
+//                    Text("Start Game").padding(.bottom)
             }
         }
     }

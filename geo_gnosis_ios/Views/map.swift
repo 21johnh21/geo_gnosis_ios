@@ -4,7 +4,6 @@
 //
 //  Created by John Hawley on 1/22/23.
 //
-
 import SwiftUI
 import CoreLocation
 
@@ -13,6 +12,7 @@ struct map: View {
     @ObservedObject var timerHelper = TimerHelper()
     @State var guess: String = ""
     let data = LocationData2().locations
+    @EnvironmentObject private var coordinator: Coordinator
     
     var seconds = 0.0 //DELETE
     //self.timerHelper.StartTimer()
@@ -53,7 +53,7 @@ struct map: View {
     
     func ValidateAnswer (guess: String, answer: String) {
         if(guess == answer){
-            
+            coordinator.show(EndGame.self)
             print("Correct!")
             //go to next round
             //return EndGame()
