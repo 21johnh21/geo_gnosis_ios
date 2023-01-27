@@ -24,7 +24,7 @@ struct EndGame: View {
             HStack{
                 Button {
                     //will need to add logic here to load new data  data
-                    coordinator.show(map.self)
+                    coordinator.show(GameMap.self)
                 } label: {
                     Text("Play Again")
                 }.padding(.leading)

@@ -1,5 +1,5 @@
 //
-//  map.swift
+//  GameMap.swift
 //  geo_gnosis_ios
 //
 //  Created by John Hawley on 1/22/23.
@@ -7,7 +7,7 @@
 import SwiftUI
 import CoreLocation
 
-struct map: View {
+struct GameMap: View {
     //var timer: Timer = Timer()
     @ObservedObject var timerHelper = TimerHelper()
     @State var guess: String = ""
@@ -81,6 +81,6 @@ struct map: View {
 
 struct map_Previews: PreviewProvider {
     static var previews: some View {
-        map()
+        GameMap()
     }
 }

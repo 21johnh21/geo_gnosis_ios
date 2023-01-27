@@ -15,21 +15,21 @@ struct RootView: View {
         NavigationStack(path: $coordinator.path) {
             VStack {
                 Button {
-                    coordinator.show(start.self)
+                    coordinator.show(Start.self)
                 } label: {
                     Text("Show View A")
                 }
                 Button {
-                    coordinator.show(map.self)
+                    coordinator.show(GameMap.self)
                 } label: {
                     Text("Show View B")
                 }
             }
             .navigationDestination(for: String.self) { id in
-                if id == String(describing: start.self) {
-                    start()
-                } else if id == String(describing: map.self) {
-                    map()
+                if id == String(describing: Start.self) {
+                    Start()
+                } else if id == String(describing: GameMap.self) {
+                    GameMap()
                 }
                 else if id == String(describing: EndGame.self){
                     EndGame()

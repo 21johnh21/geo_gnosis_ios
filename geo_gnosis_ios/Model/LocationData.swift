@@ -1,33 +1,30 @@
-////
-////  LocationData.swift
-////  geo_gnosis_ios
-////
-////  Created by John Hawley on 1/22/23.
-////
 //
-//import Foundation
+//  LocationData.swift
+//  geo_gnosis_ios
 //
-//final class LocationData{
-//   @Published var locations [Location] = load("sampleLocationData.json")
-//    
-//    func load<T: Decodable>(_ filename: String) -> T {
-//        let data: Data
+//  Created by John Hawley on 1/26/23.
 //
-//        guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-//            else {
-//                fatalError("Couldn't find \(filename) in main bundle.")
-//        }
-//
-//        do {
-//            data = try Data(contentsOf: file)
-//        } catch {
-//            fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
-//        }
-//
-//        do {
-//            let decoder = JSONDecoder()
-//            return try decoder.decode(T.self, from: data)
-//        } catch {
-//            fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
-//        }
-//}
+
+import Foundation
+
+public class LocationData{
+    @Published var locations = [Location]()
+    
+    init(){
+        load()
+    }
+    
+    func load(){
+        if let fileLocation = Bundle.main.url(forResource: "sampleLocationData", withExtension: "json"){ //create file location var
+            do{
+                let data = try Data(contentsOf: fileLocation) //try to get data from filelocation
+                let jsonDecoder = JSONDecoder() // create a json decoder
+                let jsonData = try jsonDecoder.decode([Location].self, from: data) //create array of objects from daata
+                self.locations = jsonData
+            }
+            catch{
+                print(error)
+            }
+        }
+    }
+}

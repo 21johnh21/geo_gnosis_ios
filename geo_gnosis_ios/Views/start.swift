@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct start: View {
+struct Start: View {
     
     let data = LocationData().locations
     @EnvironmentObject private var coordinator: Coordinator
@@ -22,7 +22,7 @@ struct start: View {
                 Spacer()
                 
                 Button {
-                    coordinator.show(map.self)
+                    coordinator.show(GameMap.self)
                 } label: {
                     Text("Start Game")
                 }
@@ -35,6 +35,6 @@ struct start: View {
 
 struct start_Previews: PreviewProvider {
     static var previews: some View {
-        start()
+        Start()
     }
 }
