@@ -12,7 +12,7 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let data = LocationData2().locations
+        let data = LocationData().locations
         
         print(data)
     }

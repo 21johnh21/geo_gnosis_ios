@@ -9,7 +9,7 @@ import SwiftUI
 
 struct start: View {
     
-    let data = LocationData2().locations
+    let data = LocationData().locations
     @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {

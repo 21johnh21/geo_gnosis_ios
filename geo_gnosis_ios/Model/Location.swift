@@ -17,16 +17,4 @@ struct Location: Codable {
     var admin_name : String
     var capital : String // change to bool somehow
     var population : Int
-    
-//    private var coordinates: Coordinates
-//    var locationCoordinate: CLLocationCoordinate2D {
-//        CLLocationCoordinate2D(
-//            latitude: coordinates.latitude,
-//            longitude: coordinates.longitude)
-//    }
-//
-//    struct Coordinates: Hashable, Codable {
-//        var latitude: Double
-//        var longitude: Double
-//    }
 }

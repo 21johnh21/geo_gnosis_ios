@@ -10,7 +10,7 @@ import MapKit
 
 struct EndGame: View {
     
-    let data = LocationData2().locations
+    let data = LocationData().locations
     @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {

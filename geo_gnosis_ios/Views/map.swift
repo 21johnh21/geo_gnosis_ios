@@ -11,7 +11,7 @@ struct map: View {
     //var timer: Timer = Timer()
     @ObservedObject var timerHelper = TimerHelper()
     @State var guess: String = ""
-    let data = LocationData2().locations
+    let data = LocationData().locations
     @EnvironmentObject private var coordinator: Coordinator
     
     var seconds = 0.0 //DELETE

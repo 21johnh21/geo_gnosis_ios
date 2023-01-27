@@ -9,7 +9,7 @@ import UIKit
 
 class DataTableViewController: UITableViewController {
     
-    let data = LocationData2().locations
+    let data = LocationData().locations
     
 
     override func viewDidLoad() {
