@@ -26,6 +26,8 @@
 		F87ABBB229820E10007E2EA3 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBB129820E10007E2EA3 /* RootView.swift */; };
 		F87ABBB429836663007E2EA3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBB329836663007E2EA3 /* Location.swift */; };
 		F87ABBB62983671C007E2EA3 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBB52983671C007E2EA3 /* LocationData.swift */; };
+		F87ABBB829836B15007E2EA3 /* ChooseLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBB729836B15007E2EA3 /* ChooseLocations.swift */; };
+		F87ABBBA29837475007E2EA3 /* sampleLocationData2.json in Resources */ = {isa = PBXBuildFile; fileRef = F87ABBB929837475007E2EA3 /* sampleLocationData2.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		F87ABBB129820E10007E2EA3 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		F87ABBB329836663007E2EA3 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		F87ABBB52983671C007E2EA3 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
+		F87ABBB729836B15007E2EA3 /* ChooseLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocations.swift; sourceTree = "<group>"; };
+		F87ABBB929837475007E2EA3 /* sampleLocationData2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleLocationData2.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,7 @@
 				F827D59729777AF5007DE110 /* Preview Content */,
 				F87ABBAF29820DD6007E2EA3 /* Coordinator.swift */,
 				F87ABBB129820E10007E2EA3 /* RootView.swift */,
+				F87ABBB729836B15007E2EA3 /* ChooseLocations.swift */,
 			);
 			path = geo_gnosis_ios;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				F83C87A3297E030F008FA89D /* sampleLocationData.json */,
+				F87ABBB929837475007E2EA3 /* sampleLocationData2.json */,
 				F83C879D297DF75B008FA89D /* locationData.json */,
 			);
 			path = Resources;
@@ -300,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F83C87A4297E030F008FA89D /* sampleLocationData.json in Resources */,
+				F87ABBBA29837475007E2EA3 /* sampleLocationData2.json in Resources */,
 				F827D59929777AF5007DE110 /* Preview Assets.xcassets in Resources */,
 				F827D59629777AF5007DE110 /* Assets.xcassets in Resources */,
 				F83C879E297DF75B008FA89D /* locationData.json in Resources */,
@@ -334,6 +341,7 @@
 				F83C878F297DCACB008FA89D /* MapView.swift in Sources */,
 				F87ABBB029820DD6007E2EA3 /* Coordinator.swift in Sources */,
 				F83C8793297DDAE2008FA89D /* TimerHelper.swift in Sources */,
+				F87ABBB829836B15007E2EA3 /* ChooseLocations.swift in Sources */,
 				F87ABBB429836663007E2EA3 /* Location.swift in Sources */,
 				F83C87A6297E038A008FA89D /* ViewControler.swift in Sources */,
 				F83C878D297DC10F008FA89D /* map.swift in Sources */,

@@ -15,6 +15,6 @@ struct Location: Codable {
     var lng : Double
     var country: String
     var admin_name : String
-    var capital : String // change to bool somehow
+    var capital : String? // change to bool somehow
     var population : Int
 }
