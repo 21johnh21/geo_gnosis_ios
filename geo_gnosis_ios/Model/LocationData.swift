@@ -11,9 +11,10 @@ public class LocationData{
     var numOfRounds = 5
     var locationsTemp = [Location]()
     @Published var locations = [Location]()
-    @Published var locations = [Location](count: numOfRounds, repeatedValue:0 )
-    var someInts = [Int](count: 3, repeatedValue: 0)// this doesnt work
-    var someInts = [Int](count: 3, repeatedValue: 0)//this does
+    //@Published var locations = [Location](count: numOfRounds, repeatedValue:0 )
+    
+    //var someInts = [Int](count: 3, repeatedValue: 0)// this doesnt work
+    //var someInts = (count: 3, repeatedValue: 0)//this does
     
     init(){
         load()
@@ -36,9 +37,10 @@ public class LocationData{
                 
                 //This works, its only broken because locations isnt initialized to have 5 valeus
                 // maybe try appending to locations instead ??
-                for i in 0...numOfRounds-1{
+                
+                for _ in 0...numOfRounds-1{
                     let locationIndex = Int.random(in: 0..<locationsTemp.count)
-                    locations[i] = locationsTemp[locationIndex]
+                    locations.append(locationsTemp[locationIndex])
                 }
             }
             catch{

@@ -9,8 +9,9 @@ import CoreLocation
 
 struct GameMap: View {
     //var timer: Timer = Timer()
-    @ObservedObject var timerHelper = TimerHelper()
+    //@ObservedObject var timerHelper = TimerHelper()
     @State var guess: String = ""
+    @State var round: Int = 0
     let data = LocationData().locations
     @EnvironmentObject private var coordinator: Coordinator
     
@@ -22,13 +23,13 @@ struct GameMap: View {
             VStack {
                 MapView(coordinate:
                             CLLocationCoordinate2D(
-                                latitude: data[0].lat,
-                                longitude: data[0].lng)
+                                latitude: data[round].lat,
+                                longitude: data[round].lng)
                 )
                 .ignoresSafeArea(edges: .top)
                 TextField("Answer...",text: $guess)
                     .onSubmit{
-                        ValidateAnswer(guess: guess, answer: data[0].country)
+                        ValidateAnswer(guess: guess, answer: data[round].country)
                     }
                 
                 //.focused($emailFieldIsFocused)
@@ -54,6 +55,7 @@ struct GameMap: View {
     func ValidateAnswer (guess: String, answer: String) {
         if(guess == answer){
             coordinator.show(EndGame.self)
+            round = round + 1
             print("Correct!")
             //go to next round
             //return EndGame()
