@@ -12,7 +12,8 @@ struct GameMap: View {
     //@ObservedObject var timerHelper = TimerHelper()
     @State var guess: String = ""
     @State var round: Int = 0
-    let data = LocationData().locations
+//    let data = LocationData().locations
+    @State var data = LocationData().locations
     @EnvironmentObject private var coordinator: Coordinator
     
     var seconds = 0.0 //DELETE
