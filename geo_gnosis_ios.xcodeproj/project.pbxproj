@@ -28,6 +28,7 @@
 		F87ABBBA29837475007E2EA3 /* sampleLocationData2.json in Resources */ = {isa = PBXBuildFile; fileRef = F87ABBB929837475007E2EA3 /* sampleLocationData2.json */; };
 		F87ABBBE2986050B007E2EA3 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBBD2986050B007E2EA3 /* GameInfo.swift */; };
 		F87ABBC029862FBF007E2EA3 /* EndGameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBBF29862FBF007E2EA3 /* EndGameCard.swift */; };
+		F87ABBC42986EF0D007E2EA3 /* GameMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBC32986EF0D007E2EA3 /* GameMapVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		F87ABBB929837475007E2EA3 /* sampleLocationData2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleLocationData2.json; sourceTree = "<group>"; };
 		F87ABBBD2986050B007E2EA3 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 		F87ABBBF29862FBF007E2EA3 /* EndGameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameCard.swift; sourceTree = "<group>"; };
+		F87ABBC32986EF0D007E2EA3 /* GameMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMapVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				F83C87A9297F5500008FA89D /* EndGame.swift */,
 				F87ABBBF29862FBF007E2EA3 /* EndGameCard.swift */,
 				F87ABBB129820E10007E2EA3 /* RootView.swift */,
+				F87ABBC32986EF0D007E2EA3 /* GameMapVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				F87ABBB029820DD6007E2EA3 /* Coordinator.swift in Sources */,
 				F83C8793297DDAE2008FA89D /* TimerHelper.swift in Sources */,
 				F87ABBB429836663007E2EA3 /* Location.swift in Sources */,
+				F87ABBC42986EF0D007E2EA3 /* GameMapVC.swift in Sources */,
 				F87ABBBE2986050B007E2EA3 /* GameInfo.swift in Sources */,
 				F83C878D297DC10F008FA89D /* GameMap.swift in Sources */,
 				F83C878B297DB970008FA89D /* Start.swift in Sources */,

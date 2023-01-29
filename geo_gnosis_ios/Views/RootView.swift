@@ -33,6 +33,7 @@ struct RootView: View {
                 }
                 else if id == String(describing: EndGame.self){
                     EndGame()
+                    
                 }
 //                else if id == String(describing: RootView.self){
 //                    RootView()

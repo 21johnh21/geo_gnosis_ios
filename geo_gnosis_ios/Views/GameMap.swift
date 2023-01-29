@@ -23,15 +23,28 @@ struct GameMap: View {
                                 longitude: gameInfo.locations[gameInfo.roundNumber].lng)
                 )
                 .ignoresSafeArea(edges: .top)
-                TextField("Answer...",text: $guess)
-                    .onSubmit{
-                        ValidateAnswer(guess: guess, answer: gameInfo.locations[gameInfo.roundNumber].country)
-                    }
                 
-                //.focused($emailFieldIsFocused)
-                //        .onSubmit {
-                //            validateAnswer(name: username)
-                //        }
+                VStack{
+                    HStack{
+                        Spacer()
+//                        ZStack{
+//                            RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
+//                            Text("Give Up")
+//                        }
+                    }
+                    HStack{
+                        TextField("Answer...",text: $guess)
+                            .onSubmit{
+                                ValidateAnswer(guess: guess, answer: gameInfo.locations[gameInfo.roundNumber].country)
+                            }.padding(.leading)
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
+                            Text("Give Up")
+                        }.onTapGesture {
+                            coordinator.popToRoot()
+                        }
+                    }
+                }
             }
             HStack {
                 Text("R1") //Round number
