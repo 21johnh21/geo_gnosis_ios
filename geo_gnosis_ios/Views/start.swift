@@ -16,18 +16,30 @@ struct Start: View {
         
         NavigationView {
             VStack{
-                Text("Start Game").font(.title).padding(.top)
+                Text("Game Mode").font(.title).padding(.top)
                 Image("worldLogo2")
-                Text("Game Mode").font(.headline).padding()
+                //Text("Game Mode").font(.headline).padding()
                 Spacer()
                 
-                Button {
+                ZStack{
+                    RoundedRectangle(cornerRadius: 5).fill(.green)
+                        .frame(width: 200, height: 80)
+                    Text("Start").font(.title).padding(.top)
+                }
+                .padding(.bottom)
+                .onTapGesture {
                     gameInfo.locations = LocationData().locations
                     gameInfo.roundNumber = 0
                     coordinator.show(GameMap.self)
-                } label: {
-                    Text("Start Game")
                 }
+                
+//                Button {
+//                    gameInfo.locations = LocationData().locations
+//                    gameInfo.roundNumber = 0
+//                    coordinator.show(GameMap.self)
+//                } label: {
+//                    Text("Start Game")
+//                }
             }
         }
     }
