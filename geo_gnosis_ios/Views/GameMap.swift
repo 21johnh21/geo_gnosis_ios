@@ -35,13 +35,14 @@ struct GameMap: View {
                     HStack{
                         TextField("Answer...",text: $guess)
                             .onSubmit{
-                                ValidateAnswer(guess: guess, answer: gameInfo.locations[gameInfo.roundNumber].country)
+                                ValidateAnswer(guessB: guess, answer: gameInfo.locations[gameInfo.roundNumber].country)
                             }.padding(.leading)
+
                         ZStack{
                             RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
                             Text("Give Up")
                         }.onTapGesture {
-                            coordinator.popToRoot()
+                            coordinator.show(EndGame.self)
                         }
                     }
                 }
@@ -66,8 +67,8 @@ struct GameMap: View {
     }
     
     
-    func ValidateAnswer (guess: String, answer: String) {
-        if(guess == answer){
+    func ValidateAnswer (guessB: String, answer: String) {
+        if(guessB == answer || guessB == ""){
             
             if(gameInfo.roundNumber == 4){
                 coordinator.show(EndGame.self)
@@ -77,15 +78,11 @@ struct GameMap: View {
                 coordinator.show(GameMap.self)
                 print("Correct!")
             }
-        
-            
-            
-            //go to next round
-            //return EndGame()
-            //store round data
          
         }
         else{
+            
+            guess = "" //clear text
            // return map()
             //clear textField
             //send give user feed back
