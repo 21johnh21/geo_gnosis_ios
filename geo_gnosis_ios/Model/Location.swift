@@ -22,7 +22,6 @@ struct Location: Identifiable, Decodable{
     
     
     init(id: ObjectIdentifier, city_ascii: String, lat: Double, lng: Double, country: String, admin_name: String, capital: String, population: Int) {
-        //self.id = id
         self.city_ascii = city_ascii
         self.lat = lat
         self.lng = lng
@@ -38,8 +37,6 @@ struct Location: Identifiable, Decodable{
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        //id = try values.decode(ObjectIdentifier.self, forKey: .id)
-        //id = ObjectIdentifier(Location)
         city_ascii = try values.decode(String.self, forKey: .city_ascii)
         lat = try values.decode(Double.self, forKey: .lat)
         lng = try values.decode(Double.self, forKey: .lng)
@@ -50,6 +47,3 @@ struct Location: Identifiable, Decodable{
     }
 }
 
-//extension Location: Identifiable {
-//    var id: Int { return locationID }
-//}

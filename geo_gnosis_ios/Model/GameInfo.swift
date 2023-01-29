@@ -11,5 +11,6 @@ class GameInfo: ObservableObject, Identifiable{
     
     @Published var locations = [Location]()
     @Published var roundNumber = 0
-    //timer
+    @Published var times = [Int]()
+    @Published var roundNumbers = [Int]()
 }

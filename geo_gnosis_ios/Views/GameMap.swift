@@ -48,7 +48,7 @@ struct GameMap: View {
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(.green)
                         .frame(width: 80, height: 30)
-                    Text("Round: 1") //Round number
+                    Text("Round: \(gameInfo.roundNumber + 1)") //Round number
                 }.padding(.leading)
                 Spacer()
                 ZStack{
@@ -68,9 +68,13 @@ struct GameMap: View {
         if(guessB == answer || guessB == ""){
             
             if(gameInfo.roundNumber == 4){
+                gameInfo.times[gameInfo.roundNumber] = count
+                gameInfo.roundNumbers[gameInfo.roundNumber] = gameInfo.roundNumber + 1
                 coordinator.show(EndGame.self)
                 print("Correct!")
             }else{
+                gameInfo.times[gameInfo.roundNumber] = count
+                gameInfo.roundNumbers[gameInfo.roundNumber] = gameInfo.roundNumber + 1
                 gameInfo.roundNumber += 1
                 coordinator.show(GameMap.self)
                 print("Correct!")

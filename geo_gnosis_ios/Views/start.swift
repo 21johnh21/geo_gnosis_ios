@@ -18,7 +18,6 @@ struct Start: View {
             VStack{
                 Text("Game Mode").font(.title).padding(.top)
                 Image("worldLogo2")
-                //Text("Game Mode").font(.headline).padding()
                 Spacer()
                 
                 ZStack{
@@ -30,16 +29,10 @@ struct Start: View {
                 .onTapGesture {
                     gameInfo.locations = LocationData().locations
                     gameInfo.roundNumber = 0
+                    gameInfo.times = [0, 0, 0, 0, 0] //change how this is done later 
+                    gameInfo.roundNumbers = [0, 0, 0, 0, 0]
                     coordinator.show(GameMap.self)
                 }
-                
-//                Button {
-//                    gameInfo.locations = LocationData().locations
-//                    gameInfo.roundNumber = 0
-//                    coordinator.show(GameMap.self)
-//                } label: {
-//                    Text("Start Game")
-//                }
             }
         }
     }

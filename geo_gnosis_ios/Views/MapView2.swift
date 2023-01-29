@@ -12,14 +12,7 @@ struct MapView2: View {
     
     var pinLocations: [PinLocation]
     
-    @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12), span: MKCoordinateSpan(latitudeDelta: 5, longitudeDelta: 5))
-    
-//    let pinLocations = [
-//        PinLocation(name: "Buckingham Palace", coordinate: CLLocationCoordinate2D(latitude: 51.501, longitude: -0.141)),
-//        PinLocation(name: "Tower of London", coordinate: CLLocationCoordinate2D(latitude: 51.508, longitude: -0.076))
-//    ]
-    
-    //var pinLocations: [PinLocation]
+    @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12), span: MKCoordinateSpan(latitudeDelta: 8, longitudeDelta: 8))
     
     var body: some View{
         Map(coordinateRegion: $mapRegion, annotationItems: pinLocations) { pinLocation in

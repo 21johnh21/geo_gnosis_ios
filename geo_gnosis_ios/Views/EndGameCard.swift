@@ -9,15 +9,17 @@ import SwiftUI
 
 struct EndGameCard: View {
     
-    var location : Location
+    var location: Location
+    var roundNumber: Int
+    var time: Int
     
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 25, style: .continuous).fill(.green)
             VStack{
                 HStack{
-                    Text("Round \(String(1)): ").padding()
-                    Text("0:00").padding()
+                    Text("Round: \(roundNumber)").padding()
+                    Text("Score: \(time)").padding()
                 }
                 HStack{
                     Text("\(location.city_ascii) \(location.admin_name), \(location.country)")
@@ -27,7 +29,4 @@ struct EndGameCard: View {
     }
 }
 
-//struct EndGameCard_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EndGameCard(location: Location())
-//}
+
