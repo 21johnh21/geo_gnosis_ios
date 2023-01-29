@@ -13,7 +13,7 @@ struct EndGame: View {
     let data = LocationData().locations
     @EnvironmentObject private var coordinator: Coordinator
     @EnvironmentObject var gameInfo : GameInfo
-    var round: Int = 0
+    var roundNumber: Int = 0
     
     var body: some View {
         ScrollView {
@@ -47,22 +47,17 @@ struct EndGame: View {
 //                /*@START_MENU_TOKEN@*/Text(datum.city_ascii)/*@END_MENU_TOKEN@*/
 //            }
             
+           
             ForEach(gameInfo.locations) { location in
-                
-                EndGameCard(
-                    //round: gameInfo.roundNumber + 1 ,
-                    round: 0 + 1,
-                    country: gameInfo.locations[0].country,
-                    state: gameInfo.locations[0].admin_name,
-                    city: gameInfo.locations[0].city_ascii)
+                EndGameCard(location: location)
             }
                 
-                EndGameCard(
-                    //round: gameInfo.roundNumber + 1 ,
-                    round: 0 + 1,
-                    country: gameInfo.locations[0].country,
-                    state: gameInfo.locations[0].admin_name,
-                    city: gameInfo.locations[0].city_ascii)
+//                EndGameCard(
+//                    //round: gameInfo.roundNumber + 1 ,
+//                    round: 0 + 1,
+//                    country: gameInfo.locations[0].country,
+//                    state: gameInfo.locations[0].admin_name,
+//                    city: gameInfo.locations[0].city_ascii)
                 
                     
         
@@ -117,6 +112,10 @@ struct EndGame: View {
             
         }
     }
+}
+
+func IncrementRoundNumber(count: Int) -> Int{
+    return count + 1
 }
 
 struct EndGame_Previews: PreviewProvider {
