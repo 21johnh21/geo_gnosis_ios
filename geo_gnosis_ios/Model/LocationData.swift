@@ -10,12 +10,7 @@ import Foundation
 public class LocationData{
     var numOfRounds = 5
     var locationsTemp = [Location]()
-    //@Published var locations = [Location]()
     var locations = [Location]()
-    //@Published var locations = [Location](count: numOfRounds, repeatedValue:0 )
-    
-    //var someInts = [Int](count: 3, repeatedValue: 0)// this doesnt work
-    //var someInts = (count: 3, repeatedValue: 0)//this does
     
     init(){
         load()

@@ -9,39 +9,12 @@ import CoreLocation
 
 struct GameMap: View {
     
-    //PARAMETERS
-//    @State var round: Int = 0
-//    var locations:  [Location] = []
-    //maybe init locations in start() otherwise pass locations into the coordinator
-//    @State var locations: [Location]
-//    @State var round: Int
-    //var timer: Timer = Timer()
-    //@ObservedObject var timerHelper = TimerHelper()
-    //@EnvironmentObject var gameInfo: GameInfo
-    //@State var gameInfo: GameInfo
-    //var location = $gameInfo.locations[$gameInfo.roundNumber]
-    //var location = $gameInfo.locations[0]
     @State var guess: String = ""
-    //@State var round: Int
-//    let data = LocationData().locations
-    //@State var locations = LocationData().locations
     @EnvironmentObject private var coordinator: Coordinator
-     //Im going to need to make all these state variables parameters somehow then pass them to root view
     var seconds = 0.0 //DELETE
-    //self.timerHelper.StartTimer()
-    
     @EnvironmentObject var gameInfo : GameInfo
     
-    //gameInfo is providing all the info I need but it returns binding values instead of normal values
-    //I dont know how to fix this
-    
-    
     var body: some View {
-        //self.timerHelper.StartTimer()
-//        var locations = gameInfo.locations
-//        var location = locations[0]
-//        var round = $gameInfo.roundNumber
-//        var lat = $gameInfo.getLat(0)
         ZStack {
             VStack {
                 MapView(coordinate:
