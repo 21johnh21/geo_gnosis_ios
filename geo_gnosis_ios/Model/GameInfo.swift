@@ -7,13 +7,9 @@
 
 import Foundation
 
-class GameInfo: ObservableObject{
+class GameInfo: ObservableObject, Identifiable{
     
     @Published var locations = [Location]()
     @Published var roundNumber = 0
     //timer
-    
-    func getLat(lat: Double) -> Double{
-        return locations[0].lat
-    }
 }
