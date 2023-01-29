@@ -47,12 +47,17 @@ struct GameMap: View {
                 }
             }
             HStack {
-                Text("R1") //Round number
+                ZStack{
+                    RoundedRectangle(cornerRadius: 5).fill(.green)
+                        .frame(width: 80, height: 30)
+                    Text("Round: 1") //Round number
+                }.padding(.leading)
                 Spacer()
-                //Text(String(format: "%2.f", timerHelper.seconds))
-                Text(String(format: "%2.f", seconds))
-                Text("0.00")
-                
+                ZStack{
+                    RoundedRectangle(cornerRadius: 5).fill(.green)
+                        .frame(width: 80, height: 30)
+                    Text(String(format: "%2.f", seconds))
+                }.padding(.trailing)
             }.safeAreaInset(edge: .bottom){
                 
             }
