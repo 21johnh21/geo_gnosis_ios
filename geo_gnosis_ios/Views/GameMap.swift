@@ -61,10 +61,8 @@ struct GameMap: View {
             }.safeAreaInset(edge: .bottom){
                 
             }
-        
         }
     }
-    
     
     func ValidateAnswer (guessB: String, answer: String) {
         if(guessB == answer || guessB == ""){
@@ -77,8 +75,6 @@ struct GameMap: View {
                 coordinator.show(GameMap.self)
                 print("Correct!")
             }
-            
-         
         }
         else{
             
@@ -91,27 +87,7 @@ struct GameMap: View {
             //haptic
         }
     }
-        
-//    func StartTimer(){
-//        var seconds = 0.0
-//        var timer  = Timer()
-//        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true){ timer in
-//            seconds += 0.1
-//        }
-//    }
-    
-    
 }
-
-//func timerCounter() -> Void{
-//    @State var count: Int = 0
-//    count = count + 1
-//}
-//
-//func StartTimer() {
-//    @State var timer: Timer = Timer()
-//    timer = Timer.scheduledTimer(timeInterval: 1, target: Any, selector: #selector(timerCounter), userInfo: nil, repeats: true)
-//}
 
 struct map_Previews: PreviewProvider {
     static var previews: some View {
