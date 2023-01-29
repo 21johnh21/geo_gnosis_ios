@@ -11,9 +11,10 @@ struct GameMap: View {
     
     @State var guess: String = ""
     @EnvironmentObject private var coordinator: Coordinator
-    var seconds = 0.0 //DELETE
     @EnvironmentObject var gameInfo : GameInfo
-    
+    @State var count: Int = 0
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
     var body: some View {
         ZStack {
             VStack {
@@ -27,10 +28,6 @@ struct GameMap: View {
                 VStack{
                     HStack{
                         Spacer()
-//                        ZStack{
-//                            RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
-//                            Text("Give Up")
-//                        }
                     }
                     HStack{
                         TextField("Answer...",text: $guess)
@@ -57,7 +54,9 @@ struct GameMap: View {
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(.green)
                         .frame(width: 80, height: 30)
-                    Text(String(format: "%2.f", seconds))
+                    Text("\(count)").onReceive(timer){ _ in
+                        count += 1
+                    }
                 }.padding(.trailing)
             }.safeAreaInset(edge: .bottom){
                 
@@ -78,6 +77,7 @@ struct GameMap: View {
                 coordinator.show(GameMap.self)
                 print("Correct!")
             }
+            
          
         }
         else{
@@ -99,7 +99,19 @@ struct GameMap: View {
 //            seconds += 0.1
 //        }
 //    }
+    
+    
 }
+
+//func timerCounter() -> Void{
+//    @State var count: Int = 0
+//    count = count + 1
+//}
+//
+//func StartTimer() {
+//    @State var timer: Timer = Timer()
+//    timer = Timer.scheduledTimer(timeInterval: 1, target: Any, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+//}
 
 struct map_Previews: PreviewProvider {
     static var previews: some View {
