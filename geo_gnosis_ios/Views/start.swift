@@ -9,9 +9,13 @@ import SwiftUI
 
 struct Start: View {
     
-    let data = LocationData().locations
+    //let data = LocationData().locations
+    //@State var locations = LocationData().locations
+    @State var round: Int = 0 
     @EnvironmentObject private var coordinator: Coordinator
-    
+    //@StateObject var gameInfo = GameInfo()
+    //@EnvironmentObject var gameInfo: GameInfo
+    @EnvironmentObject var gameInfo: GameInfo
     var body: some View {
         
         NavigationView {
@@ -22,6 +26,11 @@ struct Start: View {
                 Spacer()
                 
                 Button {
+                    //@State var locations = LocationData().locations
+                    //@StateObject var gameInfo = GameInfo()
+                    //gameInfo.locations = locations
+                    gameInfo.locations = LocationData().locations
+                    gameInfo.roundNumber = 0
                     coordinator.show(GameMap.self)
                 } label: {
                     Text("Start Game")

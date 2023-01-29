@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct geo_gnosis_iosApp: App {
+    @StateObject var gameInfo = GameInfo()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(gameInfo)
         }
     }
 }

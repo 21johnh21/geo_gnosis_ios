@@ -28,6 +28,8 @@
 		F87ABBB62983671C007E2EA3 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBB52983671C007E2EA3 /* LocationData.swift */; };
 		F87ABBB829836B15007E2EA3 /* ChooseLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBB729836B15007E2EA3 /* ChooseLocations.swift */; };
 		F87ABBBA29837475007E2EA3 /* sampleLocationData2.json in Resources */ = {isa = PBXBuildFile; fileRef = F87ABBB929837475007E2EA3 /* sampleLocationData2.json */; };
+		F87ABBBC2985D4BC007E2EA3 /* RoundData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBBB2985D4BC007E2EA3 /* RoundData.swift */; };
+		F87ABBBE2986050B007E2EA3 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBBD2986050B007E2EA3 /* GameInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		F87ABBB52983671C007E2EA3 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		F87ABBB729836B15007E2EA3 /* ChooseLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocations.swift; sourceTree = "<group>"; };
 		F87ABBB929837475007E2EA3 /* sampleLocationData2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleLocationData2.json; sourceTree = "<group>"; };
+		F87ABBBB2985D4BC007E2EA3 /* RoundData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundData.swift; sourceTree = "<group>"; };
+		F87ABBBD2986050B007E2EA3 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 				F87ABBAF29820DD6007E2EA3 /* Coordinator.swift */,
 				F87ABBB129820E10007E2EA3 /* RootView.swift */,
 				F87ABBB729836B15007E2EA3 /* ChooseLocations.swift */,
+				F87ABBBD2986050B007E2EA3 /* GameInfo.swift */,
 			);
 			path = geo_gnosis_ios;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 				F87ABBB52983671C007E2EA3 /* LocationData.swift */,
 				F87ABBB329836663007E2EA3 /* Location.swift */,
 				F83C87A5297E038A008FA89D /* ViewControler.swift */,
+				F87ABBBB2985D4BC007E2EA3 /* RoundData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -336,6 +342,7 @@
 			files = (
 				F827D59429777AF4007DE110 /* ContentView.swift in Sources */,
 				F83C87AA297F5500008FA89D /* EndGame.swift in Sources */,
+				F87ABBBC2985D4BC007E2EA3 /* RoundData.swift in Sources */,
 				F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */,
 				F87ABBB62983671C007E2EA3 /* LocationData.swift in Sources */,
 				F83C878F297DCACB008FA89D /* MapView.swift in Sources */,
@@ -344,6 +351,7 @@
 				F87ABBB829836B15007E2EA3 /* ChooseLocations.swift in Sources */,
 				F87ABBB429836663007E2EA3 /* Location.swift in Sources */,
 				F83C87A6297E038A008FA89D /* ViewControler.swift in Sources */,
+				F87ABBBE2986050B007E2EA3 /* GameInfo.swift in Sources */,
 				F83C878D297DC10F008FA89D /* map.swift in Sources */,
 				F83C878B297DB970008FA89D /* Start.swift in Sources */,
 				F87ABBB229820E10007E2EA3 /* RootView.swift in Sources */,
