@@ -9,12 +9,6 @@ import SwiftUI
 
 struct EndGameCard: View {
     
-//    @EnvironmentObject var gameInfo : GameInfo
-//    var round : Int
-//    var country: String
-//    var state: String
-//    var city: String
-    
     var location : Location
     
     var body: some View {

@@ -20,7 +20,6 @@
 		F83C8793297DDAE2008FA89D /* TimerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C8792297DDAE2008FA89D /* TimerHelper.swift */; };
 		F83C879E297DF75B008FA89D /* locationData.json in Resources */ = {isa = PBXBuildFile; fileRef = F83C879D297DF75B008FA89D /* locationData.json */; };
 		F83C87A4297E030F008FA89D /* sampleLocationData.json in Resources */ = {isa = PBXBuildFile; fileRef = F83C87A3297E030F008FA89D /* sampleLocationData.json */; };
-		F83C87A6297E038A008FA89D /* ViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C87A5297E038A008FA89D /* ViewControler.swift */; };
 		F83C87AA297F5500008FA89D /* EndGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C87A9297F5500008FA89D /* EndGame.swift */; };
 		F87ABBB029820DD6007E2EA3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBAF29820DD6007E2EA3 /* Coordinator.swift */; };
 		F87ABBB229820E10007E2EA3 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBB129820E10007E2EA3 /* RootView.swift */; };
@@ -65,7 +64,6 @@
 		F83C8792297DDAE2008FA89D /* TimerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHelper.swift; sourceTree = "<group>"; };
 		F83C879D297DF75B008FA89D /* locationData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locationData.json; sourceTree = "<group>"; };
 		F83C87A3297E030F008FA89D /* sampleLocationData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleLocationData.json; sourceTree = "<group>"; };
-		F83C87A5297E038A008FA89D /* ViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControler.swift; sourceTree = "<group>"; };
 		F83C87A9297F5500008FA89D /* EndGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGame.swift; sourceTree = "<group>"; };
 		F87ABBAF29820DD6007E2EA3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F87ABBB129820E10007E2EA3 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 			children = (
 				F87ABBB52983671C007E2EA3 /* LocationData.swift */,
 				F87ABBB329836663007E2EA3 /* Location.swift */,
-				F83C87A5297E038A008FA89D /* ViewControler.swift */,
 				F87ABBBD2986050B007E2EA3 /* GameInfo.swift */,
 			);
 			path = Model;
@@ -346,7 +343,6 @@
 				F87ABBB029820DD6007E2EA3 /* Coordinator.swift in Sources */,
 				F83C8793297DDAE2008FA89D /* TimerHelper.swift in Sources */,
 				F87ABBB429836663007E2EA3 /* Location.swift in Sources */,
-				F83C87A6297E038A008FA89D /* ViewControler.swift in Sources */,
 				F87ABBBE2986050B007E2EA3 /* GameInfo.swift in Sources */,
 				F83C878D297DC10F008FA89D /* GameMap.swift in Sources */,
 				F83C878B297DB970008FA89D /* Start.swift in Sources */,
