@@ -8,6 +8,8 @@
 import SwiftUI
 import MapKit
 
+
+
 struct EndGame: View {
     
     let data = LocationData().locations
@@ -21,7 +23,7 @@ struct EndGame: View {
             HStack {
                 Text("Final Score: ").padding(.leading)
                 Spacer()
-                Text("0:00").padding(.trailing)
+                Text("\(CalcFinalScore())").padding(.trailing)
             }
             HStack{
                 Button {
@@ -42,7 +44,7 @@ struct EndGame: View {
             ScrollView{
                 
                 ForEach(gameInfo.roundNumbers.indices) { index in
-                    EndGameCard(location: gameInfo.locations[index], roundNumber: gameInfo.roundNumbers[index], time: gameInfo.times[index])
+                    EndGameCard(location: gameInfo.locations[index], roundNumber: gameInfo.roundNumbers[index], time: gameInfo.times[index], answer: gameInfo.answers[index])
                 }
             }
         }
@@ -62,11 +64,18 @@ struct EndGame: View {
         }
         return pinLocations
     }
+    func CalcFinalScore() -> Int{
+        var finalScore: Int = 0
+        for i in 0...gameInfo.roundNumber{
+            finalScore += gameInfo.times[i]
+        }
+        return finalScore
+    }
 }
 
-func IncrementRoundNumber(count: Int) -> Int{
-    return count + 1
-}
+//func IncrementRoundNumber(count: Int) -> Int{
+//    return count + 1
+//}
 
 struct EndGame_Previews: PreviewProvider {
     static var previews: some View {

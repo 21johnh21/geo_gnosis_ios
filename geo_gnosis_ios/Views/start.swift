@@ -31,6 +31,7 @@ struct Start: View {
                     gameInfo.roundNumber = 0
                     gameInfo.times = [0, 0, 0, 0, 0] //change how this is done later 
                     gameInfo.roundNumbers = [0, 0, 0, 0, 0]
+                    gameInfo.answers = [false, false, false, false, false]
                     coordinator.show(GameMap.self)
                 }
             }

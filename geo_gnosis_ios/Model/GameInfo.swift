@@ -13,4 +13,5 @@ class GameInfo: ObservableObject, Identifiable{
     @Published var roundNumber = 0
     @Published var times = [Int]()
     @Published var roundNumbers = [Int]()
+    @Published var answers = [Bool]()
 }

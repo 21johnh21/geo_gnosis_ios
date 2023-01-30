@@ -12,20 +12,23 @@ struct EndGameCard: View {
     var location: Location
     var roundNumber: Int
     var time: Int
+    var answer: Bool
     
     var body: some View {
-        ZStack{
-            RoundedRectangle(cornerRadius: 25, style: .continuous).fill(.green)
-            VStack{
-                HStack{
-                    Text("Round: \(roundNumber)").padding()
-                    Text("Score: \(time)").padding()
+        if(answer){
+            ZStack{
+                RoundedRectangle(cornerRadius: 25, style: .continuous).fill(.green)
+                VStack{
+                    HStack{
+                        Text("Round: \(roundNumber)").padding()
+                        Text("Score: \(time)").padding()
+                    }
+                    HStack{
+                        Text("\(location.city_ascii) \(location.admin_name), \(location.country)")
+                    }
                 }
-                HStack{
-                    Text("\(location.city_ascii) \(location.admin_name), \(location.country)")
-                }
-            }
-        }.frame(height: 100)
+            }.frame(height: 100)
+        }
     }
 }
 

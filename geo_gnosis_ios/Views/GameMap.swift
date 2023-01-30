@@ -70,11 +70,13 @@ struct GameMap: View {
             if(gameInfo.roundNumber == 4){
                 gameInfo.times[gameInfo.roundNumber] = count
                 gameInfo.roundNumbers[gameInfo.roundNumber] = gameInfo.roundNumber + 1
+                gameInfo.answers[gameInfo.roundNumber] = true
                 coordinator.show(EndGame.self)
                 print("Correct!")
             }else{
                 gameInfo.times[gameInfo.roundNumber] = count
                 gameInfo.roundNumbers[gameInfo.roundNumber] = gameInfo.roundNumber + 1
+                gameInfo.answers[gameInfo.roundNumber] = true
                 gameInfo.roundNumber += 1
                 coordinator.show(GameMap.self)
                 print("Correct!")
