@@ -25,21 +25,24 @@ struct EndGame: View {
                 Spacer()
                 Text("\(CalcFinalScore())").padding(.trailing)
             }
-            HStack{
-                Button {
-                    coordinator.show(Start.self)
-                } label: {
-                    Text("Play Again")
-                }.padding(.leading)
-                Spacer()
-                Button {
-                    coordinator.popToRoot()
-                } label: {
-                    Text("Return to Menu")
-                }.padding(.trailing)
-            }
+            
 
             MapView2(pinLocations: InitPinLocations())
+            HStack{
+                ZStack{
+                    RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
+                    Text("Play Again")
+                }.onTapGesture {
+                    coordinator.show(Start.self)
+                }
+                ZStack{
+                    RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
+                    Text("Return to Menu")
+                }.onTapGesture {
+                    coordinator.popToRoot()
+                }
+            }
+            
            
             ScrollView{
                 
