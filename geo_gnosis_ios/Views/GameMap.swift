@@ -70,7 +70,10 @@ struct GameMap: View {
     func ValidateAnswer (guessB: String, answer: String) {
         if(guessB.trimmingCharacters(in: .whitespaces).lowercased()
            == answer.lowercased()
+           || AlternativeName(country: answer).contains(guessB)
            || guessB == ""){
+            // make a method to check if the guess is equall to an aleternative name or acrynmy for the country
+            //somehow allow like 2 - 3 charachters mispelling
             
             if(gameInfo.roundNumber == 4){
                 gameInfo.times[gameInfo.roundNumber] = count
@@ -95,6 +98,28 @@ struct GameMap: View {
             //sound
             //haptic
         }
+    }
+    func AlternativeName(country: String) -> [String]{
+        var countryNames = [String]()
+        countryNames.append(country)
+        switch(country){
+        case("United States"):
+            countryNames.append("USA")
+            countryNames.append("US")
+        case("United Kingdom"):
+            countryNames.append("UK")
+        case("United Arab Emirites"):
+            countryNames.append("UAE")
+        case("Congo (Kinshasa)"):
+            countryNames.append("Congo")
+            countryNames.append("DRC")
+            
+        //... CAR, other congo, macedonia, czechia?, ivory coast, east timor, palestine/isreal?
+        // cape verde, bosnia, caribean snts, turkey, taiwan?, new guinea, ...
+        default:
+            break
+        }
+        return countryNames
     }
 }
 
