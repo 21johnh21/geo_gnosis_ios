@@ -68,7 +68,9 @@ struct GameMap: View {
     }
     
     func ValidateAnswer (guessB: String, answer: String) {
-        if(guessB == answer || guessB == ""){
+        if(guessB.trimmingCharacters(in: .whitespaces).lowercased()
+           == answer.lowercased()
+           || guessB == ""){
             
             if(gameInfo.roundNumber == 4){
                 gameInfo.times[gameInfo.roundNumber] = count
@@ -88,8 +90,6 @@ struct GameMap: View {
         else{
             
             guess = "" //clear text
-           // return map()
-            //clear textField
             //send give user feed back
             //animation
             //sound
