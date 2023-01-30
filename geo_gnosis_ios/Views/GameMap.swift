@@ -39,6 +39,9 @@ struct GameMap: View {
                             RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
                             Text("Give Up")
                         }.onTapGesture {
+                            gameInfo.answers[gameInfo.roundNumber] =  true //so the last round will show on end game, may need to change this later
+                            gameInfo.roundNumbers[gameInfo.roundNumber] = gameInfo.roundNumber
+                            gameInfo.times[gameInfo.roundNumber] = -1
                             coordinator.show(EndGame.self)
                         }
                     }
