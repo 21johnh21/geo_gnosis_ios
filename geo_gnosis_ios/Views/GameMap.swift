@@ -30,19 +30,46 @@ struct GameMap: View {
                         Spacer()
                     }
                     HStack{
-                        TextField("Answer...",text: $guess)
-                            .onSubmit{
-                                ValidateAnswer(guessB: guess, answer: gameInfo.locations[gameInfo.roundNumber].country)
-                            }.padding(.leading)
-
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
-                            Text("Give Up")
-                        }.onTapGesture {
-                            gameInfo.answers[gameInfo.roundNumber] =  true //so the last round will show on end game, may need to change this later
-                            gameInfo.roundNumbers[gameInfo.roundNumber] = gameInfo.roundNumber
-                            gameInfo.times[gameInfo.roundNumber] = -1
-                            coordinator.show(EndGame.self)
+                        if(false){ //if mode is typing
+                            TextField("Answer...",text: $guess)
+                                .onSubmit{
+                                    ValidateAnswer(guessB: guess, answer: gameInfo.locations[gameInfo.roundNumber].country)
+                                }.padding(.leading)
+                            
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
+                                Text("Give Up")
+                            }.onTapGesture {
+                                gameInfo.answers[gameInfo.roundNumber] =  true //so the last round will show on end game, may need to change this later
+                                gameInfo.roundNumbers[gameInfo.roundNumber] = gameInfo.roundNumber
+                                gameInfo.times[gameInfo.roundNumber] = -1
+                                coordinator.show(EndGame.self)
+                            }
+                        } else{
+                            //mode is multi choice
+                            //NEED TO ADD give up button 
+                            VStack{
+                                HStack{
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
+                                        Text("Choice 1")
+                                    }.onTapGesture { }
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
+                                        Text("Choice 2")
+                                    }.onTapGesture { }
+                                }
+                                HStack{
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
+                                        Text("Choice 3")
+                                    }.onTapGesture { }
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
+                                        Text("Choice 4")
+                                    }.onTapGesture { }
+                                }
+                            }
                         }
                     }
                 }
@@ -120,6 +147,23 @@ struct GameMap: View {
             break
         }
         return countryNames
+    }
+    func ChooseMultiChoices(gameMode: String) -> [String]{
+        var multiChoices = [String]()
+        
+        //i need to figure out how to get this data, for country I could include a json of just countries
+        //but I dont think that will work, it would probably be best to make an array depending on the mode
+        //in LocationsData then access it here
+        //it would be nice to have some logic to detirmine if the locations are similar to eachother
+        // maybe base it on distance for the correct answer? that may cause problems though
+        
+//        switch(gameMode){
+//        case("country"):
+//        case("state"):
+//        case("city"):
+//        }
+        
+        return multiChoices
     }
 }
 
