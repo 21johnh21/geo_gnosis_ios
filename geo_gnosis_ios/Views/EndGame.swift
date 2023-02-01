@@ -50,7 +50,7 @@ struct EndGame: View {
                     EndGameCard(location: gameInfo.locations[index], roundNumber: gameInfo.roundNumbers[index], time: gameInfo.times[index], answer: gameInfo.answers[index])
                 }
             }
-        }
+        }.navigationBarBackButtonHidden(true)
     }
     
     func InitPinLocations() -> Array <PinLocation>{

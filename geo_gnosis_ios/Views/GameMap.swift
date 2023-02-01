@@ -30,7 +30,7 @@ struct GameMap: View {
                         Spacer()
                     }
                     HStack{
-                        if(false){ //if mode is typing
+                        if(true){ //if mode is typing
                             TextField("Answer...",text: $guess)
                                 .onSubmit{
                                     ValidateAnswer(guessB: guess, answer: gameInfo.locations[gameInfo.roundNumber].country)
@@ -47,7 +47,7 @@ struct GameMap: View {
                             }
                         } else{
                             //mode is multi choice
-                            //NEED TO ADD give up button 
+                            //NEED TO ADD give up button
                             VStack{
                                 HStack{
                                     ZStack{
@@ -91,7 +91,7 @@ struct GameMap: View {
             }.safeAreaInset(edge: .bottom){
                 
             }
-        }
+        }.navigationBarBackButtonHidden(true)
     }
     
     func ValidateAnswer (guessB: String, answer: String) {
@@ -143,6 +143,7 @@ struct GameMap: View {
             
         //... CAR, other congo, macedonia, czechia?, ivory coast, east timor, palestine/isreal?
         // cape verde, bosnia, caribean snts, turkey, taiwan?, new guinea, ...
+            
         default:
             break
         }
