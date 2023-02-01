@@ -11,7 +11,9 @@ struct Start: View {
     
     @State var round: Int = 0 
     @EnvironmentObject private var coordinator: Coordinator
+    @EnvironmentObject var roundInfo: RoundInfo
     @EnvironmentObject var gameInfo: GameInfo
+    
     var body: some View {
         
         NavigationView {
@@ -27,11 +29,14 @@ struct Start: View {
                 }
                 .padding(.bottom)
                 .onTapGesture {
-                    gameInfo.locations = LocationData().locations
-                    gameInfo.roundNumber = 0
-                    gameInfo.times = [0, 0, 0, 0, 0] //change how this is done later 
-                    gameInfo.roundNumbers = [0, 0, 0, 0, 0]
-                    gameInfo.answers = [false, false, false, false, false]
+  
+                    roundInfo.locations =
+                    LocationData(multiChoice: gameInfo.multiChoice, multiChoiceOptions: gameInfo.multiChoiceOptions)
+                        .locations
+                    roundInfo.roundNumber = 0
+                    roundInfo.times = [0, 0, 0, 0, 0] //change how this is done later 
+                    roundInfo.roundNumbers = [0, 0, 0, 0, 0]
+                    roundInfo.answers = [false, false, false, false, false]
                     coordinator.show(GameMap.self)
                 }
             }

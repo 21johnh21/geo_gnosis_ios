@@ -8,6 +8,7 @@
 import Foundation
 
 public class LocationData{
+    
     var numOfRounds = 5
     var locationsRaw = [Location]()
     var locationsByDif = [Location]()
@@ -25,13 +26,19 @@ public class LocationData{
     let regionUK: String = "United Kingdom"
     var region: String = "World"  //get this from root eventually
     
-    init(){
+    var multiChoice: Bool //set this from root eventually //but how this data needs to be passed in
+    var multiChoiceOptions: [String]
+    
+    init(multiChoice: Bool, multiChoiceOptions: [String]){
+        self.multiChoice = multiChoice
+        self.multiChoiceOptions = multiChoiceOptions
         load()
     }
     
     func load(){
         if let fileLocation = Bundle.main.url(forResource: "sampleLocationData2", withExtension: "json"){ //create file location var
             do{
+                
                 let data = try Data(contentsOf: fileLocation) //try to get data from filelocation
                 let jsonDecoder = JSONDecoder() // create a json decoder
                 let jsonData = try jsonDecoder.decode([Location].self, from: data) //create array of objects from daata
@@ -69,6 +76,15 @@ public class LocationData{
                     let locationIndex = Int.random(in: 0..<locationsByRegion.count)
                     locations.append(locationsByRegion[locationIndex])
                 }
+                
+                //Get Multi Choice Options
+                if(multiChoice == true){
+                    for _ in 0...((numOfRounds*4)-1){
+                        let locationIndex = Int.random(in: 0..<locationsByRegion.count)
+                        multiChoiceOptions.append(locationsByRegion[locationIndex].country)
+                    }
+                }
+                
             }
             catch{
                 print(error)

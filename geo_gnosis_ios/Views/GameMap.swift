@@ -11,7 +11,9 @@ struct GameMap: View {
     
     @State var guess: String = ""
     @EnvironmentObject private var coordinator: Coordinator
-    @EnvironmentObject var gameInfo : GameInfo
+    @EnvironmentObject var roundInfo : RoundInfo
+    @EnvironmentObject var gameInfo: GameInfo
+    
     @State var count: Int = 0
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
@@ -20,8 +22,8 @@ struct GameMap: View {
             VStack {
                 MapView(coordinate:
                             CLLocationCoordinate2D(
-                                latitude: gameInfo.locations[gameInfo.roundNumber].lat,
-                                longitude: gameInfo.locations[gameInfo.roundNumber].lng)
+                                latitude: roundInfo.locations[roundInfo.roundNumber].lat,
+                                longitude: roundInfo.locations[roundInfo.roundNumber].lng)
                 )
                 .ignoresSafeArea(edges: .top)
                 
@@ -30,19 +32,19 @@ struct GameMap: View {
                         Spacer()
                     }
                     HStack{
-                        if(true){ //if mode is typing
+                        if(gameInfo.multiChoice == false){ //if mode is typing
                             TextField("Answer...",text: $guess)
                                 .onSubmit{
-                                    ValidateAnswer(guessB: guess, answer: gameInfo.locations[gameInfo.roundNumber].country)
+                                    ValidateAnswer(guessB: guess, answer: roundInfo.locations[roundInfo.roundNumber].country)
                                 }.padding(.leading)
                             
                             ZStack{
                                 RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
                                 Text("Give Up")
                             }.onTapGesture {
-                                gameInfo.answers[gameInfo.roundNumber] =  true //so the last round will show on end game, may need to change this later
-                                gameInfo.roundNumbers[gameInfo.roundNumber] = gameInfo.roundNumber
-                                gameInfo.times[gameInfo.roundNumber] = -1
+                                roundInfo.answers[roundInfo.roundNumber] =  true //so the last round will show on end game, may need to change this later
+                                roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber
+                                roundInfo.times[roundInfo.roundNumber] = -1
                                 coordinator.show(EndGame.self)
                             }
                         } else{
@@ -78,7 +80,7 @@ struct GameMap: View {
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(.green)
                         .frame(width: 80, height: 30)
-                    Text("Round: \(gameInfo.roundNumber + 1)") //Round number
+                    Text("Round: \(roundInfo.roundNumber + 1)") //Round number
                 }.padding(.leading)
                 Spacer()
                 ZStack{
@@ -102,17 +104,17 @@ struct GameMap: View {
             // make a method to check if the guess is equall to an aleternative name or acrynmy for the country
             //somehow allow like 2 - 3 charachters mispelling
             
-            if(gameInfo.roundNumber == 4){
-                gameInfo.times[gameInfo.roundNumber] = count
-                gameInfo.roundNumbers[gameInfo.roundNumber] = gameInfo.roundNumber + 1
-                gameInfo.answers[gameInfo.roundNumber] = true
+            if(roundInfo.roundNumber == 4){
+                roundInfo.times[roundInfo.roundNumber] = count
+                roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber + 1
+                roundInfo.answers[roundInfo.roundNumber] = true
                 coordinator.show(EndGame.self)
                 print("Correct!")
             }else{
-                gameInfo.times[gameInfo.roundNumber] = count
-                gameInfo.roundNumbers[gameInfo.roundNumber] = gameInfo.roundNumber + 1
-                gameInfo.answers[gameInfo.roundNumber] = true
-                gameInfo.roundNumber += 1
+                roundInfo.times[roundInfo.roundNumber] = count
+                roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber + 1
+                roundInfo.answers[roundInfo.roundNumber] = true
+                roundInfo.roundNumber += 1
                 coordinator.show(GameMap.self)
                 print("Correct!")
             }

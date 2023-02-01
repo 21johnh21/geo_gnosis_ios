@@ -1,17 +1,15 @@
 //
-//  GameInfo.swift
+//  RoundInfo.swift
 //  geo_gnosis_ios
 //
-//  Created by John Hawley on 1/28/23.
+//  Created by John Hawley on 1/31/23.
 //
 
 import Foundation
 
-class GameInfo: ObservableObject, Identifiable{
-    
-    @Published var locations = [Location]()
-    @Published var roundNumber = 0
-    @Published var times = [Int]()
-    @Published var roundNumbers = [Int]()
-    @Published var answers = [Bool]()
+class GameInfo: ObservableObject {
+    @Published var multiChoice = true
+    @Published var multiChoiceOptions = [String]()
+    //region
+    //round number 
 }

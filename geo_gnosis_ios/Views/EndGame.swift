@@ -12,9 +12,9 @@ import MapKit
 
 struct EndGame: View {
     
-    let data = LocationData().locations
+    //let data = LocationData().locations
     @EnvironmentObject private var coordinator: Coordinator
-    @EnvironmentObject var gameInfo : GameInfo
+    @EnvironmentObject var roundInfo : RoundInfo
     var roundNumber: Int = 0
     
     var body: some View {
@@ -46,8 +46,8 @@ struct EndGame: View {
            
             ScrollView{
                 
-                ForEach(gameInfo.roundNumbers.indices) { index in
-                    EndGameCard(location: gameInfo.locations[index], roundNumber: gameInfo.roundNumbers[index], time: gameInfo.times[index], answer: gameInfo.answers[index])
+                ForEach(roundInfo.roundNumbers.indices) { index in
+                    EndGameCard(location: roundInfo.locations[index], roundNumber: roundInfo.roundNumbers[index], time: roundInfo.times[index], answer: roundInfo.answers[index])
                 }
             }
         }.navigationBarBackButtonHidden(true)
@@ -58,10 +58,10 @@ struct EndGame: View {
         var pinLocation = PinLocation(name: "", coordinate: CLLocationCoordinate2D(
             latitude: 0.0, longitude: 0.0))
         
-        for i in 0...gameInfo.roundNumber{
+        for i in 0...roundInfo.roundNumber{
             //var pinLocation: PinLocation
             pinLocation.coordinate = CLLocationCoordinate2D(
-                latitude: gameInfo.locations[i].lat, longitude: gameInfo.locations[i].lng)
+                latitude: roundInfo.locations[i].lat, longitude: roundInfo.locations[i].lng)
             pinLocation.name=""
             pinLocations.append(pinLocation)
         }
@@ -69,8 +69,8 @@ struct EndGame: View {
     }
     func CalcFinalScore() -> Int{
         var finalScore: Int = 0
-        for i in 0...gameInfo.roundNumber{
-            finalScore += gameInfo.times[i]
+        for i in 0...roundInfo.roundNumber{
+            finalScore += roundInfo.times[i]
         }
         return finalScore
     }

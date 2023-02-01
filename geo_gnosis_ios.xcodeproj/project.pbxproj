@@ -26,11 +26,12 @@
 		F87ABBB429836663007E2EA3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBB329836663007E2EA3 /* Location.swift */; };
 		F87ABBB62983671C007E2EA3 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBB52983671C007E2EA3 /* LocationData.swift */; };
 		F87ABBBA29837475007E2EA3 /* sampleLocationData2.json in Resources */ = {isa = PBXBuildFile; fileRef = F87ABBB929837475007E2EA3 /* sampleLocationData2.json */; };
-		F87ABBBE2986050B007E2EA3 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBBD2986050B007E2EA3 /* GameInfo.swift */; };
+		F87ABBBE2986050B007E2EA3 /* RoundInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBBD2986050B007E2EA3 /* RoundInfo.swift */; };
 		F87ABBC029862FBF007E2EA3 /* EndGameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBBF29862FBF007E2EA3 /* EndGameCard.swift */; };
 		F87ABBC42986EF0D007E2EA3 /* GameMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBC32986EF0D007E2EA3 /* GameMapVC.swift */; };
 		F87ABBC6298702F8007E2EA3 /* MapView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBC5298702F8007E2EA3 /* MapView2.swift */; };
 		F87ABBC829870A4A007E2EA3 /* PinLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBC729870A4A007E2EA3 /* PinLocation.swift */; };
+		F87ABBCC2989F79B007E2EA3 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,11 +74,12 @@
 		F87ABBB329836663007E2EA3 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		F87ABBB52983671C007E2EA3 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		F87ABBB929837475007E2EA3 /* sampleLocationData2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleLocationData2.json; sourceTree = "<group>"; };
-		F87ABBBD2986050B007E2EA3 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
+		F87ABBBD2986050B007E2EA3 /* RoundInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundInfo.swift; sourceTree = "<group>"; };
 		F87ABBBF29862FBF007E2EA3 /* EndGameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameCard.swift; sourceTree = "<group>"; };
 		F87ABBC32986EF0D007E2EA3 /* GameMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMapVC.swift; sourceTree = "<group>"; };
 		F87ABBC5298702F8007E2EA3 /* MapView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView2.swift; sourceTree = "<group>"; };
 		F87ABBC729870A4A007E2EA3 /* PinLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinLocation.swift; sourceTree = "<group>"; };
+		F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +188,8 @@
 			children = (
 				F87ABBB52983671C007E2EA3 /* LocationData.swift */,
 				F87ABBB329836663007E2EA3 /* Location.swift */,
-				F87ABBBD2986050B007E2EA3 /* GameInfo.swift */,
+				F87ABBBD2986050B007E2EA3 /* RoundInfo.swift */,
+				F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */,
 				F87ABBC729870A4A007E2EA3 /* PinLocation.swift */,
 			);
 			path = Model;
@@ -347,6 +350,7 @@
 				F87ABBC029862FBF007E2EA3 /* EndGameCard.swift in Sources */,
 				F83C87AA297F5500008FA89D /* EndGame.swift in Sources */,
 				F87ABBC6298702F8007E2EA3 /* MapView2.swift in Sources */,
+				F87ABBCC2989F79B007E2EA3 /* GameInfo.swift in Sources */,
 				F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */,
 				F87ABBB62983671C007E2EA3 /* LocationData.swift in Sources */,
 				F83C878F297DCACB008FA89D /* MapView.swift in Sources */,
@@ -354,7 +358,7 @@
 				F83C8793297DDAE2008FA89D /* TimerHelper.swift in Sources */,
 				F87ABBB429836663007E2EA3 /* Location.swift in Sources */,
 				F87ABBC42986EF0D007E2EA3 /* GameMapVC.swift in Sources */,
-				F87ABBBE2986050B007E2EA3 /* GameInfo.swift in Sources */,
+				F87ABBBE2986050B007E2EA3 /* RoundInfo.swift in Sources */,
 				F87ABBC829870A4A007E2EA3 /* PinLocation.swift in Sources */,
 				F83C878D297DC10F008FA89D /* GameMap.swift in Sources */,
 				F83C878B297DB970008FA89D /* Start.swift in Sources */,

@@ -9,10 +9,14 @@ import SwiftUI
 
 @main
 struct geo_gnosis_iosApp: App {
+    @StateObject var roundInfo = RoundInfo()
     @StateObject var gameInfo = GameInfo()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(gameInfo)
+            ContentView()
+                .environmentObject(roundInfo)
+                .environmentObject(gameInfo)
         }
     }
 }
