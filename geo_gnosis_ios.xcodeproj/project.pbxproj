@@ -32,6 +32,7 @@
 		F87ABBC6298702F8007E2EA3 /* MapView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBC5298702F8007E2EA3 /* MapView2.swift */; };
 		F87ABBC829870A4A007E2EA3 /* PinLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBC729870A4A007E2EA3 /* PinLocation.swift */; };
 		F87ABBCC2989F79B007E2EA3 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */; };
+		F87ABBCE298A090A007E2EA3 /* ApplicationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBCD298A090A007E2EA3 /* ApplicationInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		F87ABBC5298702F8007E2EA3 /* MapView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView2.swift; sourceTree = "<group>"; };
 		F87ABBC729870A4A007E2EA3 /* PinLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinLocation.swift; sourceTree = "<group>"; };
 		F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
+		F87ABBCD298A090A007E2EA3 /* ApplicationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 				F87ABBBD2986050B007E2EA3 /* RoundInfo.swift */,
 				F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */,
 				F87ABBC729870A4A007E2EA3 /* PinLocation.swift */,
+				F87ABBCD298A090A007E2EA3 /* ApplicationInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */,
 				F87ABBB62983671C007E2EA3 /* LocationData.swift in Sources */,
 				F83C878F297DCACB008FA89D /* MapView.swift in Sources */,
+				F87ABBCE298A090A007E2EA3 /* ApplicationInfo.swift in Sources */,
 				F87ABBB029820DD6007E2EA3 /* Coordinator.swift in Sources */,
 				F83C8793297DDAE2008FA89D /* TimerHelper.swift in Sources */,
 				F87ABBB429836663007E2EA3 /* Location.swift in Sources */,

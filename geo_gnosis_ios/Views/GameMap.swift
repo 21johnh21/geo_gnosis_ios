@@ -54,8 +54,18 @@ struct GameMap: View {
                                 HStack{
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
-                                        Text("Choice 1")
-                                    }.onTapGesture { }
+                                        //choose random option
+                                        let optionIndex = Int.random(in: 0..<gameInfo.multiChoiceOptions.count)
+                                        let option = gameInfo.multiChoiceOptions[optionIndex]
+                                        
+                                        Text("\(option)")
+                                    }.onTapGesture {
+                                        //choose random option
+                                        let optionIndex = Int.random(in: 0..<gameInfo.multiChoiceOptions.count)
+                                        let option = gameInfo.multiChoiceOptions[optionIndex]
+                                        //remove that option from array
+                                        //validate answer
+                                    }
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
                                         Text("Choice 2")

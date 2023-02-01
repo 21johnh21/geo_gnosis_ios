@@ -16,4 +16,5 @@ class RoundInfo: ObservableObject, Identifiable{
     @Published var times = [Int]()
     @Published var roundNumbers = [Int]()
     @Published var answers = [Bool]()
+    //@Published var multiChoiceOptions = [[String]]() //2 dim array stores 4 options each 
 }

@@ -14,6 +14,7 @@ public class LocationData{
     var locationsByDif = [Location]()
     var locationsByRegion = [Location]()
     var locations = [Location]()
+    //var multiChoiceOptions = [[String]]()
     
     let difEasyPop: Int = 1000000 //1
     let difMedPop: Int = 500000 //2
@@ -35,6 +36,11 @@ public class LocationData{
         load()
     }
     
+//    init(multiChoice: Bool){
+//        self.multiChoice = multiChoice
+//        load()
+//    }
+
     func load(){
         if let fileLocation = Bundle.main.url(forResource: "sampleLocationData2", withExtension: "json"){ //create file location var
             do{
@@ -81,7 +87,7 @@ public class LocationData{
                 if(multiChoice == true){
                     for _ in 0...((numOfRounds*4)-1){
                         let locationIndex = Int.random(in: 0..<locationsByRegion.count)
-                        multiChoiceOptions.append(locationsByRegion[locationIndex].country)
+                        multiChoiceOptions.append(locationsByRegion[locationIndex].country) //how to pass this out of class
                     }
                 }
                 

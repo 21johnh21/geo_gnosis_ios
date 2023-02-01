@@ -13,6 +13,7 @@ struct Start: View {
     @EnvironmentObject private var coordinator: Coordinator
     @EnvironmentObject var roundInfo: RoundInfo
     @EnvironmentObject var gameInfo: GameInfo
+    //var applicationInfo: ApplicationInfo
     
     var body: some View {
         
@@ -29,7 +30,12 @@ struct Start: View {
                 }
                 .padding(.bottom)
                 .onTapGesture {
-  
+                    
+                    //put multiChoiceOptions into round Info
+                    // make multiChoiceOptions an array of arrays with 4 options each
+                    // associate those options with each location, but only do this if it is a multi choice game
+                    //I could possibly return this array from the 
+                    
                     roundInfo.locations =
                     LocationData(multiChoice: gameInfo.multiChoice, multiChoiceOptions: gameInfo.multiChoiceOptions)
                         .locations
