@@ -18,6 +18,7 @@ struct Location: Identifiable, Decodable{
     var admin_name : String
     var capital : String// change to bool somehow
     var population : Int
+    //let multiChoiceOptions: [[String]]? = [[String]]()
     
     
     

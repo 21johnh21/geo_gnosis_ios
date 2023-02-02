@@ -14,6 +14,7 @@ struct GameMap: View {
     @EnvironmentObject var roundInfo : RoundInfo
     @EnvironmentObject var gameInfo: GameInfo
     
+    @State var options: [String] = ["", "", "", ""]
     @State var count: Int = 0
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
@@ -55,31 +56,43 @@ struct GameMap: View {
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
                                         //choose random option
-                                        let optionIndex = Int.random(in: 0..<gameInfo.multiChoiceOptions.count)
-                                        let option = gameInfo.multiChoiceOptions[optionIndex]
+                                        //var optionIndex = Int.random(in: 0...3)
+                                        //let option = roundInfo.multiChoiceOptions[0][optionIndex]
+//                                        var optionIndex: Int
+//                                        let option = roundInfo.multiChoiceOptions[0][optionIndex]
                                         
-                                        Text("\(option)")
-                                    }.onTapGesture {
-                                        //choose random option
-                                        let optionIndex = Int.random(in: 0..<gameInfo.multiChoiceOptions.count)
-                                        let option = gameInfo.multiChoiceOptions[optionIndex]
-                                        //remove that option from array
-                                        //validate answer
+                                        
+                                        Text("\(options[0])")
+                                    }
+//                                    .onAppear{
+//                                        GetOption()
+////                                        var optionIndex: Int
+////                                        optionIndex = Int.random(in: 0...3)
+//                                        //let option = roundInfo.multiChoiceOptions[0][optionIndex]
+//                                    }
+                                    .onTapGesture {
+                                        ValidateAnswer(guessB: options[0], answer: roundInfo.locations[roundInfo.roundNumber].country)
                                     }
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
-                                        Text("Choice 2")
-                                    }.onTapGesture { }
+                                        Text("\(options[1])")
+                                    }.onTapGesture {
+                                        ValidateAnswer(guessB: options[1], answer: roundInfo.locations[roundInfo.roundNumber].country)
+                                    }
                                 }
                                 HStack{
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
-                                        Text("Choice 3")
-                                    }.onTapGesture { }
+                                        Text("\(options[2])")
+                                    }.onTapGesture {
+                                        ValidateAnswer(guessB: options[2], answer: roundInfo.locations[roundInfo.roundNumber].country)
+                                    }
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
-                                        Text("Choice 4")
-                                    }.onTapGesture { }
+                                        Text("\(options[3])")
+                                    }.onTapGesture {
+                                        ValidateAnswer(guessB: options[3], answer: roundInfo.locations[roundInfo.roundNumber].country)
+                                    }
                                 }
                             }
                         }
@@ -104,6 +117,9 @@ struct GameMap: View {
                 
             }
         }.navigationBarBackButtonHidden(true)
+        .onAppear{
+            GetOption()
+        }
     }
     
     func ValidateAnswer (guessB: String, answer: String) {
@@ -177,6 +193,15 @@ struct GameMap: View {
 //        }
         
         return multiChoices
+    }
+    func GetOption() {
+        //options = roundInfo.multiChoiceOptions[roundInfo.roundNumber]
+        for i in 0...3{
+            var optionIndex = Int.random(in: 0...3-i)
+            //optionIndex = optionIndex - 1
+            options[i] = roundInfo.multiChoiceOptions[0][optionIndex]
+            roundInfo.multiChoiceOptions[0].remove(at: optionIndex)
+        }
     }
 }
 

@@ -36,9 +36,11 @@ struct Start: View {
                     // associate those options with each location, but only do this if it is a multi choice game
                     //I could possibly return this array from the 
                     
-                    roundInfo.locations =
-                    LocationData(multiChoice: gameInfo.multiChoice, multiChoiceOptions: gameInfo.multiChoiceOptions)
-                        .locations
+//                    roundInfo.locations =
+//                    LocationData(multiChoice: gameInfo.multiChoice)
+//                        .locations
+                    roundInfo.locations = LocationData().locations
+                    roundInfo.multiChoiceOptions = LocationData().multiChoiceOptions
                     roundInfo.roundNumber = 0
                     roundInfo.times = [0, 0, 0, 0, 0] //change how this is done later 
                     roundInfo.roundNumbers = [0, 0, 0, 0, 0]

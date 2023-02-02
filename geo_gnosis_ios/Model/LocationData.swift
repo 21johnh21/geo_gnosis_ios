@@ -27,19 +27,28 @@ public class LocationData{
     let regionUK: String = "United Kingdom"
     var region: String = "World"  //get this from root eventually
     
-    var multiChoice: Bool //set this from root eventually //but how this data needs to be passed in
-    var multiChoiceOptions: [String]
     
-    init(multiChoice: Bool, multiChoiceOptions: [String]){
-        self.multiChoice = multiChoice
-        self.multiChoiceOptions = multiChoiceOptions
-        load()
-    }
+    //var multiChoiceOptions2 = [[Location]]()
+    //var multiChoice: Bool
+    
+    //var multiChoice: Bool //set this from root eventually //but how this data needs to be passed in
+    var multiChoiceOptions: [[String]] = [[String]]()
+
+//    init(multiChoice: Bool, multiChoiceOptions: [String]){
+//        self.multiChoice = multiChoice
+//        self.multiChoiceOptions = multiChoiceOptions
+//        load()
+//    }
     
 //    init(multiChoice: Bool){
 //        self.multiChoice = multiChoice
 //        load()
 //    }
+    
+    init(){
+       
+        load()
+    }
 
     func load(){
         if let fileLocation = Bundle.main.url(forResource: "sampleLocationData2", withExtension: "json"){ //create file location var
@@ -84,10 +93,18 @@ public class LocationData{
                 }
                 
                 //Get Multi Choice Options
-                if(multiChoice == true){
-                    for _ in 0...((numOfRounds*4)-1){
-                        let locationIndex = Int.random(in: 0..<locationsByRegion.count)
-                        multiChoiceOptions.append(locationsByRegion[locationIndex].country) //how to pass this out of class
+                if(true){
+                    //var multiChoiceOptions2:
+                    
+                    for _ in 0...numOfRounds - 1{ // for every round
+                        //multiChoiceOptions2[i] // init this to 4 locations
+                        var roundMultiChoiceOptions = [String]()
+                        roundMultiChoiceOptions.append(locations[0].country)//Set the first element = to the true anser
+                        for _ in 0...2{ //append 3 random locations
+                            let locationIndex = Int.random(in: 0..<locationsByRegion.count)
+                            roundMultiChoiceOptions.append(locationsByRegion[locationIndex].country)
+                        }
+                        multiChoiceOptions.append(roundMultiChoiceOptions)
                     }
                 }
                 
