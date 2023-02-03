@@ -10,20 +10,24 @@ import Foundation
 public class RoundData{
     
     var multiChoice: Bool
+    var difficulty: Int
+    var region: String
     
     var numOfRounds = 5
     var multiChoiceOptions: [[Location]] = [[Location]]()
     var locationsByRegion = [Location]()
     var locations = [Location]()
     
-    init(multiChoice: Bool){
+    init(multiChoice: Bool, difficulty: Int, region: String){
         self.multiChoice = multiChoice
+        self.difficulty = difficulty
+        self.region = region
         load()
     }
 
     func load(){
         
-        locationsByRegion=LocationData().locationsByRegion
+        locationsByRegion=LocationData(difficulty: difficulty, region: region).locationsByRegion
         
         //choose 5 locations out of those availible
         for _ in 0...numOfRounds-1{

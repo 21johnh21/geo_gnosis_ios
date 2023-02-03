@@ -8,6 +8,8 @@
 import Foundation
 
 public class LocationData{
+    var difficulty: Int
+    var region: String
     
     var numOfRounds = 5
     var locationsRaw = [Location]()
@@ -17,18 +19,19 @@ public class LocationData{
     let difEasyPop: Int = 1000000 //1
     let difMedPop: Int = 500000 //2
     let difHardPop: Int = 0 //3
-    var difficulty: Int = 0 //get this from root eventually
+//    var difficulty: Int //get this from root eventually
     
     let regionUSA: String = "United States"
     let regionCanada: String = "Canada"
     let regionMexico: String = "Mexico"
     let regionUK: String = "United Kingdom"
-    var region: String = "World"  //get this from root eventually
+//    var region: String //get this from root eventually
     
     var multiChoiceOptions: [[String]] = [[String]]()
     
-    init(){
-       
+    init(difficulty: Int, region: String){
+        self.difficulty = difficulty
+        self.region = region
         load()
     }
 
