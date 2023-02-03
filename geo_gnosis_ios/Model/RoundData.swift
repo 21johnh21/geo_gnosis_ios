@@ -9,13 +9,15 @@ import Foundation
 
 public class RoundData{
     
-    var numOfRounds = 5
+    var multiChoice: Bool
     
+    var numOfRounds = 5
     var multiChoiceOptions: [[Location]] = [[Location]]()
     var locationsByRegion = [Location]()
     var locations = [Location]()
     
-    init(){
+    init(multiChoice: Bool){
+        self.multiChoice = multiChoice
         load()
     }
 
@@ -30,7 +32,7 @@ public class RoundData{
         }
         
         //Get Multi Choice Options
-        if(false){
+        if(multiChoice){
             
             for i in 0...numOfRounds - 1{ // for every round
                 //multiChoiceOptions2[i] // init this to 4 locations

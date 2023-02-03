@@ -9,7 +9,7 @@ import Foundation
 
 class GameInfo: ObservableObject {
     @Published var multiChoice = false
-    //@Published var multiChoiceOptions = [String]()
-    //region
+    @Published var regionMode = "World"
+    @Published var difficulty = "Hard"
     //round number 
 }

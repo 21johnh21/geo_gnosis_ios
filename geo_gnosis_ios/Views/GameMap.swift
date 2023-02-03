@@ -16,7 +16,6 @@ struct GameMap: View {
     
     @State var options: [String] = ["", "", "", ""]
     @State var count: Int = 0
-    
     @State var multiChoiceAnsers: [String] = [String]()
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -54,7 +53,7 @@ struct GameMap: View {
                         } else{
                             //mode is multi choice
                             //NEED TO ADD give up button
-                            ZStack{
+                            ZStack{ //move this into a VStack so it will be NE of the options
                                 RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
                                 Text("Give Up")
                             }.onTapGesture {
@@ -132,15 +131,11 @@ struct GameMap: View {
             //somehow allow like 2 - 3 charachters mispelling
             
             if(roundInfo.roundNumber == 4){
-                roundInfo.times[roundInfo.roundNumber] = count
-                roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber + 1
-                roundInfo.answers[roundInfo.roundNumber] = true
+                CorrectGuess()
                 coordinator.show(EndGame.self)
                 print("Correct!")
             }else{
-                roundInfo.times[roundInfo.roundNumber] = count
-                roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber + 1
-                roundInfo.answers[roundInfo.roundNumber] = true
+                CorrectGuess()
                 roundInfo.roundNumber += 1
                 coordinator.show(GameMap.self)
                 print("Correct!")
@@ -182,15 +177,11 @@ struct GameMap: View {
         if(guessB == roundInfo.locations[roundInfo.roundNumber].country){
 
             if(roundInfo.roundNumber == 4){
-                roundInfo.times[roundInfo.roundNumber] = count
-                roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber + 1
-                roundInfo.answers[roundInfo.roundNumber] = true
+                CorrectGuess()
                 coordinator.show(EndGame.self)
                 print("Correct!")
             }else{
-                roundInfo.times[roundInfo.roundNumber] = count
-                roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber + 1
-                roundInfo.answers[roundInfo.roundNumber] = true
+                CorrectGuess()
                 roundInfo.roundNumber += 1
                 coordinator.show(GameMap.self)
                 print("Correct!")
@@ -212,6 +203,20 @@ struct GameMap: View {
             //optionIndex = optionIndex - 1
             options[i] = roundInfo.multiChoiceOptions[roundInfo.roundNumber][optionIndex].country
             roundInfo.multiChoiceOptions[roundInfo.roundNumber].remove(at: optionIndex)
+        }
+    }
+    func CorrectGuess(){
+        roundInfo.times[roundInfo.roundNumber] = count
+        roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber + 1
+        roundInfo.answers[roundInfo.roundNumber] = true
+    }
+    func MultiChoiceOptionButton(){
+        ZStack{
+            RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
+            Text("\(options[0])")
+        }
+        .onTapGesture {
+            ValidateAnswerMultiChoice(guessB: options[0])
         }
     }
 }

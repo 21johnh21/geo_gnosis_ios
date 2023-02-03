@@ -32,8 +32,8 @@ struct Start: View {
                 .padding(.bottom)
                 .onTapGesture {
                     
-                    if(false){ //if multiple choice get the multi choice options
-                        roundInfo.multiChoiceOptions = RoundData().multiChoiceOptions
+                    if(gameInfo.multiChoice){ //if multiple choice get the multi choice options
+                        roundInfo.multiChoiceOptions = RoundData(multiChoice: true).multiChoiceOptions
                         if(roundInfo.locations.count>0){
                             roundInfo.locations.removeAll()
                         }
@@ -41,7 +41,7 @@ struct Start: View {
                             roundInfo.locations.append(roundInfo.multiChoiceOptions[i][0])
                         }
                     }else{ // just get the correct locations
-                        roundInfo.locations = RoundData().locations
+                        roundInfo.locations = RoundData(multiChoice: false).locations
                     }
                     roundInfo.roundNumber = 0
                     roundInfo.times = [0, 0, 0, 0, 0] //change how this is done later 
