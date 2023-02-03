@@ -13,6 +13,8 @@ struct Start: View {
     @EnvironmentObject private var coordinator: Coordinator
     @EnvironmentObject var roundInfo: RoundInfo
     @EnvironmentObject var gameInfo: GameInfo
+    
+    let numberOfRounds = 5
     //var applicationInfo: ApplicationInfo
     
     var body: some View {
@@ -39,8 +41,16 @@ struct Start: View {
 //                    roundInfo.locations =
 //                    LocationData(multiChoice: gameInfo.multiChoice)
 //                        .locations
-                    roundInfo.locations = LocationData().locations
-                    roundInfo.multiChoiceOptions = LocationData().multiChoiceOptions
+                    if(true){ //if multiple choice get the multi choice options
+                        roundInfo.multiChoiceOptions = RoundData().multiChoiceOptions
+                        for _ in 0...numberOfRounds-1{
+                            roundInfo.locations.append(contentsOf: roundInfo.multiChoiceOptions[0])
+                        }
+                    }else{ // just get the correct locations
+                        roundInfo.locations = RoundData().locations
+                    }
+//                    roundInfo.locations = LocationData().locations
+//                    roundInfo.multiChoiceOptions = LocationData().multiChoiceOptions
                     roundInfo.roundNumber = 0
                     roundInfo.times = [0, 0, 0, 0, 0] //change how this is done later 
                     roundInfo.roundNumbers = [0, 0, 0, 0, 0]

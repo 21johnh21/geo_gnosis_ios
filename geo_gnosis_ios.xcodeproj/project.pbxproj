@@ -33,6 +33,7 @@
 		F87ABBC829870A4A007E2EA3 /* PinLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBC729870A4A007E2EA3 /* PinLocation.swift */; };
 		F87ABBCC2989F79B007E2EA3 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */; };
 		F87ABBCE298A090A007E2EA3 /* ApplicationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBCD298A090A007E2EA3 /* ApplicationInfo.swift */; };
+		F87ABBD0298C783A007E2EA3 /* RoundData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBCF298C783A007E2EA3 /* RoundData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		F87ABBC729870A4A007E2EA3 /* PinLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinLocation.swift; sourceTree = "<group>"; };
 		F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 		F87ABBCD298A090A007E2EA3 /* ApplicationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationInfo.swift; sourceTree = "<group>"; };
+		F87ABBCF298C783A007E2EA3 /* RoundData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				F87ABBB52983671C007E2EA3 /* LocationData.swift */,
+				F87ABBCF298C783A007E2EA3 /* RoundData.swift */,
 				F87ABBB329836663007E2EA3 /* Location.swift */,
 				F87ABBBD2986050B007E2EA3 /* RoundInfo.swift */,
 				F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */,
@@ -364,6 +367,7 @@
 				F87ABBC42986EF0D007E2EA3 /* GameMapVC.swift in Sources */,
 				F87ABBBE2986050B007E2EA3 /* RoundInfo.swift in Sources */,
 				F87ABBC829870A4A007E2EA3 /* PinLocation.swift in Sources */,
+				F87ABBD0298C783A007E2EA3 /* RoundData.swift in Sources */,
 				F83C878D297DC10F008FA89D /* GameMap.swift in Sources */,
 				F83C878B297DB970008FA89D /* Start.swift in Sources */,
 				F87ABBB229820E10007E2EA3 /* RootView.swift in Sources */,

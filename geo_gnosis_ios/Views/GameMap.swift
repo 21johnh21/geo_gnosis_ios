@@ -16,6 +16,9 @@ struct GameMap: View {
     
     @State var options: [String] = ["", "", "", ""]
     @State var count: Int = 0
+    
+    @State var multiChoiceAnsers: [String] = [String]()
+    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {
@@ -51,6 +54,16 @@ struct GameMap: View {
                         } else{
                             //mode is multi choice
                             //NEED TO ADD give up button
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
+                                Text("Give Up")
+                            }.onTapGesture {
+                                roundInfo.answers[roundInfo.roundNumber] =  true //so the last round will show on end game, may need to change this later
+                                roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber
+                                roundInfo.times[roundInfo.roundNumber] = -1
+                                coordinator.show(EndGame.self)
+                            }
+                            .padding()
                             VStack{
                                 HStack{
                                     ZStack{
@@ -71,13 +84,13 @@ struct GameMap: View {
 //                                        //let option = roundInfo.multiChoiceOptions[0][optionIndex]
 //                                    }
                                     .onTapGesture {
-                                        ValidateAnswer(guessB: options[0], answer: roundInfo.locations[roundInfo.roundNumber].country)
+                                        ValidateAnswerMultiChoice(guessB: options[0])
                                     }
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
                                         Text("\(options[1])")
                                     }.onTapGesture {
-                                        ValidateAnswer(guessB: options[1], answer: roundInfo.locations[roundInfo.roundNumber].country)
+                                        ValidateAnswerMultiChoice(guessB: options[1])
                                     }
                                 }
                                 HStack{
@@ -85,13 +98,13 @@ struct GameMap: View {
                                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
                                         Text("\(options[2])")
                                     }.onTapGesture {
-                                        ValidateAnswer(guessB: options[2], answer: roundInfo.locations[roundInfo.roundNumber].country)
+                                        ValidateAnswerMultiChoice(guessB: options[2])
                                     }
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
                                         Text("\(options[3])")
                                     }.onTapGesture {
-                                        ValidateAnswer(guessB: options[3], answer: roundInfo.locations[roundInfo.roundNumber].country)
+                                        ValidateAnswerMultiChoice(guessB: options[3])
                                     }
                                 }
                             }
@@ -118,6 +131,7 @@ struct GameMap: View {
             }
         }.navigationBarBackButtonHidden(true)
         .onAppear{
+            //multiChoiceAnsers = GetMultiChoiceAnswers()
             GetOption()
         }
     }
@@ -177,30 +191,49 @@ struct GameMap: View {
         }
         return countryNames
     }
-    func ChooseMultiChoices(gameMode: String) -> [String]{
-        var multiChoices = [String]()
-        
-        //i need to figure out how to get this data, for country I could include a json of just countries
-        //but I dont think that will work, it would probably be best to make an array depending on the mode
-        //in LocationsData then access it here
-        //it would be nice to have some logic to detirmine if the locations are similar to eachother
-        // maybe base it on distance for the correct answer? that may cause problems though
-        
-//        switch(gameMode){
-//        case("country"):
-//        case("state"):
-//        case("city"):
+//    func GetMultiChoiceAnswers() -> [String]{
+//        var answers: [String] = [String]()
+//
+//        for i in 0...roundInfo.multiChoiceOptions.count-1{
+//            answers.append(roundInfo.multiChoiceOptions[i][0].country) // the first element of each array in multiChoiceOtions will be the answer
 //        }
-        
-        return multiChoices
+//
+//        return answers
+//    }
+    func ValidateAnswerMultiChoice(guessB: String){
+        if(guessB == roundInfo.locations[roundInfo.roundNumber].country){
+
+            if(roundInfo.roundNumber == 4){
+                roundInfo.times[roundInfo.roundNumber] = count
+                roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber + 1
+                roundInfo.answers[roundInfo.roundNumber] = true
+                coordinator.show(EndGame.self)
+                print("Correct!")
+            }else{
+                roundInfo.times[roundInfo.roundNumber] = count
+                roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber + 1
+                roundInfo.answers[roundInfo.roundNumber] = true
+                roundInfo.roundNumber += 1
+                coordinator.show(GameMap.self)
+                print("Correct!")
+            }
+        }
+        else{
+            
+            guess = "" //clear text
+            //send give user feed back
+            //animation
+            //sound
+            //haptic
+        }
     }
     func GetOption() {
         //options = roundInfo.multiChoiceOptions[roundInfo.roundNumber]
         for i in 0...3{
-            var optionIndex = Int.random(in: 0...3-i)
+            let optionIndex = Int.random(in: 0...3-i)
             //optionIndex = optionIndex - 1
-            options[i] = roundInfo.multiChoiceOptions[0][optionIndex]
-            roundInfo.multiChoiceOptions[0].remove(at: optionIndex)
+            options[i] = roundInfo.multiChoiceOptions[roundInfo.roundNumber][optionIndex].country
+            roundInfo.multiChoiceOptions[roundInfo.roundNumber].remove(at: optionIndex)
         }
     }
 }
