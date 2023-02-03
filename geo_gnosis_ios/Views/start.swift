@@ -43,8 +43,8 @@ struct Start: View {
 //                        .locations
                     if(true){ //if multiple choice get the multi choice options
                         roundInfo.multiChoiceOptions = RoundData().multiChoiceOptions
-                        for _ in 0...numberOfRounds-1{
-                            roundInfo.locations.append(contentsOf: roundInfo.multiChoiceOptions[0])
+                        for i in 0...numberOfRounds-1{
+                            roundInfo.locations.append(roundInfo.multiChoiceOptions[i][0])
                         }
                     }else{ // just get the correct locations
                         roundInfo.locations = RoundData().locations
