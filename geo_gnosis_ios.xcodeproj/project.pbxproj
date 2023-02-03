@@ -17,7 +17,6 @@
 		F83C878B297DB970008FA89D /* Start.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C878A297DB970008FA89D /* Start.swift */; };
 		F83C878D297DC10F008FA89D /* GameMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C878C297DC10F008FA89D /* GameMap.swift */; };
 		F83C878F297DCACB008FA89D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C878E297DCACB008FA89D /* MapView.swift */; };
-		F83C8793297DDAE2008FA89D /* TimerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C8792297DDAE2008FA89D /* TimerHelper.swift */; };
 		F83C879E297DF75B008FA89D /* locationData.json in Resources */ = {isa = PBXBuildFile; fileRef = F83C879D297DF75B008FA89D /* locationData.json */; };
 		F83C87A4297E030F008FA89D /* sampleLocationData.json in Resources */ = {isa = PBXBuildFile; fileRef = F83C87A3297E030F008FA89D /* sampleLocationData.json */; };
 		F83C87AA297F5500008FA89D /* EndGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C87A9297F5500008FA89D /* EndGame.swift */; };
@@ -28,7 +27,6 @@
 		F87ABBBA29837475007E2EA3 /* sampleLocationData2.json in Resources */ = {isa = PBXBuildFile; fileRef = F87ABBB929837475007E2EA3 /* sampleLocationData2.json */; };
 		F87ABBBE2986050B007E2EA3 /* RoundInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBBD2986050B007E2EA3 /* RoundInfo.swift */; };
 		F87ABBC029862FBF007E2EA3 /* EndGameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBBF29862FBF007E2EA3 /* EndGameCard.swift */; };
-		F87ABBC42986EF0D007E2EA3 /* GameMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBC32986EF0D007E2EA3 /* GameMapVC.swift */; };
 		F87ABBC6298702F8007E2EA3 /* MapView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBC5298702F8007E2EA3 /* MapView2.swift */; };
 		F87ABBC829870A4A007E2EA3 /* PinLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBC729870A4A007E2EA3 /* PinLocation.swift */; };
 		F87ABBCC2989F79B007E2EA3 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */; };
@@ -67,7 +65,6 @@
 		F83C878A297DB970008FA89D /* Start.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Start.swift; sourceTree = "<group>"; };
 		F83C878C297DC10F008FA89D /* GameMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMap.swift; sourceTree = "<group>"; };
 		F83C878E297DCACB008FA89D /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		F83C8792297DDAE2008FA89D /* TimerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHelper.swift; sourceTree = "<group>"; };
 		F83C879D297DF75B008FA89D /* locationData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locationData.json; sourceTree = "<group>"; };
 		F83C87A3297E030F008FA89D /* sampleLocationData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleLocationData.json; sourceTree = "<group>"; };
 		F83C87A9297F5500008FA89D /* EndGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGame.swift; sourceTree = "<group>"; };
@@ -78,7 +75,6 @@
 		F87ABBB929837475007E2EA3 /* sampleLocationData2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleLocationData2.json; sourceTree = "<group>"; };
 		F87ABBBD2986050B007E2EA3 /* RoundInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundInfo.swift; sourceTree = "<group>"; };
 		F87ABBBF29862FBF007E2EA3 /* EndGameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameCard.swift; sourceTree = "<group>"; };
-		F87ABBC32986EF0D007E2EA3 /* GameMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMapVC.swift; sourceTree = "<group>"; };
 		F87ABBC5298702F8007E2EA3 /* MapView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView2.swift; sourceTree = "<group>"; };
 		F87ABBC729870A4A007E2EA3 /* PinLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinLocation.swift; sourceTree = "<group>"; };
 		F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
@@ -138,7 +134,6 @@
 				F827D59329777AF4007DE110 /* ContentView.swift */,
 				F83C8796297DEF0D008FA89D /* Model */,
 				F83C8795297DEF03008FA89D /* Views */,
-				F83C8797297DEF5C008FA89D /* Methods */,
 				F83C879C297DF747008FA89D /* Resources */,
 				F827D59529777AF5007DE110 /* Assets.xcassets */,
 				F827D59729777AF5007DE110 /* Preview Content */,
@@ -182,7 +177,6 @@
 				F83C87A9297F5500008FA89D /* EndGame.swift */,
 				F87ABBBF29862FBF007E2EA3 /* EndGameCard.swift */,
 				F87ABBB129820E10007E2EA3 /* RootView.swift */,
-				F87ABBC32986EF0D007E2EA3 /* GameMapVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,14 +193,6 @@
 				F87ABBCD298A090A007E2EA3 /* ApplicationInfo.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		F83C8797297DEF5C008FA89D /* Methods */ = {
-			isa = PBXGroup;
-			children = (
-				F83C8792297DDAE2008FA89D /* TimerHelper.swift */,
-			);
-			path = Methods;
 			sourceTree = "<group>";
 		};
 		F83C879C297DF747008FA89D /* Resources */ = {
@@ -362,9 +348,7 @@
 				F83C878F297DCACB008FA89D /* MapView.swift in Sources */,
 				F87ABBCE298A090A007E2EA3 /* ApplicationInfo.swift in Sources */,
 				F87ABBB029820DD6007E2EA3 /* Coordinator.swift in Sources */,
-				F83C8793297DDAE2008FA89D /* TimerHelper.swift in Sources */,
 				F87ABBB429836663007E2EA3 /* Location.swift in Sources */,
-				F87ABBC42986EF0D007E2EA3 /* GameMapVC.swift in Sources */,
 				F87ABBBE2986050B007E2EA3 /* RoundInfo.swift in Sources */,
 				F87ABBC829870A4A007E2EA3 /* PinLocation.swift in Sources */,
 				F87ABBD0298C783A007E2EA3 /* RoundData.swift in Sources */,

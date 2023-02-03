@@ -12,7 +12,6 @@ import MapKit
 
 struct EndGame: View {
     
-    //let data = LocationData().locations
     @EnvironmentObject private var coordinator: Coordinator
     @EnvironmentObject var roundInfo : RoundInfo
     var roundNumber: Int = 0
@@ -26,7 +25,6 @@ struct EndGame: View {
                 Text("\(CalcFinalScore())").padding(.trailing)
             }
             
-
             MapView2(pinLocations: InitPinLocations())
             HStack{
                 ZStack{
@@ -75,10 +73,6 @@ struct EndGame: View {
         return finalScore
     }
 }
-
-//func IncrementRoundNumber(count: Int) -> Int{
-//    return count + 1
-//}
 
 struct EndGame_Previews: PreviewProvider {
     static var previews: some View {

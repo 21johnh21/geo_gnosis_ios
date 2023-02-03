@@ -15,7 +15,6 @@ struct Start: View {
     @EnvironmentObject var gameInfo: GameInfo
     
     let numberOfRounds = 5
-    //var applicationInfo: ApplicationInfo
     
     var body: some View {
         
@@ -33,15 +32,7 @@ struct Start: View {
                 .padding(.bottom)
                 .onTapGesture {
                     
-                    //put multiChoiceOptions into round Info
-                    // make multiChoiceOptions an array of arrays with 4 options each
-                    // associate those options with each location, but only do this if it is a multi choice game
-                    //I could possibly return this array from the 
-                    
-//                    roundInfo.locations =
-//                    LocationData(multiChoice: gameInfo.multiChoice)
-//                        .locations
-                    if(true){ //if multiple choice get the multi choice options
+                    if(false){ //if multiple choice get the multi choice options
                         roundInfo.multiChoiceOptions = RoundData().multiChoiceOptions
                         if(roundInfo.locations.count>0){
                             roundInfo.locations.removeAll()
@@ -52,8 +43,6 @@ struct Start: View {
                     }else{ // just get the correct locations
                         roundInfo.locations = RoundData().locations
                     }
-//                    roundInfo.locations = LocationData().locations
-//                    roundInfo.multiChoiceOptions = LocationData().multiChoiceOptions
                     roundInfo.roundNumber = 0
                     roundInfo.times = [0, 0, 0, 0, 0] //change how this is done later 
                     roundInfo.roundNumbers = [0, 0, 0, 0, 0]

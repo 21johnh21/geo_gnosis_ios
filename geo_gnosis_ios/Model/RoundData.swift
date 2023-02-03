@@ -30,19 +30,7 @@ public class RoundData{
         }
         
         //Get Multi Choice Options
-        if(true){
-            //var multiChoiceOptions2:
-            
-//            for i in 0...numOfRounds - 1{ // for every round
-//                //multiChoiceOptions2[i] // init this to 4 locations
-//                var roundMultiChoiceOptions = [Location]()
-//                roundMultiChoiceOptions.append(locations[0])//Set the first element = to the true anser
-//                for _ in 0...2{ //append 3 random locations
-//                    let locationIndex = Int.random(in: 0..<locationsByRegion.count)
-//                    roundMultiChoiceOptions.append(locationsByRegion[locationIndex])
-//                }
-//                multiChoiceOptions.append(roundMultiChoiceOptions)
-//            }
+        if(false){
             
             for i in 0...numOfRounds - 1{ // for every round
                 //multiChoiceOptions2[i] // init this to 4 locations

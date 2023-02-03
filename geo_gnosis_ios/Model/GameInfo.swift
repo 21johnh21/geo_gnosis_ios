@@ -8,7 +8,7 @@
 import Foundation
 
 class GameInfo: ObservableObject {
-    @Published var multiChoice = true
+    @Published var multiChoice = false
     //@Published var multiChoiceOptions = [String]()
     //region
     //round number 

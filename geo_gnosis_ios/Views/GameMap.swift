@@ -68,21 +68,8 @@ struct GameMap: View {
                                 HStack{
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
-                                        //choose random option
-                                        //var optionIndex = Int.random(in: 0...3)
-                                        //let option = roundInfo.multiChoiceOptions[0][optionIndex]
-//                                        var optionIndex: Int
-//                                        let option = roundInfo.multiChoiceOptions[0][optionIndex]
-                                        
-                                        
                                         Text("\(options[0])")
                                     }
-//                                    .onAppear{
-//                                        GetOption()
-////                                        var optionIndex: Int
-////                                        optionIndex = Int.random(in: 0...3)
-//                                        //let option = roundInfo.multiChoiceOptions[0][optionIndex]
-//                                    }
                                     .onTapGesture {
                                         ValidateAnswerMultiChoice(guessB: options[0])
                                     }
@@ -131,8 +118,9 @@ struct GameMap: View {
             }
         }.navigationBarBackButtonHidden(true)
         .onAppear{
-            //multiChoiceAnsers = GetMultiChoiceAnswers()
-            GetOption()
+            if(gameInfo.multiChoice == true){
+                GetOption()
+            }
         }
     }
     
@@ -141,7 +129,6 @@ struct GameMap: View {
            == answer.lowercased()
            || AlternativeName(country: answer).contains(guessB)
            || guessB == ""){
-            // make a method to check if the guess is equall to an aleternative name or acrynmy for the country
             //somehow allow like 2 - 3 charachters mispelling
             
             if(roundInfo.roundNumber == 4){
@@ -191,15 +178,6 @@ struct GameMap: View {
         }
         return countryNames
     }
-//    func GetMultiChoiceAnswers() -> [String]{
-//        var answers: [String] = [String]()
-//
-//        for i in 0...roundInfo.multiChoiceOptions.count-1{
-//            answers.append(roundInfo.multiChoiceOptions[i][0].country) // the first element of each array in multiChoiceOtions will be the answer
-//        }
-//
-//        return answers
-//    }
     func ValidateAnswerMultiChoice(guessB: String){
         if(guessB == roundInfo.locations[roundInfo.roundNumber].country){
 
