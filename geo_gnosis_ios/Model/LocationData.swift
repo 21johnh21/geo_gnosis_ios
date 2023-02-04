@@ -77,7 +77,7 @@ public class LocationData{
     }
     
     func FilterByRegion(){
-        for i in 0...locationsByDif.count{
+        for i in 0...locationsByDif.count-1{
             if(locationsByDif[i].country ==  region){
                 locationsByRegion.append(locationsByDif[i])
             }
