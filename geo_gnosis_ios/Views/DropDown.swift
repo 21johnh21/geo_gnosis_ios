@@ -29,7 +29,7 @@ struct DropDown: View {
             }.overlay{
                 RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
             }
-        }.frame(height: 80).padding(.leading)
+        }.frame(maxHeight: 100).padding(.leading)
     }
 }
 
