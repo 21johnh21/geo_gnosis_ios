@@ -32,6 +32,7 @@
 		F87ABBCC2989F79B007E2EA3 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */; };
 		F87ABBCE298A090A007E2EA3 /* ApplicationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBCD298A090A007E2EA3 /* ApplicationInfo.swift */; };
 		F87ABBD0298C783A007E2EA3 /* RoundData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBCF298C783A007E2EA3 /* RoundData.swift */; };
+		F87ABBD2298E9AAE007E2EA3 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBD1298E9AAE007E2EA3 /* DropDown.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 		F87ABBCD298A090A007E2EA3 /* ApplicationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationInfo.swift; sourceTree = "<group>"; };
 		F87ABBCF298C783A007E2EA3 /* RoundData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundData.swift; sourceTree = "<group>"; };
+		F87ABBD1298E9AAE007E2EA3 /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				F83C87A9297F5500008FA89D /* EndGame.swift */,
 				F87ABBBF29862FBF007E2EA3 /* EndGameCard.swift */,
 				F87ABBB129820E10007E2EA3 /* RootView.swift */,
+				F87ABBD1298E9AAE007E2EA3 /* DropDown.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */,
 				F87ABBB62983671C007E2EA3 /* LocationData.swift in Sources */,
 				F83C878F297DCACB008FA89D /* MapView.swift in Sources */,
+				F87ABBD2298E9AAE007E2EA3 /* DropDown.swift in Sources */,
 				F87ABBCE298A090A007E2EA3 /* ApplicationInfo.swift in Sources */,
 				F87ABBB029820DD6007E2EA3 /* Coordinator.swift in Sources */,
 				F87ABBB429836663007E2EA3 /* Location.swift in Sources */,
