@@ -9,6 +9,7 @@ import Foundation
 
 public class LocationData{
     var difficulty: String
+    var regionMode: String
     var region: String
     
     var numOfRounds = 5
@@ -29,8 +30,9 @@ public class LocationData{
     
     var multiChoiceOptions: [[String]] = [[String]]()
     
-    init(difficulty: String, region: String){
+    init(difficulty: String, regionMode: String, region: String){
         self.difficulty = difficulty
+        self.regionMode = regionMode
         self.region = region
         load()
     }
@@ -64,7 +66,7 @@ public class LocationData{
                 
                 
                 //filter locations based on region
-                if(region != "World"){
+                if(regionMode != "World"){
                     FilterByRegion()
                 }else{
                     locationsByRegion = locationsByDif

@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct DropDown: View {
-    
-    @State var countrySelection: String = "USA"
-    let countries = ["USA", "UK", "Mexico", "Canada"]
+    @EnvironmentObject var gameInfo: GameInfo
+    @State var countrySelection: String = ""
+    let countries = ["United States", "United Kingdom", "Mexico", "Canada"]
     
     var body: some View {
         
@@ -21,12 +21,15 @@ struct DropDown: View {
                 ForEach(countries.indices){ index in
                     if(countries[index].hasPrefix(countrySelection)){
                         Text(("\(countries[index])"))
+                            .onTapGesture {
+                                gameInfo.region=countries[index]
+                            }
                     }
                 }
             }.overlay{
                 RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
             }
-        }.frame(height: 80)
+        }.frame(height: 80).padding(.leading)
     }
 }
 

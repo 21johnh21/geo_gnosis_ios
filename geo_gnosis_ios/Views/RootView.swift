@@ -14,7 +14,7 @@ struct RootView: View {
     @State var multiChoice = "Multiple Choice"
     var multiChoiceModes = ["Multiple Choice", "Fill the Blank"]
     @State var difficulty = "Easy"
-    var difficulties = ["Easy", "Mediumn", "Hard"]
+    var difficulties = ["Easy", "Medium", "Hard"]
     @State var regionMode = "World"
     var regionModes = ["World", "State", "City"]
     
@@ -46,7 +46,7 @@ struct RootView: View {
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green)
                     VStack{
                         Text("Play Again").font(.title)
-                        Text("Multi Choice, Countries, Difficulty")
+                        Text("Multi Choice, Countries, Hard")
                     }.padding()
                 }
 //                HStack{
@@ -95,6 +95,9 @@ struct RootView: View {
                         Text($0)
                     }
                 }.pickerStyle(.segmented).colorMultiply(.green).background(.brown)
+                if(regionMode != "World"){
+                    DropDown()
+                }
                 
 //                HStack{
 //                    ZStack{

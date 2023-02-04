@@ -11,5 +11,6 @@ class GameInfo: ObservableObject {
     @Published var multiChoice = false
     @Published var regionMode = "World"
     @Published var difficulty = "Easy"
+    @Published var region = "World"
     //round number 
 }
