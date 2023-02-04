@@ -10,6 +10,6 @@ import Foundation
 class GameInfo: ObservableObject {
     @Published var multiChoice = false
     @Published var regionMode = "World"
-    @Published var Int = 0
+    @Published var difficulty = "Easy"
     //round number 
 }

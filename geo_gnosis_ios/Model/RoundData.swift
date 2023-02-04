@@ -10,7 +10,7 @@ import Foundation
 public class RoundData{
     
     var multiChoice: Bool
-    var difficulty: Int
+    var difficulty: String
     var region: String
     
     var numOfRounds = 5
@@ -18,7 +18,7 @@ public class RoundData{
     var locationsByRegion = [Location]()
     var locations = [Location]()
     
-    init(multiChoice: Bool, difficulty: Int, region: String){
+    init(multiChoice: Bool, difficulty: String, region: String){
         self.multiChoice = multiChoice
         self.difficulty = difficulty
         self.region = region
