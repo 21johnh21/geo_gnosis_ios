@@ -47,13 +47,13 @@ public class LocationData{
                 //parse location based on difficulty
                 switch(difficulty){
                 case("Easy"):
-                    for i in 0...locationsRaw.count{
+                    for i in 0...locationsRaw.count-1{
                         if(locationsRaw[i].population >= difEasyPop){
                             locationsByDif.append(locationsRaw[i])
                         }
                     }
                 case("Medium"):
-                    for i in 0...locationsRaw.count{
+                    for i in 0...locationsRaw.count-1{
                         if(locationsRaw[i].population >= difMedPop){
                             locationsByDif.append(locationsRaw[i])
                         }

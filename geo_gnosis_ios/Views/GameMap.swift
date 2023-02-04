@@ -38,7 +38,13 @@ struct GameMap: View {
                         if(gameInfo.multiChoice == false){ //if mode is typing
                             TextField("Answer...",text: $guess)
                                 .onSubmit{
-                                    ValidateAnswer(guessB: guess, answer: roundInfo.locations[roundInfo.roundNumber].country)
+                                    if(gameInfo.difficulty == "City"){
+                                        ValidateAnswer(guessB: guess, answer: roundInfo.locations[roundInfo.roundNumber].city_ascii)
+                                    }else if(gameInfo.difficulty == "State"){
+                                        ValidateAnswer(guessB: guess, answer: roundInfo.locations[roundInfo.roundNumber].admin_name)
+                                    }else{ //World
+                                        ValidateAnswer(guessB: guess, answer: roundInfo.locations[roundInfo.roundNumber].country)
+                                    }
                                 }.padding(.leading)
                             
                             ZStack{
@@ -174,7 +180,17 @@ struct GameMap: View {
         return countryNames
     }
     func ValidateAnswerMultiChoice(guessB: String){
-        if(guessB == roundInfo.locations[roundInfo.roundNumber].country){
+        var answer: String
+        
+        if(gameInfo.regionMode == "City"){
+            answer = roundInfo.locations[roundInfo.roundNumber].city_ascii
+        }else if(gameInfo.regionMode == "State"){
+            answer = roundInfo.locations[roundInfo.roundNumber].admin_name
+        }else{ //World
+            answer = roundInfo.locations[roundInfo.roundNumber].country
+        }
+        
+        if(guessB == answer){
 
             if(roundInfo.roundNumber == 4){
                 CorrectGuess()
@@ -200,8 +216,14 @@ struct GameMap: View {
         //options = roundInfo.multiChoiceOptions[roundInfo.roundNumber]
         for i in 0...3{
             let optionIndex = Int.random(in: 0...3-i)
-            //optionIndex = optionIndex - 1
-            options[i] = roundInfo.multiChoiceOptions[roundInfo.roundNumber][optionIndex].country
+            
+            if(gameInfo.regionMode == "City"){
+                options[i] = roundInfo.multiChoiceOptions[roundInfo.roundNumber][optionIndex].city_ascii
+            }else if(gameInfo.regionMode == "State"){
+                options[i] = roundInfo.multiChoiceOptions[roundInfo.roundNumber][optionIndex].admin_name
+            }else{
+                options[i] = roundInfo.multiChoiceOptions[roundInfo.roundNumber][optionIndex].country
+            }
             roundInfo.multiChoiceOptions[roundInfo.roundNumber].remove(at: optionIndex)
         }
     }
