@@ -116,6 +116,9 @@ struct RootView: View {
                         Text("Start").font(.title)
                     }.padding()
                 }.onTapGesture {
+                    gameInfo.multiChoice = multiChoice == "Multiple Choice" ? true : false
+                    gameInfo.difficulty = difficulty
+                    gameInfo.regionMode = regionMode
                     coordinator.show(Start.self)
                 }
                 
