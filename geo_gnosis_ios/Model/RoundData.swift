@@ -38,8 +38,7 @@ public class RoundData{
         }
         
         //Get Multi Choice Options
-        if(multiChoice){
-            
+        if(multiChoice && locationsByRegion.count != 0){
             for i in 0...numOfRounds - 1{ // for every round
                 //multiChoiceOptions2[i] // init this to 4 locations
                 var roundMultiChoiceOptions = [Location]()
@@ -51,6 +50,5 @@ public class RoundData{
                 multiChoiceOptions.append(roundMultiChoiceOptions)
             }
         }
-        
     }
 }

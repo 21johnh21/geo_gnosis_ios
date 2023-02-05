@@ -38,7 +38,7 @@ public class LocationData{
     }
 
     func load(){
-        if let fileLocation = Bundle.main.url(forResource: "sampleLocationData2", withExtension: "json"){ //create file location var
+        if let fileLocation = Bundle.main.url(forResource: "locationDataUpdated3", withExtension: "json"){ //create file location var
             do{
                 
                 let data = try Data(contentsOf: fileLocation) //try to get data from filelocation
