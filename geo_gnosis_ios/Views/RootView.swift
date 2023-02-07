@@ -25,7 +25,7 @@ struct RootView: View {
     
     var body: some View {
         
-        let screenWidth = screenSize.width
+        //let screenWidth = screenSize.width
         
         NavigationStack(path: $coordinator.path) {
 //            VStack {

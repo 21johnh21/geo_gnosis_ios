@@ -38,13 +38,15 @@ struct GameMap: View {
                         if(gameInfo.multiChoice == false){ //if mode is typing
                             TextField("Answer...",text: $guess)
                                 .onSubmit{
-                                    if(gameInfo.difficulty == "City"){
-                                        ValidateAnswer(guessB: guess, answer: roundInfo.locations[roundInfo.roundNumber].city_ascii)
-                                    }else if(gameInfo.difficulty == "State"){
-                                        ValidateAnswer(guessB: guess, answer: roundInfo.locations[roundInfo.roundNumber].admin_name)
-                                    }else{ //World
-                                        ValidateAnswer(guessB: guess, answer: roundInfo.locations[roundInfo.roundNumber].country)
-                                    }
+//                                    if(gameInfo.difficulty == "City"){
+//                                        ValidateAnswer(guessB: guess, answer: roundInfo.locations[roundInfo.roundNumber].city_ascii)
+//                                    }else if(gameInfo.difficulty == "State"){
+//                                        ValidateAnswer(guessB: guess, answer: roundInfo.locations[roundInfo.roundNumber].admin_name)
+//                                    }else{ //World
+//                                        ValidateAnswer(guessB: guess, answer: roundInfo.locations[roundInfo.roundNumber].country)
+//                                    }
+                                    
+                                    ValidateAnswer(guessB: guess)
                                 }.padding(.leading)
                             
                             ZStack{
@@ -129,7 +131,10 @@ struct GameMap: View {
         }
     }
     
-    func ValidateAnswer (guessB: String, answer: String) {
+    func ValidateAnswer (guessB: String) {
+        var answer: String
+        answer = GetCorrectAnswer()
+        
         if(guessB.trimmingCharacters(in: .whitespaces).lowercased()
            == answer.lowercased()
            || AlternativeName(country: answer).contains(guessB)
@@ -182,13 +187,15 @@ struct GameMap: View {
     func ValidateAnswerMultiChoice(guessB: String){
         var answer: String
         
-        if(gameInfo.regionMode == "City"){
-            answer = roundInfo.locations[roundInfo.roundNumber].city_ascii
-        }else if(gameInfo.regionMode == "State"){
-            answer = roundInfo.locations[roundInfo.roundNumber].admin_name
-        }else{ //World
-            answer = roundInfo.locations[roundInfo.roundNumber].country
-        }
+//        if(gameInfo.regionMode == "City"){
+//            answer = roundInfo.locations[roundInfo.roundNumber].city_ascii
+//        }else if(gameInfo.regionMode == "State"){
+//            answer = roundInfo.locations[roundInfo.roundNumber].admin_name
+//        }else{ //World
+//            answer = roundInfo.locations[roundInfo.roundNumber].country
+//        }
+        
+        answer = GetCorrectAnswer()
         
         if(guessB == answer){
 
@@ -232,14 +239,27 @@ struct GameMap: View {
         roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber + 1
         roundInfo.answers[roundInfo.roundNumber] = true
     }
-    func MultiChoiceOptionButton(){
-        ZStack{
-            RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
-            Text("\(options[0])")
+//    func MultiChoiceOptionButton(){
+//        ZStack{
+//            RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
+//            Text("\(options[0])")
+//        }
+//        .onTapGesture {
+//            ValidateAnswerMultiChoice(guessB: options[0])
+//        }
+//    }
+    func GetCorrectAnswer()-> String{
+        var answer: String
+        
+        if(gameInfo.regionMode == "City"){
+            answer = roundInfo.locations[roundInfo.roundNumber].city_ascii
+        }else if(gameInfo.regionMode == "State"){
+            answer = roundInfo.locations[roundInfo.roundNumber].admin_name
+        }else{ //World
+            answer = roundInfo.locations[roundInfo.roundNumber].country
         }
-        .onTapGesture {
-            ValidateAnswerMultiChoice(guessB: options[0])
-        }
+        
+        return answer
     }
 }
 
