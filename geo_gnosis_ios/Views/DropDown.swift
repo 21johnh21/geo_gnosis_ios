@@ -21,10 +21,15 @@ struct DropDown: View {
                 
                 ForEach(countries.indices){ index in
                     if(countries[index].hasPrefix(countrySelection)){
-                        Text(("\(countries[index])"))
-                            .onTapGesture {
-                                gameInfo.region=countries[index]
+                        ZStack{
+                            if(gameInfo.region == countries[index]){
+                                RoundedRectangle(cornerRadius: 5).fill(.green)
                             }
+                            Text(("\(countries[index])"))
+                                .onTapGesture {
+                                    gameInfo.region=countries[index]
+                                }
+                        }
                     }
                 }
             }.overlay{
