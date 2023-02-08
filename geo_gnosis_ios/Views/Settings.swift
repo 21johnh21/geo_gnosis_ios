@@ -9,6 +9,9 @@ import SwiftUI
 
 struct Settings: View {
     @EnvironmentObject private var coordinator: Coordinator
+    @State var vibOn: Bool = true
+    @State var sound: Double = 100
+    
     var body: some View {
         VStack{
             Text("Geo Gnosis").font(.title)
@@ -27,6 +30,11 @@ struct Settings: View {
                     //.frame(width: 20.0, height: 20.0).padding()
                     
             }
+            Toggle("Vibration On", isOn: $vibOn)
+            Slider(value: $sound, in: 0...100).tint(Color.green).padding()
+            //var soundText = String(format: "%.0f", sound)
+            Text("Volume \(String(format: "%.0f", sound))")
+                //Slider()
             Spacer()
         }
     }
