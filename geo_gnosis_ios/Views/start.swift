@@ -22,10 +22,14 @@ struct Start: View {
             VStack{
                 Text("Game Mode").font(.title).padding(.top)
                 Image("worldLogo2")
-                VStack(alignment: .leading){
-                    Text("\(gameInfo.multiChoice == true ? "Multiple Choice" : "Fill the Blank")")
-                    Text("\(gameInfo.regionMode)")
-                    Text("\(gameInfo.difficulty)")
+                ZStack {
+                    //RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
+                    VStack(alignment: .leading){
+                        Text("\(gameInfo.multiChoice == true ? "Multiple Choice" : "Fill the Blank")")
+                        Text("\(gameInfo.regionMode)")
+                        Text("\(gameInfo.region)")
+                        Text("\(gameInfo.difficulty)")
+                    }
                 }
                 Spacer()
                 ZStack{

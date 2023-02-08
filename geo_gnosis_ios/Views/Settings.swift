@@ -11,6 +11,7 @@ struct Settings: View {
     @EnvironmentObject private var coordinator: Coordinator
     @State var vibOn: Bool = true
     @State var sound: Double = 100
+    @State var sateliteMapOn: Bool = false
     
     var body: some View {
         VStack{
@@ -35,6 +36,7 @@ struct Settings: View {
             //var soundText = String(format: "%.0f", sound)
             Text("Volume \(String(format: "%.0f", sound))")
                 //Slider()
+            Toggle("Satelite Map Mode", isOn: $sateliteMapOn)
             Spacer()
         }
     }
