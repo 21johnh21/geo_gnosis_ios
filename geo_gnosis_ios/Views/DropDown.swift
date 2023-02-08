@@ -10,32 +10,39 @@ import SwiftUI
 struct DropDown: View {
     @EnvironmentObject var gameInfo: GameInfo
     @State var countrySelection: String = ""
-    static let screenWidth = UIScreen.main.bounds.size.width
+    let screenWidth = UIScreen.main.bounds.size.width
     let countries = ["United States", "United Kingdom", "Mexico", "Canada"]
     
     var body: some View {
         
         VStack(alignment: .leading){
             TextField("Choose a Region", text: $countrySelection)
-            ScrollView{
-                
-                ForEach(countries.indices){ index in
-                    if(countries[index].hasPrefix(countrySelection)){
-                        ZStack{
-                            if(gameInfo.region == countries[index]){
-                                RoundedRectangle(cornerRadius: 5).fill(.green)
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
+                ScrollView{
+                    
+                    ForEach(countries.indices){ index in
+                        if(countries[index].hasPrefix(countrySelection)){
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 5)
+                                    .fill(gameInfo.region == countries[index] ? .green : .white).padding(.trailing)//make it visible only when a county is selected
+                                
+                                Text(("\(countries[index])"))
+                                    .onTapGesture {
+                                        gameInfo.region=countries[index]
+                                    }
                             }
-                            Text(("\(countries[index])"))
-                                .onTapGesture {
-                                    gameInfo.region=countries[index]
-                                }
+                            .onTapGesture {
+                                gameInfo.region=countries[index]
+                            }
                         }
                     }
                 }
-            }.overlay{
-                RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
-                    .frame(width: DropDown.screenWidth)
-            }
+            }//.overlay{
+//                RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
+//                    //.frame(width: screenWidth)
+//            }
         }.frame(maxHeight: 100).padding(.leading)
     }
 }
