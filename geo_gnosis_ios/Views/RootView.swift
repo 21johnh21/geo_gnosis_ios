@@ -124,6 +124,21 @@ struct RootView: View {
                     gameInfo.regionMode = regionMode
                     coordinator.show(Start.self)
                 }
+                HStack{
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 5).fill(.green)
+                        Text("Settings")
+                    }.onTapGesture {
+                        coordinator.show(Settings.self)
+                    }
+                    Spacer()
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 5).fill(.green)
+                        Text("Leaderboard")
+                    }.onTapGesture {
+                        coordinator.show(LeaderBoard.self)
+                    }
+                }
                 
             }
             .navigationDestination(for: String.self) { id in
@@ -135,6 +150,15 @@ struct RootView: View {
                 else if id == String(describing: EndGame.self){
                     EndGame()
                     
+                }
+                else if id == String(describing: Settings.self){
+                    Settings()
+                }
+                else if id == String(describing: LeaderBoard.self){
+                    LeaderBoard()
+                }
+                else if id == String(describing: LogIn.self){
+                    LogIn()
                 }
 //                else if id == String(describing: RootView.self){
 //                    RootView()

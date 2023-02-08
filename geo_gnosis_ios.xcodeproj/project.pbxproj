@@ -36,6 +36,9 @@
 		F87ABBD4298F2F7E007E2EA3 /* locationDataUpdated.json in Resources */ = {isa = PBXBuildFile; fileRef = F87ABBD3298F2F7E007E2EA3 /* locationDataUpdated.json */; };
 		F87ABBD6298F6B48007E2EA3 /* locationDataUpdated2.json in Resources */ = {isa = PBXBuildFile; fileRef = F87ABBD5298F6B48007E2EA3 /* locationDataUpdated2.json */; };
 		F87ABBD8298F6E5A007E2EA3 /* locationDataUpdated3.json in Resources */ = {isa = PBXBuildFile; fileRef = F87ABBD7298F6E5A007E2EA3 /* locationDataUpdated3.json */; };
+		F87ABBDA29932449007E2EA3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBD929932449007E2EA3 /* Settings.swift */; };
+		F87ABBDC29932462007E2EA3 /* LeaderBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBDB29932462007E2EA3 /* LeaderBoard.swift */; };
+		F87ABBDE29932D3F007E2EA3 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBDD29932D3F007E2EA3 /* LogIn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +91,9 @@
 		F87ABBD3298F2F7E007E2EA3 /* locationDataUpdated.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locationDataUpdated.json; sourceTree = "<group>"; };
 		F87ABBD5298F6B48007E2EA3 /* locationDataUpdated2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locationDataUpdated2.json; sourceTree = "<group>"; };
 		F87ABBD7298F6E5A007E2EA3 /* locationDataUpdated3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = locationDataUpdated3.json; path = ../../../../../../Downloads/locationDataUpdated3.json; sourceTree = "<group>"; };
+		F87ABBD929932449007E2EA3 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		F87ABBDB29932462007E2EA3 /* LeaderBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoard.swift; sourceTree = "<group>"; };
+		F87ABBDD29932D3F007E2EA3 /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +192,9 @@
 				F87ABBBF29862FBF007E2EA3 /* EndGameCard.swift */,
 				F87ABBB129820E10007E2EA3 /* RootView.swift */,
 				F87ABBD1298E9AAE007E2EA3 /* DropDown.swift */,
+				F87ABBD929932449007E2EA3 /* Settings.swift */,
+				F87ABBDD29932D3F007E2EA3 /* LogIn.swift */,
+				F87ABBDB29932462007E2EA3 /* LeaderBoard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -358,10 +367,12 @@
 				F83C87AA297F5500008FA89D /* EndGame.swift in Sources */,
 				F87ABBC6298702F8007E2EA3 /* MapView2.swift in Sources */,
 				F87ABBCC2989F79B007E2EA3 /* GameInfo.swift in Sources */,
+				F87ABBDC29932462007E2EA3 /* LeaderBoard.swift in Sources */,
 				F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */,
 				F87ABBB62983671C007E2EA3 /* LocationData.swift in Sources */,
 				F83C878F297DCACB008FA89D /* MapView.swift in Sources */,
 				F87ABBD2298E9AAE007E2EA3 /* DropDown.swift in Sources */,
+				F87ABBDE29932D3F007E2EA3 /* LogIn.swift in Sources */,
 				F87ABBCE298A090A007E2EA3 /* ApplicationInfo.swift in Sources */,
 				F87ABBB029820DD6007E2EA3 /* Coordinator.swift in Sources */,
 				F87ABBB429836663007E2EA3 /* Location.swift in Sources */,
@@ -371,6 +382,7 @@
 				F83C878D297DC10F008FA89D /* GameMap.swift in Sources */,
 				F83C878B297DB970008FA89D /* Start.swift in Sources */,
 				F87ABBB229820E10007E2EA3 /* RootView.swift in Sources */,
+				F87ABBDA29932449007E2EA3 /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
