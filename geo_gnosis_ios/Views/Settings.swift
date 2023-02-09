@@ -9,9 +9,9 @@ import SwiftUI
 
 struct Settings: View {
     @EnvironmentObject private var coordinator: Coordinator
-    @State var vibOn: Bool = true
-    @State var sound: Double = 100
-    @State var sateliteMapOn: Bool = false
+    @AppStorage("vibOn") var vibOn: Bool = true
+    @AppStorage("sound") var sound: Double = 100
+    @AppStorage("sateliteMapOn") var sateliteMapOn: Bool = false
     
     var body: some View {
         VStack{
