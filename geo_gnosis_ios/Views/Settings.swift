@@ -12,6 +12,7 @@ struct Settings: View {
     @AppStorage("vibOn") var vibOn: Bool = true
     @AppStorage("sound") var sound: Double = 100
     @AppStorage("sateliteMapOn") var sateliteMapOn: Bool = false
+    @AppStorage("loggedIn") var loggedIn: Bool = false
     
     var body: some View {
         VStack{
