@@ -90,26 +90,30 @@ struct RootView: View {
 //                        Text("Hard").font(.title)
 //                    }
 //                }.border(.black)
-                
-                Picker("Choose a Mode", selection: $multiChoice){
-                    ForEach(multiChoiceModes, id: \.self){
-                        Text($0)
+                VStack{
+                    Text("Set Up Game")
+                    Picker("Choose a Mode", selection: $multiChoice){
+                        ForEach(multiChoiceModes, id: \.self){
+                            Text($0)
+                        }
+                    }.pickerStyle(.segmented).colorMultiply(.green).background(.brown)
+                    
+                    Picker("Choose a difficulty", selection: $difficulty){
+                        ForEach(difficulties, id: \.self){
+                            Text($0)
+                        }
+                    }.pickerStyle(.segmented).colorMultiply(.green).background(.brown)
+                    
+                    Picker("Choose a Region Mode", selection: $regionMode){
+                        ForEach(regionModes, id: \.self){
+                            Text($0)
+                        }
+                    }.pickerStyle(.segmented).colorMultiply(.green).background(.brown)
+                    if(regionMode != "World"){
+                        DropDown()
                     }
-                }.pickerStyle(.segmented).colorMultiply(.green).background(.brown)
-                
-                Picker("Choose a difficulty", selection: $difficulty){
-                    ForEach(difficulties, id: \.self){
-                        Text($0)
-                    }
-                }.pickerStyle(.segmented).colorMultiply(.green).background(.brown)
-                
-                Picker("Choose a Region Mode", selection: $regionMode){
-                    ForEach(regionModes, id: \.self){
-                        Text($0)
-                    }
-                }.pickerStyle(.segmented).colorMultiply(.green).background(.brown)
-                if(regionMode != "World"){
-                    DropDown()
+                }.padding().overlay(){
+                    RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
                 }
                 ZStack{
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green)
