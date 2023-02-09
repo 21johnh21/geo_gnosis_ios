@@ -11,11 +11,24 @@ import MapKit
 struct MapView: View {
     var coordinate: CLLocationCoordinate2D
     @State private var region = MKCoordinateRegion()
+    var pinLocations: [PinLocation]
 
     var body: some View {
         Map(coordinateRegion: $region,
-            interactionModes: MapInteractionModes.pan
-            )
+            interactionModes: MapInteractionModes.pan,
+            annotationItems: pinLocations
+        ){
+            pinLocation in
+                    MapAnnotation(coordinate: pinLocation.coordinate) {
+                        NavigationLink {
+                            Text(pinLocation.name)
+                        } label: {
+                            Circle()
+                                .stroke(.red, lineWidth: 3)
+                                .frame(width: 44, height: 44)
+                        }
+                    }
+        }
             .onAppear {
                 setRegion(coordinate)
             }
@@ -29,8 +42,8 @@ struct MapView: View {
     }
 }
 
-struct MapView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView(coordinate: CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.166_868))
-    }
-}
+//struct MapView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MapView(coordinate: CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.166_868))
+//    }
+//}

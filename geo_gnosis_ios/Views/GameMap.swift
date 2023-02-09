@@ -24,9 +24,10 @@ struct GameMap: View {
         ZStack {
             VStack {
                 MapView(coordinate:
-                            CLLocationCoordinate2D(
-                                latitude: roundInfo.locations[roundInfo.roundNumber].lat,
-                                longitude: roundInfo.locations[roundInfo.roundNumber].lng)
+                    CLLocationCoordinate2D(
+                        latitude: roundInfo.locations[roundInfo.roundNumber].lat,
+                        longitude: roundInfo.locations[roundInfo.roundNumber].lng),
+                    pinLocations: InitPinLocations()
                 )
                 .ignoresSafeArea(edges: .top)
                 
@@ -38,14 +39,6 @@ struct GameMap: View {
                         if(gameInfo.multiChoice == false){ //if mode is typing
                             TextField("Answer...",text: $guess)
                                 .onSubmit{
-//                                    if(gameInfo.difficulty == "City"){
-//                                        ValidateAnswer(guessB: guess, answer: roundInfo.locations[roundInfo.roundNumber].city_ascii)
-//                                    }else if(gameInfo.difficulty == "State"){
-//                                        ValidateAnswer(guessB: guess, answer: roundInfo.locations[roundInfo.roundNumber].admin_name)
-//                                    }else{ //World
-//                                        ValidateAnswer(guessB: guess, answer: roundInfo.locations[roundInfo.roundNumber].country)
-//                                    }
-                                    
                                     ValidateAnswer(guessB: guess)
                                 }.padding(.leading)
                             
@@ -60,7 +53,6 @@ struct GameMap: View {
                             }
                         } else{
                             //mode is multi choice
-                            //NEED TO ADD give up button
                             ZStack{ //move this into a VStack so it will be NE of the options
                                 RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
                                 Text("Give Up")
@@ -260,6 +252,20 @@ struct GameMap: View {
         }
         
         return answer
+    }
+    func InitPinLocations() -> Array <PinLocation>{
+        var pinLocations = [PinLocation]()
+        var pinLocation = PinLocation(name: "", coordinate: CLLocationCoordinate2D(
+            latitude: 0.0, longitude: 0.0))
+        
+        for i in 0...roundInfo.roundNumber{
+            //var pinLocation: PinLocation
+            pinLocation.coordinate = CLLocationCoordinate2D(
+                latitude: roundInfo.locations[i].lat, longitude: roundInfo.locations[i].lng)
+            pinLocation.name=""
+            pinLocations.append(pinLocation)
+        }
+        return pinLocations
     }
 }
 
