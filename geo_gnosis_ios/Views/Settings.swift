@@ -38,6 +38,15 @@ struct Settings: View {
             Text("Volume \(String(format: "%.0f", sound))")
                 //Slider()
             Toggle("Satelite Map Mode", isOn: $sateliteMapOn)
+            HStack {
+                ZStack{
+                    RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: 150, height: 30)
+                    Text("Play Tutorial")
+                }.onTapGesture {
+                   
+                }
+                Spacer()
+            }
             Spacer()
         }
     }

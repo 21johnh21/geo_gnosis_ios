@@ -33,6 +33,7 @@ struct LogIn: View {
                     RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
                 }
                 VStack{
+                    Text("Create and Account")
                     HStack{
                         Text("User Name: ")
                         TextField("User Name", text: $userName)
@@ -62,41 +63,33 @@ struct LogIn: View {
                 Spacer()
             }
         }
-        VStack{
-            Text("Logged in as \(userName)")
-            ZStack{
-                RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 150, height: 30)
-                Text("Log Out")
-            }.onTapGesture {
-                loggedIn = false
-                userName = ""
-            }
-            ZStack{
-                RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 150, height: 30)
-                Text("Delete Account")
-            }.onTapGesture {
-                deleteAccount = true
-            }.confirmationDialog("Are you sure", isPresented: $deleteAccount){
-                Text("Are you sure?")
-                Button("Yes"){
+        else {
+            VStack{
+                Text("Logged in as \(userName)")
+                ZStack{
+                    RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 150, height: 30)
+                    Text("Log Out")
+                }.onTapGesture {
                     loggedIn = false
                     userName = ""
-                    //query data base and delete information
-                    //when that returns true send confirmation
                 }
-                //Button("No"){}
-            } message: {
-                Text("Are you sure?")
+                ZStack{
+                    RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 150, height: 30)
+                    Text("Delete Account")
+                }.onTapGesture {
+                    deleteAccount = true
+                }.confirmationDialog("Are you sure", isPresented: $deleteAccount){
+                    Text("Are you sure?")
+                    Button("Yes"){
+                        loggedIn = false
+                        userName = ""
+                        //query data base and delete information
+                        //when that returns true send confirmation
+                    }
+                } message: {
+                    Text("Are you sure?")
+                }
             }
-            
-            //.onTapGesture {
-//                //query data base and delete all user data
-//                confirmationDialog("Are you sure?\nThis will delete your account and all related data", isPresented: $deleteAccount, actions: DeleteAccount())
-//                    loggedIn = false
-//                    userName = ""
-//            }
-            
-//            confirmationDialog("Are you sure?\nThis will delete your account and all related data", isPresented: $deleteAccount, actions: DeleteAccount())
         }
     }
     func DeleteAccount(){
