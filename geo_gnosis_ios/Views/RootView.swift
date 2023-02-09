@@ -9,6 +9,12 @@ import Foundation
 import SwiftUI
 
 struct RootView: View {
+    
+    @AppStorage("lastMultiChoice") var lastMultiChoice: Bool = true
+    @AppStorage("lastRegionMode") var lastRegionMode: String = "World"
+    @AppStorage("lastRegion") var lastRegion: String = "World"
+    @AppStorage("lastDifficulty") var lastDifficulty: String = "Easy"
+    
     @EnvironmentObject var gameInfo: GameInfo
     @StateObject private var coordinator = Coordinator()
     @State var multiChoice = "Multiple Choice"
@@ -46,8 +52,15 @@ struct RootView: View {
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green)
                     VStack{
                         Text("Play Again").font(.title)
-                        Text("Multi Choice, Countries, Hard")
+                        var lastMultiChoiceText = lastMultiChoice ? "Multiple Choice" : "Fill the Blank"
+                        Text("\(lastMultiChoiceText) \(lastRegionMode) \(lastRegion) \(lastDifficulty)")
                     }.padding()
+                }.onTapGesture {
+                    gameInfo.multiChoice = lastMultiChoice
+                    gameInfo.regionMode = lastRegionMode
+                    gameInfo.region = lastRegion
+                    gameInfo.difficulty = lastDifficulty
+                    coordinator.show(Start.self)
                 }
 //                HStack{
 //                    ZStack{
@@ -98,21 +111,6 @@ struct RootView: View {
                 if(regionMode != "World"){
                     DropDown()
                 }
-                
-//                HStack{
-//                    ZStack{
-//                        RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: screenWidth/3)
-//                        Text("Country").font(.title)
-//                    }
-//                    ZStack{
-//                        RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: screenWidth/3)
-//                        Text("Region").font(.title)
-//                    }
-//                    ZStack{
-//                        RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: screenWidth/3)
-//                        Text("City").font(.title)
-//                    }
-//                }
                 ZStack{
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green)
                     VStack{
@@ -122,6 +120,12 @@ struct RootView: View {
                     gameInfo.multiChoice = multiChoice == "Multiple Choice" ? true : false
                     gameInfo.difficulty = difficulty
                     gameInfo.regionMode = regionMode
+                    
+                    lastMultiChoice = gameInfo.multiChoice
+                    lastRegionMode = gameInfo.regionMode
+                    lastRegion = gameInfo.region
+                    lastDifficulty = gameInfo.difficulty
+                    
                     coordinator.show(Start.self)
                 }
                 HStack{

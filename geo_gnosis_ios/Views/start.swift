@@ -9,6 +9,11 @@ import SwiftUI
 
 struct Start: View {
     
+    @AppStorage("lastMultiChoice") var lastMultiChoice: Bool = true
+    @AppStorage("lastRegionMode") var lastRegionMode: String = "World"
+    @AppStorage("lastRegion") var lastRegion: String = "World"
+    @AppStorage("lastDifficulty") var lastDifficulty: String = "Easy"
+    
     @State var round: Int = 0 
     @EnvironmentObject private var coordinator: Coordinator
     @EnvironmentObject var roundInfo: RoundInfo
