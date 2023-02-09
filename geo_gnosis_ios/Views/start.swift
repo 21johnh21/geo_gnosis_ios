@@ -39,26 +39,28 @@ struct Start: View {
                 }
                 .padding(.bottom)
                 .onTapGesture {
-                    
-                    if(gameInfo.multiChoice){ //if multiple choice get the multi choice options
-                        roundInfo.multiChoiceOptions = RoundData(multiChoice: gameInfo.multiChoice, difficulty: gameInfo.difficulty, regionMode: gameInfo.regionMode, region: gameInfo.region).multiChoiceOptions
-                        if(roundInfo.locations.count>0){
-                            roundInfo.locations.removeAll()
-                        }
-                        for i in 0...numberOfRounds-1{
-                            roundInfo.locations.append(roundInfo.multiChoiceOptions[i][0])
-                        }
-                    }else{ // just get the correct locations
-                        roundInfo.locations = RoundData(multiChoice: gameInfo.multiChoice, difficulty: gameInfo.difficulty, regionMode: gameInfo.regionMode, region: gameInfo.region).locations
-                    }
-                    roundInfo.roundNumber = 0
-                    roundInfo.times = [0, 0, 0, 0, 0] //change how this is done later 
-                    roundInfo.roundNumbers = [0, 0, 0, 0, 0]
-                    roundInfo.answers = [false, false, false, false, false]
-                    coordinator.show(GameMap.self)
+                    StartGame()
                 }
             }
         }
+    }
+    func StartGame(){
+        if(gameInfo.multiChoice){ //if multiple choice get the multi choice options
+            roundInfo.multiChoiceOptions = RoundData(multiChoice: gameInfo.multiChoice, difficulty: gameInfo.difficulty, regionMode: gameInfo.regionMode, region: gameInfo.region).multiChoiceOptions
+            if(roundInfo.locations.count>0){
+                roundInfo.locations.removeAll()
+            }
+            for i in 0...numberOfRounds-1{
+                roundInfo.locations.append(roundInfo.multiChoiceOptions[i][0])
+            }
+        }else{ // just get the correct locations
+            roundInfo.locations = RoundData(multiChoice: gameInfo.multiChoice, difficulty: gameInfo.difficulty, regionMode: gameInfo.regionMode, region: gameInfo.region).locations
+        }
+        roundInfo.roundNumber = 0
+        roundInfo.times = [0, 0, 0, 0, 0] //change how this is done later
+        roundInfo.roundNumbers = [0, 0, 0, 0, 0]
+        roundInfo.answers = [false, false, false, false, false]
+        coordinator.show(GameMap.self)
     }
 }
 
