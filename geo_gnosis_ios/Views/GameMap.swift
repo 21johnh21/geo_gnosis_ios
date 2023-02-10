@@ -30,12 +30,27 @@ struct GameMap: View {
                     pinLocations: InitPinLocations()
                 )
                 .ignoresSafeArea(edges: .top)
+                .overlay(){
+                    VStack {
+                        Spacer()
+                        HStack{
+                            Spacer()
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
+                                Text("Give Up")
+                            }.onTapGesture {
+                                roundInfo.answers[roundInfo.roundNumber] =  true //so the last round will show on end game, may need to change this later
+                                roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber
+                                roundInfo.times[roundInfo.roundNumber] = -1
+                                coordinator.show(EndGame.self)
+                            }
+                        }
+                    }
+                }
                 
                 VStack{
                     HStack{
-                        Spacer()
-                    }
-                    HStack{
+                        //MARK: Fill The Blank
                         if(gameInfo.multiChoice == false){ //if mode is typing
                             TextField("Answer...",text: $guess)
                                 .onSubmit{
@@ -52,17 +67,7 @@ struct GameMap: View {
                                 coordinator.show(EndGame.self)
                             }
                         } else{
-                            //mode is multi choice
-                            ZStack{ //move this into a VStack so it will be NE of the options
-                                RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
-                                Text("Give Up")
-                            }.onTapGesture {
-                                roundInfo.answers[roundInfo.roundNumber] =  true //so the last round will show on end game, may need to change this later
-                                roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber
-                                roundInfo.times[roundInfo.roundNumber] = -1
-                                coordinator.show(EndGame.self)
-                            }
-                            .padding()
+                            //MARK: MultiChoice
                             VStack{
                                 HStack{
                                     ZStack{
@@ -95,9 +100,11 @@ struct GameMap: View {
                                 }
                             }
                         }
+                        //MARK: End MultiChoice
                     }
                 }
             }
+
             HStack {
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(.green)
@@ -123,6 +130,7 @@ struct GameMap: View {
         }
     }
     
+    //MARK: functions
     func ValidateAnswer (guessB: String) {
         var answer: String
         answer = GetCorrectAnswer()
@@ -178,15 +186,6 @@ struct GameMap: View {
     }
     func ValidateAnswerMultiChoice(guessB: String){
         var answer: String
-        
-//        if(gameInfo.regionMode == "City"){
-//            answer = roundInfo.locations[roundInfo.roundNumber].city_ascii
-//        }else if(gameInfo.regionMode == "State"){
-//            answer = roundInfo.locations[roundInfo.roundNumber].admin_name
-//        }else{ //World
-//            answer = roundInfo.locations[roundInfo.roundNumber].country
-//        }
-        
         answer = GetCorrectAnswer()
         
         if(guessB == answer){
@@ -269,8 +268,8 @@ struct GameMap: View {
     }
 }
 
-struct map_Previews: PreviewProvider {
-    static var previews: some View {
-        GameMap()
-    }
-}
+//struct map_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GameMap()
+//    }
+//}
