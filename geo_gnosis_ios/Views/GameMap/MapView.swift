@@ -19,19 +19,13 @@ struct MapView: View {
             annotationItems: pinLocations
         ){
             pinLocation in
-                    MapAnnotation(coordinate: pinLocation.coordinate) {
-                        NavigationLink {
-                            Text(pinLocation.name)
-                        } label: {
-                            Circle()
-                                .stroke(.red, lineWidth: 3)
-                                .frame(width: 44, height: 44)
-                        }
-                    }
+                MapAnnotation(coordinate: pinLocation.coordinate) {
+                    Image(systemName: "mappin").font(.system(size: 25, weight: .bold))
+                }
         }
-            .onAppear {
-                setRegion(coordinate)
-            }
+        .onAppear {
+            setRegion(coordinate)
+        }
     }
 
     private func setRegion(_ coordinate: CLLocationCoordinate2D) {
