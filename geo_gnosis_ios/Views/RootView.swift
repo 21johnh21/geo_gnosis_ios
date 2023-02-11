@@ -62,53 +62,25 @@ struct RootView: View {
                     gameInfo.difficulty = lastDifficulty
                     coordinator.show(Start.self)
                 }
-//                HStack{
-//                    ZStack{
-//                        RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: screenWidth/2)
-//                        Text("Multiple Choice").font(.title)
-//                    }.onTapGesture {
-//                        gameInfo.multiChoice = true
-//                    }.padding(.leading)
-//                    ZStack{
-//                        RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: screenWidth/2)
-//                        Text("Play Again").font(.title)
-//                    }.onTapGesture {
-//                        gameInfo.multiChoice = false
-//                    }.padding(.trailing)
-//                }
-//                HStack{
-//                    ZStack{
-//                        RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: screenWidth/3)
-//                        Text("Easy").font(.title)
-//                    }
-//                    ZStack{
-//                        RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.yellow).frame(width: screenWidth/3)
-//                        Text("Medium").font(.title)
-//                    }
-//                    ZStack{
-//                        RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.red).frame(width: screenWidth/3)
-//                        Text("Hard").font(.title)
-//                    }
-//                }.border(.black)
                 VStack{
                     Text("Set Up Game")
                     Picker("Choose a Mode", selection: $multiChoice){
                         ForEach(multiChoiceModes, id: \.self){
                             Text($0)
                         }
-                    }.pickerStyle(.segmented).colorMultiply(.green).background(.brown)
+                    }.pickerStyle(.segmented).colorMultiply(.green).background(.brown).cornerRadius(5)
                     
                     Picker("Choose a difficulty", selection: $difficulty){
                         ForEach(difficulties, id: \.self){
                             Text($0)
                         }
-                    }.pickerStyle(.segmented).colorMultiply(.green).background(.brown)
+                    }.pickerStyle(.segmented).colorMultiply(.green).background(.brown).cornerRadius(5)
                     
                     Picker("Choose a Region Mode", selection: $regionMode){
                         ForEach(regionModes, id: \.self){
                             Text($0)
                         }
-                    }.pickerStyle(.segmented).colorMultiply(.green).background(.brown)
+                    }.pickerStyle(.segmented).colorMultiply(.green).background(.brown).cornerRadius(5)
                     if(regionMode != "World"){
                         DropDown()
                     }
