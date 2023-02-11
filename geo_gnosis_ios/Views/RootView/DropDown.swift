@@ -25,13 +25,14 @@ struct DropDown: View {
                     ForEach(countries.indices){ index in
                         if(countries[index].hasPrefix(countrySelection)){
                             ZStack{
-                                RoundedRectangle(cornerRadius: 5)
-                                    .fill(gameInfo.region == countries[index] ? CustomColor.trim : CustomColor.primary).padding(.trailing)//make it visible only when a county is selected
-                                
-                                Text(("\(countries[index])"))
-                                    .onTapGesture {
+                                Text(("\(countries[index])")).onTapGesture {
                                         gameInfo.region=countries[index]
                                     }
+                                .frame(maxWidth: .infinity)
+                                .background(){
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .fill(gameInfo.region == countries[index] ? CustomColor.primary : CustomColor.trim).padding(.trailing)
+                                }
                             }
                             .onTapGesture {
                                 gameInfo.region=countries[index]
