@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LeaderBoard: View {
+    
+    //@State var regionMode: String = "Country"
+    
     var body: some View {
         TabView{
             ModeView()
@@ -18,9 +21,65 @@ struct LeaderBoard: View {
 
 
 struct ModeView: View {
+    @State var regionMode: String = "Country"
     var body: some View {
         VStack{
-            Text("Multi Choice")//pas this in
+            Text("Multiple Choice")
+            HStack{
+                ScrollView{
+                    Text("Multiple Choice")
+                    LeaderboardHeader(headerText: "Country").onTapGesture {
+                        regionMode = "Country"
+                    }
+                    if(regionMode == "Country"){
+                        ScrollView{
+                            LeaderboardHeader(headerText: "Easy").onTapGesture {
+                                
+                            }
+                            LeaderboardHeader(headerText: "Medium")
+                            LeaderboardHeader(headerText: "Hard")
+                        }.padding(.trailing)
+                            .overlay(){
+                                RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
+                            }
+                    }
+                        LeaderboardHeader(headerText: "Region").onTapGesture {
+                            regionMode = "Region"
+                        }
+                    if(regionMode == "Region"){
+                        ScrollView{
+                            LeaderboardHeader(headerText: "Easy")
+                            LeaderboardHeader(headerText: "Medium")
+                            LeaderboardHeader(headerText: "Hard")
+                        }.padding(.trailing)
+                            .overlay(){
+                                RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
+                            }
+                    }
+                    LeaderboardHeader(headerText: "City").onTapGesture {
+                        regionMode = "City"
+                    }
+                    if(regionMode == "City"){
+                        ScrollView{
+                            LeaderboardHeader(headerText: "Easy")
+                            LeaderboardHeader(headerText: "Medium")
+                            LeaderboardHeader(headerText: "Hard")
+                        }.padding(.trailing)
+                            .overlay(){
+                                RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
+                            }
+                    }
+                }
+                ScrollView{
+                    Text("Fill the Blank")
+                    LeaderboardHeader(headerText: "Country")
+                    LeaderboardHeader(headerText: "Region")
+                    LeaderboardHeader(headerText: "City")
+                }
+            }
+            
+            
+            //Text("Multi Choice")//pas this in
             //rect with text
                 //three diffs in rectangles
                     // on click expand to scroll
