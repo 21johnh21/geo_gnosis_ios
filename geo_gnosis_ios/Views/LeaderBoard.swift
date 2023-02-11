@@ -32,42 +32,19 @@ struct ModeView: View {
                         regionMode = "Country"
                     }
                     if(regionMode == "Country"){
-                        ScrollView{
-                            LeaderboardHeader(headerText: "Easy").onTapGesture {
-                                
-                            }
-                            LeaderboardHeader(headerText: "Medium")
-                            LeaderboardHeader(headerText: "Hard")
-                        }.padding(.trailing)
-                            .overlay(){
-                                RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
-                            }
+                       LBRegionModeSec()
                     }
                         LeaderboardHeader(headerText: "Region").onTapGesture {
                             regionMode = "Region"
                         }
                     if(regionMode == "Region"){
-                        ScrollView{
-                            LeaderboardHeader(headerText: "Easy")
-                            LeaderboardHeader(headerText: "Medium")
-                            LeaderboardHeader(headerText: "Hard")
-                        }.padding(.trailing)
-                            .overlay(){
-                                RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
-                            }
+                        LBRegionModeSec()
                     }
                     LeaderboardHeader(headerText: "City").onTapGesture {
                         regionMode = "City"
                     }
                     if(regionMode == "City"){
-                        ScrollView{
-                            LeaderboardHeader(headerText: "Easy")
-                            LeaderboardHeader(headerText: "Medium")
-                            LeaderboardHeader(headerText: "Hard")
-                        }.padding(.trailing)
-                            .overlay(){
-                                RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
-                            }
+                        LBRegionModeSec()
                     }
                 }
                 ScrollView{

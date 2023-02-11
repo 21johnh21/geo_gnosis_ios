@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F82315CE299708190026D036 /* LeaderboardHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315CD299708190026D036 /* LeaderboardHeader.swift */; };
+		F82315D029971AD90026D036 /* LBRegionModeSec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315CF29971AD90026D036 /* LBRegionModeSec.swift */; };
 		F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F827D59129777AF4007DE110 /* geo_gnosis_iosApp.swift */; };
 		F827D59429777AF4007DE110 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F827D59329777AF4007DE110 /* ContentView.swift */; };
 		F827D59629777AF5007DE110 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F827D59529777AF5007DE110 /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		F82315CD299708190026D036 /* LeaderboardHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardHeader.swift; sourceTree = "<group>"; };
+		F82315CF29971AD90026D036 /* LBRegionModeSec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBRegionModeSec.swift; sourceTree = "<group>"; };
 		F827D58E29777AF4007DE110 /* geo_gnosis_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = geo_gnosis_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F827D59129777AF4007DE110 /* geo_gnosis_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = geo_gnosis_iosApp.swift; sourceTree = "<group>"; };
 		F827D59329777AF4007DE110 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				F87ABBDD29932D3F007E2EA3 /* LogIn.swift */,
 				F87ABBDB29932462007E2EA3 /* LeaderBoard.swift */,
 				F82315CD299708190026D036 /* LeaderboardHeader.swift */,
+				F82315CF29971AD90026D036 /* LBRegionModeSec.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				F87ABBDE29932D3F007E2EA3 /* LogIn.swift in Sources */,
 				F87ABBCE298A090A007E2EA3 /* ApplicationInfo.swift in Sources */,
 				F87ABBB029820DD6007E2EA3 /* Coordinator.swift in Sources */,
+				F82315D029971AD90026D036 /* LBRegionModeSec.swift in Sources */,
 				F87ABBB429836663007E2EA3 /* Location.swift in Sources */,
 				F87ABBBE2986050B007E2EA3 /* RoundInfo.swift in Sources */,
 				F87ABBC829870A4A007E2EA3 /* PinLocation.swift in Sources */,

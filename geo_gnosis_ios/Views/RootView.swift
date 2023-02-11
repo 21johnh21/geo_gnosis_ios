@@ -34,17 +34,6 @@ struct RootView: View {
         //let screenWidth = screenSize.width
         
         NavigationStack(path: $coordinator.path) {
-//            VStack {
-//                Button {
-//                    coordinator.show(Start.self)
-//                } label: {
-//                    Text("Show View A")
-//                }
-//                Button {
-//                    coordinator.show(GameMap.self)
-//                } label: {
-//                    Text("Show View B")
-//                }
             
             ScrollView{
                 Text("Geo Gnosis").font(.title)
