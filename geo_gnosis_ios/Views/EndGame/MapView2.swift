@@ -17,17 +17,7 @@ struct MapView2: View {
     var body: some View{
         Map(coordinateRegion: $mapRegion, annotationItems: pinLocations) { pinLocation in
                 MapAnnotation(coordinate: pinLocation.coordinate) {
-//                    NavigationLink {
-//                        //Text(pinLocation.name)
-//                        let url = URL(string: "maps://?saddr=&daddr=\(pinLocation.coordinate.latitude),\(pinLocation.coordinate.longitude)")
-//                        if (UIApplication.shared.canOpenURL(url!)) {
-//                              UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-//                        }
-//                    } label: {
-//                        Circle()
-//                            .stroke(.red, lineWidth: 3)
-//                            .frame(width: 44, height: 44)
-//                    }
+
                     Circle()
                         .stroke(.red, lineWidth: 3)
                         .frame(width: 44, height: 44)
