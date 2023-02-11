@@ -131,6 +131,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F82315D9299723D50026D036 /* Leaderboard */ = {
+			isa = PBXGroup;
+			children = (
+				F87ABBDB29932462007E2EA3 /* LeaderBoard.swift */,
+				F82315CD299708190026D036 /* LeaderboardHeader.swift */,
+				F82315CF29971AD90026D036 /* LBRegionModeSec.swift */,
+				F82315D129971CDD0026D036 /* LBGameInfoList.swift */,
+				F82315D52997214A0026D036 /* LBGameInfoCard.swift */,
+				F82315D7299721690026D036 /* LBGameDetail.swift */,
+			);
+			path = Leaderboard;
+			sourceTree = "<group>";
+		};
+		F82315DA299723EA0026D036 /* SettingsSettings */ = {
+			isa = PBXGroup;
+			children = (
+				F87ABBD929932449007E2EA3 /* Settings.swift */,
+				F87ABBDD29932D3F007E2EA3 /* LogIn.swift */,
+			);
+			path = SettingsSettings;
+			sourceTree = "<group>";
+		};
+		F82315DB299724060026D036 /* RootView */ = {
+			isa = PBXGroup;
+			children = (
+				F87ABBB129820E10007E2EA3 /* RootView.swift */,
+				F87ABBD1298E9AAE007E2EA3 /* DropDown.swift */,
+			);
+			path = RootView;
+			sourceTree = "<group>";
+		};
+		F82315DC2997241C0026D036 /* EndGame */ = {
+			isa = PBXGroup;
+			children = (
+				F83C87A9297F5500008FA89D /* EndGame.swift */,
+				F87ABBBF29862FBF007E2EA3 /* EndGameCard.swift */,
+				F87ABBC5298702F8007E2EA3 /* MapView2.swift */,
+			);
+			path = EndGame;
+			sourceTree = "<group>";
+		};
+		F82315DE299724550026D036 /* GameMap */ = {
+			isa = PBXGroup;
+			children = (
+				F83C878C297DC10F008FA89D /* GameMap.swift */,
+				F83C878E297DCACB008FA89D /* MapView.swift */,
+			);
+			path = GameMap;
+			sourceTree = "<group>";
+		};
 		F827D58529777AF4007DE110 = {
 			isa = PBXGroup;
 			children = (
@@ -195,21 +245,11 @@
 			isa = PBXGroup;
 			children = (
 				F83C878A297DB970008FA89D /* Start.swift */,
-				F83C878C297DC10F008FA89D /* GameMap.swift */,
-				F83C878E297DCACB008FA89D /* MapView.swift */,
-				F87ABBC5298702F8007E2EA3 /* MapView2.swift */,
-				F83C87A9297F5500008FA89D /* EndGame.swift */,
-				F87ABBBF29862FBF007E2EA3 /* EndGameCard.swift */,
-				F87ABBB129820E10007E2EA3 /* RootView.swift */,
-				F87ABBD1298E9AAE007E2EA3 /* DropDown.swift */,
-				F87ABBD929932449007E2EA3 /* Settings.swift */,
-				F87ABBDD29932D3F007E2EA3 /* LogIn.swift */,
-				F87ABBDB29932462007E2EA3 /* LeaderBoard.swift */,
-				F82315CD299708190026D036 /* LeaderboardHeader.swift */,
-				F82315CF29971AD90026D036 /* LBRegionModeSec.swift */,
-				F82315D129971CDD0026D036 /* LBGameInfoList.swift */,
-				F82315D52997214A0026D036 /* LBGameInfoCard.swift */,
-				F82315D7299721690026D036 /* LBGameDetail.swift */,
+				F82315DE299724550026D036 /* GameMap */,
+				F82315DC2997241C0026D036 /* EndGame */,
+				F82315DB299724060026D036 /* RootView */,
+				F82315DA299723EA0026D036 /* SettingsSettings */,
+				F82315D9299723D50026D036 /* Leaderboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";

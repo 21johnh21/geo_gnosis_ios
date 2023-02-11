@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LBGameDetail: View {
     var body: some View {
+        //Model off of end game , or just use end game
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }

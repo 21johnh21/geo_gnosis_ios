@@ -10,7 +10,7 @@ import SwiftUI
 struct LBGameInfoList: View {
     var body: some View {
         //for each element returned from the remote data base for this particular game setup show a gameInfo View
-        Text("")
+        LBGameInfoCard()
     }
 }
 

@@ -12,6 +12,10 @@ struct LBRegionModeSec: View {
         ScrollView{
             LeaderboardHeader(headerText: "Easy").onTapGesture {
                 
+            }.onTapGesture {
+                //show list of game info from database
+                Alert(title: Text("ALERT"))
+                LBGameInfoList()
             }
             LeaderboardHeader(headerText: "Medium").onTapGesture {
                 

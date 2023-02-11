@@ -24,7 +24,7 @@ struct ModeView: View {
     @State var regionMode: String = "Country"
     var body: some View {
         VStack{
-            Text("Multiple Choice")
+            Text("Leaderboard").font(.title)
             HStack{
                 ScrollView{
                     Text("Multiple Choice")
