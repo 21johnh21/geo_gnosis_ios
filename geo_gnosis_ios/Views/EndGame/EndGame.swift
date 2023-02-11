@@ -18,11 +18,16 @@ struct EndGame: View {
     
     var body: some View {
         VStack {
+            VStack{
             Text("Game Over!").padding()
             HStack {
                 Text("Final Score: ").padding(.leading)
                 Spacer()
                 Text("\(CalcFinalScore())").padding(.trailing)
+            }
+            
+            }.background(){
+                RoundedRectangle(cornerRadius: 25).fill(CustomColor.primary)
             }
             
             MapView2(pinLocations: InitPinLocations())
@@ -49,6 +54,7 @@ struct EndGame: View {
                 }
             }
         }.navigationBarBackButtonHidden(true)
+        .background(CustomColor.secondary)
     }
     
     func InitPinLocations() -> Array <PinLocation>{

@@ -12,6 +12,7 @@
 		F82315D229971CDD0026D036 /* LBGameInfoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315D129971CDD0026D036 /* LBGameInfoList.swift */; };
 		F82315D62997214A0026D036 /* LBGameInfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315D52997214A0026D036 /* LBGameInfoCard.swift */; };
 		F82315D8299721690026D036 /* LBGameDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315D7299721690026D036 /* LBGameDetail.swift */; };
+		F82315E02997E6310026D036 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315DF2997E6310026D036 /* CustomColor.swift */; };
 		F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F827D59129777AF4007DE110 /* geo_gnosis_iosApp.swift */; };
 		F827D59429777AF4007DE110 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F827D59329777AF4007DE110 /* ContentView.swift */; };
 		F827D59629777AF5007DE110 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F827D59529777AF5007DE110 /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		F82315D129971CDD0026D036 /* LBGameInfoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBGameInfoList.swift; sourceTree = "<group>"; };
 		F82315D52997214A0026D036 /* LBGameInfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBGameInfoCard.swift; sourceTree = "<group>"; };
 		F82315D7299721690026D036 /* LBGameDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBGameDetail.swift; sourceTree = "<group>"; };
+		F82315DF2997E6310026D036 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		F827D58E29777AF4007DE110 /* geo_gnosis_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = geo_gnosis_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F827D59129777AF4007DE110 /* geo_gnosis_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = geo_gnosis_iosApp.swift; sourceTree = "<group>"; };
 		F827D59329777AF4007DE110 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */,
 				F87ABBC729870A4A007E2EA3 /* PinLocation.swift */,
 				F87ABBCD298A090A007E2EA3 /* ApplicationInfo.swift */,
+				F82315DF2997E6310026D036 /* CustomColor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				F82315D62997214A0026D036 /* LBGameInfoCard.swift in Sources */,
 				F87ABBB029820DD6007E2EA3 /* Coordinator.swift in Sources */,
 				F82315D029971AD90026D036 /* LBRegionModeSec.swift in Sources */,
+				F82315E02997E6310026D036 /* CustomColor.swift in Sources */,
 				F87ABBB429836663007E2EA3 /* Location.swift in Sources */,
 				F82315D229971CDD0026D036 /* LBGameInfoList.swift in Sources */,
 				F87ABBBE2986050B007E2EA3 /* RoundInfo.swift in Sources */,
