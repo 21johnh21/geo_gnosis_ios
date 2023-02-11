@@ -18,9 +18,11 @@ struct Start: View {
     
     var body: some View {
         
-        NavigationView {
+        //NavigationView {
             VStack{
-                Text("Game Mode").font(.title).padding(.top)
+                Text("Geo Gnosis").font(.title).padding(.top).background(){
+                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
+                }
                 Image("worldLogo2")
                 ZStack {
                     //RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
@@ -29,11 +31,13 @@ struct Start: View {
                         Text("\(gameInfo.regionMode)")
                         Text("\(gameInfo.region)")
                         Text("\(gameInfo.difficulty)")
+                    }.background(){
+                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                     }
                 }
                 Spacer()
                 ZStack{
-                    RoundedRectangle(cornerRadius: 5).fill(.green)
+                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                         .frame(width: 200, height: 80)
                     Text("Start").font(.title).padding(.top)
                 }
@@ -41,8 +45,9 @@ struct Start: View {
                 .onTapGesture {
                     StartGame()
                 }
-            }
-        }
+            }.frame(maxWidth: .infinity)
+            .background(CustomColor.secondary)
+        //}
     }
     func StartGame(){
         if(gameInfo.multiChoice){ //if multiple choice get the multi choice options

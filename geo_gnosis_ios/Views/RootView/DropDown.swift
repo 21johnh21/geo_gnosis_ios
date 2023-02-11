@@ -16,7 +16,7 @@ struct DropDown: View {
     var body: some View {
         
         VStack(alignment: .leading){
-            TextField("Choose a Region", text: $countrySelection)
+            TextField("Choose a Region", text: $countrySelection).background(CustomColor.trim)
             
             ZStack {
                 RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
@@ -26,7 +26,7 @@ struct DropDown: View {
                         if(countries[index].hasPrefix(countrySelection)){
                             ZStack{
                                 RoundedRectangle(cornerRadius: 5)
-                                    .fill(gameInfo.region == countries[index] ? .green : .white).padding(.trailing)//make it visible only when a county is selected
+                                    .fill(gameInfo.region == countries[index] ? CustomColor.trim : CustomColor.primary).padding(.trailing)//make it visible only when a county is selected
                                 
                                 Text(("\(countries[index])"))
                                     .onTapGesture {

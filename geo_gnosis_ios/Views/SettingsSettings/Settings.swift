@@ -48,7 +48,7 @@ struct Settings: View {
                 Spacer()
             }
             Spacer()
-        }
+        }//.background(CustomColor.secondary)
     }
 }
 

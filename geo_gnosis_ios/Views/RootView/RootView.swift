@@ -38,7 +38,7 @@ struct RootView: View {
             ScrollView{
                 Text("Geo Gnosis").font(.title)
                 ZStack{
-                    RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green)
+                    RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
                     VStack{
                         Text("Play Again").font(.title)
                         var lastMultiChoiceText = lastMultiChoice ? "Multiple Choice" : "Fill the Blank"
@@ -57,19 +57,19 @@ struct RootView: View {
                         ForEach(multiChoiceModes, id: \.self){
                             Text($0)
                         }
-                    }.pickerStyle(.segmented).colorMultiply(.green).background(.brown).cornerRadius(5)
+                    }.pickerStyle(.segmented).colorMultiply(CustomColor.primary).background(CustomColor.trim).cornerRadius(5)
                     
                     Picker("Choose a difficulty", selection: $difficulty){
                         ForEach(difficulties, id: \.self){
                             Text($0)
                         }
-                    }.pickerStyle(.segmented).colorMultiply(.green).background(.brown).cornerRadius(5)
+                    }.pickerStyle(.segmented).colorMultiply(CustomColor.primary).background(CustomColor.trim).cornerRadius(5)
                     
                     Picker("Choose a Region Mode", selection: $regionMode){
                         ForEach(regionModes, id: \.self){
                             Text($0)
                         }
-                    }.pickerStyle(.segmented).colorMultiply(.green).background(.brown).cornerRadius(5)
+                    }.pickerStyle(.segmented).colorMultiply(CustomColor.primary).background(CustomColor.trim).cornerRadius(5)
                     if(regionMode != "World"){
                         DropDown()
                     }
@@ -77,7 +77,7 @@ struct RootView: View {
                     RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
                 }
                 ZStack{
-                    RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green)
+                    RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
                     VStack{
                         Text("Start").font(.title)
                     }.padding()
@@ -95,14 +95,14 @@ struct RootView: View {
                 }
                 HStack{
                     ZStack{
-                        RoundedRectangle(cornerRadius: 5).fill(.green)
+                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                         Text("Settings")
                     }.onTapGesture {
                         coordinator.show(Settings.self)
                     }
                     Spacer()
                     ZStack{
-                        RoundedRectangle(cornerRadius: 5).fill(.green)
+                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                         Text("Leaderboard")
                     }.onTapGesture {
                         coordinator.show(LeaderBoard.self)
@@ -148,7 +148,7 @@ struct RootView: View {
 //                    RootView()
 //
 //                }
-            }
+            }.background(CustomColor.secondary)
         }
         .environmentObject(coordinator)
     }

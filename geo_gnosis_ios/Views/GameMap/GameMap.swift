@@ -71,14 +71,14 @@ struct GameMap: View {
                             VStack{
                                 HStack{
                                     ZStack{
-                                        RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
+                                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
                                         Text("\(options[0])")
                                     }
                                     .onTapGesture {
                                         ValidateAnswerMultiChoice(guessB: options[0])
                                     }
                                     ZStack{
-                                        RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
+                                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
                                         Text("\(options[1])")
                                     }.onTapGesture {
                                         ValidateAnswerMultiChoice(guessB: options[1])
@@ -86,13 +86,13 @@ struct GameMap: View {
                                 }
                                 HStack{
                                     ZStack{
-                                        RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
+                                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
                                         Text("\(options[2])")
                                     }.onTapGesture {
                                         ValidateAnswerMultiChoice(guessB: options[2])
                                     }
                                     ZStack{
-                                        RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
+                                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
                                         Text("\(options[3])")
                                     }.onTapGesture {
                                         ValidateAnswerMultiChoice(guessB: options[3])
@@ -107,13 +107,13 @@ struct GameMap: View {
 
             HStack {
                 ZStack{
-                    RoundedRectangle(cornerRadius: 5).fill(.green)
+                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                         .frame(width: 80, height: 30)
                     Text("Round: \(roundInfo.roundNumber + 1)") //Round number
                 }.padding(.leading)
                 Spacer()
                 ZStack{
-                    RoundedRectangle(cornerRadius: 5).fill(.green)
+                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                         .frame(width: 80, height: 30)
                     Text("\(count)").onReceive(timer){ _ in
                         count += 1
@@ -122,7 +122,8 @@ struct GameMap: View {
             }.safeAreaInset(edge: .bottom){
                 
             }
-        }.navigationBarBackButtonHidden(true)
+        }.background(CustomColor.secondary)
+        .navigationBarBackButtonHidden(true)
         .onAppear{
             if(gameInfo.multiChoice == true){
                 GetOption()
