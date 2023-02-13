@@ -40,7 +40,10 @@ struct RootView: View {
                 ZStack{
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
                     VStack{
-                        Text("Play Again").font(.title)
+                        HStack{
+                            Text("Play Again").font(.title)
+                            Image(systemName: "play.fill").font(.system(size: 25, weight: .bold))
+                        }
                         var lastMultiChoiceText = lastMultiChoice ? "Multiple Choice" : "Fill the Blank"
                         Text("\(lastMultiChoiceText) \(lastRegionMode) \(lastRegion) \(lastDifficulty)")
                     }.padding()
@@ -79,7 +82,10 @@ struct RootView: View {
                 ZStack{
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
                     VStack{
-                        Text("Start").font(.title)
+                        HStack{
+                            Text("Start").font(.title)
+                            Image(systemName: "play.fill").font(.system(size: 25, weight: .bold))
+                        }
                     }.padding()
                 }.onTapGesture {
                     gameInfo.multiChoice = multiChoice == "Multiple Choice" ? true : false

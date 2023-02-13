@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct geo_gnosis_iosApp: App {
+    //let bundleIdentifier = Bundle.main.bundleIdentifier
     @StateObject var roundInfo = RoundInfo()
     @StateObject var gameInfo = GameInfo()
     

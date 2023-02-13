@@ -13,6 +13,7 @@
 		F82315D62997214A0026D036 /* LBGameInfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315D52997214A0026D036 /* LBGameInfoCard.swift */; };
 		F82315D8299721690026D036 /* LBGameDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315D7299721690026D036 /* LBGameDetail.swift */; };
 		F82315E02997E6310026D036 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315DF2997E6310026D036 /* CustomColor.swift */; };
+		F82315E22999CC170026D036 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F82315E12999CC170026D036 /* GoogleService-Info.plist */; };
 		F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F827D59129777AF4007DE110 /* geo_gnosis_iosApp.swift */; };
 		F827D59429777AF4007DE110 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F827D59329777AF4007DE110 /* ContentView.swift */; };
 		F827D59629777AF5007DE110 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F827D59529777AF5007DE110 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		F82315D52997214A0026D036 /* LBGameInfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBGameInfoCard.swift; sourceTree = "<group>"; };
 		F82315D7299721690026D036 /* LBGameDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBGameDetail.swift; sourceTree = "<group>"; };
 		F82315DF2997E6310026D036 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
+		F82315E12999CC170026D036 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F827D58E29777AF4007DE110 /* geo_gnosis_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = geo_gnosis_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F827D59129777AF4007DE110 /* geo_gnosis_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = geo_gnosis_iosApp.swift; sourceTree = "<group>"; };
 		F827D59329777AF4007DE110 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		F827D59029777AF4007DE110 /* geo_gnosis_ios */ = {
 			isa = PBXGroup;
 			children = (
+				F82315E12999CC170026D036 /* GoogleService-Info.plist */,
 				F827D59129777AF4007DE110 /* geo_gnosis_iosApp.swift */,
 				F827D59329777AF4007DE110 /* ContentView.swift */,
 				F83C8796297DEF0D008FA89D /* Model */,
@@ -390,6 +393,7 @@
 			files = (
 				F87ABBD6298F6B48007E2EA3 /* locationDataUpdated2.json in Resources */,
 				F83C87A4297E030F008FA89D /* sampleLocationData.json in Resources */,
+				F82315E22999CC170026D036 /* GoogleService-Info.plist in Resources */,
 				F87ABBD8298F6E5A007E2EA3 /* locationDataUpdated3.json in Resources */,
 				F87ABBBA29837475007E2EA3 /* sampleLocationData2.json in Resources */,
 				F827D59929777AF5007DE110 /* Preview Assets.xcassets in Resources */,

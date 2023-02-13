@@ -78,6 +78,9 @@ struct EndGame: View {
         }
         return finalScore
     }
+    func SendResultsToDB(){
+        
+    }
 }
 
 struct EndGame_Previews: PreviewProvider {
