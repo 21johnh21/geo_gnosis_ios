@@ -18,6 +18,8 @@ public class RoundData{
     var multiChoiceOptions: [[Location]] = [[Location]]()
     var locationsByRegion = [Location]()
     var locations = [Location]()
+    var usedCountries: [String] = [String]()
+    var count: Int = 0
     
     init(multiChoice: Bool, difficulty: String, regionMode: String, region: String){
         self.multiChoice = multiChoice
@@ -32,9 +34,24 @@ public class RoundData{
         locationsByRegion=LocationData(difficulty: difficulty, regionMode: region, region: region).locationsByRegion
         
         //choose 5 locations out of those availible
-        for _ in 0...numOfRounds-1{
-            let locationIndex = Int.random(in: 0..<locationsByRegion.count)
-            locations.append(locationsByRegion[locationIndex])
+        if(regionMode != "World"){
+            for _ in 0...numOfRounds-1{
+                let locationIndex = Int.random(in: 0..<locationsByRegion.count)
+                locations.append(locationsByRegion[locationIndex])
+            }
+        }else{ //if its world mode prevent locations from the same country
+            //for i in 0...numOfRounds-1{
+            while(count < numOfRounds){
+                let locationIndex = Int.random(in: 0..<locationsByRegion.count)
+                if(usedCountries.contains(locationsByRegion[locationIndex].country)){
+//                    locations.append(locationsByRegion[locationIndex])
+//                    usedCountries.append(locations[i].country)
+                }else{
+                    locations.append(locationsByRegion[locationIndex])
+                    usedCountries.append(locations[count].country)
+                    count = count + 1
+                }
+            }
         }
         
         //Get Multi Choice Options
