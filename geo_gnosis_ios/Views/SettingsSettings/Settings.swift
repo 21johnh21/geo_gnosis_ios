@@ -13,6 +13,8 @@ struct Settings: View {
     @AppStorage("sound") var sound: Double = 100
     @AppStorage("sateliteMapOn") var sateliteMapOn: Bool = false
     @AppStorage("loggedIn") var loggedIn: Bool = false
+    @AppStorage("darkMode") var darkMode: Bool = false
+    @AppStorage("postScores") var postScores: Bool = true
     
     var body: some View {
         VStack{
@@ -38,6 +40,8 @@ struct Settings: View {
             Text("Volume \(String(format: "%.0f", sound))")
                 //Slider()
             Toggle("Satelite Map Mode", isOn: $sateliteMapOn)
+            Toggle("Post Scores on leaderboard", isOn: $postScores)
+            Toggle("Dark Mode", isOn: $darkMode)
             HStack {
                 ZStack{
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: 150, height: 30)
