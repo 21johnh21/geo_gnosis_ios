@@ -46,6 +46,8 @@
 		F87ABBDA29932449007E2EA3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBD929932449007E2EA3 /* Settings.swift */; };
 		F87ABBDC29932462007E2EA3 /* LeaderBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBDB29932462007E2EA3 /* LeaderBoard.swift */; };
 		F87ABBDE29932D3F007E2EA3 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBDD29932D3F007E2EA3 /* LogIn.swift */; };
+		F8947BD5299B10280030BFCA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F8947BD4299B10280030BFCA /* FirebaseAnalytics */; };
+		F8947BD7299B10280030BFCA /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F8947BD6299B10280030BFCA /* FirebaseAnalyticsSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +117,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8947BD7299B10280030BFCA /* FirebaseAnalyticsSwift in Frameworks */,
+				F8947BD5299B10280030BFCA /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,13 +212,13 @@
 		F827D59029777AF4007DE110 /* geo_gnosis_ios */ = {
 			isa = PBXGroup;
 			children = (
-				F82315E12999CC170026D036 /* GoogleService-Info.plist */,
 				F827D59129777AF4007DE110 /* geo_gnosis_iosApp.swift */,
 				F827D59329777AF4007DE110 /* ContentView.swift */,
 				F83C8796297DEF0D008FA89D /* Model */,
 				F83C8795297DEF03008FA89D /* Views */,
 				F83C879C297DF747008FA89D /* Resources */,
 				F827D59529777AF5007DE110 /* Assets.xcassets */,
+				F82315E12999CC170026D036 /* GoogleService-Info.plist */,
 				F827D59729777AF5007DE110 /* Preview Content */,
 				F87ABBAF29820DD6007E2EA3 /* Coordinator.swift */,
 			);
@@ -303,6 +307,10 @@
 			dependencies = (
 			);
 			name = geo_gnosis_ios;
+			packageProductDependencies = (
+				F8947BD4299B10280030BFCA /* FirebaseAnalytics */,
+				F8947BD6299B10280030BFCA /* FirebaseAnalyticsSwift */,
+			);
 			productName = geo_gnosis_ios;
 			productReference = F827D58E29777AF4007DE110 /* geo_gnosis_ios.app */;
 			productType = "com.apple.product-type.application";
@@ -375,6 +383,9 @@
 				Base,
 			);
 			mainGroup = F827D58529777AF4007DE110;
+			packageReferences = (
+				F8947BD3299B10280030BFCA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = F827D58F29777AF4007DE110 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -769,6 +780,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F8947BD3299B10280030BFCA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F8947BD4299B10280030BFCA /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8947BD3299B10280030BFCA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		F8947BD6299B10280030BFCA /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8947BD3299B10280030BFCA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F827D58629777AF4007DE110 /* Project object */;
 }
