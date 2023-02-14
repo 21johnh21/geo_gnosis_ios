@@ -48,6 +48,7 @@
 		F87ABBDE29932D3F007E2EA3 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBDD29932D3F007E2EA3 /* LogIn.swift */; };
 		F8947BD5299B10280030BFCA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F8947BD4299B10280030BFCA /* FirebaseAnalytics */; };
 		F8947BD7299B10280030BFCA /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F8947BD6299B10280030BFCA /* FirebaseAnalyticsSwift */; };
+		F8947BD9299B13A40030BFCA /* LeaderboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8947BD8299B13A40030BFCA /* LeaderboardInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		F87ABBD929932449007E2EA3 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		F87ABBDB29932462007E2EA3 /* LeaderBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoard.swift; sourceTree = "<group>"; };
 		F87ABBDD29932D3F007E2EA3 /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
+		F8947BD8299B13A40030BFCA /* LeaderboardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +276,7 @@
 				F87ABBC729870A4A007E2EA3 /* PinLocation.swift */,
 				F87ABBCD298A090A007E2EA3 /* ApplicationInfo.swift */,
 				F82315DF2997E6310026D036 /* CustomColor.swift */,
+				F8947BD8299B13A40030BFCA /* LeaderboardInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				F82315D229971CDD0026D036 /* LBGameInfoList.swift in Sources */,
 				F87ABBBE2986050B007E2EA3 /* RoundInfo.swift in Sources */,
 				F87ABBC829870A4A007E2EA3 /* PinLocation.swift in Sources */,
+				F8947BD9299B13A40030BFCA /* LeaderboardInfo.swift in Sources */,
 				F82315CE299708190026D036 /* LeaderboardHeader.swift in Sources */,
 				F87ABBD0298C783A007E2EA3 /* RoundData.swift in Sources */,
 				F83C878D297DC10F008FA89D /* GameMap.swift in Sources */,
