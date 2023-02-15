@@ -7,7 +7,7 @@
 	<key>REVERSED_CLIENT_ID</key>
 	<string>com.googleusercontent.apps.478402692501-vrdad56i90eenu7l6p4crtc8moo8if16</string>
 	<key>API_KEY</key>
-	<string>AIzaSyA2_hBwsUhsveYOi1K1t9ApAk71ods9teY</string>
+	<string>*******</string>
 	<key>GCM_SENDER_ID</key>
 	<string>478402692501</string>
 	<key>PLIST_VERSION</key>
@@ -19,15 +19,15 @@
 	<key>STORAGE_BUCKET</key>
 	<string>geo-gnosis-ios.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:478402692501:ios:1f5fb1cf7899797aaf629c</string>
 	<key>DATABASE_URL</key>
