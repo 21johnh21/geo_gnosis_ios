@@ -24,6 +24,7 @@ struct Start: View {
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                 }
                 Image("worldLogo2")
+                //Image("logo").scaleEffect(0.1)
                 ZStack {
                     //RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
                     VStack(alignment: .leading){
