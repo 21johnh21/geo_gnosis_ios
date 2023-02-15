@@ -19,7 +19,7 @@ struct GameMap: View {
     @State var multiChoiceAnsers: [String] = [String]()
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    //THis is causing the PURPLE modifying view warning !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //TODO: //THis is causing the PURPLE modifying view warning !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     var body: some View {
         ZStack {
