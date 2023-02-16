@@ -37,8 +37,10 @@ struct GameMap: View {
                         HStack{
                             Spacer()
                             ZStack{
-                                RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
-                                Text("Give Up")
+                                if(gameInfo.multiChoice){
+                                    RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
+                                    Text("Give Up")
+                                }
                             }.onTapGesture {
                                 roundInfo.answers[roundInfo.roundNumber] =  true //so the last round will show on end game, may need to change this later
                                 roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber
@@ -54,6 +56,7 @@ struct GameMap: View {
                         //MARK: Fill The Blank
                         if(gameInfo.multiChoice == false){ //if mode is typing
                             TextField("Answer...",text: $guess)
+                                .background(CustomColor.trim)
                                 .onSubmit{
                                     ValidateAnswer(guessB: guess)
                                 }.padding(.leading)
