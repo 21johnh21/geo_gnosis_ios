@@ -7,10 +7,14 @@
 
 import Foundation
 
-struct LeaderboardInfo{
+class LeaderboardInfo{
     
-    var userName: String
-    var finalScore: Int
-    var gameInfo: GameInfo
-    var roundInfo: [RoundInfo] //array of all round information for each of the rounds 
+    var userName: String = ""
+    var finalScore: Int = 0
+    var gameInfo: GameInfo = GameInfo()
+    var roundInfo: RoundInfo = RoundInfo()
+    //var roundInfo: [RoundInfo] = [RoundInfo(), RoundInfo(), RoundInfo(), RoundInfo(), RoundInfo()] //array of all round information for each of the rounds
+//    for i in 0...4{
+//
+//    }
 }

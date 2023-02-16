@@ -12,9 +12,15 @@ import MapKit
 
 struct EndGame: View {
     
+    @AppStorage("userName") var userName: String = ""
+    @AppStorage("loggedIn") var loggedIn: Bool = false
+    
     @EnvironmentObject private var coordinator: Coordinator
     @EnvironmentObject var roundInfo : RoundInfo
+    @EnvironmentObject var gameInfo: GameInfo
+    
     var roundNumber: Int = 0
+    var lbInfo = LeaderboardInfo() 
     
     var body: some View {
         VStack {
@@ -79,7 +85,13 @@ struct EndGame: View {
         return finalScore
     }
     func SendResultsToDB(){
-        
+        lbInfo.userName = userName
+        lbInfo.finalScore = CalcFinalScore()
+        lbInfo.gameInfo = gameInfo
+        lbInfo.roundInfo = roundInfo
+//        for i in 0...4{
+//            lbInfo.roundInfo. = $roundInfo[i]
+//        }
     }
 }
 

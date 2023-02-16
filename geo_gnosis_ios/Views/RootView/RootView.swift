@@ -44,7 +44,7 @@ struct RootView: View {
                             Text("Play Again").font(.title)
                             Image(systemName: "play.fill").font(.system(size: 25, weight: .bold))
                         }
-                        var lastMultiChoiceText = lastMultiChoice ? "Multiple Choice" : "Fill the Blank"
+                        let lastMultiChoiceText = lastMultiChoice ? "Multiple Choice" : "Fill the Blank"
                         Text("\(lastMultiChoiceText) \(lastRegionMode) \(lastRegion) \(lastDifficulty)")
                     }.padding()
                 }.onTapGesture {
