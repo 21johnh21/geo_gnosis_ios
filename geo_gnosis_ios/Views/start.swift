@@ -20,22 +20,37 @@ struct Start: View {
         
         //NavigationView {
             VStack{
-                Text("Geo Gnosis").font(.title).padding(.top).background(){
-                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
+                
+                ZStack{
+                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
+                    Text("Geo Gnosis").font(.title).padding(.top)
                 }
+//                Text("Geo Gnosis").font(.title).padding(.top).background(){
+//                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(minWidth: .infinity)
+//                }
                 Image("worldLogo2")
-                //Image("logo").scaleEffect(0.1)
-                ZStack {
-                    //RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
+                
+                ZStack{
+                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
                     VStack(alignment: .leading){
                         Text("\(gameInfo.multiChoice == true ? "Multiple Choice" : "Fill the Blank")")
                         Text("\(gameInfo.regionMode)")
                         Text("\(gameInfo.region)")
                         Text("\(gameInfo.difficulty)")
-                    }.background(){
-                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                     }
                 }
+                //Image("logo").scaleEffect(0.1)
+//                ZStack {
+//                    //RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
+//                    VStack(alignment: .leading){
+//                        Text("\(gameInfo.multiChoice == true ? "Multiple Choice" : "Fill the Blank")")
+//                        Text("\(gameInfo.regionMode)")
+//                        Text("\(gameInfo.region)")
+//                        Text("\(gameInfo.difficulty)")
+//                    }.background(){
+//                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
+//                    }
+//                }
                 Spacer()
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
