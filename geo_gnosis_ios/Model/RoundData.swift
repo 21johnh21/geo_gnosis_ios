@@ -61,8 +61,29 @@ public class RoundData{
                 var roundMultiChoiceOptions = [Location]()
                 roundMultiChoiceOptions.append(locations[i])
                 for _ in 0...2{ //append 3 random locations
-                    let locationIndex = Int.random(in: 0..<locationsByRegion.count)
-                    roundMultiChoiceOptions.append(locationsByRegion[locationIndex])
+                    var locationIndex = Int.random(in: 0..<locationsByRegion.count)
+                    //roundMultiChoiceOptions.append(locationsByRegion[locationIndex])
+                    //if this locations country is not = to the correct locations country
+                    if(regionMode == "World" ){
+                        var locationChosen: Bool = false
+                        var count: Int = 0
+                        while(!locationChosen){
+                            if(locationsByRegion[locationIndex].country != roundMultiChoiceOptions[0].country){
+                                roundMultiChoiceOptions.append(locationsByRegion[locationIndex])
+                                locationChosen = true
+                            }else{
+                                //TODO: Maybe log error here somehow
+                                locationIndex = Int.random(in: 0..<locationsByRegion.count)
+                                count = count + 1
+                                print(count)
+                            }
+                        }
+                    }else{
+                        roundMultiChoiceOptions.append(locationsByRegion[locationIndex])
+                    }
+//                    let locationIndex = Int.random(in: 0..<locationsByRegion.count)
+//                    roundMultiChoiceOptions.append(locationsByRegion[locationIndex])
+                    //------
                 }
                 multiChoiceOptions.append(roundMultiChoiceOptions)
             }
