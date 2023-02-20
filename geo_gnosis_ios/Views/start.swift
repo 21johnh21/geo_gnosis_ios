@@ -55,6 +55,7 @@ struct Start: View {
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                         .frame(width: 200, height: 80)
+                        .shadow(color: .black, radius: 3, x: 2, y: 2)
                     Text("Start").font(.title).padding(.top)
                 }
                 .padding(.bottom)

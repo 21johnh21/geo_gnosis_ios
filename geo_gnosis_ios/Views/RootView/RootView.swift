@@ -39,6 +39,7 @@ struct RootView: View {
                 Text("Geo Gnosis").font(.title)
                 ZStack{
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
+                        .shadow(color: .black, radius: 3, x: 2, y: 2)
                     VStack{
                         HStack{
                             Text("Play Again").font(.title)
@@ -81,6 +82,7 @@ struct RootView: View {
                 }
                 ZStack{
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
+                        .shadow(color: .black, radius: 3, x: 2, y: 2)
                     VStack{
                         HStack{
                             Text("Start").font(.title)

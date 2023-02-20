@@ -7,10 +7,22 @@
 
 import SwiftUI
 import MapKit
+//import FirebaseCore
+import Firebase
+//import FirebaseAnalytics
+//import FirebaseFirestoreSwift
+//import FirebaseFirestore
+
+
 
 
 
 struct EndGame: View {
+    //private let database = Database.database().reference()
+    
+    //var ref: DatabaseReference!
+    //var ref = Database.database().reference()
+    
     
     @AppStorage("userName") var userName: String = ""
     @AppStorage("loggedIn") var loggedIn: Bool = false
@@ -40,14 +52,17 @@ struct EndGame: View {
             HStack{
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
+                        .shadow(color: .black, radius: 3, x: 2, y: 2)
                     Text("Play Again")
                 }.onTapGesture {
                     coordinator.show(Start.self)
                 }
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
+                        .shadow(color: .black, radius: 3, x: 2, y: 2)
                     Text("Return to Menu")
                 }.onTapGesture {
+                    SendResultsToDB()
                     coordinator.popToRoot()
                 }
             }
@@ -89,6 +104,28 @@ struct EndGame: View {
         lbInfo.finalScore = CalcFinalScore()
         lbInfo.gameInfo = gameInfo
         lbInfo.roundInfo = roundInfo
+        
+//        var ref: DatabaseReference!
+//
+//        ref = Database.database().reference()
+        
+        
+        
+        
+        
+        
+        
+        //FIRApp.configure()
+                
+                //getting a reference to the node artists
+        //let refArtists = FirebaseApp.database().reference().child("artists");
+//        let databaseRef = FirebaseApp.app()
+//        let key = FirebaseApp.app().key
+//
+//        let testData = ["testfield" : "test"]
+//
+//        databaseRef?.setValue("testfield", forKey: "testdata")
+        
 //        for i in 0...4{
 //            lbInfo.roundInfo. = $roundInfo[i]
 //        }
