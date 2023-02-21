@@ -45,7 +45,7 @@ struct EndGame: View {
             }
             
             }.background(){
-                RoundedRectangle(cornerRadius: 25).fill(CustomColor.primary)
+                RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
             }
             
             MapView2(pinLocations: InitPinLocations())

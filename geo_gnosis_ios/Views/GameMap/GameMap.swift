@@ -253,6 +253,8 @@ struct GameMap: View {
             
             //sound
             //haptic
+            let generator = UIImpactFeedbackGenerator(style: .light)
+            generator.impactOccurred()
         }
     }
     func GetOption() {
