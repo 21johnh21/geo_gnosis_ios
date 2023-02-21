@@ -40,17 +40,7 @@ struct Start: View {
                     }
                 }
                 //Image("logo").scaleEffect(0.1)
-//                ZStack {
-//                    //RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
-//                    VStack(alignment: .leading){
-//                        Text("\(gameInfo.multiChoice == true ? "Multiple Choice" : "Fill the Blank")")
-//                        Text("\(gameInfo.regionMode)")
-//                        Text("\(gameInfo.region)")
-//                        Text("\(gameInfo.difficulty)")
-//                    }.background(){
-//                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
-//                    }
-//                }
+
                 Spacer()
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
@@ -64,7 +54,6 @@ struct Start: View {
                 }
             }.frame(maxWidth: .infinity)
             .background(CustomColor.secondary)
-        //}
     }
     func StartGame(){
         if(gameInfo.multiChoice){ //if multiple choice get the multi choice options

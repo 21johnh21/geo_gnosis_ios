@@ -13,7 +13,6 @@ struct EndGameCard: View {
     var roundNumber: Int
     var time: Int
     var answer: Bool
-    //var customColor = CustomColor()
     
     var body: some View {
         if(answer){
