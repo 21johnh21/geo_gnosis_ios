@@ -273,6 +273,8 @@ struct GameMap: View {
         }
     }
     func CorrectGuess(){
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
         roundInfo.times[roundInfo.roundNumber] = count
         roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber + 1
         roundInfo.answers[roundInfo.roundNumber] = true
