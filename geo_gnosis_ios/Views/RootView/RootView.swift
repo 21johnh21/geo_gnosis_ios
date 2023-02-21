@@ -26,8 +26,9 @@ struct RootView: View {
     
     let screenSize: CGRect = UIScreen.main.bounds
     //let screenWidth = screenSize.width
-
-   
+    @State var animationAmount = 0.0
+    @State var animate = false
+   @State var tapped = false
     
     var body: some View {
         
@@ -40,6 +41,16 @@ struct RootView: View {
                 ZStack{
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
+                        //.scaleEffect(animationAmount)
+                        //.offset(x: animate ? 5 : 0)
+                        .rotationEffect(.degrees(animationAmount))
+                    
+                    
+                        //.animation(.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 0.0,  initialVelocity: 20.0), value: animationAmount)
+                    
+                        .animation(animate ? Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 0.0,  initialVelocity: 20.0).repeatForever(autoreverses: true) : Animation.default, value: animationAmount)
+                    
+                        //.animation(.spring(response: 0.5, dampingFraction: 0.01, blendDuration: 1), value: animationAmount)
                     VStack{
                         HStack{
                             Text("Play Again").font(.title)
@@ -49,11 +60,14 @@ struct RootView: View {
                         Text("\(lastMultiChoiceText) \(lastRegionMode) \(lastRegion) \(lastDifficulty)")
                     }.padding()
                 }.onTapGesture {
+                    animationAmount = animationAmount + 1
+                    animate.toggle()
+                    tapped = true
                     gameInfo.multiChoice = lastMultiChoice
                     gameInfo.regionMode = lastRegionMode
                     gameInfo.region = lastRegion
                     gameInfo.difficulty = lastDifficulty
-                    coordinator.show(Start.self)
+                    //coordinator.show(Start.self)
                 }
                 VStack{
                     Text("Set Up Game")

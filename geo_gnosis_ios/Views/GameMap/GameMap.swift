@@ -17,6 +17,9 @@ struct GameMap: View {
     @State var options: [String] = ["", "", "", ""]
     @State var count: Int = 0
     @State var multiChoiceAnsers: [String] = [String]()
+
+    @State var animate : [Bool] = [false, false, false, false, false ]
+    @State var animationAmount: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     //TODO: //THis is causing the PURPLE modifying view warning !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -54,13 +57,18 @@ struct GameMap: View {
                 
                 VStack{
                     HStack{
-                        //MARK: Fill The Blank
+                        //MARK: Fill The Blank --------------------------------------------------
                         if(gameInfo.multiChoice == false){ //if mode is typing
                             TextField("Answer...",text: $guess)
                                 .background(CustomColor.trim)
+                                .rotationEffect(.degrees(animationAmount[4]))
+                                .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: animationAmount[4])
                                 .onSubmit{
                                     ValidateAnswer(guessB: guess)
                                 }.padding(.leading)
+                                .onChange(of: animate[4]){ newValue in
+                                    animationAmount[4] -= 1
+                                }
                             
                             ZStack{
                                 RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
@@ -73,39 +81,59 @@ struct GameMap: View {
                                 coordinator.show(EndGame.self)
                             }
                         } else{
-                            //MARK: MultiChoice
+                            //MARK: MultiChoice -----------------------------------------------------
                             VStack{
                                 HStack{
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
                                             .shadow(color: .black, radius: 3, x: 2, y: 2)
+                                            .rotationEffect(.degrees(animationAmount[0]))
+                                            .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: animationAmount[0])
                                         Text("\(options[0])")
                                     }
                                     .onTapGesture {
-                                        ValidateAnswerMultiChoice(guessB: options[0])
+                                        ValidateAnswerMultiChoice(guessB: options[0], optionClicked: 0)
+                                    }
+                                    .onChange(of: animate[0]){ newValue in
+                                        animationAmount[0] -= 1
                                     }
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
                                             .shadow(color: .black, radius: 3, x: 2, y: 2)
+                                            .rotationEffect(.degrees(animationAmount[1]))
+                                            .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: animationAmount[1])
                                         Text("\(options[1])")
                                     }.onTapGesture {
-                                        ValidateAnswerMultiChoice(guessB: options[1])
+                                        ValidateAnswerMultiChoice(guessB: options[1], optionClicked: 1)
+                                    }
+                                    .onChange(of: animate[1]){ newValue in
+                                        animationAmount[1] -= 1
                                     }
                                 }
                                 HStack{
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
                                             .shadow(color: .black, radius: 3, x: 2, y: 2)
+                                            .rotationEffect(.degrees(animationAmount[2]))
+                                            .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: animationAmount[2])
                                         Text("\(options[2])")
                                     }.onTapGesture {
-                                        ValidateAnswerMultiChoice(guessB: options[2])
+                                        ValidateAnswerMultiChoice(guessB: options[2], optionClicked: 2)
+                                    }
+                                    .onChange(of: animate[2]){ newValue in
+                                        animationAmount[2] -= 1
                                     }
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
                                             .shadow(color: .black, radius: 3, x: 2, y: 2)
+                                            .rotationEffect(.degrees(animationAmount[3]))
+                                            .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: animationAmount[3])
                                         Text("\(options[3])")
                                     }.onTapGesture {
-                                        ValidateAnswerMultiChoice(guessB: options[3])
+                                        ValidateAnswerMultiChoice(guessB: options[3], optionClicked: 3)
+                                    }
+                                    .onChange(of: animate[3]){ newValue in
+                                        animationAmount[3] -= 1
                                     }
                                 }
                             }
@@ -168,6 +196,8 @@ struct GameMap: View {
             guess = "" //clear text
             //send give user feed back
             //animation
+            animationAmount[4] += 1
+            animate[4].toggle()
             //sound
             //haptic
         }
@@ -195,7 +225,7 @@ struct GameMap: View {
         }
         return countryNames
     }
-    func ValidateAnswerMultiChoice(guessB: String){
+    func ValidateAnswerMultiChoice(guessB: String, optionClicked: Int){
         var answer: String
         answer = GetCorrectAnswer()
         
@@ -217,6 +247,10 @@ struct GameMap: View {
             guess = "" //clear text
             //send give user feed back
             //animation
+            
+            animationAmount[optionClicked] += 1
+            animate[optionClicked].toggle()
+            
             //sound
             //haptic
         }
