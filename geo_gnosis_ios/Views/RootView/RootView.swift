@@ -113,6 +113,12 @@ struct RootView: View {
                     }
                 }
                 
+                ZStack{
+                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
+                    Text("DEV - Test Haptic")
+                }.onTapGesture {
+                    coordinator.show(DevTestHapticFeedback.self)
+                }
             }
             .navigationDestination(for: String.self) { id in
                 if id == String(describing: Start.self) {
@@ -132,6 +138,9 @@ struct RootView: View {
                 }
                 else if id == String(describing: LogIn.self){
                     LogIn()
+                }
+                else if id == String(describing: DevTestHapticFeedback.self){
+                    DevTestHapticFeedback()
                 }
 //                else if id == String(describing: RootView.self){
 //                    RootView()

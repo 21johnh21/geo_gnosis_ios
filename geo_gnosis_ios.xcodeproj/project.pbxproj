@@ -49,6 +49,7 @@
 		F8947BD5299B10280030BFCA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F8947BD4299B10280030BFCA /* FirebaseAnalytics */; };
 		F8947BD7299B10280030BFCA /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F8947BD6299B10280030BFCA /* FirebaseAnalyticsSwift */; };
 		F8947BD9299B13A40030BFCA /* LeaderboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8947BD8299B13A40030BFCA /* LeaderboardInfo.swift */; };
+		F8996FCB29A46C5E0039C685 /* DevTestHapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FCA29A46C5E0039C685 /* DevTestHapticFeedback.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		F87ABBDB29932462007E2EA3 /* LeaderBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoard.swift; sourceTree = "<group>"; };
 		F87ABBDD29932D3F007E2EA3 /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 		F8947BD8299B13A40030BFCA /* LeaderboardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardInfo.swift; sourceTree = "<group>"; };
+		F8996FCA29A46C5E0039C685 /* DevTestHapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevTestHapticFeedback.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +263,7 @@
 				F82315DB299724060026D036 /* RootView */,
 				F82315DA299723EA0026D036 /* SettingsSettings */,
 				F82315D9299723D50026D036 /* Leaderboard */,
+				F8996FCA29A46C5E0039C685 /* DevTestHapticFeedback.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				F827D59429777AF4007DE110 /* ContentView.swift in Sources */,
 				F87ABBC029862FBF007E2EA3 /* EndGameCard.swift in Sources */,
 				F83C87AA297F5500008FA89D /* EndGame.swift in Sources */,
+				F8996FCB29A46C5E0039C685 /* DevTestHapticFeedback.swift in Sources */,
 				F87ABBC6298702F8007E2EA3 /* MapView2.swift in Sources */,
 				F87ABBCC2989F79B007E2EA3 /* GameInfo.swift in Sources */,
 				F87ABBDC29932462007E2EA3 /* LeaderBoard.swift in Sources */,
@@ -624,6 +628,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"geo_gnosis_ios/Preview Content\"";
+				DEVELOPMENT_TEAM = W86B92N72B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -652,6 +657,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"geo_gnosis_ios/Preview Content\"";
+				DEVELOPMENT_TEAM = W86B92N72B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
