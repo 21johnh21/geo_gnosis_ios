@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import CoreLocation
+import AVFAudio
 
 struct GameMap: View {
     
@@ -20,6 +21,9 @@ struct GameMap: View {
 
     @State var animate : [Bool] = [false, false, false, false, false ]
     @State var animationAmount: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
+    
+    //var audioPlayer = AVAudioPlayer()
+    @State var audioPlayer:AVAudioPlayer?
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     //TODO: //THis is causing the PURPLE modifying view warning !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -170,6 +174,7 @@ struct GameMap: View {
             if(gameInfo.multiChoice == true){
                 GetOption()
             }
+            PlayBackground()
         }
     }
     
@@ -203,6 +208,7 @@ struct GameMap: View {
             animationAmount[4] += 1
             animate[4].toggle()
             //sound
+            PlayIncorrect()
             //haptic
             let generator = UIImpactFeedbackGenerator(style: .light)
             generator.impactOccurred()
@@ -253,11 +259,10 @@ struct GameMap: View {
             guess = "" //clear text
             //send give user feed back
             //animation
-            
             animationAmount[optionClicked] += 1
             animate[optionClicked].toggle()
-            
             //sound
+            PlayIncorrect()
             //haptic
             let generator = UIImpactFeedbackGenerator(style: .light)
             generator.impactOccurred()
@@ -281,6 +286,7 @@ struct GameMap: View {
     func CorrectGuess(){
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
+        PlayCorrect()
         roundInfo.times[roundInfo.roundNumber] = count
         roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber + 1
         roundInfo.answers[roundInfo.roundNumber] = true
@@ -320,6 +326,51 @@ struct GameMap: View {
             pinLocations.append(pinLocation)
         }
         return pinLocations
+    }
+    func PlayBackground(){
+        if let path = Bundle.main.path(forResource: "action-sound-effect", ofType: "mp3"){
+            self.audioPlayer = AVAudioPlayer()
+            //self.isPlaying.toggle()
+            let url = URL(fileURLWithPath: path)
+            
+            do {
+                self.audioPlayer = try AVAudioPlayer(contentsOf: url)
+                self.audioPlayer?.prepareToPlay()
+                self.audioPlayer?.play()
+            }catch {
+                print("Eror")
+            }
+        }
+    }
+    func PlayCorrect(){
+        if let path = Bundle.main.path(forResource: "Ding-sound-effect", ofType: "mp3"){
+            self.audioPlayer = AVAudioPlayer()
+            //self.isPlaying.toggle()
+            let url = URL(fileURLWithPath: path)
+            
+            do {
+                self.audioPlayer = try AVAudioPlayer(contentsOf: url)
+                self.audioPlayer?.prepareToPlay()
+                self.audioPlayer?.play()
+            }catch {
+                print("Eror")
+            }
+        }
+    }
+    func PlayIncorrect(){
+        if let path = Bundle.main.path(forResource: "button-click-sound-effect", ofType: "mp3"){
+            self.audioPlayer = AVAudioPlayer()
+            //self.isPlaying.toggle()
+            let url = URL(fileURLWithPath: path)
+            
+            do {
+                self.audioPlayer = try AVAudioPlayer(contentsOf: url)
+                self.audioPlayer?.prepareToPlay()
+                self.audioPlayer?.play()
+            }catch {
+                print("Eror")
+            }
+        }
     }
 }
 
