@@ -55,6 +55,8 @@ struct EndGame: View {
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
                     Text("Play Again")
                 }.onTapGesture {
+                    let generator = UIImpactFeedbackGenerator(style: .light)
+                    generator.impactOccurred()
                     coordinator.show(Start.self)
                 }
                 ZStack{
@@ -62,6 +64,8 @@ struct EndGame: View {
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
                     Text("Return to Menu")
                 }.onTapGesture {
+                    let generator = UIImpactFeedbackGenerator(style: .light)
+                    generator.impactOccurred()
                     SendResultsToDB()
                     coordinator.popToRoot()
                 }

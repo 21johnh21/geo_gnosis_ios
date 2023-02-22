@@ -25,9 +25,6 @@ struct Start: View {
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
                     Text("Geo Gnosis").font(.title).padding(.top)
                 }
-//                Text("Geo Gnosis").font(.title).padding(.top).background(){
-//                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(minWidth: .infinity)
-//                }
                 Image("worldLogo2")
                 
                 ZStack{
@@ -50,6 +47,8 @@ struct Start: View {
                 }
                 .padding(.bottom)
                 .onTapGesture {
+                    let generator = UIImpactFeedbackGenerator(style: .light)
+                    generator.impactOccurred()
                     StartGame()
                 }
             }.frame(maxWidth: .infinity)

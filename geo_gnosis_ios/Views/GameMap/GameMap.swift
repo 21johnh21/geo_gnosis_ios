@@ -46,6 +46,8 @@ struct GameMap: View {
                                     Text("Give Up")
                                 }
                             }.onTapGesture {
+                                let generator = UIImpactFeedbackGenerator(style: .light)
+                                generator.impactOccurred()
                                 roundInfo.answers[roundInfo.roundNumber] =  true //so the last round will show on end game, may need to change this later
                                 roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber
                                 roundInfo.times[roundInfo.roundNumber] = -1
@@ -75,6 +77,8 @@ struct GameMap: View {
                                     .shadow(color: .black, radius: 3, x: 2, y: 2)
                                 Text("Give Up")
                             }.onTapGesture {
+                                let generator = UIImpactFeedbackGenerator(style: .light)
+                                generator.impactOccurred()
                                 roundInfo.answers[roundInfo.roundNumber] =  true //so the last round will show on end game, may need to change this later
                                 roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber
                                 roundInfo.times[roundInfo.roundNumber] = -1
@@ -200,6 +204,8 @@ struct GameMap: View {
             animate[4].toggle()
             //sound
             //haptic
+            let generator = UIImpactFeedbackGenerator(style: .light)
+            generator.impactOccurred()
         }
     }
     func AlternativeName(country: String) -> [String]{

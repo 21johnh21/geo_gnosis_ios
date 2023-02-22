@@ -45,6 +45,8 @@ struct RootView: View {
                         Text("\(lastMultiChoiceText) \(lastRegionMode) \(lastRegion) \(lastDifficulty)")
                     }.padding()
                 }.onTapGesture {
+                    let generator = UIImpactFeedbackGenerator(style: .light)
+                    generator.impactOccurred()
                     gameInfo.multiChoice = lastMultiChoice
                     gameInfo.regionMode = lastRegionMode
                     gameInfo.region = lastRegion
@@ -86,6 +88,8 @@ struct RootView: View {
                         }
                     }.padding()
                 }.onTapGesture {
+                    let generator = UIImpactFeedbackGenerator(style: .light)
+                    generator.impactOccurred()
                     gameInfo.multiChoice = multiChoice == "Multiple Choice" ? true : false
                     gameInfo.difficulty = difficulty
                     gameInfo.regionMode = regionMode
@@ -102,6 +106,8 @@ struct RootView: View {
                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                         Text("Settings")
                     }.onTapGesture {
+                        let generator = UIImpactFeedbackGenerator(style: .light)
+                        generator.impactOccurred()
                         coordinator.show(Settings.self)
                     }
                     Spacer()
@@ -109,6 +115,8 @@ struct RootView: View {
                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                         Text("Leaderboard")
                     }.onTapGesture {
+                        let generator = UIImpactFeedbackGenerator(style: .light)
+                        generator.impactOccurred()
                         coordinator.show(LeaderBoard.self)
                     }
                 }
@@ -117,6 +125,8 @@ struct RootView: View {
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                     Text("DEV - Test Haptic")
                 }.onTapGesture {
+                    let generator = UIImpactFeedbackGenerator(style: .light)
+                    generator.impactOccurred()
                     coordinator.show(DevTestHapticFeedback.self)
                 }
             }

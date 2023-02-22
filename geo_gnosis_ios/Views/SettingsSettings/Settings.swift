@@ -29,6 +29,8 @@ struct Settings: View {
                     }
                     .shadow(radius: 7).padding()
                     .onTapGesture {
+                        let generator = UIImpactFeedbackGenerator(style: .light)
+                        generator.impactOccurred()
                         coordinator.show(LogIn.self)
                     }
                     //.frame(width: 20.0, height: 20.0).padding()
@@ -47,7 +49,8 @@ struct Settings: View {
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: 150, height: 30)
                     Text("Play Tutorial")
                 }.onTapGesture {
-                   
+                    let generator = UIImpactFeedbackGenerator(style: .light)
+                    generator.impactOccurred()
                 }
                 Spacer()
             }
