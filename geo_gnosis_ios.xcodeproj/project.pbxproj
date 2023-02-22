@@ -37,7 +37,6 @@
 		F87ABBC6298702F8007E2EA3 /* MapView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBC5298702F8007E2EA3 /* MapView2.swift */; };
 		F87ABBC829870A4A007E2EA3 /* PinLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBC729870A4A007E2EA3 /* PinLocation.swift */; };
 		F87ABBCC2989F79B007E2EA3 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */; };
-		F87ABBCE298A090A007E2EA3 /* ApplicationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBCD298A090A007E2EA3 /* ApplicationInfo.swift */; };
 		F87ABBD0298C783A007E2EA3 /* RoundData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBCF298C783A007E2EA3 /* RoundData.swift */; };
 		F87ABBD2298E9AAE007E2EA3 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBD1298E9AAE007E2EA3 /* DropDown.swift */; };
 		F87ABBD4298F2F7E007E2EA3 /* locationDataUpdated.json in Resources */ = {isa = PBXBuildFile; fileRef = F87ABBD3298F2F7E007E2EA3 /* locationDataUpdated.json */; };
@@ -53,6 +52,7 @@
 		F8996FCF29A598170039C685 /* action-sound-effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8996FCE29A598170039C685 /* action-sound-effect.mp3 */; };
 		F8996FD129A59B940039C685 /* Ding-sound-effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8996FD029A59B940039C685 /* Ding-sound-effect.mp3 */; };
 		F8996FD329A59BA50039C685 /* button-click-sound-effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8996FD229A59BA50039C685 /* button-click-sound-effect.mp3 */; };
+		F8996FD729A5B0440039C685 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FD629A5B0440039C685 /* TimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,7 +106,6 @@
 		F87ABBC5298702F8007E2EA3 /* MapView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView2.swift; sourceTree = "<group>"; };
 		F87ABBC729870A4A007E2EA3 /* PinLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinLocation.swift; sourceTree = "<group>"; };
 		F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
-		F87ABBCD298A090A007E2EA3 /* ApplicationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationInfo.swift; sourceTree = "<group>"; };
 		F87ABBCF298C783A007E2EA3 /* RoundData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundData.swift; sourceTree = "<group>"; };
 		F87ABBD1298E9AAE007E2EA3 /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		F87ABBD3298F2F7E007E2EA3 /* locationDataUpdated.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locationDataUpdated.json; sourceTree = "<group>"; };
@@ -120,6 +119,7 @@
 		F8996FCE29A598170039C685 /* action-sound-effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "action-sound-effect.mp3"; sourceTree = "<group>"; };
 		F8996FD029A59B940039C685 /* Ding-sound-effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ding-sound-effect.mp3"; sourceTree = "<group>"; };
 		F8996FD229A59BA50039C685 /* button-click-sound-effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "button-click-sound-effect.mp3"; sourceTree = "<group>"; };
+		F8996FD629A5B0440039C685 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +271,7 @@
 				F82315DA299723EA0026D036 /* SettingsSettings */,
 				F82315D9299723D50026D036 /* Leaderboard */,
 				F8996FCA29A46C5E0039C685 /* DevTestHapticFeedback.swift */,
+				F8996FD629A5B0440039C685 /* TimerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -284,7 +285,6 @@
 				F87ABBBD2986050B007E2EA3 /* RoundInfo.swift */,
 				F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */,
 				F87ABBC729870A4A007E2EA3 /* PinLocation.swift */,
-				F87ABBCD298A090A007E2EA3 /* ApplicationInfo.swift */,
 				F82315DF2997E6310026D036 /* CustomColor.swift */,
 				F8947BD8299B13A40030BFCA /* LeaderboardInfo.swift */,
 			);
@@ -474,7 +474,6 @@
 				F83C878F297DCACB008FA89D /* MapView.swift in Sources */,
 				F87ABBD2298E9AAE007E2EA3 /* DropDown.swift in Sources */,
 				F87ABBDE29932D3F007E2EA3 /* LogIn.swift in Sources */,
-				F87ABBCE298A090A007E2EA3 /* ApplicationInfo.swift in Sources */,
 				F82315D62997214A0026D036 /* LBGameInfoCard.swift in Sources */,
 				F87ABBB029820DD6007E2EA3 /* Coordinator.swift in Sources */,
 				F82315D029971AD90026D036 /* LBRegionModeSec.swift in Sources */,
@@ -486,6 +485,7 @@
 				F8947BD9299B13A40030BFCA /* LeaderboardInfo.swift in Sources */,
 				F82315CE299708190026D036 /* LeaderboardHeader.swift in Sources */,
 				F87ABBD0298C783A007E2EA3 /* RoundData.swift in Sources */,
+				F8996FD729A5B0440039C685 /* TimerView.swift in Sources */,
 				F83C878D297DC10F008FA89D /* GameMap.swift in Sources */,
 				F83C878B297DB970008FA89D /* Start.swift in Sources */,
 				F87ABBB229820E10007E2EA3 /* RootView.swift in Sources */,

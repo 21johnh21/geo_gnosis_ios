@@ -26,7 +26,7 @@ struct GameMap: View {
     @State var audioPlayer:AVAudioPlayer?
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    //TODO: //THis is causing the PURPLE modifying view warning !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //TODO: //This is causing the PURPLE modifying view warning !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     var body: some View {
         ZStack {
@@ -158,13 +158,14 @@ struct GameMap: View {
                     Text("Round: \(roundInfo.roundNumber + 1)") //Round number
                 }.padding(.leading)
                 Spacer()
-                ZStack{
-                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
-                        .frame(width: 80, height: 30)
-                    Text("\(count)").onReceive(timer){ _ in
-                        count += 1
-                    }
-                }.padding(.trailing)
+//                ZStack{
+//                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
+//                        .frame(width: 80, height: 30)
+//                    Text("\(count)").onReceive(timer){ _ in
+//                        count += 1
+//                    }
+//                }.padding(.trailing)
+                TimerView()
             }.safeAreaInset(edge: .bottom){
                 
             }
@@ -175,6 +176,9 @@ struct GameMap: View {
                 GetOption()
             }
             PlayBackground()
+        }
+        .onReceive(timer){ _ in
+            count += 1
         }
     }
     
@@ -288,6 +292,7 @@ struct GameMap: View {
         generator.notificationOccurred(.success)
         PlayCorrect()
         roundInfo.times[roundInfo.roundNumber] = count
+        //roundInfo.times[roundInfo.roundNumber] =
         roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber + 1
         roundInfo.answers[roundInfo.roundNumber] = true
     }
