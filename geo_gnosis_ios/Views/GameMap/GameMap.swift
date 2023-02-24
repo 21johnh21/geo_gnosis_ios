@@ -177,7 +177,12 @@ struct GameMap: View {
             if(gameInfo.multiChoice == true){
                 GetOption()
             }
-            PlayBackground()
+//            if(((audioPlayer1?.isPlaying) == false) || ((audioPlayer1?.isPlaying) == nil)){
+//                PlayBackground()
+//            }
+            if(roundInfo.roundNumber == 0){
+                PlayBackground()
+            }
         }
         .onReceive(timer){ _ in
             count += 1
@@ -293,6 +298,9 @@ struct GameMap: View {
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
         PlayCorrect()
+        if(roundInfo.roundNumber == 4){
+            audioPlayer1?.pause()
+        }
         roundInfo.times[roundInfo.roundNumber] = count
         //roundInfo.times[roundInfo.roundNumber] =
         roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber + 1
@@ -343,7 +351,9 @@ struct GameMap: View {
             do {
                 self.audioPlayer1 = try AVAudioPlayer(contentsOf: url)
                 self.audioPlayer1?.prepareToPlay()
+                self.audioPlayer1?.numberOfLoops = -1
                 self.audioPlayer1?.play()
+                //self.audioPlayer1?.numberOfLoops()
             }catch {
                 print("Eror")
             }
