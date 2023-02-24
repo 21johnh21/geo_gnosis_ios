@@ -31,7 +31,10 @@ struct RootView: View {
         NavigationStack(path: $coordinator.path) {
             
             ScrollView{
-                Text("Geo Gnosis").font(.title)
+                ZStack{
+                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
+                    Text("Geo Gnosis").font(.title).padding(.top)
+                }
                 ZStack{
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
@@ -42,7 +45,7 @@ struct RootView: View {
                             Image(systemName: "play.fill").font(.system(size: 25, weight: .bold))
                         }
                         let lastMultiChoiceText = lastMultiChoice ? "Multiple Choice" : "Fill the Blank"
-                        Text("\(lastMultiChoiceText) \(lastRegionMode) \(lastRegion) \(lastDifficulty)")
+                        Text("\(lastMultiChoiceText)\(Image(systemName: "circle.fill"))\(lastRegionMode)\(Image(systemName: "circle.fill"))\(lastRegion)\(Image(systemName: "circle.fill"))\(lastDifficulty)")
                     }.padding()
                 }.onTapGesture {
                     let generator = UIImpactFeedbackGenerator(style: .light)

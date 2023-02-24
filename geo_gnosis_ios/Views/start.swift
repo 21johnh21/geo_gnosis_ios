@@ -29,11 +29,14 @@ struct Start: View {
                 
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
-                    VStack(alignment: .leading){
-                        Text("\(gameInfo.multiChoice == true ? "Multiple Choice" : "Fill the Blank")")
-                        Text("\(gameInfo.regionMode)")
-                        Text("\(gameInfo.region)")
-                        Text("\(gameInfo.difficulty)")
+                    VStack(alignment: .center){
+                       let gameMode = gameInfo.multiChoice == true ? "Multiple Choice" : "Fill the Blank"
+                        Text("Game Mode \(Image(systemName: "circle.fill")) \(gameMode)")
+                        Text("Region Mode \(Image(systemName: "circle.fill")) \(gameInfo.regionMode)")
+                        if(gameInfo.regionMode != "World"){
+                            Text("Region \(Image(systemName: "circle.fill")) \(gameInfo.region)")
+                        }
+                        Text("Difficulty \(Image(systemName: "circle.fill")) \(gameInfo.difficulty)")
                     }
                 }
                 //Image("logo").scaleEffect(0.1)
