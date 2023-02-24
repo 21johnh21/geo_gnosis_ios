@@ -23,7 +23,9 @@ struct GameMap: View {
     @State var animationAmount: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
     
     //var audioPlayer = AVAudioPlayer()
-    @State var audioPlayer:AVAudioPlayer?
+    @State var audioPlayer1:AVAudioPlayer?
+    @State var audioPlayer2:AVAudioPlayer?
+    @State var audioPlayer3:AVAudioPlayer?
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     //TODO: //This is causing the PURPLE modifying view warning !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -334,14 +336,14 @@ struct GameMap: View {
     }
     func PlayBackground(){
         if let path = Bundle.main.path(forResource: "action-sound-effect", ofType: "mp3"){
-            self.audioPlayer = AVAudioPlayer()
+            self.audioPlayer1 = AVAudioPlayer()
             //self.isPlaying.toggle()
             let url = URL(fileURLWithPath: path)
             
             do {
-                self.audioPlayer = try AVAudioPlayer(contentsOf: url)
-                self.audioPlayer?.prepareToPlay()
-                self.audioPlayer?.play()
+                self.audioPlayer1 = try AVAudioPlayer(contentsOf: url)
+                self.audioPlayer1?.prepareToPlay()
+                self.audioPlayer1?.play()
             }catch {
                 print("Eror")
             }
@@ -349,14 +351,14 @@ struct GameMap: View {
     }
     func PlayCorrect(){
         if let path = Bundle.main.path(forResource: "Ding-sound-effect", ofType: "mp3"){
-            self.audioPlayer = AVAudioPlayer()
+            self.audioPlayer2 = AVAudioPlayer()
             //self.isPlaying.toggle()
             let url = URL(fileURLWithPath: path)
             
             do {
-                self.audioPlayer = try AVAudioPlayer(contentsOf: url)
-                self.audioPlayer?.prepareToPlay()
-                self.audioPlayer?.play()
+                self.audioPlayer2 = try AVAudioPlayer(contentsOf: url)
+                self.audioPlayer2?.prepareToPlay()
+                self.audioPlayer2?.play()
             }catch {
                 print("Eror")
             }
@@ -364,14 +366,14 @@ struct GameMap: View {
     }
     func PlayIncorrect(){
         if let path = Bundle.main.path(forResource: "button-click-sound-effect", ofType: "mp3"){
-            self.audioPlayer = AVAudioPlayer()
+            self.audioPlayer3 = AVAudioPlayer()
             //self.isPlaying.toggle()
             let url = URL(fileURLWithPath: path)
             
             do {
-                self.audioPlayer = try AVAudioPlayer(contentsOf: url)
-                self.audioPlayer?.prepareToPlay()
-                self.audioPlayer?.play()
+                self.audioPlayer3 = try AVAudioPlayer(contentsOf: url)
+                self.audioPlayer3?.prepareToPlay()
+                self.audioPlayer3?.play()
             }catch {
                 print("Eror")
             }
