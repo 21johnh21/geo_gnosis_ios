@@ -20,12 +20,12 @@ struct Start: View {
         
         //NavigationView {
             VStack{
-                
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
                     Text("Geo Gnosis").font(.title).padding(.top)
                 }
-                Image("worldLogo2")
+                //Image("worldLogo2")
+                Image("logo").resizable().frame(width: 255, height: 255).clipShape(Circle()).padding()
                 
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
