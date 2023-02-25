@@ -33,7 +33,8 @@ struct RootView: View {
             ScrollView{
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
-                    Text("Geo Gnosis").font(.title).padding(.top)
+                    //Text("Geo Gnosis").font(.title).padding(.top)
+                    Text("Geo Gnosis").font(.custom("BebasNeue-Regular", size: 45)).padding(.top)
                 }
                 ZStack{
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
@@ -41,11 +42,11 @@ struct RootView: View {
                         
                     VStack{
                         HStack{
-                            Text("Play Again").font(.title)
+                            Text("Play Again").font(.custom("Changa-Light", size: 36))
                             Image(systemName: "play.fill").font(.system(size: 25, weight: .bold))
                         }
                         let lastMultiChoiceText = lastMultiChoice ? "Multiple Choice" : "Fill the Blank"
-                        Text("\(lastMultiChoiceText)\(Image(systemName: "circle.fill"))\(lastRegionMode)\(Image(systemName: "circle.fill"))\(lastRegion)\(Image(systemName: "circle.fill"))\(lastDifficulty)")
+                        Text("\(lastMultiChoiceText) \(Image(systemName: "circle.fill")) \(lastRegionMode) \(Image(systemName: "circle.fill")) \(lastRegion) \(Image(systemName: "circle.fill")) \(lastDifficulty)").font(.custom("Changa-Light", size: 16))
                     }.padding()
                 }.onTapGesture {
                     let generator = UIImpactFeedbackGenerator(style: .light)
@@ -57,22 +58,22 @@ struct RootView: View {
                     coordinator.show(Start.self)
                 }
                 VStack{
-                    Text("Set Up Game")
+                    Text("Set Up Game").font(.custom("Changa-Light", size: 16))
                     Picker("Choose a Mode", selection: $multiChoice){
                         ForEach(multiChoiceModes, id: \.self){
-                            Text($0)
+                            Text($0).font(.custom("Changa-Light", size: 16))
                         }
                     }.pickerStyle(.segmented).colorMultiply(CustomColor.primary).background(CustomColor.trim).cornerRadius(5)
                     
                     Picker("Choose a difficulty", selection: $difficulty){
                         ForEach(difficulties, id: \.self){
-                            Text($0)
+                            Text($0).font(.custom("Changa-Light", size: 16))
                         }
                     }.pickerStyle(.segmented).colorMultiply(CustomColor.primary).background(CustomColor.trim).cornerRadius(5)
                     
                     Picker("Choose a Region Mode", selection: $regionMode){
                         ForEach(regionModes, id: \.self){
-                            Text($0)
+                            Text($0).font(.custom("Changa-Light", size: 16))
                         }
                     }.pickerStyle(.segmented).colorMultiply(CustomColor.primary).background(CustomColor.trim).cornerRadius(5)
                     if(regionMode != "World"){
@@ -86,7 +87,7 @@ struct RootView: View {
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
                     VStack{
                         HStack{
-                            Text("Start").font(.title)
+                            Text("Start").font(.custom("Changa-Light", size: 40))
                             Image(systemName: "play.fill").font(.system(size: 25, weight: .bold))
                         }
                     }.padding()
@@ -107,7 +108,7 @@ struct RootView: View {
                 HStack{
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
-                        Text("Settings")
+                        Text("Settings").font(.custom("Changa-Light", size: 16))
                     }.onTapGesture {
                         let generator = UIImpactFeedbackGenerator(style: .light)
                         generator.impactOccurred()
@@ -116,7 +117,7 @@ struct RootView: View {
                     Spacer()
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
-                        Text("Leaderboard")
+                        Text("Leaderboard").font(.custom("Changa-Light", size: 16))
                     }.onTapGesture {
                         let generator = UIImpactFeedbackGenerator(style: .light)
                         generator.impactOccurred()

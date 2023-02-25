@@ -148,7 +148,7 @@ struct GameMap: View {
                                 }
                             }
                         }
-                        //MARK: End MultiChoice
+                        //MARK: End MultiChoice ---------------------------------------------------------
                     }
                 }
             }

@@ -53,6 +53,8 @@
 		F8996FD129A59B940039C685 /* Ding-sound-effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8996FD029A59B940039C685 /* Ding-sound-effect.mp3 */; };
 		F8996FD329A59BA50039C685 /* button-click-sound-effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8996FD229A59BA50039C685 /* button-click-sound-effect.mp3 */; };
 		F8996FD729A5B0440039C685 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FD629A5B0440039C685 /* TimerView.swift */; };
+		F8996FDA29AA97C20039C685 /* Changa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8996FD929AA97C20039C685 /* Changa-Light.ttf */; };
+		F8996FDC29AA97D50039C685 /* BebasNeue-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8996FDB29AA97D50039C685 /* BebasNeue-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,9 @@
 		F8996FD029A59B940039C685 /* Ding-sound-effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ding-sound-effect.mp3"; sourceTree = "<group>"; };
 		F8996FD229A59BA50039C685 /* button-click-sound-effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "button-click-sound-effect.mp3"; sourceTree = "<group>"; };
 		F8996FD629A5B0440039C685 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		F8996FD929AA97C20039C685 /* Changa-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Changa-Light.ttf"; sourceTree = "<group>"; };
+		F8996FDB29AA97D50039C685 /* BebasNeue-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BebasNeue-Regular.ttf"; sourceTree = "<group>"; };
+		F8996FDD29AAA9490039C685 /* geo-gnosis-ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "geo-gnosis-ios-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,13 +227,13 @@
 		F827D59029777AF4007DE110 /* geo_gnosis_ios */ = {
 			isa = PBXGroup;
 			children = (
+				F8996FDD29AAA9490039C685 /* geo-gnosis-ios-Info.plist */,
 				F827D59129777AF4007DE110 /* geo_gnosis_iosApp.swift */,
 				F827D59329777AF4007DE110 /* ContentView.swift */,
 				F83C8796297DEF0D008FA89D /* Model */,
 				F83C8795297DEF03008FA89D /* Views */,
 				F83C879C297DF747008FA89D /* Resources */,
 				F827D59529777AF5007DE110 /* Assets.xcassets */,
-				F8996FD529A59BC60039C685 /* Audio */,
 				F82315E12999CC170026D036 /* GoogleService-Info.plist */,
 				F827D59729777AF5007DE110 /* Preview Content */,
 				F87ABBAF29820DD6007E2EA3 /* Coordinator.swift */,
@@ -300,6 +305,8 @@
 				F83C87A3297E030F008FA89D /* sampleLocationData.json */,
 				F87ABBB929837475007E2EA3 /* sampleLocationData2.json */,
 				F83C879D297DF75B008FA89D /* locationData.json */,
+				F8996FD829AA973C0039C685 /* Fonts */,
+				F8996FD529A59BC60039C685 /* Audio */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -312,6 +319,15 @@
 				F8996FD229A59BA50039C685 /* button-click-sound-effect.mp3 */,
 			);
 			path = Audio;
+			sourceTree = "<group>";
+		};
+		F8996FD829AA973C0039C685 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F8996FD929AA97C20039C685 /* Changa-Light.ttf */,
+				F8996FDB29AA97D50039C685 /* BebasNeue-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,10 +443,12 @@
 			files = (
 				F87ABBD6298F6B48007E2EA3 /* locationDataUpdated2.json in Resources */,
 				F8996FCF29A598170039C685 /* action-sound-effect.mp3 in Resources */,
+				F8996FDC29AA97D50039C685 /* BebasNeue-Regular.ttf in Resources */,
 				F8996FD329A59BA50039C685 /* button-click-sound-effect.mp3 in Resources */,
 				F83C87A4297E030F008FA89D /* sampleLocationData.json in Resources */,
 				F82315E22999CC170026D036 /* GoogleService-Info.plist in Resources */,
 				F87ABBD8298F6E5A007E2EA3 /* locationDataUpdated3.json in Resources */,
+				F8996FDA29AA97C20039C685 /* Changa-Light.ttf in Resources */,
 				F87ABBBA29837475007E2EA3 /* sampleLocationData2.json in Resources */,
 				F827D59929777AF5007DE110 /* Preview Assets.xcassets in Resources */,
 				F8996FD129A59B940039C685 /* Ding-sound-effect.mp3 in Resources */,
@@ -651,6 +669,7 @@
 				DEVELOPMENT_TEAM = W86B92N72B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "geo-gnosis-ios-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -680,6 +699,7 @@
 				DEVELOPMENT_TEAM = W86B92N72B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "geo-gnosis-ios-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
