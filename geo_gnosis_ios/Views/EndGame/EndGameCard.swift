@@ -20,11 +20,11 @@ struct EndGameCard: View {
                 RoundedRectangle(cornerRadius: 25, style: .continuous).fill(CustomColor.primary)
                 VStack{
                     HStack{
-                        Text("Round: \(roundNumber)").padding()
-                        Text("Score: \(time)").padding()
+                        Text("Round: \(roundNumber)").font(.custom("Changa-Light", size: 16)).padding()
+                        Text("Score: \(time)").font(.custom("Changa-Light", size: 16)).padding()
                     }
                     HStack{
-                        Text("\(location.city_ascii) \(location.admin_name), \(location.country)")
+                        Text("\(location.city_ascii) \(location.admin_name), \(location.country)").font(.custom("Changa-Light", size: 16))
                     }
                 }
             }.frame(height: 100)

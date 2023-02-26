@@ -49,7 +49,7 @@ struct GameMap: View {
                                 if(gameInfo.multiChoice){
                                     RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
                                         .shadow(color: .black, radius: 3, x: 2, y: 2)
-                                    Text("Give Up")
+                                    Text("Give Up").font(.custom("Changa-Light", size: 16))
                                 }
                             }.onTapGesture {
                                 let generator = UIImpactFeedbackGenerator(style: .light)
@@ -67,7 +67,7 @@ struct GameMap: View {
                     HStack{
                         //MARK: Fill The Blank --------------------------------------------------
                         if(gameInfo.multiChoice == false){ //if mode is typing
-                            TextField("Answer...",text: $guess)
+                            TextField("Answer...",text: $guess).font(.custom("Changa-Light", size: 16))
                                 .background(CustomColor.trim)
                                 .rotationEffect(.degrees(animationAmount[4]))
                                 .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: animationAmount[4])
@@ -81,7 +81,7 @@ struct GameMap: View {
                             ZStack{
                                 RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
                                     .shadow(color: .black, radius: 3, x: 2, y: 2)
-                                Text("Give Up")
+                                Text("Give Up").font(.custom("Changa-Light", size: 16))
                             }.onTapGesture {
                                 let generator = UIImpactFeedbackGenerator(style: .light)
                                 generator.impactOccurred()
@@ -99,7 +99,7 @@ struct GameMap: View {
                                             .shadow(color: .black, radius: 3, x: 2, y: 2)
                                             .rotationEffect(.degrees(animationAmount[0]))
                                             .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: animationAmount[0])
-                                        Text("\(options[0])")
+                                        Text("\(options[0])").font(.custom("Changa-Light", size: 16))
                                     }
                                     .onTapGesture {
                                         ValidateAnswerMultiChoice(guessB: options[0], optionClicked: 0)
@@ -112,7 +112,7 @@ struct GameMap: View {
                                             .shadow(color: .black, radius: 3, x: 2, y: 2)
                                             .rotationEffect(.degrees(animationAmount[1]))
                                             .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: animationAmount[1])
-                                        Text("\(options[1])")
+                                        Text("\(options[1])").font(.custom("Changa-Light", size: 16))
                                     }.onTapGesture {
                                         ValidateAnswerMultiChoice(guessB: options[1], optionClicked: 1)
                                     }
@@ -126,7 +126,7 @@ struct GameMap: View {
                                             .shadow(color: .black, radius: 3, x: 2, y: 2)
                                             .rotationEffect(.degrees(animationAmount[2]))
                                             .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: animationAmount[2])
-                                        Text("\(options[2])")
+                                        Text("\(options[2])").font(.custom("Changa-Light", size: 16))
                                     }.onTapGesture {
                                         ValidateAnswerMultiChoice(guessB: options[2], optionClicked: 2)
                                     }
@@ -138,7 +138,7 @@ struct GameMap: View {
                                             .shadow(color: .black, radius: 3, x: 2, y: 2)
                                             .rotationEffect(.degrees(animationAmount[3]))
                                             .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: animationAmount[3])
-                                        Text("\(options[3])")
+                                        Text("\(options[3])").font(.custom("Changa-Light", size: 16))
                                     }.onTapGesture {
                                         ValidateAnswerMultiChoice(guessB: options[3], optionClicked: 3)
                                     }
@@ -157,7 +157,7 @@ struct GameMap: View {
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                         .frame(width: 80, height: 30)
-                    Text("Round: \(roundInfo.roundNumber + 1)") //Round number
+                    Text("Round: \(roundInfo.roundNumber + 1)").font(.custom("Changa-Light", size: 16)) //Round number
                 }.padding(.leading)
                 Spacer()
 //                ZStack{

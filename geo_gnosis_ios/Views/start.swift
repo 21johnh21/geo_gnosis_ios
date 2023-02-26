@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFAudio
 
 struct Start: View {
     
@@ -22,7 +23,7 @@ struct Start: View {
             VStack{
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
-                    Text("Geo Gnosis").font(.title).padding(.top)
+                    Text("Geo Gnosis").font(.custom("BebasNeue-Regular", size: 45)).padding(.top).padding(.top)
                 }
                 //Image("worldLogo2")
                 Image("logo").resizable().frame(width: 255, height: 255).clipShape(Circle()).padding()
@@ -31,12 +32,12 @@ struct Start: View {
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
                     VStack(alignment: .center){
                        let gameMode = gameInfo.multiChoice == true ? "Multiple Choice" : "Fill the Blank"
-                        Text("Game Mode \(Image(systemName: "circle.fill")) \(gameMode)")
-                        Text("Region Mode \(Image(systemName: "circle.fill")) \(gameInfo.regionMode)")
+                        Text("Game Mode \(Image(systemName: "circle.fill")) \(gameMode)").font(.custom("Changa-Light", size: 16))
+                        Text("Region Mode \(Image(systemName: "circle.fill")) \(gameInfo.regionMode)").font(.custom("Changa-Light", size: 16))
                         if(gameInfo.regionMode != "World"){
-                            Text("Region \(Image(systemName: "circle.fill")) \(gameInfo.region)")
+                            Text("Region \(Image(systemName: "circle.fill")) \(gameInfo.region)").font(.custom("Changa-Light", size: 16))
                         }
-                        Text("Difficulty \(Image(systemName: "circle.fill")) \(gameInfo.difficulty)")
+                        Text("Difficulty \(Image(systemName: "circle.fill")) \(gameInfo.difficulty)").font(.custom("Changa-Light", size: 16))
                     }
                 }
                 //Image("logo").scaleEffect(0.1)
@@ -46,7 +47,7 @@ struct Start: View {
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                         .frame(width: 200, height: 80)
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
-                    Text("Start").font(.title).padding(.top)
+                    Text("Start").font(.custom("Changa-Light", size: 40)).padding(.top).font(.custom("Changa-Light", size: 40))
                 }
                 .padding(.bottom)
                 .onTapGesture {

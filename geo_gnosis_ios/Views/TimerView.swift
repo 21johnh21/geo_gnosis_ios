@@ -16,7 +16,7 @@ struct TimerView: View {
         ZStack{
             RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                 .frame(width: 80, height: 30)
-            Text("\(count)").onReceive(timer){ _ in
+            Text("\(count)").font(.custom("Changa-Light", size: 16)).onReceive(timer){ _ in
                 count += 1
             }
         }.padding(.trailing)

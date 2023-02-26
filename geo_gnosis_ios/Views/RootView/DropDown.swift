@@ -16,7 +16,7 @@ struct DropDown: View {
     var body: some View {
         
         VStack(alignment: .leading){
-            TextField("Choose a Region", text: $countrySelection).background(CustomColor.trim)
+            TextField("Choose a Region", text: $countrySelection).font(.custom("Changa-Light", size: 16)).background(CustomColor.trim)
             
             ZStack {
                 RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
@@ -25,7 +25,8 @@ struct DropDown: View {
                     ForEach(countries.indices){ index in
                         if(countries[index].hasPrefix(countrySelection)){
                             ZStack{
-                                Text(("\(countries[index])")).onTapGesture {
+                                Text(("\(countries[index])")).font(.custom("Changa-Light", size: 16))
+                                    .onTapGesture {
                                         gameInfo.region=countries[index]
                                     }
                                 .frame(maxWidth: .infinity)

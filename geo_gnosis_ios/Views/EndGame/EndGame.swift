@@ -37,11 +37,11 @@ struct EndGame: View {
     var body: some View {
         VStack {
             VStack{
-            Text("Game Over!").padding()
+            Text("Game Over!").font(.custom("Changa-Light", size: 40)).padding()
             HStack {
-                Text("Final Score: ").padding(.leading)
+                Text("Final Score: ").font(.custom("Changa-Light", size: 16)).padding(.leading)
                 Spacer()
-                Text("\(CalcFinalScore())").padding(.trailing)
+                Text("\(CalcFinalScore())").font(.custom("Changa-Light", size: 16)).padding(.trailing)
             }
             
             }.background(){
@@ -53,7 +53,7 @@ struct EndGame: View {
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
-                    Text("Play Again")
+                    Text("Play Again").font(.custom("Changa-Light", size: 16))
                 }.onTapGesture {
                     let generator = UIImpactFeedbackGenerator(style: .light)
                     generator.impactOccurred()
@@ -62,7 +62,7 @@ struct EndGame: View {
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
-                    Text("Return to Menu")
+                    Text("Return to Menu").font(.custom("Changa-Light", size: 16))
                 }.onTapGesture {
                     let generator = UIImpactFeedbackGenerator(style: .light)
                     generator.impactOccurred()
