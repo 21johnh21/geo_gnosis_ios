@@ -70,7 +70,11 @@ public class RoundData{
                         var locationChosen: Bool = false
                         var count: Int = 0
                         while(!locationChosen){
-                            if(locationsByRegion[locationIndex].country != roundMultiChoiceOptions[0].country){
+//                            if(locationsByRegion[locationIndex].country != roundMultiChoiceOptions[0].country){
+                            
+                            var countryUsed: Bool = roundMultiChoiceOptions.contains(where: {$0.country !=  locationsByRegion[locationIndex].country})
+                            
+                            if(countryUsed){ // if the country has nott been used yet
                                 roundMultiChoiceOptions.append(locationsByRegion[locationIndex])
                                 locationChosen = true
                             }else{

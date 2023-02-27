@@ -11,7 +11,7 @@ import MapKit
 import Firebase
 //import FirebaseAnalytics
 //import FirebaseFirestoreSwift
-//import FirebaseFirestore
+import FirebaseFirestore
 
 
 
@@ -22,7 +22,8 @@ struct EndGame: View {
     
     //var ref: DatabaseReference!
     //var ref = Database.database().reference()
-    
+    let database = Firestore.firestore()
+    //let docRef = database.document("")//coloection/document
     
     @AppStorage("userName") var userName: String = ""
     @AppStorage("loggedIn") var loggedIn: Bool = false
@@ -35,6 +36,13 @@ struct EndGame: View {
     var lbInfo = LeaderboardInfo() 
     
     var body: some View {
+//        let docRef = database.document("")//coloection/document
+//        docRef.getDocument { snapshot, error in
+//            guard let data = snapshot?.data(), error == nil else{
+//                return
+//            }
+//            print(data)
+//        }
         VStack {
             VStack{
             Text("Game Over!").font(.custom("Changa-Light", size: 40)).padding()
@@ -113,8 +121,10 @@ struct EndGame: View {
 //
 //        ref = Database.database().reference()
         
-        
-        
+//        let docRef = database.document("scores/UUID") //colection/document
+//        docRef.setData(["lbInfo": lbInfo])
+        let docRef = database.document("testCollection/TestDocument") //colection/document
+        docRef.setData(["test": "test"])//This Works! 
         
         
         
