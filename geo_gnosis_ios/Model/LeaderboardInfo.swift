@@ -7,14 +7,43 @@
 
 import Foundation
 
-class LeaderboardInfo{
+public struct LBInfo: Codable {
     
-    var userName: String = ""
-    var finalScore: Int = 0
-    var gameInfo: GameInfo = GameInfo()
-    var roundInfo: RoundInfo = RoundInfo()
-    //var roundInfo: [RoundInfo] = [RoundInfo(), RoundInfo(), RoundInfo(), RoundInfo(), RoundInfo()] //array of all round information for each of the rounds
-//    for i in 0...4{
-//
-//    }
+    let userName: String?
+    let finalScore: Int?
+    //round info vars
+    let multiChoice: Bool?
+    let regionMode: String?
+    let difficulty: String?
+    let region: String?
+    //game info vars
+    let times: [Int]?
+    let city_ascii: [String]?
+    let lat: [Double]?
+    let lng: [Double]?
+    let country: [String]?
+    let admin_name: [String]?
+    let capital: [String]?
+    let population: [Int]?
+    
+    enum CodingKeys: String, CodingKey {
+        case userName
+        case finalScore
+        //round info vars
+        case multiChoice
+        case regionMode
+        case difficulty
+        case region
+        //game info vars
+        case times
+        case city_ascii
+        case lat
+        case lng
+        case country
+        case admin_name
+        case capital
+        case population
+        
+    }
+
 }

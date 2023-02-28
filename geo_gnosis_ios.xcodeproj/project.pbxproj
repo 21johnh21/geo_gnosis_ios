@@ -59,6 +59,7 @@
 		F8996FE229AC0E090039C685 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F8996FE129AC0E090039C685 /* FirebaseAuth */; };
 		F8996FE429AC0E3B0039C685 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F8996FE329AC0E3B0039C685 /* FirebaseFirestore */; };
 		F8996FE629AC0E4A0039C685 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F8996FE529AC0E4A0039C685 /* FirebaseFirestore */; };
+		F8996FE829AD7B840039C685 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F8996FE729AD7B840039C685 /* FirebaseFirestoreSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8996FE829AD7B840039C685 /* FirebaseFirestoreSwift in Frameworks */,
 				F8947BD7299B10280030BFCA /* FirebaseAnalyticsSwift in Frameworks */,
 				F8947BD5299B10280030BFCA /* FirebaseAnalytics in Frameworks */,
 				F8996FE029AC0DDE0039C685 /* FirebaseFirestore in Frameworks */,
@@ -367,6 +369,7 @@
 				F8947BD6299B10280030BFCA /* FirebaseAnalyticsSwift */,
 				F8996FDF29AC0DDE0039C685 /* FirebaseFirestore */,
 				F8996FE129AC0E090039C685 /* FirebaseAuth */,
+				F8996FE729AD7B840039C685 /* FirebaseFirestoreSwift */,
 			);
 			productName = geo_gnosis_ios;
 			productReference = F827D58E29777AF4007DE110 /* geo_gnosis_ios.app */;
@@ -898,6 +901,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F8947BD3299B10280030BFCA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		F8996FE729AD7B840039C685 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8947BD3299B10280030BFCA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

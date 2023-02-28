@@ -12,6 +12,7 @@ import Firebase
 //import FirebaseAnalytics
 //import FirebaseFirestoreSwift
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 
 
@@ -32,8 +33,10 @@ struct EndGame: View {
     @EnvironmentObject var roundInfo : RoundInfo
     @EnvironmentObject var gameInfo: GameInfo
     
+    var finalScore: Int = 0
+    
     var roundNumber: Int = 0
-    var lbInfo = LeaderboardInfo() 
+    //var lbInfo = LBInfo()
     
     var body: some View {
 //        let docRef = database.document("")//coloection/document
@@ -74,7 +77,7 @@ struct EndGame: View {
                 }.onTapGesture {
                     let generator = UIImpactFeedbackGenerator(style: .light)
                     generator.impactOccurred()
-                    SendResultsToDB()
+                    SendResultsToDB() //TODO: Make sure this is always called
                     coordinator.popToRoot()
                 }
             }
@@ -112,37 +115,18 @@ struct EndGame: View {
         return finalScore
     }
     func SendResultsToDB(){
-        lbInfo.userName = userName
-        lbInfo.finalScore = CalcFinalScore()
-        lbInfo.gameInfo = gameInfo
-        lbInfo.roundInfo = roundInfo
-        
-//        var ref: DatabaseReference!
-//
-//        ref = Database.database().reference()
-        
-//        let docRef = database.document("scores/UUID") //colection/document
-//        docRef.setData(["lbInfo": lbInfo])
-        let docRef = database.document("testCollection/TestDocument") //colection/document
-        docRef.setData(["test": "test"])//This Works! 
+
         
         
         
-        
-        //FIRApp.configure()
-                
-                //getting a reference to the node artists
-        //let refArtists = FirebaseApp.database().reference().child("artists");
-//        let databaseRef = FirebaseApp.app()
-//        let key = FirebaseApp.app().key
-//
-//        let testData = ["testfield" : "test"]
-//
-//        databaseRef?.setValue("testfield", forKey: "testdata")
-        
-//        for i in 0...4{
-//            lbInfo.roundInfo. = $roundInfo[i]
+//        var lbInfo = LBInfo(userName: "JH_DEV", finalScore: finalScore)
+//        let db = Firestore.firestore()
+//        do {
+//            try db.collection("Score Collection").document(UUID().uuidString).setData(from: lbInfo)
+//        } catch let error {
+//            print("Error writing city to Firestore: \(error)")
 //        }
+        
     }
 }
 

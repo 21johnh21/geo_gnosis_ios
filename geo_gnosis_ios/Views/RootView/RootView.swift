@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftUI
+import FirebaseFirestore //remove after test
+import FirebaseFirestoreSwift //remove after test
 
 struct RootView: View {
     
@@ -132,6 +134,38 @@ struct RootView: View {
                     let generator = UIImpactFeedbackGenerator(style: .light)
                     generator.impactOccurred()
                     coordinator.show(DevTestHapticFeedback.self)
+                }
+                ZStack{
+                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
+                    Text("DEV - Test DB")
+                }.onTapGesture {
+                    //test data
+                    let userName = "DEV_JH"
+                    let finalScore = 100
+                    let multiChoice = true
+                    let regionMode = "World"
+                    let difficulty = "Easy"
+                    let region = "World"
+                    let times = [10, 50, 20, 15, 5]
+                    let city_ascii = ["NY", "NY", "NY", "NY", "NY"]
+                    let lat = [50.12345, 50.0, 50.0, 50.0, 50.0]
+                    let lng = [90.0, 90.0, 90.0, 90.0, 90.0]
+                    let country = ["US", "US", "US", "US", "US"]
+                    let admin_name = ["NY", "NY", "NY", "NY", "NY"]
+                    let capital = ["No", "No", "No", "No", "No"]
+                    let population = [1000000, 1000000, 1000000, 1000000, 1000000]
+                    
+                    //End test data
+                    
+                    var lbInfo = LBInfo(userName: userName, finalScore: finalScore, multiChoice: multiChoice, regionMode: regionMode, difficulty: difficulty, region: region, times: times, city_ascii: city_ascii, lat: lat, lng: lng, country: country, admin_name: admin_name, capital: capital, population: population)
+                    
+//                    var lbInfo = LBInfo(userName: "JH_DEV", finalScore: finalScore)
+                    let db = Firestore.firestore()
+                    do {
+                        try db.collection("Score Collection").document(UUID().uuidString).setData(from: lbInfo)
+                    } catch let error {
+                        print("Error writing city to Firestore: \(error)")
+                    }
                 }
             }
             .navigationDestination(for: String.self) { id in
