@@ -33,7 +33,7 @@ struct EndGame: View {
     @EnvironmentObject var roundInfo : RoundInfo
     @EnvironmentObject var gameInfo: GameInfo
     
-    var finalScore: Int = 0
+    @State var finalScore: Int = 0
     
     var roundNumber: Int = 0
     //var lbInfo = LBInfo()
@@ -115,9 +115,34 @@ struct EndGame: View {
         return finalScore
     }
     func SendResultsToDB(){
-
         
+        var city_asciis: [String] = [String]()
+        var lats: [Double] = [Double]()
+        var lngs: [Double] = [Double]()
+        var countrys: [String] = [String]()
+        var admin_names: [String] = [String]()
+        var capitals: [String] = [String]()
+        var populations: [Int] = [Int]()
         
+        for location in roundInfo.locations{
+            city_asciis.append(location.city_ascii)
+            lats.append(location.lat)
+            lngs.append(location.lng)
+            countrys.append(location.country)
+            admin_names.append(location.admin_name)
+            capitals.append(location.capital)
+            populations.append(location.population)
+        }
+        
+        var lbInfo = LBInfo(userName: userName, finalScore: finalScore, multiChoice: gameInfo.multiChoice, regionMode: gameInfo.regionMode, difficulty: gameInfo.difficulty, region: gameInfo.region, times: roundInfo.times, city_ascii: city_asciis, lat: lats, lng: lngs, country: countrys, admin_name: admin_names, capital: capitals, population: populations)
+        
+//                    var lbInfo = LBInfo(userName: "JH_DEV", finalScore: finalScore)
+        let db = Firestore.firestore()
+        do {
+            try db.collection("Score Collection").document(UUID().uuidString).setData(from: lbInfo)
+        } catch let error {
+            print("Error writing city to Firestore: \(error)")
+        }
         
 //        var lbInfo = LBInfo(userName: "JH_DEV", finalScore: finalScore)
 //        let db = Firestore.firestore()

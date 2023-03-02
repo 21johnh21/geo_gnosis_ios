@@ -11,12 +11,12 @@ public struct LBInfo: Codable {
     
     let userName: String?
     let finalScore: Int?
-    //round info vars
+    //game info vars
     let multiChoice: Bool?
     let regionMode: String?
     let difficulty: String?
     let region: String?
-    //game info vars
+    //round info vars
     let times: [Int]?
     let city_ascii: [String]?
     let lat: [Double]?
