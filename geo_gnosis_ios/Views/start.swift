@@ -19,13 +19,11 @@ struct Start: View {
     
     var body: some View {
         
-        //NavigationView {
             VStack{
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
                     Text("Geo Gnosis").font(.custom("BebasNeue-Regular", size: 45)).padding(.top).padding(.top)
                 }
-                //Image("worldLogo2")
                 Image("logo").resizable().frame(width: 255, height: 255).clipShape(Circle()).padding()
                 
                 ZStack{
@@ -38,9 +36,9 @@ struct Start: View {
                             Text("Region \(Image(systemName: "circle.fill")) \(gameInfo.region)").font(.custom("Changa-Light", size: 16))
                         }
                         Text("Difficulty \(Image(systemName: "circle.fill")) \(gameInfo.difficulty)").font(.custom("Changa-Light", size: 16))
-                    }
+                    }.frame(maxWidth: .infinity)
+                    .background(RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(maxWidth: .infinity))
                 }
-                //Image("logo").scaleEffect(0.1)
 
                 Spacer()
                 ZStack{

@@ -99,7 +99,7 @@ struct EndGame: View {
         return finalScore
     }
     func SendResultsToDB(){
-        
+        //TODO: check if username is blank first
         var city_asciis: [String] = [String]()
         var lats: [Double] = [Double]()
         var lngs: [Double] = [Double]()
