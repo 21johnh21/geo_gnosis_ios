@@ -7,25 +7,14 @@
 
 import SwiftUI
 import MapKit
-//import FirebaseCore
 import Firebase
-//import FirebaseAnalytics
-//import FirebaseFirestoreSwift
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-
-
-
-
 struct EndGame: View {
-    //private let database = Database.database().reference()
-    
-    //var ref: DatabaseReference!
-    //var ref = Database.database().reference()
     let database = Firestore.firestore()
-    //let docRef = database.document("")//coloection/document
     
+    //TODO: set username
     @AppStorage("userName") var userName: String = ""
     @AppStorage("loggedIn") var loggedIn: Bool = false
     
@@ -36,23 +25,15 @@ struct EndGame: View {
     @State var finalScore: Int = 0
     
     var roundNumber: Int = 0
-    //var lbInfo = LBInfo()
-    
+
     var body: some View {
-//        let docRef = database.document("")//coloection/document
-//        docRef.getDocument { snapshot, error in
-//            guard let data = snapshot?.data(), error == nil else{
-//                return
-//            }
-//            print(data)
-//        }
         VStack {
             VStack{
             Text("Game Over!").font(.custom("Changa-Light", size: 40)).padding()
             HStack {
                 Text("Final Score: ").font(.custom("Changa-Light", size: 16)).padding(.leading)
                 Spacer()
-                Text("\(CalcFinalScore())").font(.custom("Changa-Light", size: 16)).padding(.trailing)
+                Text("\(finalScore)").font(.custom("Changa-Light", size: 16)).padding(.trailing)
             }
             
             }.background(){
@@ -91,6 +72,9 @@ struct EndGame: View {
             }
         }.navigationBarBackButtonHidden(true)
         .background(CustomColor.secondary)
+        .onAppear(){
+            finalScore = CalcFinalScore()
+        }
     }
     
     func InitPinLocations() -> Array <PinLocation>{
@@ -143,15 +127,6 @@ struct EndGame: View {
         } catch let error {
             print("Error writing city to Firestore: \(error)")
         }
-        
-//        var lbInfo = LBInfo(userName: "JH_DEV", finalScore: finalScore)
-//        let db = Firestore.firestore()
-//        do {
-//            try db.collection("Score Collection").document(UUID().uuidString).setData(from: lbInfo)
-//        } catch let error {
-//            print("Error writing city to Firestore: \(error)")
-//        }
-        
     }
 }
 
