@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import FirebaseAuth
 
 //@State var userName: String = ""
 
@@ -16,9 +18,13 @@ struct LogIn: View {
     @State var userName: String = ""
     @State var password: String = ""
     @State var deleteAccount: Bool = false
+    @State var email: String = ""
+    
+    @State var user: User?
     
     let eye = UIImage(named: "eye")
     var body: some View {
+        //@EnvironmentObject var viewModel: AuthenticationViewModel
         if(loggedIn == false) {
             VStack{
                 VStack{
@@ -28,6 +34,8 @@ struct LogIn: View {
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(width: 150, height: 30)
                         Text("Login")
+                    }.onTapGesture {
+                        callSignIn()
                     }
                 }.padding().overlay(){
                     RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
@@ -92,8 +100,27 @@ struct LogIn: View {
             }
         }
     }
+    func SignInWithEmailAndPass() async{
+        do{
+            let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
+            print("login: \(authResult)")
+            user = authResult.user
+            print("user: \(user)")
+            //authenticationState = .authenticated
+        }
+        catch{
+            
+        }
+    }
+    func callSignIn () {
+        //TODO: remove this
+        email = userName
+        Task{
+            await SignInWithEmailAndPass()
+        }
+    }
     func DeleteAccount(){
-        
+        //TODO: delete account
     }
 }
 
