@@ -64,6 +64,8 @@ struct LogIn: View {
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(width: 150, height: 30)
                         Text("Create Account")
+                    }.onTapGesture {
+                        CallCreateAcc()
                     }
                 }.padding().overlay(){
                     RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
@@ -117,6 +119,24 @@ struct LogIn: View {
         email = userName
         Task{
             await SignInWithEmailAndPass()
+        }
+    }
+    func CreateAccWithEmailAndPass() async{
+        do{
+            let authResult = try await Auth.auth().createUser(withEmail: email, password: password)
+            //print("login: \(authResult)")
+            user = authResult.user
+            //print("user: \(user)")
+            //authenticationState = .authenticated
+        }
+        catch{
+            
+        }
+    }
+    func CallCreateAcc(){
+        Task{
+            email = userName //TODO: remove this
+            await CreateAccWithEmailAndPass()
         }
     }
     func DeleteAccount(){
