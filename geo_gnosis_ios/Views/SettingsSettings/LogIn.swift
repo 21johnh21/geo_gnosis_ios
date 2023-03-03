@@ -29,8 +29,8 @@ struct LogIn: View {
             VStack{
                 VStack{
                     Text("Have an account?")
-                    TextField("User Name", text: $userName)
-                    TextField("Password", text: $password)
+                    TextField("User Name", text: $userName).textInputAutocapitalization(.never).autocorrectionDisabled(true)
+                    TextField("Password", text: $password).textInputAutocapitalization(.never).autocorrectionDisabled(true)
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(width: 150, height: 30)
                         Text("Login")
@@ -44,22 +44,22 @@ struct LogIn: View {
                     Text("Create and Account")
                     HStack{
                         Text("User Name: ")
-                        TextField("User Name", text: $userName)
+                        TextField("User Name", text: $userName).textInputAutocapitalization(.never).autocorrectionDisabled(true)
                     }
                     HStack{
                         Text("Email: ")
-                        TextField("user@sample.com", text: $userName)
+                        TextField("user@sample.com", text: $userName).textInputAutocapitalization(.never).autocorrectionDisabled(true)
                     }
                     HStack{
                         Text("Passord: ")
-                        TextField("*******", text: $password)
+                        TextField("*******", text: $password).textInputAutocapitalization(.never).autocorrectionDisabled(true)
                         //put eye uiimage here
                         //or eye.slash
                     }
                     Text("At least 8 charachters\nOne Upper and one lower case\nOne number\nOne Special Charachter")
                     HStack{
                         Text("Confirm Password")
-                        TextField("*******", text: $password)
+                        TextField("*******", text: $password).textInputAutocapitalization(.never).autocorrectionDisabled(true)
                     }
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(width: 150, height: 30)
@@ -123,6 +123,7 @@ struct LogIn: View {
     }
     func CreateAccWithEmailAndPass() async{
         do{
+            //TODO: prevent spaces / other bad charachters
             let authResult = try await Auth.auth().createUser(withEmail: email, password: password)
             //print("login: \(authResult)")
             user = authResult.user
