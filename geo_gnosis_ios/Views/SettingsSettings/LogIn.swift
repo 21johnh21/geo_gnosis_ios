@@ -15,6 +15,8 @@ struct LogIn: View {
     @AppStorage("loggedIn") var loggedIn: Bool = false
     //@AppStorage("userName") var userName: String = ""
     
+    @EnvironmentObject var userData: UserInfo
+    
     @State var userName: String = ""
     @State var password: String = ""
     @State var deleteAccount: Bool = false
@@ -27,6 +29,7 @@ struct LogIn: View {
         //@EnvironmentObject var viewModel: AuthenticationViewModel
         if(loggedIn == false) {
             VStack{
+                //MARK: Login -------------------------------------------------------
                 VStack{
                     Text("Have an account?")
                     TextField("User Name", text: $userName).textInputAutocapitalization(.never).autocorrectionDisabled(true)
@@ -41,6 +44,7 @@ struct LogIn: View {
                     RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
                 }
                 VStack{
+                    //MARK: Create an Account -------------------------------------------------------
                     Text("Create and Account")
                     HStack{
                         Text("User Name: ")
@@ -65,7 +69,8 @@ struct LogIn: View {
                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(width: 150, height: 30)
                         Text("Create Account")
                     }.onTapGesture {
-                        CallCreateAcc()
+                        //CallCreateAcc()
+                        CreateAccWithEmailAndPass()
                     }
                 }.padding().overlay(){
                     RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
@@ -74,6 +79,7 @@ struct LogIn: View {
             }
         }
         else {
+            //MARK: Already Logged In  -------------------------------------------------------
             VStack{
                 Text("Logged in as \(userName)")
                 ZStack{
@@ -107,46 +113,48 @@ struct LogIn: View {
             let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
             print("login: \(authResult)")
             user = authResult.user
-            print("user: \(user)")
+            print("user: \(String(describing: user))")
+            var uuid = user?.uid
+            print("user ID: \(String(describing: uuid))")
             //authenticationState = .authenticated
+            var displayName = user?.displayName
+            print("display name: \(displayName)")
+            //SetUserData(userID: user!.uid, displayName: user!.displayName!) //TODO: validate that this info is here
         }
         catch{
             
         }
     }
     func callSignIn () {
-        //TODO: remove this
-        email = userName
+        email = userName //TODO: remove this
         Task{
             await SignInWithEmailAndPass()
         }
     }
-    func CreateAccWithEmailAndPass() async{
-        do{
-            //TODO: prevent spaces / other bad charachters
-            let authResult = try await Auth.auth().createUser(withEmail: email, password: password)
-            //print("login: \(authResult)")
-            user = authResult.user
-            //print("user: \(user)")
-            //authenticationState = .authenticated
-        }
-        catch{
-            
-        }
-    }
-    func CallCreateAcc(){
-        Task{
-            email = userName //TODO: remove this
-            await CreateAccWithEmailAndPass()
-        }
+    func CreateAccWithEmailAndPass(){
+        Auth.auth().createUser(withEmail: userName, password: password, completion: { user, error in
+            if let error = error {
+                print("ERROR : Auth.auth().createUser -> ", error.localizedDescription)
+                          
+            } else {
+                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                changeRequest?.displayName = userName
+                changeRequest?.commitChanges(completion: nil)
+            }
+        })
     }
     func DeleteAccount(){
         //TODO: delete account
     }
-}
-
-struct LogIn_Previews: PreviewProvider {
-    static var previews: some View {
-        LogIn()
+    func SetUserData(userID: String, displayName: String){
+        userData.userID = userID
+        userData.displayName = displayName
+        print("userID: \(userData.userID), displayName: \(userData.displayName)")
     }
 }
+
+//struct LogIn_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LogIn()
+//    }
+//}
