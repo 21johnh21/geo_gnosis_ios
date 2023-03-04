@@ -29,8 +29,8 @@ struct LogIn: View {
     let eye = UIImage(named: "eye")
     var body: some View {
         //@EnvironmentObject var viewModel: AuthenticationViewModel
-       //if(userIDSt == "") { //If the user is not signed in
-        if(true) { //If the user is not signed in
+        if(userIDSt == "") { //If the user is not signed in
+        //if(true) { //If the user is not signed in
             VStack{
                 //MARK: Login -------------------------------------------------------
                 VStack{
@@ -84,13 +84,19 @@ struct LogIn: View {
         else {
             //MARK: Already Logged In  -------------------------------------------------------
             VStack{
-                Text("Logged in as \(userName)")
+                Text("Logged in as \(userNameSt)")
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 150, height: 30)
                     Text("Log Out")
                 }.onTapGesture {
-                    //loggedIn = false
-                    userName = ""
+                    do{
+                        try Auth.auth().signOut()
+                        userIDSt = ""
+                        userNameSt = ""
+                    }catch{
+                        print(error.localizedDescription)
+                    }
+                    
                 }
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 150, height: 30)
