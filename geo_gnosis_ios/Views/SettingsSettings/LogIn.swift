@@ -12,7 +12,9 @@ import FirebaseAuth
 //@State var userName: String = ""
 
 struct LogIn: View {
-    @AppStorage("loggedIn") var loggedIn: Bool = false
+    //@AppStorage("loggedIn") var loggedIn: Bool = false
+    @AppStorage("userName") var userNameSt: String = ""
+    @AppStorage("userID") var userIDSt: String = ""
     //@AppStorage("userName") var userName: String = ""
     
     @EnvironmentObject var userData: UserInfo
@@ -27,12 +29,13 @@ struct LogIn: View {
     let eye = UIImage(named: "eye")
     var body: some View {
         //@EnvironmentObject var viewModel: AuthenticationViewModel
-        if(loggedIn == false) {
+       //if(userIDSt == "") { //If the user is not signed in
+        if(true) { //If the user is not signed in
             VStack{
                 //MARK: Login -------------------------------------------------------
                 VStack{
                     Text("Have an account?")
-                    TextField("User Name", text: $userName).textInputAutocapitalization(.never).autocorrectionDisabled(true)
+                    TextField("User Name", text: $email).textInputAutocapitalization(.never).autocorrectionDisabled(true)
                     TextField("Password", text: $password).textInputAutocapitalization(.never).autocorrectionDisabled(true)
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(width: 150, height: 30)
@@ -52,7 +55,7 @@ struct LogIn: View {
                     }
                     HStack{
                         Text("Email: ")
-                        TextField("user@sample.com", text: $userName).textInputAutocapitalization(.never).autocorrectionDisabled(true)
+                        TextField("user@sample.com", text: $email).textInputAutocapitalization(.never).autocorrectionDisabled(true)
                     }
                     HStack{
                         Text("Passord: ")
@@ -86,7 +89,7 @@ struct LogIn: View {
                     RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 150, height: 30)
                     Text("Log Out")
                 }.onTapGesture {
-                    loggedIn = false
+                    //loggedIn = false
                     userName = ""
                 }
                 ZStack{
@@ -97,7 +100,7 @@ struct LogIn: View {
                 }.confirmationDialog("Are you sure", isPresented: $deleteAccount){
                     Text("Are you sure?")
                     Button("Yes"){
-                        loggedIn = false
+                        //loggedIn = false
                         userName = ""
                         //query data base and delete information
                         //when that returns true send confirmation
@@ -120,6 +123,8 @@ struct LogIn: View {
             var displayName = user?.displayName
             print("display name: \(displayName)")
             //SetUserData(userID: user!.uid, displayName: user!.displayName!) //TODO: validate that this info is here
+            userNameSt = user?.uid ?? "" //user is not availible use "" as default text
+            userIDSt = user?.displayName ?? ""
         }
         catch{
             
@@ -131,18 +136,34 @@ struct LogIn: View {
             await SignInWithEmailAndPass()
         }
     }
+
     func CreateAccWithEmailAndPass(){
-        Auth.auth().createUser(withEmail: userName, password: password, completion: { user, error in
-            if let error = error {
-                print("ERROR : Auth.auth().createUser -> ", error.localizedDescription)
-                          
-            } else {
+        Auth.auth().createUser(withEmail: email, password: password) { user, error in
+            if error == nil && user != nil {
+                print("User created!")
+                    
                 let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                 changeRequest?.displayName = userName
-                changeRequest?.commitChanges(completion: nil)
+                      
+                changeRequest?.commitChanges { error in
+                if error == nil {
+                print("User display name changed!")
+                              //self.dismiss(animated: false, completion: nil)
+                } else {
+                    print("Error: \(error!.localizedDescription)")
+                }
             }
-        })
+                      
+            } else {
+                print("Error: \(error!.localizedDescription)")
+            }
+        }
+        let currentUser = Auth.auth().currentUser
+        userIDSt = currentUser?.uid ?? "" //user is not availible use "" as default text
+        userNameSt = currentUser?.displayName ?? ""
+        //print("userid: \(currentUser?.uid) displayName: \(currentUser?.displayName)")
     }
+    
     func DeleteAccount(){
         //TODO: delete account
     }
