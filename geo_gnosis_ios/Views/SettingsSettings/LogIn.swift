@@ -35,7 +35,7 @@ struct LogIn: View {
                 //MARK: Login -------------------------------------------------------
                 VStack{
                     Text("Have an account?")
-                    TextField("User Name", text: $email).textInputAutocapitalization(.never).autocorrectionDisabled(true)
+                    TextField("email", text: $email).textInputAutocapitalization(.never).autocorrectionDisabled(true)
                     TextField("Password", text: $password).textInputAutocapitalization(.never).autocorrectionDisabled(true)
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(width: 150, height: 30)
@@ -106,9 +106,7 @@ struct LogIn: View {
                 }.confirmationDialog("Are you sure", isPresented: $deleteAccount){
                     Text("Are you sure?")
                     Button("Yes"){
-                        //loggedIn = false
-                        userName = ""
-                        //query data base and delete information
+                        DeleteAccount()
                         //when that returns true send confirmation
                     }
                 } message: {
@@ -129,15 +127,14 @@ struct LogIn: View {
             var displayName = user?.displayName
             print("display name: \(displayName)")
             //SetUserData(userID: user!.uid, displayName: user!.displayName!) //TODO: validate that this info is here
-            userNameSt = user?.uid ?? "" //user is not availible use "" as default text
-            userIDSt = user?.displayName ?? ""
+            userIDSt = user?.uid ?? "" //user is not availible use "" as default text
+            userNameSt = user?.displayName ?? ""
         }
         catch{
-            
+            print("Error: \(error.localizedDescription)")
         }
     }
     func callSignIn () {
-        email = userName //TODO: remove this
         Task{
             await SignInWithEmailAndPass()
         }
@@ -171,7 +168,9 @@ struct LogIn: View {
     }
     
     func DeleteAccount(){
-        //TODO: delete account
+        Auth.auth().currentUser?.delete()
+        userIDSt = ""
+        userName = ""
     }
     func SetUserData(userID: String, displayName: String){
         userData.userID = userID
