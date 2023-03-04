@@ -10,6 +10,13 @@ import AVFAudio
 
 struct GameMap: View {
     
+    @AppStorage("vibOn") var vibOn: Bool = true
+    @AppStorage("volume") var volume: Double = 100
+    @AppStorage("sateliteMapOn") var sateliteMapOn: Bool = false
+    //@AppStorage("loggedIn") var loggedIn: Bool = false
+    @AppStorage("darkMode") var darkMode: Bool = false
+    @AppStorage("postScores") var postScores: Bool = true
+    
     @State var guess: String = ""
     @EnvironmentObject private var coordinator: Coordinator
     @EnvironmentObject var roundInfo : RoundInfo
@@ -177,10 +184,7 @@ struct GameMap: View {
             if(gameInfo.multiChoice == true){
                 GetOption()
             }
-//            if(((audioPlayer1?.isPlaying) == false) || ((audioPlayer1?.isPlaying) == nil)){
-//                PlayBackground()
-//            }
-            if(roundInfo.roundNumber == 0){
+            if(roundInfo.roundNumber == 0 ){ //TODO: if muted
                 PlayBackground()
             }
         }
@@ -350,6 +354,7 @@ struct GameMap: View {
             
             do {
                 self.audioPlayer1 = try AVAudioPlayer(contentsOf: url)
+                audioPlayer1?.volume = Float(volume/100)
                 self.audioPlayer1?.prepareToPlay()
                 self.audioPlayer1?.numberOfLoops = -1
                 self.audioPlayer1?.play()
@@ -367,6 +372,7 @@ struct GameMap: View {
             
             do {
                 self.audioPlayer2 = try AVAudioPlayer(contentsOf: url)
+                audioPlayer2?.volume = Float(volume/100)
                 self.audioPlayer2?.prepareToPlay()
                 self.audioPlayer2?.play()
             }catch {
@@ -382,6 +388,7 @@ struct GameMap: View {
             
             do {
                 self.audioPlayer3 = try AVAudioPlayer(contentsOf: url)
+                audioPlayer3?.volume = Float(volume/100)
                 self.audioPlayer3?.prepareToPlay()
                 self.audioPlayer3?.play()
             }catch {

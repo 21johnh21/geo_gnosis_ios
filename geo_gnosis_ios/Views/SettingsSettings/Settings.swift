@@ -10,7 +10,7 @@ import SwiftUI
 struct Settings: View {
     @EnvironmentObject private var coordinator: Coordinator
     @AppStorage("vibOn") var vibOn: Bool = true
-    @AppStorage("sound") var sound: Double = 100
+    @AppStorage("volume") var volume: Double = 100
     @AppStorage("sateliteMapOn") var sateliteMapOn: Bool = false
     @AppStorage("loggedIn") var loggedIn: Bool = false
     @AppStorage("darkMode") var darkMode: Bool = false
@@ -37,9 +37,9 @@ struct Settings: View {
                     
             }
             Toggle("Vibration On", isOn: $vibOn)
-            Slider(value: $sound, in: 0...100).tint(Color.green).padding()
+            Slider(value: $volume, in: 0...100).tint(Color.green).padding()
             //var soundText = String(format: "%.0f", sound)
-            Text("Volume \(String(format: "%.0f", sound))")
+            Text("Volume \(String(format: "%.0f", volume))")
                 //Slider()
             Toggle("Satelite Map Mode", isOn: $sateliteMapOn)
             Toggle("Post Scores on leaderboard", isOn: $postScores)
