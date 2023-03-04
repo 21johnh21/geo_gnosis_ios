@@ -12,10 +12,8 @@ import FirebaseAuth
 //@State var userName: String = ""
 
 struct LogIn: View {
-    //@AppStorage("loggedIn") var loggedIn: Bool = false
     @AppStorage("userName") var userNameSt: String = ""
     @AppStorage("userID") var userIDSt: String = ""
-    //@AppStorage("userName") var userName: String = ""
     
     @EnvironmentObject var userData: UserInfo
     
@@ -89,14 +87,7 @@ struct LogIn: View {
                     RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 150, height: 30)
                     Text("Log Out")
                 }.onTapGesture {
-                    do{
-                        try Auth.auth().signOut()
-                        userIDSt = ""
-                        userNameSt = ""
-                    }catch{
-                        print(error.localizedDescription)
-                    }
-                    
+                    SignOut()
                 }
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 150, height: 30)
@@ -171,6 +162,15 @@ struct LogIn: View {
         Auth.auth().currentUser?.delete()
         userIDSt = ""
         userName = ""
+    }
+    func SignOut(){
+        do{
+            try Auth.auth().signOut()
+            userIDSt = ""
+            userNameSt = ""
+        }catch{
+            print(error.localizedDescription)
+        }
     }
     func SetUserData(userID: String, displayName: String){
         userData.userID = userID

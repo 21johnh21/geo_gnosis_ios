@@ -15,8 +15,8 @@ struct EndGame: View {
     let database = Firestore.firestore()
     
     //TODO: set username
-    @AppStorage("userName") var userName: String = ""
-    @AppStorage("loggedIn") var loggedIn: Bool = false
+    @AppStorage("userName") var userNameSt: String = ""
+    @AppStorage("userID") var userIDSt: String = ""
     
     @EnvironmentObject private var coordinator: Coordinator
     @EnvironmentObject var roundInfo : RoundInfo
@@ -99,16 +99,18 @@ struct EndGame: View {
         return finalScore
     }
     func SendResultsToDB(){
-        //TODO: check if username is blank first
-        var city_asciis: [String] = [String]()
-        var lats: [Double] = [Double]()
-        var lngs: [Double] = [Double]()
-        var countrys: [String] = [String]()
-        var admin_names: [String] = [String]()
-        var capitals: [String] = [String]()
-        var populations: [Int] = [Int]()
+        let userName = userNameSt
         
-        for location in roundInfo.locations{
+        if(userName != ""){ //TODO: and if thier user perms allow passing to DB
+            var city_asciis: [String] = [String]()
+            var lats: [Double] = [Double]()
+            var lngs: [Double] = [Double]()
+            var countrys: [String] = [String]()
+            var admin_names: [String] = [String]()
+            var capitals: [String] = [String]()
+            var populations: [Int] = [Int]()
+            
+            for location in roundInfo.locations{
             city_asciis.append(location.city_ascii)
             lats.append(location.lat)
             lngs.append(location.lng)
@@ -116,16 +118,16 @@ struct EndGame: View {
             admin_names.append(location.admin_name)
             capitals.append(location.capital)
             populations.append(location.population)
-        }
+            }
         
-        var lbInfo = LBInfo(userName: userName, finalScore: finalScore, multiChoice: gameInfo.multiChoice, regionMode: gameInfo.regionMode, difficulty: gameInfo.difficulty, region: gameInfo.region, times: roundInfo.times, city_ascii: city_asciis, lat: lats, lng: lngs, country: countrys, admin_name: admin_names, capital: capitals, population: populations)
+            var lbInfo = LBInfo(userName: userName, finalScore: finalScore, multiChoice: gameInfo.multiChoice, regionMode: gameInfo.regionMode, difficulty: gameInfo.difficulty, region: gameInfo.region, times: roundInfo.times, city_ascii: city_asciis, lat: lats, lng: lngs, country: countrys, admin_name: admin_names, capital: capitals, population: populations)
         
-//                    var lbInfo = LBInfo(userName: "JH_DEV", finalScore: finalScore)
-        let db = Firestore.firestore()
-        do {
-            try db.collection("Score Collection").document(UUID().uuidString).setData(from: lbInfo)
-        } catch let error {
-            print("Error writing city to Firestore: \(error)")
+            let db = Firestore.firestore()
+            do {
+                try db.collection("Score Collection").document(UUID().uuidString).setData(from: lbInfo)
+            } catch let error {
+                print("Error writing score to Firestore: \(error.localizedDescription)")
+            }
         }
     }
 }
