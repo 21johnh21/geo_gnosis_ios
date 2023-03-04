@@ -61,6 +61,7 @@
 		F8996FE629AC0E4A0039C685 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F8996FE529AC0E4A0039C685 /* FirebaseFirestore */; };
 		F8996FE829AD7B840039C685 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F8996FE729AD7B840039C685 /* FirebaseFirestoreSwift */; };
 		F8996FEA29B2BB060039C685 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FE929B2BB060039C685 /* UserData.swift */; };
+		F8996FEC29B3DCFC0039C685 /* UserHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FEB29B3DCFC0039C685 /* UserHistory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,7 @@
 		F8996FDB29AA97D50039C685 /* BebasNeue-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BebasNeue-Regular.ttf"; sourceTree = "<group>"; };
 		F8996FDD29AAA9490039C685 /* geo-gnosis-ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "geo-gnosis-ios-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F8996FE929B2BB060039C685 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		F8996FEB29B3DCFC0039C685 /* UserHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				F82315D129971CDD0026D036 /* LBGameInfoList.swift */,
 				F82315D52997214A0026D036 /* LBGameInfoCard.swift */,
 				F82315D7299721690026D036 /* LBGameDetail.swift */,
+				F8996FEB29B3DCFC0039C685 /* UserHistory.swift */,
 			);
 			path = Leaderboard;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				F87ABBB029820DD6007E2EA3 /* Coordinator.swift in Sources */,
 				F82315D029971AD90026D036 /* LBRegionModeSec.swift in Sources */,
 				F82315E02997E6310026D036 /* CustomColor.swift in Sources */,
+				F8996FEC29B3DCFC0039C685 /* UserHistory.swift in Sources */,
 				F87ABBB429836663007E2EA3 /* Location.swift in Sources */,
 				F8996FEA29B2BB060039C685 /* UserData.swift in Sources */,
 				F82315D229971CDD0026D036 /* LBGameInfoList.swift in Sources */,

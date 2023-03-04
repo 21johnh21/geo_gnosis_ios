@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 struct LeaderBoard: View {
     
@@ -13,6 +16,7 @@ struct LeaderBoard: View {
     
     var body: some View {
         TabView{
+            UserHistory()
             ModeView()
             ModeView()
         }.tabViewStyle(.page(indexDisplayMode: .always))
@@ -64,6 +68,14 @@ struct ModeView: View {
                     
             //somehow highlight where the user's games are 
         }
+    }
+    func GetData(){
+        let db = Firestore.firestore()
+        let docRef = db.collection("Score Collection").whereField("multiChoice", isEqualTo: true).whereField("multiChoice", isEqualTo: true).order(by: "finalScore").limit(to: 5) //something like this? how can I have multiple criteria?
+        
+        //order data here, or maybe I can do that on the backend
+        //query data that meets criteria for each category
+        
     }
 }
 

@@ -120,7 +120,7 @@ struct EndGame: View {
             populations.append(location.population)
             }
         
-            var lbInfo = LBInfo(userName: userName, finalScore: finalScore, multiChoice: gameInfo.multiChoice, regionMode: gameInfo.regionMode, difficulty: gameInfo.difficulty, region: gameInfo.region, times: roundInfo.times, city_ascii: city_asciis, lat: lats, lng: lngs, country: countrys, admin_name: admin_names, capital: capitals, population: populations)
+            var lbInfo = LBInfo(userName: userName, finalScore: finalScore, dateTime: Date(), multiChoice: gameInfo.multiChoice, regionMode: gameInfo.regionMode, difficulty: gameInfo.difficulty, region: gameInfo.region, times: roundInfo.times, city_ascii: city_asciis, lat: lats, lng: lngs, country: countrys, admin_name: admin_names, capital: capitals, population: populations)
         
             let db = Firestore.firestore()
             do {

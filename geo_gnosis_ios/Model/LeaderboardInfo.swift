@@ -11,6 +11,7 @@ public struct LBInfo: Codable {
     
     let userName: String?
     let finalScore: Int?
+    let dateTime: Date?
     //game info vars
     let multiChoice: Bool?
     let regionMode: String?
@@ -29,6 +30,7 @@ public struct LBInfo: Codable {
     enum CodingKeys: String, CodingKey {
         case userName
         case finalScore
+        case dateTime
         //round info vars
         case multiChoice
         case regionMode
@@ -43,7 +45,6 @@ public struct LBInfo: Codable {
         case admin_name
         case capital
         case population
-        
     }
 
 }

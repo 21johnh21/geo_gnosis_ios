@@ -9,8 +9,6 @@ import SwiftUI
 import FirebaseAuth
 import FirebaseAuth
 
-//@State var userName: String = ""
-
 struct LogIn: View {
     @AppStorage("userName") var userNameSt: String = ""
     @AppStorage("userID") var userIDSt: String = ""
@@ -21,12 +19,12 @@ struct LogIn: View {
     @State var password: String = ""
     @State var deleteAccount: Bool = false
     @State var email: String = ""
+    @State var showPass: Bool = false
     
     @State var user: User?
     
     let eye = UIImage(named: "eye")
     var body: some View {
-        //@EnvironmentObject var viewModel: AuthenticationViewModel
         if(userIDSt == "") { //If the user is not signed in
         //if(true) { //If the user is not signed in
             VStack{
@@ -34,7 +32,13 @@ struct LogIn: View {
                 VStack{
                     Text("Have an account?")
                     TextField("email", text: $email).textInputAutocapitalization(.never).autocorrectionDisabled(true)
-                    TextField("Password", text: $password).textInputAutocapitalization(.never).autocorrectionDisabled(true)
+                    HStack{
+                        TextField("Password", text: $password).textInputAutocapitalization(.never).autocorrectionDisabled(true)
+                        Image(systemName: showPass ? "eye.slash" : "eye")
+                            .onTapGesture {
+                                showPass.toggle()
+                            }
+                    }
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(width: 150, height: 30)
                         Text("Login")
@@ -56,15 +60,23 @@ struct LogIn: View {
                         TextField("user@sample.com", text: $email).textInputAutocapitalization(.never).autocorrectionDisabled(true)
                     }
                     HStack{
-                        Text("Passord: ")
-                        TextField("*******", text: $password).textInputAutocapitalization(.never).autocorrectionDisabled(true)
+                       //Text("Passord: ")
+                        TextField("Password", text: $password).textInputAutocapitalization(.never).autocorrectionDisabled(true)
+                        Image(systemName: showPass ? "eye.slash" : "eye")
+                            .onTapGesture {
+                                showPass.toggle()
+                            }
                         //put eye uiimage here
                         //or eye.slash
                     }
                     Text("At least 8 charachters\nOne Upper and one lower case\nOne number\nOne Special Charachter")
                     HStack{
-                        Text("Confirm Password")
-                        TextField("*******", text: $password).textInputAutocapitalization(.never).autocorrectionDisabled(true)
+                        //Text("Confirm Password")
+                        TextField("Confirm Password", text: $password).textInputAutocapitalization(.never).autocorrectionDisabled(true)
+                        Image(systemName: showPass ? "eye.slash" : "eye")
+                            .onTapGesture {
+                                showPass.toggle()
+                            }
                     }
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(width: 150, height: 30)
