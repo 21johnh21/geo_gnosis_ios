@@ -32,13 +32,7 @@ struct LogIn: View {
                 VStack{
                     Text("Have an account?")
                     TextField("email", text: $email).textInputAutocapitalization(.never).autocorrectionDisabled(true)
-                    HStack{
-                        TextField("Password", text: $password).textInputAutocapitalization(.never).autocorrectionDisabled(true)
-                        Image(systemName: showPass ? "eye.slash" : "eye")
-                            .onTapGesture {
-                                showPass.toggle()
-                            }
-                    }
+                    SecureInputView("Password", text: $password)
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(width: 150, height: 30)
                         Text("Login")
@@ -59,25 +53,9 @@ struct LogIn: View {
                         Text("Email: ")
                         TextField("user@sample.com", text: $email).textInputAutocapitalization(.never).autocorrectionDisabled(true)
                     }
-                    HStack{
-                       //Text("Passord: ")
-                        TextField("Password", text: $password).textInputAutocapitalization(.never).autocorrectionDisabled(true)
-                        Image(systemName: showPass ? "eye.slash" : "eye")
-                            .onTapGesture {
-                                showPass.toggle()
-                            }
-                        //put eye uiimage here
-                        //or eye.slash
-                    }
+                    SecureInputView("Password", text: $password)
                     Text("At least 8 charachters\nOne Upper and one lower case\nOne number\nOne Special Charachter")
-                    HStack{
-                        //Text("Confirm Password")
-                        TextField("Confirm Password", text: $password).textInputAutocapitalization(.never).autocorrectionDisabled(true)
-                        Image(systemName: showPass ? "eye.slash" : "eye")
-                            .onTapGesture {
-                                showPass.toggle()
-                            }
-                    }
+                    SecureInputView("Password", text: $password)
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(width: 150, height: 30)
                         Text("Create Account")

@@ -62,6 +62,7 @@
 		F8996FE829AD7B840039C685 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F8996FE729AD7B840039C685 /* FirebaseFirestoreSwift */; };
 		F8996FEA29B2BB060039C685 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FE929B2BB060039C685 /* UserData.swift */; };
 		F8996FEC29B3DCFC0039C685 /* UserHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FEB29B3DCFC0039C685 /* UserHistory.swift */; };
+		F8996FEE29B3E8B80039C685 /* SecureInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FED29B3E8B80039C685 /* SecureInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +135,7 @@
 		F8996FDD29AAA9490039C685 /* geo-gnosis-ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "geo-gnosis-ios-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F8996FE929B2BB060039C685 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		F8996FEB29B3DCFC0039C685 /* UserHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistory.swift; sourceTree = "<group>"; };
+		F8996FED29B3E8B80039C685 /* SecureInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 			children = (
 				F87ABBD929932449007E2EA3 /* Settings.swift */,
 				F87ABBDD29932D3F007E2EA3 /* LogIn.swift */,
+				F8996FED29B3E8B80039C685 /* SecureInputView.swift */,
 			);
 			path = SettingsSettings;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 			files = (
 				F827D59429777AF4007DE110 /* ContentView.swift in Sources */,
 				F87ABBC029862FBF007E2EA3 /* EndGameCard.swift in Sources */,
+				F8996FEE29B3E8B80039C685 /* SecureInputView.swift in Sources */,
 				F83C87AA297F5500008FA89D /* EndGame.swift in Sources */,
 				F8996FCB29A46C5E0039C685 /* DevTestHapticFeedback.swift in Sources */,
 				F87ABBC6298702F8007E2EA3 /* MapView2.swift in Sources */,
