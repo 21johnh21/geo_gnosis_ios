@@ -61,8 +61,10 @@
 		F8996FE629AC0E4A0039C685 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F8996FE529AC0E4A0039C685 /* FirebaseFirestore */; };
 		F8996FE829AD7B840039C685 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F8996FE729AD7B840039C685 /* FirebaseFirestoreSwift */; };
 		F8996FEA29B2BB060039C685 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FE929B2BB060039C685 /* UserData.swift */; };
-		F8996FEC29B3DCFC0039C685 /* UserHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FEB29B3DCFC0039C685 /* UserHistory.swift */; };
 		F8996FEE29B3E8B80039C685 /* SecureInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FED29B3E8B80039C685 /* SecureInputView.swift */; };
+		F8996FF229B52D1F0039C685 /* LBData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FF129B52D1F0039C685 /* LBData.swift */; };
+		F8996FF429B6C9100039C685 /* UserHistoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FF329B6C9100039C685 /* UserHistoryVM.swift */; };
+		F8996FF629B6CA2F0039C685 /* UserHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FF529B6CA2F0039C685 /* UserHistory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,8 +136,10 @@
 		F8996FDB29AA97D50039C685 /* BebasNeue-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BebasNeue-Regular.ttf"; sourceTree = "<group>"; };
 		F8996FDD29AAA9490039C685 /* geo-gnosis-ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "geo-gnosis-ios-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F8996FE929B2BB060039C685 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		F8996FEB29B3DCFC0039C685 /* UserHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistory.swift; sourceTree = "<group>"; };
 		F8996FED29B3E8B80039C685 /* SecureInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInputView.swift; sourceTree = "<group>"; };
+		F8996FF129B52D1F0039C685 /* LBData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBData.swift; sourceTree = "<group>"; };
+		F8996FF329B6C9100039C685 /* UserHistoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryVM.swift; sourceTree = "<group>"; };
+		F8996FF529B6CA2F0039C685 /* UserHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,7 +183,8 @@
 				F82315D129971CDD0026D036 /* LBGameInfoList.swift */,
 				F82315D52997214A0026D036 /* LBGameInfoCard.swift */,
 				F82315D7299721690026D036 /* LBGameDetail.swift */,
-				F8996FEB29B3DCFC0039C685 /* UserHistory.swift */,
+				F8996FF329B6C9100039C685 /* UserHistoryVM.swift */,
+				F8996FF529B6CA2F0039C685 /* UserHistory.swift */,
 			);
 			path = Leaderboard;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				F87ABBB52983671C007E2EA3 /* LocationData.swift */,
+				F8996FF129B52D1F0039C685 /* LBData.swift */,
 				F87ABBCF298C783A007E2EA3 /* RoundData.swift */,
 				F87ABBB329836663007E2EA3 /* Location.swift */,
 				F87ABBBD2986050B007E2EA3 /* RoundInfo.swift */,
@@ -526,14 +532,16 @@
 				F82315D8299721690026D036 /* LBGameDetail.swift in Sources */,
 				F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */,
 				F87ABBB62983671C007E2EA3 /* LocationData.swift in Sources */,
+				F8996FF429B6C9100039C685 /* UserHistoryVM.swift in Sources */,
 				F83C878F297DCACB008FA89D /* MapView.swift in Sources */,
 				F87ABBD2298E9AAE007E2EA3 /* DropDown.swift in Sources */,
 				F87ABBDE29932D3F007E2EA3 /* LogIn.swift in Sources */,
+				F8996FF629B6CA2F0039C685 /* UserHistory.swift in Sources */,
 				F82315D62997214A0026D036 /* LBGameInfoCard.swift in Sources */,
 				F87ABBB029820DD6007E2EA3 /* Coordinator.swift in Sources */,
 				F82315D029971AD90026D036 /* LBRegionModeSec.swift in Sources */,
 				F82315E02997E6310026D036 /* CustomColor.swift in Sources */,
-				F8996FEC29B3DCFC0039C685 /* UserHistory.swift in Sources */,
+				F8996FF229B52D1F0039C685 /* LBData.swift in Sources */,
 				F87ABBB429836663007E2EA3 /* Location.swift in Sources */,
 				F8996FEA29B2BB060039C685 /* UserData.swift in Sources */,
 				F82315D229971CDD0026D036 /* LBGameInfoList.swift in Sources */,
