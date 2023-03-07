@@ -60,8 +60,10 @@ public class RoundData{
         if(multiChoice && locationsByRegion.count != 0){
             for i in 0...numOfRounds - 1{ // for every round
                 //multiChoiceOptions2[i] // init this to 4 locations
+                var roundMultiChoiceOptionCountries: [String] = [String]()
                 var roundMultiChoiceOptions = [Location]()
                 roundMultiChoiceOptions.append(locations[i])
+                roundMultiChoiceOptionCountries.append(locations[i].country)
                 for _ in 0...2{ //append 3 random locations
                     var locationIndex = Int.random(in: 0..<locationsByRegion.count)
                     //roundMultiChoiceOptions.append(locationsByRegion[locationIndex])
@@ -72,11 +74,16 @@ public class RoundData{
                         while(!locationChosen){
 //                            if(locationsByRegion[locationIndex].country != roundMultiChoiceOptions[0].country){
                             
-                            var countryUsed: Bool = roundMultiChoiceOptions.contains(where: {$0.country !=  locationsByRegion[locationIndex].country})
+                            //let countryUsed: Bool = roundMultiChoiceOptions.contains(where: {$0.country !=  locationsByRegion[locationIndex].country})
+                            
+                            //var roundMultiChoiceOptionCountries: [String] = [String]()
+                            
+                            let countryUsed: Bool = roundMultiChoiceOptionCountries.contains(locationsByRegion[locationIndex].country)
                             
                             //TODO: countryUsed is not checked here, maybe say while(countyUsed = false and roundMultiChoiceOptions has less than 4 elements) continue adding elements
                             
-                            if(countryUsed){ // if the country has nott been used yet
+                            if(!countryUsed){ // if the country has nott been used yet
+                                roundMultiChoiceOptionCountries.append(locationsByRegion[locationIndex].country)
                                 roundMultiChoiceOptions.append(locationsByRegion[locationIndex])
                                 locationChosen = true
                             }else{
