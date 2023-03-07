@@ -65,6 +65,7 @@
 		F8996FF229B52D1F0039C685 /* LBData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FF129B52D1F0039C685 /* LBData.swift */; };
 		F8996FF429B6C9100039C685 /* UserHistoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FF329B6C9100039C685 /* UserHistoryVM.swift */; };
 		F8996FF629B6CA2F0039C685 /* UserHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FF529B6CA2F0039C685 /* UserHistory.swift */; };
+		F8996FF829B6CEFC0039C685 /* UserHistoryNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FF729B6CEFC0039C685 /* UserHistoryNew.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,7 @@
 		F8996FF129B52D1F0039C685 /* LBData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBData.swift; sourceTree = "<group>"; };
 		F8996FF329B6C9100039C685 /* UserHistoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryVM.swift; sourceTree = "<group>"; };
 		F8996FF529B6CA2F0039C685 /* UserHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistory.swift; sourceTree = "<group>"; };
+		F8996FF729B6CEFC0039C685 /* UserHistoryNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryNew.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				F82315D7299721690026D036 /* LBGameDetail.swift */,
 				F8996FF329B6C9100039C685 /* UserHistoryVM.swift */,
 				F8996FF529B6CA2F0039C685 /* UserHistory.swift */,
+				F8996FF729B6CEFC0039C685 /* UserHistoryNew.swift */,
 			);
 			path = Leaderboard;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */,
 				F87ABBB62983671C007E2EA3 /* LocationData.swift in Sources */,
 				F8996FF429B6C9100039C685 /* UserHistoryVM.swift in Sources */,
+				F8996FF829B6CEFC0039C685 /* UserHistoryNew.swift in Sources */,
 				F83C878F297DCACB008FA89D /* MapView.swift in Sources */,
 				F87ABBD2298E9AAE007E2EA3 /* DropDown.swift in Sources */,
 				F87ABBDE29932D3F007E2EA3 /* LogIn.swift in Sources */,
