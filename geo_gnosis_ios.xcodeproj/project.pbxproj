@@ -192,14 +192,14 @@
 			path = Leaderboard;
 			sourceTree = "<group>";
 		};
-		F82315DA299723EA0026D036 /* SettingsSettings */ = {
+		F82315DA299723EA0026D036 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				F87ABBD929932449007E2EA3 /* Settings.swift */,
 				F87ABBDD29932D3F007E2EA3 /* LogIn.swift */,
 				F8996FED29B3E8B80039C685 /* SecureInputView.swift */,
 			);
-			path = SettingsSettings;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		F82315DB299724060026D036 /* RootView */ = {
@@ -300,7 +300,7 @@
 				F82315DE299724550026D036 /* GameMap */,
 				F82315DC2997241C0026D036 /* EndGame */,
 				F82315DB299724060026D036 /* RootView */,
-				F82315DA299723EA0026D036 /* SettingsSettings */,
+				F82315DA299723EA0026D036 /* Settings */,
 				F82315D9299723D50026D036 /* Leaderboard */,
 				F8996FCA29A46C5E0039C685 /* DevTestHapticFeedback.swift */,
 				F8996FD629A5B0440039C685 /* TimerView.swift */,

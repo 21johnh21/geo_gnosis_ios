@@ -21,7 +21,11 @@ struct EndGameCard: View {
                 VStack{
                     HStack{
                         Text("Round: \(roundNumber)").font(.custom("Changa-Light", size: 16)).padding()
-                        Text("Score: \(time)").font(.custom("Changa-Light", size: 16)).padding()
+                        if(time != -1){
+                            Text("Score: \(time)").font(.custom("Changa-Light", size: 16)).padding()
+                        }else{
+                            Text("Score: DNF").font(.custom("Changa-Light", size: 16)).padding()
+                        }
                     }
                     HStack{
                         Text("\(location.city_ascii) \(location.admin_name), \(location.country)").font(.custom("Changa-Light", size: 16))

@@ -17,6 +17,7 @@ struct EndGame: View {
     //TODO: set username
     @AppStorage("userName") var userNameSt: String = ""
     @AppStorage("userID") var userIDSt: String = ""
+    @AppStorage("postScores") var postScores: Bool = true
     
     @EnvironmentObject private var coordinator: Coordinator
     @EnvironmentObject var roundInfo : RoundInfo
@@ -94,14 +95,16 @@ struct EndGame: View {
     func CalcFinalScore() -> Int{
         var finalScore: Int = 0
         for i in 0...roundInfo.roundNumber{
-            finalScore += roundInfo.times[i]
+            if(roundInfo.times[i] != -1){
+                finalScore += roundInfo.times[i]
+            }
         }
         return finalScore
     }
     func SendResultsToDB(){
         let userName = userNameSt
-        
-        if(userName != ""){ //TODO: and if thier user perms allow passing to DB
+        //If the user is logged in, allows posting scores, and finished the game
+        if(userName != "" && postScores && !roundInfo.times.contains(-1)){
             var city_asciis: [String] = [String]()
             var lats: [Double] = [Double]()
             var lngs: [Double] = [Double]()
