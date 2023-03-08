@@ -5,6 +5,8 @@
 //  Created by John Hawley on 1/22/23.
 //
 
+//TODO: REPLACE "World" with "Country" when refering to the region mode
+
 import SwiftUI
 import AVFAudio
 

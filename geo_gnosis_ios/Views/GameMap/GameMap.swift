@@ -191,7 +191,7 @@ struct GameMap: View {
         .onReceive(timer){ _ in
             count += 1
         }
-    }//TODO: add inimation to view load / disapear
+    }//TODO: add Animation to view load / disapear ? 
     
     //MARK: functions
     func ValidateAnswer (guessB: String) {

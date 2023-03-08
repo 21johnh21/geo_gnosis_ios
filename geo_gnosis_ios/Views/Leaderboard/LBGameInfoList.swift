@@ -8,17 +8,32 @@
 import SwiftUI
 
 struct LBGameInfoList: View {
+    var multiChoice: Bool
     var gameMode: String
     var gameDiff: String
     
+    @ObservedObject private var viewModel = LBGameInfoListVM()
+    
+//    init(viewModel: LBGameInfoListVM) {
+//        self.multiChoice = multiChoice
+//        self.gameMode = gameMode
+//        self.gameDiff = gameDiff
+//    }
     var body: some View {
-        //for each element returned from the remote data base for this particular game setup show a gameInfo View
-        LBGameInfoCard()
+        VStack{
+            //LBGameInfoCard()
+            ForEach(viewModel.lbData) { lbData in
+                UserHistoryCard(lbData: lbData)
+            }
+        }.onAppear(){
+            self.viewModel.SetFields(fieldDiff: gameDiff, fieldRegMode: gameMode, fieldMultiChoice: multiChoice)
+            self.viewModel.GetData()
+        }
     }
 }
 
 struct LBGameInfoList_Previews: PreviewProvider {
     static var previews: some View {
-        LBGameInfoList(gameMode: "World", gameDiff: "Easy")
+        LBGameInfoList(multiChoice: true, gameMode: "World", gameDiff: "Easy")
     }
 }

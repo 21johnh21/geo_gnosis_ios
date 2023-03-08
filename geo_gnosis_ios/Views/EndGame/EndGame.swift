@@ -14,7 +14,6 @@ import FirebaseFirestoreSwift
 struct EndGame: View {
     let database = Firestore.firestore()
     
-    //TODO: set username
     @AppStorage("userName") var userNameSt: String = ""
     @AppStorage("userID") var userIDSt: String = ""
     @AppStorage("postScores") var postScores: Bool = true

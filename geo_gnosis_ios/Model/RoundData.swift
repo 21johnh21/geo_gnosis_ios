@@ -80,8 +80,6 @@ public class RoundData{
                             
                             let countryUsed: Bool = roundMultiChoiceOptionCountries.contains(locationsByRegion[locationIndex].country)
                             
-                            //TODO: countryUsed is not checked here, maybe say while(countyUsed = false and roundMultiChoiceOptions has less than 4 elements) continue adding elements
-                            
                             if(!countryUsed){ // if the country has nott been used yet
                                 roundMultiChoiceOptionCountries.append(locationsByRegion[locationIndex].country)
                                 roundMultiChoiceOptions.append(locationsByRegion[locationIndex])

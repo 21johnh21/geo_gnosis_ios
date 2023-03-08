@@ -27,6 +27,7 @@ struct LogIn: View {
     var body: some View {
         if(userIDSt == "") { //If the user is not signed in
         //if(true) { //If the user is not signed in
+            //TODO: Check if userName is already used? 
             VStack{
                 //MARK: Login -------------------------------------------------------
                 VStack{

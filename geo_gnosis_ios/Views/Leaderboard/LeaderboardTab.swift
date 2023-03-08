@@ -18,26 +18,19 @@ struct LeaderboardTab: View {
                 ScrollView{
                     VStack{
                         LeaderboardHeader(headerText: "Country")
-                        LBRegionModeSec(gameMode: "Country")
+                        LBRegionModeSec(multiChoice: multiChoice, gameMode: "Country")
                     }
                     VStack{
                         LeaderboardHeader(headerText: "Region")
-                        LBRegionModeSec(gameMode: "Region")
+                        LBRegionModeSec(multiChoice: multiChoice, gameMode: "Region")
                     }
                     
                     VStack{
                         LeaderboardHeader(headerText: "City")
-                        LBRegionModeSec(gameMode: "City")
+                        LBRegionModeSec(multiChoice: multiChoice, gameMode: "City")
                     }
                 
                 }
-//                ScrollView{
-//                    Text("Fill the Blank")
-//                    LeaderboardHeader(headerText: "Country")
-//                    LeaderboardHeader(headerText: "Region")
-//                    LeaderboardHeader(headerText: "City")
-//                }
-           // }
         }
     }
 }

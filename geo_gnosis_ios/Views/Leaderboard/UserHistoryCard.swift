@@ -27,7 +27,7 @@ struct UserHistoryCard: View {
     }
     func GetGameMode() -> String{
         if(lbData.multiChoice){
-            return "multipl choice"
+            return "multiple choice"
         }else{
             return "fill the blank"
         }

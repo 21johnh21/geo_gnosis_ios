@@ -20,7 +20,7 @@ class UserHistoryVM: ObservableObject{
     
     func GetData(){
         let db = Firestore.firestore()
-//            db.collection("Score Collection").addSnapshotListener{(querySnapshot, error) in
+        //TODO: orderby date 
         db.collection("Score Collection").whereField("userName", isEqualTo: userNameSt).addSnapshotListener{(querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("Error: \(error!.localizedDescription)")
