@@ -35,7 +35,6 @@ struct RootView: View {
             ScrollView{
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
-                    //Text("Geo Gnosis").font(.title).padding(.top)
                     Text("Geo Gnosis").font(.custom("BebasNeue-Regular", size: 45)).padding(.top)
                 }
                 ZStack{
@@ -109,7 +108,7 @@ struct RootView: View {
                 }
                 HStack{
                     ZStack{
-                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
+                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).shadow(color: .black, radius: 3, x: 2, y: 2)
                         Text("Settings").font(.custom("Changa-Light", size: 16))
                     }.onTapGesture {
                         let generator = UIImpactFeedbackGenerator(style: .light)
@@ -118,7 +117,7 @@ struct RootView: View {
                     }
                     Spacer()
                     ZStack{
-                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
+                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).shadow(color: .black, radius: 3, x: 2, y: 2)
                         Text("Leaderboard").font(.custom("Changa-Light", size: 16))
                     }.onTapGesture {
                         let generator = UIImpactFeedbackGenerator(style: .light)
