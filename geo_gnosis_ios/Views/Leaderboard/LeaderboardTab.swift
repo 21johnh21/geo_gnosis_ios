@@ -8,13 +8,42 @@
 import SwiftUI
 
 struct LeaderboardTab: View {
+    var multiChoice: Bool
+    
+    @State var regionMode: String = "Country"
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Text("Leaderboard").font(.title)
+            //HStack{
+                ScrollView{
+                    VStack{
+                        LeaderboardHeader(headerText: "Country")
+                        LBRegionModeSec(gameMode: "Country")
+                    }
+                    VStack{
+                        LeaderboardHeader(headerText: "Region")
+                        LBRegionModeSec(gameMode: "Region")
+                    }
+                    
+                    VStack{
+                        LeaderboardHeader(headerText: "City")
+                        LBRegionModeSec(gameMode: "City")
+                    }
+                
+                }
+//                ScrollView{
+//                    Text("Fill the Blank")
+//                    LeaderboardHeader(headerText: "Country")
+//                    LeaderboardHeader(headerText: "Region")
+//                    LeaderboardHeader(headerText: "City")
+//                }
+           // }
+        }
     }
 }
 
 struct LeaderboardTab_Previews: PreviewProvider {
     static var previews: some View {
-        LeaderboardTab()
+        LeaderboardTab(multiChoice: true)
     }
 }

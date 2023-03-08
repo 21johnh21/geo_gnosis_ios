@@ -8,21 +8,17 @@
 import SwiftUI
 
 struct LBRegionModeSec: View {
+    
+    var gameMode: String
+    
     var body: some View {
         ScrollView{
-            LeaderboardHeader(headerText: "Easy").onTapGesture {
-                
-            }.onTapGesture {
-                //show list of game info from database
-                Alert(title: Text("ALERT"))
-                LBGameInfoList()
-            }
-            LeaderboardHeader(headerText: "Medium").onTapGesture {
-                
-            }
-            LeaderboardHeader(headerText: "Hard").onTapGesture {
-                
-            }
+            LeaderboardHeader(headerText: "Easy")
+            LBGameInfoList(gameMode: gameMode, gameDiff: "Easy")
+            LeaderboardHeader(headerText: "Medium")
+            LBGameInfoList(gameMode: gameMode, gameDiff: "Medium")
+            LeaderboardHeader(headerText: "Hard")
+            LBGameInfoList(gameMode: gameMode, gameDiff: "Hard")
         }.padding(.trailing)
             .overlay(){
                 RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
@@ -32,6 +28,6 @@ struct LBRegionModeSec: View {
 
 struct LBRegionModeSec_Previews: PreviewProvider {
     static var previews: some View {
-        LBRegionModeSec()
+        LBRegionModeSec(gameMode: "Easy")
     }
 }

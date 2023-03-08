@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LBGameInfoList: View {
+    var gameMode: String
+    var gameDiff: String
+    
     var body: some View {
         //for each element returned from the remote data base for this particular game setup show a gameInfo View
         LBGameInfoCard()
@@ -16,6 +19,6 @@ struct LBGameInfoList: View {
 
 struct LBGameInfoList_Previews: PreviewProvider {
     static var previews: some View {
-        LBGameInfoList()
+        LBGameInfoList(gameMode: "World", gameDiff: "Easy")
     }
 }
