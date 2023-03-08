@@ -13,7 +13,13 @@ struct LeaderboardTab: View {
     @State var regionMode: String = "World"
     var body: some View {
         VStack{
-            Text("Leaderboard").font(.title)
+            let gameMode = multiChoice == true ? "Multiple Choice" : "Fill the Blank"
+            VStack{
+                Text("Leaderboard").font(.custom("BebasNeue-Regular", size: 45))
+                Text("\(gameMode)").font(.custom("BebasNeue-Regular", size: 20))
+            }.frame(maxWidth: .infinity).background(){
+                RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)//.frame(minWidth: .infinity)
+            }
             //HStack{
                 ScrollView{
                     VStack{
@@ -31,7 +37,7 @@ struct LeaderboardTab: View {
                     }
                 
                 }
-        }
+        }.background(CustomColor.secondary)
     }
 }
 

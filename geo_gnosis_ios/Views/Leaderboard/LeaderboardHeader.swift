@@ -13,7 +13,7 @@ struct LeaderboardHeader: View {
     
     var body: some View {
         ZStack{
-            RoundedRectangle(cornerRadius: 5).fill(.green).frame(height:
+            RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height:
             30)
             Text("\(headerText)")
             
