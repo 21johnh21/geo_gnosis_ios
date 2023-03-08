@@ -18,7 +18,6 @@ struct LeaderBoard: View {
         TabView{
             UserHistory()
             ModeView()
-            ModeView()
         }.tabViewStyle(.page(indexDisplayMode: .always))
     }
 }

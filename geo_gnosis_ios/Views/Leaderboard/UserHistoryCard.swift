@@ -20,10 +20,17 @@ struct UserHistoryCard: View {
                     Text("Final Score: \(lbData.finalScore)").font(.custom("Changa-Light", size: 16)).padding()
                 }
                 HStack{
-                    Text("GameModePlaceHolder \(Image(systemName: "circle.fill")) \(lbData.regionMode) \(Image(systemName: "circle.fill")) \(lbData.region) \(Image(systemName: "circle.fill")) \(lbData.difficulty)").font(.custom("Changa-Light", size: 16))
+                    Text("\(GetGameMode()) \(Image(systemName: "circle.fill")) \(lbData.regionMode) \(Image(systemName: "circle.fill")) \(lbData.region) \(Image(systemName: "circle.fill")) \(lbData.difficulty)").font(.custom("Changa-Light", size: 16))
                 }
             }
         }.frame(height: 100)
+    }
+    func GetGameMode() -> String{
+        if(lbData.multiChoice){
+            return "multipl choice"
+        }else{
+            return "fill the blank"
+        }
     }
 }
 

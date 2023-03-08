@@ -66,6 +66,7 @@
 		F8996FF429B6C9100039C685 /* UserHistoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FF329B6C9100039C685 /* UserHistoryVM.swift */; };
 		F8996FF829B6CEFC0039C685 /* UserHistoryNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FF729B6CEFC0039C685 /* UserHistoryNew.swift */; };
 		F8996FFA29B6D0660039C685 /* UserHistoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FF929B6D0660039C685 /* UserHistoryCard.swift */; };
+		F8996FFC29B80B1D0039C685 /* LeaderboardTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FFB29B80B1D0039C685 /* LeaderboardTab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		F8996FF329B6C9100039C685 /* UserHistoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryVM.swift; sourceTree = "<group>"; };
 		F8996FF729B6CEFC0039C685 /* UserHistoryNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryNew.swift; sourceTree = "<group>"; };
 		F8996FF929B6D0660039C685 /* UserHistoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryCard.swift; sourceTree = "<group>"; };
+		F8996FFB29B80B1D0039C685 /* LeaderboardTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 				F8996FF329B6C9100039C685 /* UserHistoryVM.swift */,
 				F8996FF729B6CEFC0039C685 /* UserHistoryNew.swift */,
 				F8996FF929B6D0660039C685 /* UserHistoryCard.swift */,
+				F8996FFB29B80B1D0039C685 /* LeaderboardTab.swift */,
 			);
 			path = Leaderboard;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				F82315D8299721690026D036 /* LBGameDetail.swift in Sources */,
 				F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */,
 				F87ABBB62983671C007E2EA3 /* LocationData.swift in Sources */,
+				F8996FFC29B80B1D0039C685 /* LeaderboardTab.swift in Sources */,
 				F8996FF429B6C9100039C685 /* UserHistoryVM.swift in Sources */,
 				F8996FF829B6CEFC0039C685 /* UserHistoryNew.swift in Sources */,
 				F83C878F297DCACB008FA89D /* MapView.swift in Sources */,

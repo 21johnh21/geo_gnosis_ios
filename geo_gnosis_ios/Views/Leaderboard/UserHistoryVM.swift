@@ -19,15 +19,16 @@ class UserHistoryVM: ObservableObject{
     private var db = Firestore.firestore()
     
     func GetData(){
-            let db = Firestore.firestore()
-            db.collection("Score Collection").addSnapshotListener{(querySnapshot, error) in
-                guard let documents = querySnapshot?.documents else {
-                    print("Error: \(error!.localizedDescription)")
-                    return
-                }
-                self.lbData = documents.compactMap{ (queryDocumentSnapshot) -> LBData? in
-                    return try? queryDocumentSnapshot.data(as: LBData.self)
-                }
+        let db = Firestore.firestore()
+//            db.collection("Score Collection").addSnapshotListener{(querySnapshot, error) in
+        db.collection("Score Collection").whereField("userName", isEqualTo: userNameSt).addSnapshotListener{(querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                print("Error: \(error!.localizedDescription)")
+                return
+            }
+            self.lbData = documents.compactMap{ (queryDocumentSnapshot) -> LBData? in
+                return try? queryDocumentSnapshot.data(as: LBData.self)
             }
         }
+    }
 }

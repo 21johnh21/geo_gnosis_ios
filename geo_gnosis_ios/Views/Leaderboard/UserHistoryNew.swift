@@ -25,17 +25,6 @@ struct UserHistory: View {
         .onAppear(){
             self.viewModel.GetData()
         }
-        
-//        NavigationView{
-//            Text("Test View")
-//            List(viewModel.lbData){lbData in
-//                VStack{
-//                    Text("\(lbData.userName)")
-//                }
-//            }
-//        }.onAppear(){
-//            self.viewModel.GetData()
-//        }
     }
 }
 
