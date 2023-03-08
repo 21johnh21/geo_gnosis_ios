@@ -10,15 +10,15 @@ import SwiftUI
 struct LeaderboardTab: View {
     var multiChoice: Bool
     
-    @State var regionMode: String = "Country"
+    @State var regionMode: String = "World"
     var body: some View {
         VStack{
             Text("Leaderboard").font(.title)
             //HStack{
                 ScrollView{
                     VStack{
-                        LeaderboardHeader(headerText: "Country")
-                        LBRegionModeSec(multiChoice: multiChoice, gameMode: "Country")
+                        LeaderboardHeader(headerText: "World")
+                        LBRegionModeSec(multiChoice: multiChoice, gameMode: "World")
                     }
                     VStack{
                         LeaderboardHeader(headerText: "Region")
