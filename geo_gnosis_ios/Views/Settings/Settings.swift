@@ -18,9 +18,13 @@ struct Settings: View {
     
     var body: some View {
         VStack{
-            Text("Geo Gnosis").font(.title)
+            VStack{
+                Text("Settings").font(.custom("BebasNeue-Regular", size: 45))
+            }.frame(maxWidth: .infinity).background(){
+                RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
+            }
             HStack{
-                Text("Log In")//either say login or thier user name here
+                Text("Log In").padding(.leading)//either say login or thier user name here
                 Spacer()
                 Image("defaultProfile").resizable()
                     .frame(width: 20.0, height: 20.0).padding().clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
@@ -36,26 +40,27 @@ struct Settings: View {
                     //.frame(width: 20.0, height: 20.0).padding()
                     
             }
-            Toggle("Vibration On", isOn: $vibOn)
+            Toggle("Vibration On", isOn: $vibOn).padding(.leading)
             Slider(value: $volume, in: 0...100).tint(Color.green).padding()
             //var soundText = String(format: "%.0f", sound)
             Text("Volume \(String(format: "%.0f", volume))")
                 //Slider()
-            Toggle("Satelite Map Mode", isOn: $sateliteMapOn)
-            Toggle("Post Scores on leaderboard", isOn: $postScores)
-            Toggle("Dark Mode", isOn: $darkMode)
+            Toggle("Satelite Map Mode", isOn: $sateliteMapOn).padding(.leading)
+            Toggle("Post Scores on leaderboard", isOn: $postScores).padding(.leading)
+            Toggle("Dark Mode", isOn: $darkMode).padding(.leading)
             HStack {
                 ZStack{
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: 150, height: 30)
-                    Text("Play Tutorial")
-                }.onTapGesture {
+                    Text("Play Tutorial").padding(.leading)
+                }.padding(.leading)
+                .onTapGesture {
                     let generator = UIImpactFeedbackGenerator(style: .light)
                     generator.impactOccurred()
                 }
                 Spacer()
             }
             Spacer()
-        }//.background(CustomColor.secondary)
+        }.background(CustomColor.secondary)
     }
 }
 
