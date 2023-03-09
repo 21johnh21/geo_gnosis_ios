@@ -17,17 +17,14 @@ struct LogIn: View {
     
     @State var userName: String = ""
     @State var deleteAccount: Bool = false
-    //@State var password: String = ""
     @State var passwordLI: String = ""
     @State var passwordCA: String = ""
     @State var passwordConCA: String = ""
     @State var emailLI: String = ""
     @State var emailCA: String = ""
-    //@State var email: String = ""
     @State var hadErrorLoggingIn: Bool = false
     let loginErrorMessage = "Incorrect Email or Password"
     @State var hadErrorCreatingAccount: Bool = false
-    //@State var createAccountErrorMessage: String = ""
     @State var createAccountErrorCode: Int = 0 //no error = 0
     
     @State var user: User?
@@ -74,6 +71,18 @@ struct LogIn: View {
                         Text("One Special Charachter").foregroundColor(createAccountErrorCode == 4 ? .red : .black)
                         if(createAccountErrorCode == 5){
                             Text("Passwords don't match").foregroundColor(.red)
+                        }
+                        if(createAccountErrorCode == 6){
+                            Text("Must provide and email").foregroundColor(.red)
+                        }
+                        if(createAccountErrorCode == 7){
+                            Text("Must provide a valid email").foregroundColor(.red)
+                        }
+                        if(createAccountErrorCode == 8){
+                            Text("This email is already in use").foregroundColor(.red)
+                        }
+                        if(createAccountErrorCode == 9){
+                            Text("Error creating an account").foregroundColor(.red)
                         }
                     }
                     SecureInputView("Password", text: $passwordConCA)
@@ -164,7 +173,17 @@ struct LogIn: View {
                     }
                     
                 } else {
+                    //TODO: verify that the username is provided and not already in use
                     print("Error: \(error!.localizedDescription)")
+                    if(error!.localizedDescription == "An email address must be provided."){ //no email
+                        createAccountErrorCode = 6
+                    }else if(error!.localizedDescription == "The email address is badly formatted."){ // email not valid
+                        createAccountErrorCode = 7
+                    }else if(error!.localizedDescription == "The email address is already in use by another account."){ // email not valid
+                        createAccountErrorCode = 8
+                    }else{ //generic error
+                        createAccountErrorCode = 9
+                    }
                 }
             }
             let currentUser = Auth.auth().currentUser
@@ -207,16 +226,16 @@ struct LogIn: View {
         let spcREGEX = ".*[!&^%$#@()/]+.*"
         
         var testREGEX = NSPredicate(format:"SELF MATCHES %@", capREGEX)
-        var hasCap = testREGEX.evaluate(with: passwordCA)
+        let hasCap = testREGEX.evaluate(with: passwordCA)
         
         testREGEX = NSPredicate(format:"SELF MATCHES %@", lowREGEX)
-        var hasLow = testREGEX.evaluate(with: passwordCA)
+        let hasLow = testREGEX.evaluate(with: passwordCA)
         
         testREGEX = NSPredicate(format:"SELF MATCHES %@", numREGEX)
-        var hasNum = testREGEX.evaluate(with: passwordCA)
+        let hasNum = testREGEX.evaluate(with: passwordCA)
         
         testREGEX = NSPredicate(format:"SELF MATCHES %@", spcREGEX)
-        var hasSpc = testREGEX.evaluate(with: passwordCA)
+        let hasSpc = testREGEX.evaluate(with: passwordCA)
         
         createAccountErrorCode = 0 
         
