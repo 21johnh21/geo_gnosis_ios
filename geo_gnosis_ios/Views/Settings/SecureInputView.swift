@@ -22,9 +22,9 @@ struct SecureInputView: View {
         ZStack(alignment: .trailing) {
             Group {
                 if isSecured {
-                    SecureField(title, text: $text)
+                    SecureField(title, text: $text).textInputAutocapitalization(.never).autocorrectionDisabled(true)
                 } else {
-                    TextField(title, text: $text)
+                    TextField(title, text: $text).textInputAutocapitalization(.never).autocorrectionDisabled(true)
                 }
             }.padding(.trailing, 32)
 

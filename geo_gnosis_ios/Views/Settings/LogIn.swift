@@ -27,7 +27,8 @@ struct LogIn: View {
     @State var hadErrorLoggingIn: Bool = false
     let loginErrorMessage = "Incorrect Email or Password"
     @State var hadErrorCreatingAccount: Bool = false
-    @State var crateAccountErrorMessage: String = ""
+    //@State var createAccountErrorMessage: String = ""
+    @State var createAccountErrorCode: Int = 0 //no error = 0
     
     @State var user: User?
     
@@ -66,7 +67,15 @@ struct LogIn: View {
                         TextField("user@sample.com", text: $emailCA).textInputAutocapitalization(.never).autocorrectionDisabled(true)
                     }
                     SecureInputView("Password", text: $passwordCA)
-                    Text("At least 8 charachters\nOne Upper and one lower case\nOne number\nOne Special Charachter")
+                    Group{
+                        Text("At least 8 charachters").foregroundColor(createAccountErrorCode == 1 ? .red : .black)
+                        Text("One Upper and one lower case").foregroundColor(createAccountErrorCode == 2 ? .red : .black)
+                        Text("One number").foregroundColor(createAccountErrorCode == 3 ? .red : .black)
+                        Text("One Special Charachter").foregroundColor(createAccountErrorCode == 4 ? .red : .black)
+                        if(createAccountErrorCode == 5){
+                            Text("Passwords don't match").foregroundColor(.red)
+                        }
+                    }
                     SecureInputView("Password", text: $passwordConCA)
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(width: 150, height: 30)
@@ -163,7 +172,7 @@ struct LogIn: View {
             userNameSt = currentUser?.displayName ?? ""
             //print("userid: \(currentUser?.uid) displayName: \(currentUser?.displayName)")
         }else{
-            //TODO: Inform User 
+            //TODO: Inform User
         }
     }
     
@@ -209,17 +218,26 @@ struct LogIn: View {
         testREGEX = NSPredicate(format:"SELF MATCHES %@", spcREGEX)
         var hasSpc = testREGEX.evaluate(with: passwordCA)
         
+        createAccountErrorCode = 0 
         
         if(!(passwordCA == passwordConCA)){ //pass + con pass dont match
             passIsValid = false
+            createAccountErrorCode = 5
+        }else if(passwordCA.count < 9){ // less than 8 chars
+            passIsValid = false
+            createAccountErrorCode = 1
         }else if(!hasCap){ //no cap
             passIsValid = false
+            createAccountErrorCode = 2
         }else if(!hasLow){ //no lower
             passIsValid = false
+            createAccountErrorCode = 2
         }else if(!hasNum){ //no number
             passIsValid = false
+            createAccountErrorCode = 3
         }else if(!hasSpc){ //no special
             passIsValid = false
+            createAccountErrorCode = 4
         }
         
         return passIsValid
