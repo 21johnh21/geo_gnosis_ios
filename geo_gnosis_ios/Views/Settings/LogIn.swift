@@ -24,6 +24,10 @@ struct LogIn: View {
     @State var emailLI: String = ""
     @State var emailCA: String = ""
     //@State var email: String = ""
+    @State var hadErrorLoggingIn: Bool = false
+    let loginErrorMessage = "Incorrect Email or Password"
+    @State var hadErrorCreatingAccount: Bool = false
+    @State var crateAccountErrorMessage: String = ""
     
     @State var user: User?
     
@@ -38,6 +42,9 @@ struct LogIn: View {
                     Text("Have an account?")
                     TextField("email", text: $emailLI).textInputAutocapitalization(.never).autocorrectionDisabled(true)
                     SecureInputView("Password", text: $passwordLI)
+                    if(hadErrorLoggingIn){
+                        Text("\(loginErrorMessage)")
+                    }
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(width: 150, height: 30)
                         Text("Login")
@@ -117,6 +124,7 @@ struct LogIn: View {
             userNameSt = user?.displayName ?? ""
         }
         catch{
+            hadErrorLoggingIn = true
             print("Error: \(error.localizedDescription)")
         }
     }
@@ -127,30 +135,36 @@ struct LogIn: View {
     }
 
     func CreateAccWithEmailAndPass(){
-        Auth.auth().createUser(withEmail: emailCA, password: passwordCA) { user, error in
-            if error == nil && user != nil {
-                print("User created!")
+        
+        if(PassIsValid()){
+            
+            Auth.auth().createUser(withEmail: emailCA, password: passwordCA) { user, error in
+                if error == nil && user != nil {
+                    print("User created!")
                     
-                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                changeRequest?.displayName = userName
-                      
-                changeRequest?.commitChanges { error in
-                if error == nil {
-                print("User display name changed!")
-                              //self.dismiss(animated: false, completion: nil)
+                    let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                    changeRequest?.displayName = userName
+                    
+                    changeRequest?.commitChanges { error in
+                        if error == nil {
+                            print("User display name changed!")
+                            //self.dismiss(animated: false, completion: nil)
+                        } else {
+                            print("Error: \(error!.localizedDescription)")
+                        }
+                    }
+                    
                 } else {
                     print("Error: \(error!.localizedDescription)")
                 }
             }
-                      
-            } else {
-                print("Error: \(error!.localizedDescription)")
-            }
+            let currentUser = Auth.auth().currentUser
+            userIDSt = currentUser?.uid ?? "" //user is not availible use "" as default text
+            userNameSt = currentUser?.displayName ?? ""
+            //print("userid: \(currentUser?.uid) displayName: \(currentUser?.displayName)")
+        }else{
+            //TODO: Inform User 
         }
-        let currentUser = Auth.auth().currentUser
-        userIDSt = currentUser?.uid ?? "" //user is not availible use "" as default text
-        userNameSt = currentUser?.displayName ?? ""
-        //print("userid: \(currentUser?.uid) displayName: \(currentUser?.displayName)")
     }
     
     func DeleteAccount(){
@@ -171,6 +185,44 @@ struct LogIn: View {
         userData.userID = userID
         userData.displayName = displayName
         print("userID: \(userData.userID), displayName: \(userData.displayName)")
+    }
+    func PassIsValid() -> Bool{
+        //crateAccountErrorMessage
+        //hadErrorCreatingAccount
+        
+        var passIsValid: Bool = true
+        
+        let capREGEX = ".*[A-Z]+.*"
+        let lowREGEX = ".*[a-z]+.*"
+        let numREGEX = ".*[0-9]+.*"
+        let spcREGEX = ".*[!&^%$#@()/]+.*"
+        
+        var testREGEX = NSPredicate(format:"SELF MATCHES %@", capREGEX)
+        var hasCap = testREGEX.evaluate(with: passwordCA)
+        
+        testREGEX = NSPredicate(format:"SELF MATCHES %@", lowREGEX)
+        var hasLow = testREGEX.evaluate(with: passwordCA)
+        
+        testREGEX = NSPredicate(format:"SELF MATCHES %@", numREGEX)
+        var hasNum = testREGEX.evaluate(with: passwordCA)
+        
+        testREGEX = NSPredicate(format:"SELF MATCHES %@", spcREGEX)
+        var hasSpc = testREGEX.evaluate(with: passwordCA)
+        
+        
+        if(!(passwordCA == passwordConCA)){ //pass + con pass dont match
+            passIsValid = false
+        }else if(!hasCap){ //no cap
+            passIsValid = false
+        }else if(!hasLow){ //no lower
+            passIsValid = false
+        }else if(!hasNum){ //no number
+            passIsValid = false
+        }else if(!hasSpc){ //no special
+            passIsValid = false
+        }
+        
+        return passIsValid
     }
 }
 
