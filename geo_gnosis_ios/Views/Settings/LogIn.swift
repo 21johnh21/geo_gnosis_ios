@@ -16,10 +16,14 @@ struct LogIn: View {
     @EnvironmentObject var userData: UserInfo
     
     @State var userName: String = ""
-    @State var password: String = ""
     @State var deleteAccount: Bool = false
-    @State var email: String = ""
-    @State var showPass: Bool = false
+    //@State var password: String = ""
+    @State var passwordLI: String = ""
+    @State var passwordCA: String = ""
+    @State var passwordConCA: String = ""
+    @State var emailLI: String = ""
+    @State var emailCA: String = ""
+    //@State var email: String = ""
     
     @State var user: User?
     
@@ -32,8 +36,8 @@ struct LogIn: View {
                 //MARK: Login -------------------------------------------------------
                 VStack{
                     Text("Have an account?")
-                    TextField("email", text: $email).textInputAutocapitalization(.never).autocorrectionDisabled(true)
-                    SecureInputView("Password", text: $password)
+                    TextField("email", text: $emailLI).textInputAutocapitalization(.never).autocorrectionDisabled(true)
+                    SecureInputView("Password", text: $passwordLI)
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(width: 150, height: 30)
                         Text("Login")
@@ -52,11 +56,11 @@ struct LogIn: View {
                     }
                     HStack{
                         Text("Email: ")
-                        TextField("user@sample.com", text: $email).textInputAutocapitalization(.never).autocorrectionDisabled(true)
+                        TextField("user@sample.com", text: $emailCA).textInputAutocapitalization(.never).autocorrectionDisabled(true)
                     }
-                    SecureInputView("Password", text: $password)
+                    SecureInputView("Password", text: $passwordCA)
                     Text("At least 8 charachters\nOne Upper and one lower case\nOne number\nOne Special Charachter")
-                    SecureInputView("Password", text: $password)
+                    SecureInputView("Password", text: $passwordConCA)
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(.green).frame(width: 150, height: 30)
                         Text("Create Account")
@@ -99,7 +103,7 @@ struct LogIn: View {
     }
     func SignInWithEmailAndPass() async{
         do{
-            let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
+            let authResult = try await Auth.auth().signIn(withEmail: emailLI, password: passwordLI)
             print("login: \(authResult)")
             user = authResult.user
             print("user: \(String(describing: user))")
@@ -107,7 +111,7 @@ struct LogIn: View {
             print("user ID: \(String(describing: uuid))")
             //authenticationState = .authenticated
             var displayName = user?.displayName
-            print("display name: \(displayName)")
+            print("display name: \(String(describing: displayName))")
             //SetUserData(userID: user!.uid, displayName: user!.displayName!) //TODO: validate that this info is here
             userIDSt = user?.uid ?? "" //user is not availible use "" as default text
             userNameSt = user?.displayName ?? ""
@@ -123,7 +127,7 @@ struct LogIn: View {
     }
 
     func CreateAccWithEmailAndPass(){
-        Auth.auth().createUser(withEmail: email, password: password) { user, error in
+        Auth.auth().createUser(withEmail: emailCA, password: passwordCA) { user, error in
             if error == nil && user != nil {
                 print("User created!")
                     

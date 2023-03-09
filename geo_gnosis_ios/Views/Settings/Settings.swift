@@ -37,14 +37,10 @@ struct Settings: View {
                         generator.impactOccurred()
                         coordinator.show(LogIn.self)
                     }
-                    //.frame(width: 20.0, height: 20.0).padding()
-                    
             }
             Toggle("Vibration On", isOn: $vibOn).padding(.leading)
             Slider(value: $volume, in: 0...100).tint(Color.green).padding()
-            //var soundText = String(format: "%.0f", sound)
             Text("Volume \(String(format: "%.0f", volume))")
-                //Slider()
             Toggle("Satelite Map Mode", isOn: $sateliteMapOn).padding(.leading)
             Toggle("Post Scores on leaderboard", isOn: $postScores).padding(.leading)
             Toggle("Dark Mode", isOn: $darkMode).padding(.leading)
