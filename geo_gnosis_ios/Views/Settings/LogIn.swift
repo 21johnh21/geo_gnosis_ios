@@ -49,7 +49,11 @@ struct LogIn: View {
                     }.onTapGesture {
                         callSignIn()
                     }
-                }.padding().overlay(){
+                }.padding().background(){
+                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
+                }
+                .overlay(){
+//                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                     RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
                 }
                 VStack{
@@ -93,11 +97,14 @@ struct LogIn: View {
                         //CallCreateAcc()
                         CreateAccWithEmailAndPass()
                     }
-                }.padding().overlay(){
+                }.padding().background(){
+                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
+                }
+                .overlay(){
                     RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
                 }
                 Spacer()
-            }
+            }.background(CustomColor.secondary)
         }
         else {
             //MARK: Already Logged In  -------------------------------------------------------
@@ -123,7 +130,7 @@ struct LogIn: View {
                 } message: {
                     Text("Are you sure?")
                 }
-            }
+            }.background(CustomColor.secondary)
         }
     }
     func SignInWithEmailAndPass() async{
@@ -132,10 +139,10 @@ struct LogIn: View {
             print("login: \(authResult)")
             user = authResult.user
             print("user: \(String(describing: user))")
-            var uuid = user?.uid
+            let uuid = user?.uid
             print("user ID: \(String(describing: uuid))")
             //authenticationState = .authenticated
-            var displayName = user?.displayName
+            let displayName = user?.displayName
             print("display name: \(String(describing: displayName))")
             //SetUserData(userID: user!.uid, displayName: user!.displayName!) //TODO: validate that this info is here
             userIDSt = user?.uid ?? "" //user is not availible use "" as default text

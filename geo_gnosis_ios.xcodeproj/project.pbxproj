@@ -146,6 +146,7 @@
 		F8996FF929B6D0660039C685 /* UserHistoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryCard.swift; sourceTree = "<group>"; };
 		F8996FFB29B80B1D0039C685 /* LeaderboardTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTab.swift; sourceTree = "<group>"; };
 		F8996FFD29B821710039C685 /* LBGameInfoListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBGameInfoListVM.swift; sourceTree = "<group>"; };
+		F8996FFF29BAC0630039C685 /* geo_gnosis_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = geo_gnosis_ios.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +261,7 @@
 		F827D59029777AF4007DE110 /* geo_gnosis_ios */ = {
 			isa = PBXGroup;
 			children = (
+				F8996FFF29BAC0630039C685 /* geo_gnosis_ios.entitlements */,
 				F8996FDD29AAA9490039C685 /* geo-gnosis-ios-Info.plist */,
 				F827D59129777AF4007DE110 /* geo_gnosis_iosApp.swift */,
 				F827D59329777AF4007DE110 /* ContentView.swift */,
@@ -724,6 +726,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = geo_gnosis_ios/geo_gnosis_ios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"geo_gnosis_ios/Preview Content\"";
@@ -754,6 +757,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = geo_gnosis_ios/geo_gnosis_ios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"geo_gnosis_ios/Preview Content\"";
