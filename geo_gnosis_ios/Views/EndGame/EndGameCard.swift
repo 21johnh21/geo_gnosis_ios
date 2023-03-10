@@ -28,7 +28,7 @@ struct EndGameCard: View {
                         }
                     }
                     HStack{
-                        Text("\(location.city_ascii) \(location.admin_name), \(location.country)").font(.custom("Changa-Light", size: 16))
+                        Text("\(location.city_ascii) \(Image(systemName: "circle.fill")) \(location.admin_name) \(Image(systemName: "circle.fill"))  \(location.country)").font(.custom("Changa-Light", size: 16))
                     }
                 }
             }.frame(height: 100)

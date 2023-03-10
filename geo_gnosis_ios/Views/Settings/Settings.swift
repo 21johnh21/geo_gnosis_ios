@@ -26,11 +26,12 @@ struct Settings: View {
             HStack{
                 Text("Log In").padding(.leading)//either say login or thier user name here
                 Spacer()
-                Image("defaultProfile").resizable()
-                    .frame(width: 20.0, height: 20.0).padding().clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                    .overlay {
-                        Circle().stroke(.black, lineWidth: 4)
-                    }
+                //Image("defaultProfile").resizable()
+                Image(systemName: "person.circle.fill")
+                    .frame(width: 20.0, height: 20.0).padding().clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/).font(.system(size: 50, weight: .bold))
+//                    .overlay {
+//                        Circle().stroke(.black, lineWidth: 4)
+//                    }
                     .shadow(radius: 7).padding()
                     .onTapGesture {
                         let generator = UIImpactFeedbackGenerator(style: .light)
