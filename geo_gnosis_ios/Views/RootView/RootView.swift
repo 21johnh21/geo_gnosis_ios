@@ -16,6 +16,7 @@ struct RootView: View {
     @AppStorage("lastRegionMode") var lastRegionMode: String = "World"
     @AppStorage("lastRegion") var lastRegion: String = "World"
     @AppStorage("lastDifficulty") var lastDifficulty: String = "Easy"
+    @AppStorage("vibOn") var vibOn: Bool = true
     
     @EnvironmentObject var gameInfo: GameInfo
     @StateObject private var coordinator = Coordinator()
@@ -50,8 +51,10 @@ struct RootView: View {
                         Text("\(lastMultiChoiceText) \(Image(systemName: "circle.fill")) \(lastRegionMode) \(Image(systemName: "circle.fill")) \(lastRegion) \(Image(systemName: "circle.fill")) \(lastDifficulty)").font(.custom("Changa-Light", size: 16))
                     }.padding()
                 }.onTapGesture {
-                    let generator = UIImpactFeedbackGenerator(style: .light)
-                    generator.impactOccurred()
+                    if(vibOn){
+                        let generator = UIImpactFeedbackGenerator(style: .light)
+                        generator.impactOccurred()
+                    }
                     gameInfo.multiChoice = lastMultiChoice
                     gameInfo.regionMode = lastRegionMode
                     gameInfo.region = lastRegion
@@ -93,8 +96,10 @@ struct RootView: View {
                         }
                     }.padding()
                 }.onTapGesture {
-                    let generator = UIImpactFeedbackGenerator(style: .light)
-                    generator.impactOccurred()
+                    if(vibOn){
+                        let generator = UIImpactFeedbackGenerator(style: .light)
+                        generator.impactOccurred()
+                    }
                     gameInfo.multiChoice = multiChoice == "Multiple Choice" ? true : false
                     gameInfo.difficulty = difficulty
                     gameInfo.regionMode = regionMode
@@ -111,8 +116,10 @@ struct RootView: View {
                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).shadow(color: .black, radius: 3, x: 2, y: 2)
                         Text("Settings").font(.custom("Changa-Light", size: 16))
                     }.onTapGesture {
-                        let generator = UIImpactFeedbackGenerator(style: .light)
-                        generator.impactOccurred()
+                        if(vibOn){
+                            let generator = UIImpactFeedbackGenerator(style: .light)
+                            generator.impactOccurred()
+                        }
                         coordinator.show(Settings.self)
                     }
                     Spacer()
@@ -120,8 +127,10 @@ struct RootView: View {
                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).shadow(color: .black, radius: 3, x: 2, y: 2)
                         Text("Leaderboard").font(.custom("Changa-Light", size: 16))
                     }.onTapGesture {
-                        let generator = UIImpactFeedbackGenerator(style: .light)
-                        generator.impactOccurred()
+                        if(vibOn){
+                            let generator = UIImpactFeedbackGenerator(style: .light)
+                            generator.impactOccurred()
+                        }
                         coordinator.show(LeaderBoard.self)
                     }
                 }
@@ -130,8 +139,10 @@ struct RootView: View {
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                     Text("DEV - Test Haptic")
                 }.onTapGesture {
-                    let generator = UIImpactFeedbackGenerator(style: .light)
-                    generator.impactOccurred()
+                    if(vibOn){
+                        let generator = UIImpactFeedbackGenerator(style: .light)
+                        generator.impactOccurred()
+                    }
                     coordinator.show(DevTestHapticFeedback.self)
                 }
                 ZStack{
