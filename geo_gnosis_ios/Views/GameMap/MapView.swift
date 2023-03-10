@@ -24,6 +24,7 @@ struct MapView: View {
                 }
         }
         .onAppear {
+            //MKMapView.appearance().mapType = .satellite //this works but only on the first round
             setRegion(coordinate)
         }
     }

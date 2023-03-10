@@ -292,7 +292,6 @@ struct GameMap: View {
         }
     }
     func GetOption() {
-        //options = roundInfo.multiChoiceOptions[roundInfo.roundNumber]
         for i in 0...3{
             let optionIndex = Int.random(in: 0...3-i)
             
@@ -316,19 +315,9 @@ struct GameMap: View {
             audioPlayer1?.pause()
         }
         roundInfo.times[roundInfo.roundNumber] = count
-        //roundInfo.times[roundInfo.roundNumber] =
         roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber + 1
         roundInfo.answers[roundInfo.roundNumber] = true
     }
-//    func MultiChoiceOptionButton(){
-//        ZStack{
-//            RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
-//            Text("\(options[0])")
-//        }
-//        .onTapGesture {
-//            ValidateAnswerMultiChoice(guessB: options[0])
-//        }
-//    }
     func GetCorrectAnswer()-> String{
         var answer: String
         
@@ -370,7 +359,7 @@ struct GameMap: View {
                 self.audioPlayer1?.play()
                 //self.audioPlayer1?.numberOfLoops()
             }catch {
-                print("Eror")
+                print("Error")
             }
         }
     }

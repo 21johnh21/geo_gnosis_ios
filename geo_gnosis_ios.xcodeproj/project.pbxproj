@@ -68,6 +68,7 @@
 		F8996FFA29B6D0660039C685 /* UserHistoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FF929B6D0660039C685 /* UserHistoryCard.swift */; };
 		F8996FFC29B80B1D0039C685 /* LeaderboardTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FFB29B80B1D0039C685 /* LeaderboardTab.swift */; };
 		F8996FFE29B821710039C685 /* LBGameInfoListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FFD29B821710039C685 /* LBGameInfoListVM.swift */; };
+		F899700129BAD5CF0039C685 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899700029BAD5CF0039C685 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +148,7 @@
 		F8996FFB29B80B1D0039C685 /* LeaderboardTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTab.swift; sourceTree = "<group>"; };
 		F8996FFD29B821710039C685 /* LBGameInfoListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBGameInfoListVM.swift; sourceTree = "<group>"; };
 		F8996FFF29BAC0630039C685 /* geo_gnosis_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = geo_gnosis_ios.entitlements; sourceTree = "<group>"; };
+		F899700029BAD5CF0039C685 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,6 +331,7 @@
 				F82315DF2997E6310026D036 /* CustomColor.swift */,
 				F8947BD8299B13A40030BFCA /* LeaderboardInfo.swift */,
 				F8996FE929B2BB060039C685 /* UserData.swift */,
+				F899700029BAD5CF0039C685 /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F827D59429777AF4007DE110 /* ContentView.swift in Sources */,
+				F899700129BAD5CF0039C685 /* Constants.swift in Sources */,
 				F87ABBC029862FBF007E2EA3 /* EndGameCard.swift in Sources */,
 				F8996FEE29B3E8B80039C685 /* SecureInputView.swift in Sources */,
 				F83C87AA297F5500008FA89D /* EndGame.swift in Sources */,

@@ -18,9 +18,8 @@ struct LeaderboardTab: View {
                 Text("Leaderboard").font(.custom("BebasNeue-Regular", size: 45))
                 Text("\(gameMode)").font(.custom("BebasNeue-Regular", size: 20))
             }.frame(maxWidth: .infinity).background(){
-                RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)//.frame(minWidth: .infinity)
+                RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
             }
-            //HStack{
                 ScrollView{
                     VStack{
                         LeaderboardHeader(headerText: "World")
