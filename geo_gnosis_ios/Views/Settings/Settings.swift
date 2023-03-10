@@ -37,23 +37,33 @@ struct Settings: View {
                         generator.impactOccurred()
                         coordinator.show(LogIn.self)
                     }
+            }.padding().background(){
+                RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
+            }.overlay(){
+                RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
             }
-            Toggle("Vibration On", isOn: $vibOn).padding(.leading)
-            Slider(value: $volume, in: 0...100).tint(Color.green).padding()
-            Text("Volume \(String(format: "%.0f", volume))")
-            Toggle("Satelite Map Mode", isOn: $sateliteMapOn).padding(.leading)
-            Toggle("Post Scores on leaderboard", isOn: $postScores).padding(.leading)
-            Toggle("Dark Mode", isOn: $darkMode).padding(.leading)
-            HStack {
-                ZStack{
-                    RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: 150, height: 30)
-                    Text("Play Tutorial").padding(.leading)
-                }.padding(.leading)
-                .onTapGesture {
-                    let generator = UIImpactFeedbackGenerator(style: .light)
-                    generator.impactOccurred()
+            VStack{
+                Toggle("Vibration On", isOn: $vibOn).padding(.leading)
+                Slider(value: $volume, in: 0...100).tint(Color.green).padding()
+                Text("Volume \(String(format: "%.0f", volume))")
+                Toggle("Satelite Map Mode", isOn: $sateliteMapOn).padding(.leading)
+                Toggle("Post Scores on leaderboard", isOn: $postScores).padding(.leading)
+                Toggle("Dark Mode", isOn: $darkMode).padding(.leading)
+                HStack {
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: 150, height: 30)
+                        Text("Play Tutorial").padding(.leading)
+                    }.padding(.leading)
+                        .onTapGesture {
+                            let generator = UIImpactFeedbackGenerator(style: .light)
+                            generator.impactOccurred()
+                        }
+                    Spacer()
                 }
-                Spacer()
+            }.padding().background(){
+                RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
+            }.overlay(){
+                RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
             }
             Spacer()
         }.background(CustomColor.secondary)
