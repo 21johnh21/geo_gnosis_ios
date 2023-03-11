@@ -19,9 +19,10 @@ struct CreateAccount: View {
     @State var email: String = ""
     @State var hadErrorCreatingAccount: Bool = false
     @State var createAccountErrorCode: Int = 0 //no error = 0
+    @State var user: User?
     
     var body: some View {
-        VStack{
+        ScrollView{
             Text("Create and Account")
             HStack{
                 Text("User Name: ")
@@ -81,6 +82,7 @@ struct CreateAccount: View {
                     changeRequest?.commitChanges { error in
                         if error == nil {
                             print("User display name changed!")
+                            callSignIn()
                             //self.dismiss(animated: false, completion: nil)
                         } else {
                             print("Error: \(error!.localizedDescription)")
@@ -88,7 +90,7 @@ struct CreateAccount: View {
                     }
                     
                 } else {
-                    //TODO: verify that the username is provided and not already in use
+                    //TODO: verify that the username is provided and not already in use?
                     print("Error: \(error!.localizedDescription)")
                     if(error!.localizedDescription == "An email address must be provided."){ //no email
                         createAccountErrorCode = 6
@@ -152,6 +154,30 @@ struct CreateAccount: View {
         }
         
         return passIsValid
+    }
+    func SignInWithEmailAndPass() async{
+        do{
+            let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
+            print("login: \(authResult)")
+            user = authResult.user
+            print("user: \(String(describing: user))")
+            let uuid = user?.uid
+            print("user ID: \(String(describing: uuid))")
+            //authenticationState = .authenticated
+            let displayName = user?.displayName
+            print("display name: \(String(describing: displayName))")
+            userIDSt = user?.uid ?? ""
+            userNameSt = user?.displayName ?? ""
+        }
+        catch{
+            //hadErrorLoggingIn = true
+            print("Error: \(error.localizedDescription)")
+        }
+    }
+    func callSignIn() {
+        Task{
+            await SignInWithEmailAndPass()
+        }
     }
 }
 

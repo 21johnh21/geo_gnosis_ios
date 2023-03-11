@@ -38,7 +38,8 @@ struct LoggedIn: View {
             } message: {
                 Text("Are you sure?")
             }
-        }.background(CustomColor.secondary)
+            Spacer()
+        }.frame(maxWidth: .infinity).background(CustomColor.secondary)
 
     }
     func DeleteAccount(){

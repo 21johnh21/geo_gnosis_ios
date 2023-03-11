@@ -30,7 +30,7 @@ struct SignInWithApple: View {
             let storedName = credential.fullName?.givenName ?? ""
             let storedEmail = credential.email ?? ""
             let userID = credential.user
-            print("Apple Creds: \(storedName) - \(storedName) - \(storedName)")
+            print("Apple Creds: \(storedName) - \(storedEmail) - \(userID)")
             case .failure (let error):
                  print("Authorization failed: " + error.localizedDescription)
         }

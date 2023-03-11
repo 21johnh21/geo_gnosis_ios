@@ -12,8 +12,8 @@ struct LogIn: View {
     @AppStorage("userName") var userNameSt: String = ""
     @AppStorage("userID") var userIDSt: String = ""
     
-    @State var passwordLI: String = ""
-    @State var emailLI: String = ""
+    @State var password: String = ""
+    @State var email: String = ""
     @State var hadErrorLoggingIn: Bool = false
     let loginErrorMessage = "Incorrect Email or Password"
     
@@ -29,8 +29,8 @@ struct LogIn: View {
                     SignInWithApple()
                     Text("Or sign in with email")
                     VStack{
-                        TextField("email", text: $emailLI).textInputAutocapitalization(.never).autocorrectionDisabled(true)
-                        SecureInputView("Password", text: $passwordLI)
+                        TextField("email", text: $email).textInputAutocapitalization(.never).autocorrectionDisabled(true)
+                        SecureInputView("Password", text: $password)
                     }.padding().overlay(){
                         RoundedRectangle(cornerRadius: 5).stroke(.black, lineWidth: 5)
                     }
@@ -61,7 +61,7 @@ struct LogIn: View {
     }
     func SignInWithEmailAndPass() async{
         do{
-            let authResult = try await Auth.auth().signIn(withEmail: emailLI, password: passwordLI)
+            let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
             print("login: \(authResult)")
             user = authResult.user
             print("user: \(String(describing: user))")
