@@ -13,9 +13,9 @@ import FirebaseFirestoreSwift //remove after test
 struct RootView: View {
     
     @AppStorage("lastMultiChoice") var lastMultiChoice: Bool = true
-    @AppStorage("lastRegionMode") var lastRegionMode: Int = Const.modeRegCountry
+    @AppStorage("lastRegionMode") var lastRegionMode: String = Const.modeRegCountryText
     @AppStorage("lastRegion") var lastRegion: String = "World"
-    @AppStorage("lastDifficulty") var lastDifficulty: Int = Const.modeDiffEasy
+    @AppStorage("lastDifficulty") var lastDifficulty: String = Const.modeDiffEasyText
     @AppStorage("vibOn") var vibOn: Bool = true
     
     @EnvironmentObject var gameInfo: GameInfo
@@ -101,8 +101,8 @@ struct RootView: View {
                         generator.impactOccurred()
                     }
                     gameInfo.multiChoice = multiChoice == "Multiple Choice" ? true : false
-                    gameInfo.difficulty = GetDiffIntValue(textValue: difficulty)
-                    gameInfo.regionMode = GetRegModeIntValue(textValue: regionMode)
+                    gameInfo.difficulty = difficulty
+                    gameInfo.regionMode = regionMode
                     
                     lastMultiChoice = gameInfo.multiChoice
                     lastRegionMode = gameInfo.regionMode
@@ -153,8 +153,8 @@ struct RootView: View {
                     let userName = "DEV_JH"
                     let finalScore = 100
                     let multiChoice = true
-                    let regionMode = Const.modeRegCountry
-                    let difficulty = 1
+                    let regionMode = Const.modeRegCountryText
+                    let difficulty = Const.modeDiffEasyText
                     let region = "World"
                     let times = [10, 50, 20, 15, 5]
                     let city_ascii = ["NY", "NY", "NY", "NY", "NY"]

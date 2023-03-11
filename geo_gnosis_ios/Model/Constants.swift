@@ -21,13 +21,13 @@ struct Const{
     static let modeRegRegion = 2
     static let modeRegCity = 3
     
-    static let modeDiffEasyText = 1
-    static let modeDiffMedText = 2
-    static let modeDiffHardText = 3
+    static let modeDiffEasyText = "Easy"
+    static let modeDiffMedText = "Medium"
+    static let modeDiffHardText = "Hard"
     
-    static let modeRegCountryText = 1
-    static let modeRegRegionText = 2
-    static let modeRegCityText = 3
+    static let modeRegCountryText = "World"
+    static let modeRegRegionText = "Region"
+    static let modeRegCityText = "City"
     
     static let modeMultiChoiceText = "Multiple Choice"
     static let modeFillBlankText = "Fill the Blank"

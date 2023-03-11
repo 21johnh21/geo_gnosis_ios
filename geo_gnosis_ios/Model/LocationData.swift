@@ -8,8 +8,8 @@
 import Foundation
 
 public class LocationData{
-    var difficulty: Int
-    var regionMode: Int //TODO: Replace
+    var difficulty: String
+    var regionMode: String //TODO: Replace
     var region: String
     
     var numOfRounds = 5
@@ -29,7 +29,7 @@ public class LocationData{
     
     var multiChoiceOptions: [[String]] = [[String]]()
     
-    init(difficulty: Int, regionMode: Int, region: String){
+    init(difficulty: String, regionMode: String, region: String){
         self.difficulty = difficulty
         self.regionMode = regionMode
         self.region = region
@@ -47,13 +47,13 @@ public class LocationData{
                 
                 //parse location based on difficulty
                 switch(difficulty){
-                case(Const.modeDiffEasy):
+                case(Const.modeDiffEasyText):
                     for i in 0...locationsRaw.count-1{
                         if(locationsRaw[i].population >= difEasyPop){
                             locationsByDif.append(locationsRaw[i])
                         }
                     }
-                case(Const.modeDiffMed):
+                case(Const.modeDiffMedText):
                     for i in 0...locationsRaw.count-1{
                         if(locationsRaw[i].population >= difMedPop){
                             locationsByDif.append(locationsRaw[i])
@@ -65,7 +65,7 @@ public class LocationData{
                 
                 
                 //filter locations based on region
-                if(regionMode != Const.modeRegCountry){
+                if(regionMode != Const.modeRegCountryText){
                     //TODO: My logic may havea flaw here, should I seperate the area the user is searching in and what they are guessing by ?? 
                     FilterByRegion()
                 }else{

@@ -10,8 +10,8 @@ import Foundation
 public class RoundData{
     
     var multiChoice: Bool
-    var difficulty: Int
-    var regionMode: Int
+    var difficulty: String
+    var regionMode: String
     var region: String
     
     var numOfRounds = 5
@@ -21,7 +21,7 @@ public class RoundData{
     var usedCountries: [String] = [String]()
     var count: Int = 0
     //TODO: replace
-    init(multiChoice: Bool, difficulty: Int, regionMode: Int, region: String){
+    init(multiChoice: Bool, difficulty: String, regionMode: String, region: String){
         self.multiChoice = multiChoice
         self.difficulty = difficulty
         self.regionMode = regionMode
@@ -36,7 +36,7 @@ public class RoundData{
         locationsByRegion=LocationData(difficulty: difficulty, regionMode: regionMode, region: region).locationsByRegion
         
         //choose 5 locations out of those availible
-        if(regionMode != Const.modeRegCountry){
+        if(regionMode != Const.modeRegCountryText){
             for _ in 0...numOfRounds-1{
                 let locationIndex = Int.random(in: 0..<locationsByRegion.count)
                 locations.append(locationsByRegion[locationIndex])
@@ -68,7 +68,7 @@ public class RoundData{
                     var locationIndex = Int.random(in: 0..<locationsByRegion.count)
                     //roundMultiChoiceOptions.append(locationsByRegion[locationIndex])
                     //if this locations country is not = to the correct locations country
-                    if(regionMode == Const.modeRegCountry ){
+                    if(regionMode == Const.modeRegCountryText){
                         var locationChosen: Bool = false
                         var count: Int = 0
                         while(!locationChosen){

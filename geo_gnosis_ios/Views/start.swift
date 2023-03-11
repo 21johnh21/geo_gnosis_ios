@@ -36,7 +36,7 @@ struct Start: View {
                        let gameMode = gameInfo.multiChoice == true ? "Multiple Choice" : "Fill the Blank"
                         Text("Game Mode \(Image(systemName: "circle.fill")) \(gameMode)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                         Text("Region Mode \(Image(systemName: "circle.fill")) \(gameInfo.regionMode)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                        if(gameInfo.regionMode != Const.modeRegCountry){
+                        if(gameInfo.regionMode != Const.modeRegCountryText){
                             Text("Region \(Image(systemName: "circle.fill")) \(gameInfo.region)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                         }
                         Text("Difficulty \(Image(systemName: "circle.fill")) \(gameInfo.difficulty)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
@@ -49,7 +49,7 @@ struct Start: View {
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                         .frame(width: 200, height: 80)
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
-                    Text("Start").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg)).padding(.top)//.font(.custom(Const.fontNormalText, size: 40))
+                    Text("Start").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg)).padding(.top)
                 }
                 .padding(.bottom)
                 .onTapGesture {
