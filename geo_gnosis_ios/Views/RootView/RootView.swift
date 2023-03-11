@@ -21,11 +21,11 @@ struct RootView: View {
     @EnvironmentObject var gameInfo: GameInfo
     @StateObject private var coordinator = Coordinator()
     @State var multiChoice = "Multiple Choice"
-    var multiChoiceModes = ["Multiple Choice", "Fill the Blank"]
+//    var multiChoiceModes = ["Multiple Choice", "Fill the Blank"]
     @State var difficulty = "Easy"
-    var difficulties = ["Easy", "Medium", "Hard"]
+//    var difficulties = ["Easy", "Medium", "Hard"]
     @State var regionMode = "World"
-    var regionModes = ["World", "State", "City"]
+//    var regionModes = ["World", "State", "City"]
     
     let screenSize: CGRect = UIScreen.main.bounds
     
@@ -61,31 +61,7 @@ struct RootView: View {
                     gameInfo.difficulty = lastDifficulty
                     coordinator.show(Start.self)
                 }
-                VStack{
-                    Text("Set Up Game").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                    Picker("Choose a Mode", selection: $multiChoice){
-                        ForEach(multiChoiceModes, id: \.self){
-                            Text($0).font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                        }
-                    }.pickerStyle(.segmented).colorMultiply(CustomColor.primary).background(CustomColor.trim).cornerRadius(5)
-                    
-                    Picker("Choose a difficulty", selection: $difficulty){
-                        ForEach(difficulties, id: \.self){
-                            Text($0).font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                        }
-                    }.pickerStyle(.segmented).colorMultiply(CustomColor.primary).background(CustomColor.trim).cornerRadius(5)
-                    
-                    Picker("Choose a Region Mode", selection: $regionMode){
-                        ForEach(regionModes, id: \.self){
-                            Text($0).font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                        }
-                    }.pickerStyle(.segmented).colorMultiply(CustomColor.primary).background(CustomColor.trim).cornerRadius(5)
-                    if(regionMode != "World"){
-                        DropDown()
-                    }
-                }.padding().overlay(){
-                    RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
-                }
+                SetUpGame(multiChoice: $multiChoice, difficulty: $difficulty, regionMode: $regionMode)
                 ZStack{
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
@@ -186,7 +162,6 @@ struct RootView: View {
                 }
                 else if id == String(describing: EndGame.self){
                     EndGame()
-                    
                 }
                 else if id == String(describing: Settings.self){
                     Settings()
@@ -200,37 +175,19 @@ struct RootView: View {
                 else if id == String(describing: DevTestHapticFeedback.self){
                     DevTestHapticFeedback()
                 }
-//                else if id == String(describing: RootView.self){
-//                    RootView()
-//                }
-                else{
-                    
-                }
                 
-                
-//                switch(id){
-//                case (String(describing: start.self)):
-//                    start()
-//                case (String(describing: start.self)):
-//                    map()
-//                case (String(describing: start.self)):
-//                    EndGame()
-//                default (String(describing: start.self)):
-//                    RootView()
-//
-//                }
             }.background(CustomColor.secondary)
         }
         .environmentObject(coordinator)
     }
-    func GetDiffIntValue(textValue: String) -> Int{
-        var intValue: Int
-        intValue = difficulties.firstIndex(of: textValue)!
-        return intValue + 1
-    }
-    func GetRegModeIntValue(textValue: String) -> Int{
-        var intValue: Int
-        intValue = regionModes.firstIndex(of: textValue)!
-        return intValue + 1
-    }
+//    func GetDiffIntValue(textValue: String) -> Int{
+//        var intValue: Int
+//        intValue = difficulties.firstIndex(of: textValue)!
+//        return intValue + 1
+//    }
+//    func GetRegModeIntValue(textValue: String) -> Int{
+//        var intValue: Int
+//        intValue = regionModes.firstIndex(of: textValue)!
+//        return intValue + 1
+//    }
 }

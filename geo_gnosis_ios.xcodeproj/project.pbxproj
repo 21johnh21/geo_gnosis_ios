@@ -71,6 +71,7 @@
 		F899700329BBF2DE0039C685 /* SignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899700229BBF2DD0039C685 /* SignInWithApple.swift */; };
 		F899700B29BBF9AF0039C685 /* LoggedIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899700A29BBF9AF0039C685 /* LoggedIn.swift */; };
 		F899700F29BBFC390039C685 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899700E29BBFC390039C685 /* CreateAccount.swift */; };
+		F899701329BCC4C80039C685 /* SetUpGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899701229BCC4C80039C685 /* SetUpGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +154,7 @@
 		F899700229BBF2DD0039C685 /* SignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithApple.swift; sourceTree = "<group>"; };
 		F899700A29BBF9AF0039C685 /* LoggedIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedIn.swift; sourceTree = "<group>"; };
 		F899700E29BBFC390039C685 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
+		F899701229BCC4C80039C685 /* SetUpGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 			children = (
 				F87ABBB129820E10007E2EA3 /* RootView.swift */,
 				F87ABBD1298E9AAE007E2EA3 /* DropDown.swift */,
+				F899701229BCC4C80039C685 /* SetUpGame.swift */,
 			);
 			path = RootView;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				F899700B29BBF9AF0039C685 /* LoggedIn.swift in Sources */,
 				F8996FFC29B80B1D0039C685 /* LeaderboardTab.swift in Sources */,
 				F8996FF429B6C9100039C685 /* UserHistoryVM.swift in Sources */,
+				F899701329BCC4C80039C685 /* SetUpGame.swift in Sources */,
 				F8996FF829B6CEFC0039C685 /* UserHistoryNew.swift in Sources */,
 				F83C878F297DCACB008FA89D /* MapView.swift in Sources */,
 				F87ABBD2298E9AAE007E2EA3 /* DropDown.swift in Sources */,

@@ -38,6 +38,7 @@ public class RoundData{
         //choose 5 locations out of those availible
         if(regionMode != Const.modeRegCountryText){
             for _ in 0...numOfRounds-1{
+                //TODO: index out of bounds here when regMode = city 
                 let locationIndex = Int.random(in: 0..<locationsByRegion.count)
                 locations.append(locationsByRegion[locationIndex])
             }
