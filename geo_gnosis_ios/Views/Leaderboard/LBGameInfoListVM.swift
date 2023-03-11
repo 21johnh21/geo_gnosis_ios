@@ -24,10 +24,6 @@ class LBGameInfoListVM: ObservableObject{
     @Published var fieldRegMode: String = String()
     @Published var fieldMultiChoice: Bool = Bool()
     
-//    var fieldMultiChoice: Bool
-//    var fieldRegMode: String
-//    var fieldDiff: String
-    
     func GetData(){
         let db = Firestore.firestore()
         //TODO: order by score limit number of records ruturned

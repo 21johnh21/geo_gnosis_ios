@@ -21,6 +21,17 @@ struct Const{
     static let modeRegRegion = 2
     static let modeRegCity = 3
     
+    static let modeDiffEasyText = 1
+    static let modeDiffMedText = 2
+    static let modeDiffHardText = 3
+    
+    static let modeRegCountryText = 1
+    static let modeRegRegionText = 2
+    static let modeRegCityText = 3
+    
+    static let modeMultiChoiceText = "Multiple Choice"
+    static let modeFillBlankText = "Fill the Blank"
+    
     //Should probably add text values for these  ^ as well
     
     static let dbScoreCollection = "Score Collection"
@@ -37,7 +48,6 @@ struct Const{
     static let audioIncorrectEffect = "button-click-sound-effect"
     
     //Image values
-    
     
     static let maxFinalScoreValue = 500
     static let maxRoundScoreValue = 100

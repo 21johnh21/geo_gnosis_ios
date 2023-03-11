@@ -14,14 +14,8 @@ struct LBGameInfoList: View {
     
     @ObservedObject private var viewModel = LBGameInfoListVM()
     
-//    init(viewModel: LBGameInfoListVM) {
-//        self.multiChoice = multiChoice
-//        self.gameMode = gameMode
-//        self.gameDiff = gameDiff
-//    }
     var body: some View {
         VStack{
-            //LBGameInfoCard()
             ForEach(viewModel.lbData) { lbData in
                 UserHistoryCard(lbData: lbData)
             }
