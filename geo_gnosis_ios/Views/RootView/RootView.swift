@@ -38,6 +38,7 @@ struct RootView: View {
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
                     Text("Geo Gnosis").font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg)).padding(.top)
                 }
+                //MARK: Play Again Button ---------------------------------
                 ZStack{
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
@@ -61,7 +62,9 @@ struct RootView: View {
                     gameInfo.difficulty = lastDifficulty
                     coordinator.show(Start.self)
                 }
+                //MARK: Set Up Game ----------------------------
                 SetUpGame(multiChoice: $multiChoice, difficulty: $difficulty, regionMode: $regionMode)
+                //MARK: Start Buton ----------------------------
                 ZStack{
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
@@ -87,6 +90,7 @@ struct RootView: View {
                     
                     coordinator.show(Start.self)
                 }
+                //MARK: Other buttons ------------------------------------------
                 HStack{
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).shadow(color: .black, radius: 3, x: 2, y: 2)
