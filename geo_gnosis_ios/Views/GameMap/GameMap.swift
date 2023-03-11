@@ -295,9 +295,9 @@ struct GameMap: View {
         for i in 0...3{
             let optionIndex = Int.random(in: 0...3-i)
             
-            if(gameInfo.regionMode == "City"){
+            if(gameInfo.regionMode == Const.modeRegCity){
                 options[i] = roundInfo.multiChoiceOptions[roundInfo.roundNumber][optionIndex].city_ascii
-            }else if(gameInfo.regionMode == "State"){
+            }else if(gameInfo.regionMode == Const.modeRegRegion){
                 options[i] = roundInfo.multiChoiceOptions[roundInfo.roundNumber][optionIndex].admin_name
             }else{
                 options[i] = roundInfo.multiChoiceOptions[roundInfo.roundNumber][optionIndex].country
@@ -321,9 +321,9 @@ struct GameMap: View {
     func GetCorrectAnswer()-> String{
         var answer: String
         
-        if(gameInfo.regionMode == "City"){
+        if(gameInfo.regionMode == Const.modeRegCity){
             answer = roundInfo.locations[roundInfo.roundNumber].city_ascii
-        }else if(gameInfo.regionMode == "State"){
+        }else if(gameInfo.regionMode == Const.modeRegRegion){
             answer = roundInfo.locations[roundInfo.roundNumber].admin_name
         }else{ //World
             answer = roundInfo.locations[roundInfo.roundNumber].country

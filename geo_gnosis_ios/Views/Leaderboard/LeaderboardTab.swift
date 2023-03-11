@@ -10,7 +10,7 @@ import SwiftUI
 struct LeaderboardTab: View {
     var multiChoice: Bool
     
-    @State var regionMode: String = "World"
+    @State var regionMode: Int = Const.modeRegCountry
     var body: some View {
         VStack{
             let gameMode = multiChoice == true ? "Multiple Choice" : "Fill the Blank"
@@ -23,16 +23,16 @@ struct LeaderboardTab: View {
                 ScrollView{
                     VStack{
                         LeaderboardHeader(headerText: "World")
-                        LBRegionModeSec(multiChoice: multiChoice, gameMode: "World")
+                        LBRegionModeSec(multiChoice: multiChoice, gameMode: Const.modeRegCountry)
                     }
                     VStack{
                         LeaderboardHeader(headerText: "Region")
-                        LBRegionModeSec(multiChoice: multiChoice, gameMode: "Region")
+                        LBRegionModeSec(multiChoice: multiChoice, gameMode: Const.modeRegRegion)
                     }
                     
                     VStack{
                         LeaderboardHeader(headerText: "City")
-                        LBRegionModeSec(multiChoice: multiChoice, gameMode: "City")
+                        LBRegionModeSec(multiChoice: multiChoice, gameMode: Const.modeRegCity)
                     }
                 
                 }

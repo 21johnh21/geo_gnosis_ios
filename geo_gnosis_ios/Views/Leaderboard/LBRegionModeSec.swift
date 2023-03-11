@@ -10,16 +10,16 @@ import SwiftUI
 struct LBRegionModeSec: View {
     
     var multiChoice: Bool
-    var gameMode: String
+    var gameMode: Int
     
     var body: some View {
         ScrollView{
             LeaderboardHeader(headerText: "Easy")
-            LBGameInfoList(multiChoice: multiChoice, gameMode: gameMode, gameDiff: "Easy")
+            LBGameInfoList(multiChoice: multiChoice, gameMode: gameMode, gameDiff: Const.modeDiffEasy)
             LeaderboardHeader(headerText: "Medium")
-            LBGameInfoList(multiChoice: multiChoice, gameMode: gameMode, gameDiff: "Medium")
+            LBGameInfoList(multiChoice: multiChoice, gameMode: gameMode, gameDiff: Const.modeDiffMed)
             LeaderboardHeader(headerText: "Hard")
-            LBGameInfoList(multiChoice: multiChoice, gameMode: gameMode, gameDiff: "Hard")
+            LBGameInfoList(multiChoice: multiChoice, gameMode: gameMode, gameDiff: Const.modeDiffHard)
         }.padding(.trailing)
             .overlay(){
                 RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
@@ -29,6 +29,6 @@ struct LBRegionModeSec: View {
 
 struct LBRegionModeSec_Previews: PreviewProvider {
     static var previews: some View {
-        LBRegionModeSec(multiChoice: true, gameMode: "Easy")
+        LBRegionModeSec(multiChoice: true, gameMode: Const.modeRegCountry)
     }
 }

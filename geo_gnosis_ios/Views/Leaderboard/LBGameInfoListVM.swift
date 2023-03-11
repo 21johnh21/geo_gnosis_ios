@@ -20,8 +20,8 @@ class LBGameInfoListVM: ObservableObject{
     
     private var db = Firestore.firestore()
     
-    @Published var fieldDiff: String = String()
-    @Published var fieldRegMode: String = String()
+    @Published var fieldDiff: Int = Int()
+    @Published var fieldRegMode: Int = Int()
     @Published var fieldMultiChoice: Bool = Bool()
     
     func GetData(){
@@ -37,7 +37,7 @@ class LBGameInfoListVM: ObservableObject{
             }
         }
     }
-    func SetFields(fieldDiff: String, fieldRegMode: String, fieldMultiChoice: Bool){
+    func SetFields(fieldDiff: Int, fieldRegMode: Int, fieldMultiChoice: Bool){
         self.fieldDiff = fieldDiff
         self.fieldRegMode = fieldRegMode
         self.fieldMultiChoice = fieldMultiChoice

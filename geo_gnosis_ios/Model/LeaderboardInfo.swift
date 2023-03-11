@@ -14,8 +14,8 @@ public struct LBInfo: Codable {
     let dateTime: Date?
     //game info vars
     let multiChoice: Bool?
-    let regionMode: String?
-    let difficulty: String?
+    let regionMode: Int?
+    let difficulty: Int?
     let region: String?
     //round info vars
     let times: [Int]?

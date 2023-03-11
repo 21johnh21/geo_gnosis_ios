@@ -111,8 +111,8 @@ struct EndGame: View {
     }
     func SendResultsToDB(){
         let userName = userNameSt
-        //If the user is logged in, allows posting scores, and finished the game
-        if(userName != "" && postScores && !roundInfo.times.contains(-1)){
+        //If the user is logged in, allows posting scores
+        if(userName != "" && postScores){
             var city_asciis: [String] = [String]()
             var lats: [Double] = [Double]()
             var lngs: [Double] = [Double]()

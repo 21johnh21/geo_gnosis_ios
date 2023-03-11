@@ -8,8 +8,8 @@
 import Foundation
 
 public class LocationData{
-    var difficulty: String
-    var regionMode: String
+    var difficulty: Int
+    var regionMode: Int //TODO: Replace
     var region: String
     
     var numOfRounds = 5
@@ -20,7 +20,6 @@ public class LocationData{
     let difEasyPop: Int = 1000000 //1
     let difMedPop: Int = 500000 //2
     let difHardPop: Int = 0 //3
-//    var difficulty: Int //get this from root eventually
     
     let regionUSA: String = "United States"
     let regionCanada: String = "Canada"
@@ -30,14 +29,14 @@ public class LocationData{
     
     var multiChoiceOptions: [[String]] = [[String]]()
     
-    init(difficulty: String, regionMode: String, region: String){
+    init(difficulty: Int, regionMode: Int, region: String){
         self.difficulty = difficulty
         self.regionMode = regionMode
         self.region = region
         load()
     }
 
-    func load(){
+    func load(){ //TODO: Const for data file here
         if let fileLocation = Bundle.main.url(forResource: "locationDataUpdated3", withExtension: "json"){ //create file location var
             do{
                 
@@ -48,13 +47,13 @@ public class LocationData{
                 
                 //parse location based on difficulty
                 switch(difficulty){
-                case("Easy"):
+                case(Const.modeDiffEasy):
                     for i in 0...locationsRaw.count-1{
                         if(locationsRaw[i].population >= difEasyPop){
                             locationsByDif.append(locationsRaw[i])
                         }
                     }
-                case("Medium"):
+                case(Const.modeDiffMed):
                     for i in 0...locationsRaw.count-1{
                         if(locationsRaw[i].population >= difMedPop){
                             locationsByDif.append(locationsRaw[i])
@@ -66,7 +65,8 @@ public class LocationData{
                 
                 
                 //filter locations based on region
-                if(regionMode != "World"){
+                if(regionMode != Const.modeRegCountry){
+                    //TODO: My logic may havea flaw here, should I seperate the area the user is searching in and what they are guessing by ?? 
                     FilterByRegion()
                 }else{
                     locationsByRegion = locationsByDif

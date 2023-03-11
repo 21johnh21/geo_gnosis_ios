@@ -9,8 +9,8 @@ import SwiftUI
 
 struct LBGameInfoList: View {
     var multiChoice: Bool
-    var gameMode: String
-    var gameDiff: String
+    var gameMode: Int
+    var gameDiff: Int
     
     @ObservedObject private var viewModel = LBGameInfoListVM()
     
@@ -28,6 +28,6 @@ struct LBGameInfoList: View {
 
 struct LBGameInfoList_Previews: PreviewProvider {
     static var previews: some View {
-        LBGameInfoList(multiChoice: true, gameMode: "World", gameDiff: "Easy")
+        LBGameInfoList(multiChoice: true, gameMode: Const.modeRegCountry, gameDiff: 1)
     }
 }

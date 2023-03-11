@@ -36,7 +36,7 @@ struct Start: View {
                        let gameMode = gameInfo.multiChoice == true ? "Multiple Choice" : "Fill the Blank"
                         Text("Game Mode \(Image(systemName: "circle.fill")) \(gameMode)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                         Text("Region Mode \(Image(systemName: "circle.fill")) \(gameInfo.regionMode)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                        if(gameInfo.regionMode != "World"){
+                        if(gameInfo.regionMode != Const.modeRegCountry){
                             Text("Region \(Image(systemName: "circle.fill")) \(gameInfo.region)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                         }
                         Text("Difficulty \(Image(systemName: "circle.fill")) \(gameInfo.difficulty)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))

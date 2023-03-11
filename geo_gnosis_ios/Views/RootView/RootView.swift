@@ -13,9 +13,9 @@ import FirebaseFirestoreSwift //remove after test
 struct RootView: View {
     
     @AppStorage("lastMultiChoice") var lastMultiChoice: Bool = true
-    @AppStorage("lastRegionMode") var lastRegionMode: String = "World"
+    @AppStorage("lastRegionMode") var lastRegionMode: Int = Const.modeRegCountry
     @AppStorage("lastRegion") var lastRegion: String = "World"
-    @AppStorage("lastDifficulty") var lastDifficulty: String = "Easy"
+    @AppStorage("lastDifficulty") var lastDifficulty: Int = Const.modeDiffEasy
     @AppStorage("vibOn") var vibOn: Bool = true
     
     @EnvironmentObject var gameInfo: GameInfo
@@ -101,8 +101,8 @@ struct RootView: View {
                         generator.impactOccurred()
                     }
                     gameInfo.multiChoice = multiChoice == "Multiple Choice" ? true : false
-                    gameInfo.difficulty = difficulty
-                    gameInfo.regionMode = regionMode
+                    gameInfo.difficulty = GetDiffIntValue(textValue: difficulty)
+                    gameInfo.regionMode = GetRegModeIntValue(textValue: regionMode)
                     
                     lastMultiChoice = gameInfo.multiChoice
                     lastRegionMode = gameInfo.regionMode
@@ -153,8 +153,8 @@ struct RootView: View {
                     let userName = "DEV_JH"
                     let finalScore = 100
                     let multiChoice = true
-                    let regionMode = "World"
-                    let difficulty = "Easy"
+                    let regionMode = Const.modeRegCountry
+                    let difficulty = 1
                     let region = "World"
                     let times = [10, 50, 20, 15, 5]
                     let city_ascii = ["NY", "NY", "NY", "NY", "NY"]
@@ -222,5 +222,15 @@ struct RootView: View {
             }.background(CustomColor.secondary)
         }
         .environmentObject(coordinator)
+    }
+    func GetDiffIntValue(textValue: String) -> Int{
+        var intValue: Int
+        intValue = difficulties.firstIndex(of: textValue)!
+        return intValue + 1
+    }
+    func GetRegModeIntValue(textValue: String) -> Int{
+        var intValue: Int
+        intValue = regionModes.firstIndex(of: textValue)!
+        return intValue + 1
     }
 }
