@@ -26,7 +26,7 @@ struct EndGame: View {
     
     @State var finalScore: Int = 0
     
-    var roundNumber: Int = 0
+    //var roundNumber: Int = 0
 
     var body: some View {
         VStack {
@@ -64,7 +64,6 @@ struct EndGame: View {
                         let generator = UIImpactFeedbackGenerator(style: .light)
                         generator.impactOccurred()
                     }
-                    SendResultsToDB() //TODO: Make sure this is always called
                     coordinator.popToRoot()
                 }
             }
@@ -80,6 +79,7 @@ struct EndGame: View {
         .background(CustomColor.secondary)
         .onAppear(){
             finalScore = CalcFinalScore()
+            SendResultsToDB()
         }
     }
     
@@ -98,10 +98,13 @@ struct EndGame: View {
         return pinLocations
     }
     func CalcFinalScore() -> Int{
-        var finalScore: Int = 0
+        var finalScore: Int = Const.maxFinalScoreValue
         for i in 0...roundInfo.roundNumber{
             if(roundInfo.times[i] != -1){
-                finalScore += roundInfo.times[i]
+                finalScore -= roundInfo.times[i]
+            }else{
+                let numOfRoundsUncomplete = Const.numOfRounds - i
+                finalScore -= Const.maxRoundScoreValue * numOfRoundsUncomplete
             }
         }
         return finalScore

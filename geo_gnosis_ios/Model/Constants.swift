@@ -36,5 +36,11 @@ struct Const{
     static let audioCorrectEffect = "Ding-sound-effect"
     static let audioIncorrectEffect = "button-click-sound-effect"
     
-    //Image values 
+    //Image values
+    
+    
+    static let maxFinalScoreValue = 500
+    static let maxRoundScoreValue = 100
+    
+    static let numOfRounds = 5
 }
