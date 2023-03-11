@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AuthenticationServices
 
 struct Settings: View {
     @EnvironmentObject private var coordinator: Coordinator
@@ -24,14 +25,12 @@ struct Settings: View {
                 RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
             }
             HStack{
+                
                 Text("Log In").padding(.leading)//either say login or thier user name here
                 Spacer()
                 //Image("defaultProfile").resizable()
                 Image(systemName: "person.circle.fill")
                     .frame(width: 20.0, height: 20.0).padding().clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/).font(.system(size: 50, weight: .bold))
-//                    .overlay {
-//                        Circle().stroke(.black, lineWidth: 4)
-//                    }
                     .shadow(radius: 7).padding()
                     .onTapGesture {
                         let generator = UIImpactFeedbackGenerator(style: .light)
