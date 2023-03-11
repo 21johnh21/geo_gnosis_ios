@@ -31,7 +31,7 @@ class LBGameInfoListVM: ObservableObject{
     func GetData(){
         let db = Firestore.firestore()
         //TODO: order by score limit number of records ruturned
-        db.collection(Const.dbScoreCollection).whereField("difficulty", isEqualTo: fieldDiff).whereField("regionMode", isEqualTo: fieldRegMode).whereField("multiChoice", isEqualTo: fieldMultiChoice).order(by: "finalScore").limit(to: 5).addSnapshotListener{(querySnapshot, error) in
+        db.collection(Const.dbScoreCollection).whereField("difficulty", isEqualTo: fieldDiff).whereField("regionMode", isEqualTo: fieldRegMode).whereField("multiChoice", isEqualTo: fieldMultiChoice).order(by: "finalScore", descending: true).limit(to: 5).addSnapshotListener{(querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("Error: \(error!.localizedDescription)")
                 return
