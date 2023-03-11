@@ -23,7 +23,6 @@ struct geo_gnosis_iosApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delagate
     @StateObject var roundInfo = RoundInfo()
     @StateObject var gameInfo = GameInfo()
-    @StateObject var userInfo = UserInfo()
     
     var body: some Scene {
         WindowGroup {

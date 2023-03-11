@@ -12,17 +12,6 @@ struct SignInWithApple: View {
     
     var appleLogInButton = ASAuthorizationAppleIDButton()
     
-//    button() {
-//
-//    }
-    
-    
-//    var appleLogInButton : ASAuthorizationAppleIDButton = {
-//        let button = ASAuthorizationAppleIDButton()
-//        button.addTarget(self, action: #selector(handleLogInWithAppleID), for: .touchUpInside)
-//        return button
-//    }()
-    
     var body: some View {
         SignInWithAppleButton(.signIn, onRequest: onRequest, onCompletion: onCompletion)
         .signInWithAppleButtonStyle(.black)

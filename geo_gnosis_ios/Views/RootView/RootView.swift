@@ -167,7 +167,7 @@ struct RootView: View {
                     
                     //End test data
                     
-                    var lbInfo = LBInfo(userName: userName, finalScore: finalScore, dateTime: Date(), multiChoice: multiChoice, regionMode: regionMode, difficulty: difficulty, region: region, times: times, city_ascii: city_ascii, lat: lat, lng: lng, country: country, admin_name: admin_name, capital: capital, population: population)
+                    let lbInfo = LBInfo(userName: userName, finalScore: finalScore, dateTime: Date(), multiChoice: multiChoice, regionMode: regionMode, difficulty: difficulty, region: region, times: times, city_ascii: city_ascii, lat: lat, lng: lng, country: country, admin_name: admin_name, capital: capital, population: population)
                     
 //                    var lbInfo = LBInfo(userName: "JH_DEV", finalScore: finalScore)
                     let db = Firestore.firestore()

@@ -102,16 +102,13 @@ struct CreateAccount: View {
                 }
             }
             let currentUser = Auth.auth().currentUser
-            userIDSt = currentUser?.uid ?? "" //user is not availible use "" as default text
+            userIDSt = currentUser?.uid ?? ""
             userNameSt = currentUser?.displayName ?? ""
-            //print("userid: \(currentUser?.uid) displayName: \(currentUser?.displayName)")
         }else{
             //TODO: Inform User
         }
     }
     func PassIsValid() -> Bool{
-        //crateAccountErrorMessage
-        //hadErrorCreatingAccount
         
         var passIsValid: Bool = true
         

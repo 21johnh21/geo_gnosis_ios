@@ -11,7 +11,7 @@ struct DevTestHapticFeedback: View {
     //@State var response : String = ""
     var body: some View {
         var count : Int = 1
-        var response : String = ""
+        let response : String = ""
         VStack{
             ZStack{
                 RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
@@ -20,7 +20,7 @@ struct DevTestHapticFeedback: View {
                     Text("type: \(response)")
                 }
             }.onTapGesture {
-                Alert(title: Text(giveFeedback(i: count)))
+                //Alert(title: Text(giveFeedback(i: count)))
                 count = count + 1
             }
             ZStack{
