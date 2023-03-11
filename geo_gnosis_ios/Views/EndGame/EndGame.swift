@@ -31,11 +31,11 @@ struct EndGame: View {
     var body: some View {
         VStack {
             VStack{
-            Text("Game Over!").font(.custom("Changa-Light", size: 40)).padding()
+            Text("Game Over!").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg)).padding()
             HStack {
-                Text("Final Score: ").font(.custom("Changa-Light", size: 16)).padding(.leading)
+                Text("Final Score: ").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding(.leading)
                 Spacer()
-                Text("\(finalScore)").font(.custom("Changa-Light", size: 16)).padding(.trailing)
+                Text("\(finalScore)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding(.trailing)
             }
             
             }.background(){
@@ -47,7 +47,7 @@ struct EndGame: View {
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
-                    Text("Play Again").font(.custom("Changa-Light", size: 16))
+                    Text("Play Again").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                 }.onTapGesture {
                     if(vibOn){
                         let generator = UIImpactFeedbackGenerator(style: .light)
@@ -58,7 +58,7 @@ struct EndGame: View {
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
-                    Text("Return to Menu").font(.custom("Changa-Light", size: 16))
+                    Text("Return to Menu").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                 }.onTapGesture {
                     if(vibOn){
                         let generator = UIImpactFeedbackGenerator(style: .light)
@@ -132,7 +132,7 @@ struct EndGame: View {
         
             let db = Firestore.firestore()
             do {
-                try db.collection("Score Collection").document(UUID().uuidString).setData(from: lbInfo)
+                try db.collection(Const.dbScoreCollection).document(UUID().uuidString).setData(from: lbInfo)
             } catch let error {
                 print("Error writing score to Firestore: \(error.localizedDescription)")
             }

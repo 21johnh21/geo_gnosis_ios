@@ -36,7 +36,7 @@ struct RootView: View {
             ScrollView{
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
-                    Text("Geo Gnosis").font(.custom("BebasNeue-Regular", size: 45)).padding(.top)
+                    Text("Geo Gnosis").font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg)).padding(.top)
                 }
                 ZStack{
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
@@ -44,11 +44,11 @@ struct RootView: View {
                         
                     VStack{
                         HStack{
-                            Text("Play Again").font(.custom("Changa-Light", size: 36))
+                            Text("Play Again").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
                             Image(systemName: "play.fill").font(.system(size: 25, weight: .bold))
                         }
                         let lastMultiChoiceText = lastMultiChoice ? "Multiple Choice" : "Fill the Blank"
-                        Text("\(lastMultiChoiceText) \(Image(systemName: "circle.fill")) \(lastRegionMode) \(Image(systemName: "circle.fill")) \(lastRegion) \(Image(systemName: "circle.fill")) \(lastDifficulty)").font(.custom("Changa-Light", size: 16))
+                        Text("\(lastMultiChoiceText) \(Image(systemName: "circle.fill")) \(lastRegionMode) \(Image(systemName: "circle.fill")) \(lastRegion) \(Image(systemName: "circle.fill")) \(lastDifficulty)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                     }.padding()
                 }.onTapGesture {
                     if(vibOn){
@@ -62,22 +62,22 @@ struct RootView: View {
                     coordinator.show(Start.self)
                 }
                 VStack{
-                    Text("Set Up Game").font(.custom("Changa-Light", size: 16))
+                    Text("Set Up Game").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                     Picker("Choose a Mode", selection: $multiChoice){
                         ForEach(multiChoiceModes, id: \.self){
-                            Text($0).font(.custom("Changa-Light", size: 16))
+                            Text($0).font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                         }
                     }.pickerStyle(.segmented).colorMultiply(CustomColor.primary).background(CustomColor.trim).cornerRadius(5)
                     
                     Picker("Choose a difficulty", selection: $difficulty){
                         ForEach(difficulties, id: \.self){
-                            Text($0).font(.custom("Changa-Light", size: 16))
+                            Text($0).font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                         }
                     }.pickerStyle(.segmented).colorMultiply(CustomColor.primary).background(CustomColor.trim).cornerRadius(5)
                     
                     Picker("Choose a Region Mode", selection: $regionMode){
                         ForEach(regionModes, id: \.self){
-                            Text($0).font(.custom("Changa-Light", size: 16))
+                            Text($0).font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                         }
                     }.pickerStyle(.segmented).colorMultiply(CustomColor.primary).background(CustomColor.trim).cornerRadius(5)
                     if(regionMode != "World"){
@@ -91,7 +91,7 @@ struct RootView: View {
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
                     VStack{
                         HStack{
-                            Text("Start").font(.custom("Changa-Light", size: 40))
+                            Text("Start").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
                             Image(systemName: "play.fill").font(.system(size: 25, weight: .bold))
                         }
                     }.padding()
@@ -114,7 +114,7 @@ struct RootView: View {
                 HStack{
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).shadow(color: .black, radius: 3, x: 2, y: 2)
-                        Text("Settings").font(.custom("Changa-Light", size: 16))
+                        Text("Settings").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                     }.onTapGesture {
                         if(vibOn){
                             let generator = UIImpactFeedbackGenerator(style: .light)
@@ -125,7 +125,7 @@ struct RootView: View {
                     Spacer()
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).shadow(color: .black, radius: 3, x: 2, y: 2)
-                        Text("Leaderboard").font(.custom("Changa-Light", size: 16))
+                        Text("Leaderboard").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                     }.onTapGesture {
                         if(vibOn){
                             let generator = UIImpactFeedbackGenerator(style: .light)
@@ -172,7 +172,7 @@ struct RootView: View {
 //                    var lbInfo = LBInfo(userName: "JH_DEV", finalScore: finalScore)
                     let db = Firestore.firestore()
                     do {
-                        try db.collection("Score Collection").document(UUID().uuidString).setData(from: lbInfo)
+                        try db.collection(Const.dbScoreCollection).document(UUID().uuidString).setData(from: lbInfo)
                     } catch let error {
                         print("Error writing city to Firestore: \(error)")
                     }

@@ -20,15 +20,15 @@ struct EndGameCard: View {
                 RoundedRectangle(cornerRadius: 25, style: .continuous).fill(CustomColor.primary)
                 VStack{
                     HStack{
-                        Text("Round: \(roundNumber)").font(.custom("Changa-Light", size: 16)).padding()
+                        Text("Round: \(roundNumber)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding()
                         if(time != -1){
-                            Text("Score: \(time)").font(.custom("Changa-Light", size: 16)).padding()
+                            Text("Score: \(time)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding()
                         }else{
-                            Text("Score: DNF").font(.custom("Changa-Light", size: 16)).padding()
+                            Text("Score: DNF").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding()
                         }
                     }
                     HStack{
-                        Text("\(location.city_ascii) \(Image(systemName: "circle.fill")) \(location.admin_name) \(Image(systemName: "circle.fill"))  \(location.country)").font(.custom("Changa-Light", size: 16))
+                        Text("\(location.city_ascii) \(Image(systemName: "circle.fill")) \(location.admin_name) \(Image(systemName: "circle.fill"))  \(location.country)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                     }
                 }
             }.frame(height: 100)

@@ -27,8 +27,10 @@ struct Const{
     
     static let fontNormalText = "Changa-Light"
     static let fontTitle = "BebasNeue-Regular"
-    
-    //font sizes 
+    static let fontSizeNormStd = 16.0
+    static let fontSizeNormLrg = 40.0
+    static let fontSizeTitleLrg = 45.0
+    static let fontSizeTitleSm = 20.0
     
     static let audioActionBackground = "action-sound-effect"
     static let audioCorrectEffect = "Ding-sound-effect"

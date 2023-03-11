@@ -16,11 +16,11 @@ struct UserHistoryCard: View {
             VStack{
                 HStack{
                     
-                    Text("\(lbData.userName)").font(.custom("Changa-Light", size: 16)).padding()
-                    Text("Final Score: \(lbData.finalScore)").font(.custom("Changa-Light", size: 16)).padding()
+                    Text("\(lbData.userName)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding()
+                    Text("Final Score: \(lbData.finalScore)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding()
                 }
                 HStack{
-                    Text("\(GetGameMode()) \(Image(systemName: "circle.fill")) \(lbData.regionMode) \(Image(systemName: "circle.fill")) \(lbData.region) \(Image(systemName: "circle.fill")) \(lbData.difficulty)").font(.custom("Changa-Light", size: 16))
+                    Text("\(GetGameMode()) \(Image(systemName: "circle.fill")) \(lbData.regionMode) \(Image(systemName: "circle.fill")) \(lbData.region) \(Image(systemName: "circle.fill")) \(lbData.difficulty)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                 }
             }
         }.frame(height: 100)

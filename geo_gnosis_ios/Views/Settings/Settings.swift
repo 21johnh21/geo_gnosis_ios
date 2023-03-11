@@ -20,7 +20,7 @@ struct Settings: View {
     var body: some View {
         VStack{
             VStack{
-                Text("Settings").font(.custom("BebasNeue-Regular", size: 45))
+                Text("Settings").font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg))
             }.frame(maxWidth: .infinity).background(){
                 RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
             }

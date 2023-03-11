@@ -15,8 +15,8 @@ struct LeaderboardTab: View {
         VStack{
             let gameMode = multiChoice == true ? "Multiple Choice" : "Fill the Blank"
             VStack{
-                Text("Leaderboard").font(.custom("BebasNeue-Regular", size: 45))
-                Text("\(gameMode)").font(.custom("BebasNeue-Regular", size: 20))
+                Text("Leaderboard").font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg))
+                Text("\(gameMode)").font(.custom(Const.fontTitle, size: Const.fontSizeTitleSm))
             }.frame(maxWidth: .infinity).background(){
                 RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
             }

@@ -14,7 +14,7 @@ struct UserHistory: View {
         VStack{
             ZStack{
                 RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
-                Text("User History").font(.custom("BebasNeue-Regular", size: 45)).padding(.top).padding(.top)
+                Text("Game History").font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg)).padding(.top).padding(.top)
             }
             ScrollView{
                 ForEach(viewModel.lbData) { lbData in
