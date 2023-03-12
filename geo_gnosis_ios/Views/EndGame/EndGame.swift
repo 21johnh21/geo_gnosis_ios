@@ -131,7 +131,7 @@ struct EndGame: View {
             populations.append(location.population)
             }
         
-            let lbInfo = LBInfo(userName: userName, finalScore: finalScore, dateTime: Date(), multiChoice: gameInfo.multiChoice, regionMode: gameInfo.regionMode, difficulty: gameInfo.difficulty, region: gameInfo.region, times: roundInfo.times, city_ascii: city_asciis, lat: lats, lng: lngs, country: countrys, admin_name: admin_names, capital: capitals, population: populations)
+            let lbInfo = LBInfo(userName: userName, finalScore: finalScore, dateTime: GetFormattedDate(), multiChoice: gameInfo.multiChoice, regionMode: gameInfo.regionMode, difficulty: gameInfo.difficulty, region: gameInfo.region, times: roundInfo.times, city_ascii: city_asciis, lat: lats, lng: lngs, country: countrys, admin_name: admin_names, capital: capitals, population: populations)
         
             let db = Firestore.firestore()
             do {
@@ -140,6 +140,16 @@ struct EndGame: View {
                 print("Error writing score to Firestore: \(error.localizedDescription)")
             }
         }
+    }
+    func GetFormattedDate() -> String{
+        let date = Date()
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+
+        let dateString = formatter.string(from: date)
+        print(dateString)
+        return dateString
     }
 }
 

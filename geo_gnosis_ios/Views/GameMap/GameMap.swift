@@ -29,7 +29,6 @@ struct GameMap: View {
     @State var animate : [Bool] = [false, false, false, false, false ]
     @State var animationAmount: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
     
-    //var audioPlayer = AVAudioPlayer()
     @State var audioPlayer1:AVAudioPlayer?
     @State var audioPlayer2:AVAudioPlayer?
     @State var audioPlayer3:AVAudioPlayer?

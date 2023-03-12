@@ -106,8 +106,6 @@ struct CreateAccount: View {
             let currentUser = Auth.auth().currentUser
             userIDSt = currentUser?.uid ?? ""
             userNameSt = currentUser?.displayName ?? ""
-        }else{
-            //TODO: Inform User
         }
     }
     func PassIsValid() -> Bool{

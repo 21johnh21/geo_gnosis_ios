@@ -147,7 +147,7 @@ struct RootView: View {
                     
                     //End test data
                     
-                    let lbInfo = LBInfo(userName: userName, finalScore: finalScore, dateTime: Date(), multiChoice: multiChoice, regionMode: regionMode, difficulty: difficulty, region: region, times: times, city_ascii: city_ascii, lat: lat, lng: lng, country: country, admin_name: admin_name, capital: capital, population: population)
+                    let lbInfo = LBInfo(userName: userName, finalScore: finalScore, dateTime: GetFormattedDate(), multiChoice: multiChoice, regionMode: regionMode, difficulty: difficulty, region: region, times: times, city_ascii: city_ascii, lat: lat, lng: lng, country: country, admin_name: admin_name, capital: capital, population: population)
                     
 //                    var lbInfo = LBInfo(userName: "JH_DEV", finalScore: finalScore)
                     let db = Firestore.firestore()
@@ -183,6 +183,16 @@ struct RootView: View {
             }.background(CustomColor.secondary)
         }
         .environmentObject(coordinator)
+    }
+    func GetFormattedDate() -> String{
+        let date = Date()
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+
+        let dateString = formatter.string(from: date)
+        print(dateString)
+        return dateString
     }
 //    func GetDiffIntValue(textValue: String) -> Int{
 //        var intValue: Int

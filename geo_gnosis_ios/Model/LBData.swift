@@ -14,7 +14,7 @@ struct LBData: Identifiable, Codable{
     var capital: [String]
     var city_ascii: [String]
     var country: [String]
-    var dateTime: Date
+    var dateTime: String
     var difficulty: String
     var finalScore: Int
     var lat: [Double]
@@ -45,11 +45,12 @@ struct LBData: Identifiable, Codable{
     }
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        print("\(container)")
         self.admin_name = try container.decode([String].self, forKey: .admin_name)
         self.capital = try container.decode([String].self, forKey: .capital)
         self.city_ascii = try container.decode([String].self, forKey: .city_ascii)
         self.country = try container.decode([String].self, forKey: .country)
-        self.dateTime = try container.decode(Date.self, forKey: .dateTime)
+        self.dateTime = try container.decode(String.self, forKey: .dateTime)
         self.difficulty = try container.decode(String.self, forKey: .difficulty)
         self.finalScore = try container.decode(Int.self, forKey: .finalScore)
         self.lat = try container.decode([Double].self, forKey: .lat)

@@ -11,7 +11,7 @@ public struct LBInfo: Codable {
     
     let userName: String?
     let finalScore: Int?
-    let dateTime: Date?
+    let dateTime: String
     //game info vars
     let multiChoice: Bool?
     let regionMode: String?
