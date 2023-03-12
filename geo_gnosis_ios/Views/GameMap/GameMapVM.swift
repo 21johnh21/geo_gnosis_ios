@@ -41,6 +41,14 @@ extension GameMap{
             self.vibOn = vibOn
             self.volume = volume
         }
+        func SetUpView(){
+            if(gameInfo.multiChoice == true){
+                GetOption()
+            }
+            if(roundInfo.roundNumber == 0 ){
+                PlayBackground()
+            }
+        }
         func ValidateAnswer (guessIn: String) {
             var answer: String
             answer = GetCorrectAnswer()
@@ -172,6 +180,12 @@ extension GameMap{
             }
             
             return answer
+        }
+        func GiveUp(){
+            roundInfo.answers[roundInfo.roundNumber] =  true //so the last round will show on end game, may need to change this later
+            roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber
+            roundInfo.times[roundInfo.roundNumber] = -1
+            coordinator.show(EndGame.self)
         }
 //        func InitPinLocations() -> Array <PinLocation>{
 //            var pinLocations = [PinLocation]()

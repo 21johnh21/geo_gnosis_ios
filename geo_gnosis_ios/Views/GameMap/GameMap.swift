@@ -19,8 +19,6 @@ struct GameMap: View {
     
     @StateObject private var vm = GameMapVM()
     
-    //@State var guessText: String = ""
-    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     //TODO: //This is causing the PURPLE modifying view warning !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -52,10 +50,7 @@ struct GameMap: View {
                                     let generator = UIImpactFeedbackGenerator(style: .light)
                                     generator.impactOccurred()
                                 }
-                                roundInfo.answers[roundInfo.roundNumber] =  true //so the last round will show on end game, may need to change this later
-                                roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber
-                                roundInfo.times[roundInfo.roundNumber] = -1
-                                coordinator.show(EndGame.self)
+                                vm.GiveUp()
                             }
                         }
                     }
@@ -88,10 +83,7 @@ struct GameMap: View {
                                     let generator = UIImpactFeedbackGenerator(style: .light)
                                     generator.impactOccurred()
                                 }
-                                roundInfo.answers[roundInfo.roundNumber] =  true //so the last round will show on end game, may need to change this later
-                                roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber
-                                roundInfo.times[roundInfo.roundNumber] = -1
-                                coordinator.show(EndGame.self)
+                                vm.GiveUp()
                             }
                         } else{
                             //MARK: MultiChoice -----------------------------------------------------
@@ -177,12 +169,7 @@ struct GameMap: View {
         .navigationBarBackButtonHidden(true)
         .onAppear{
             vm.GetInfo(gameInfo: gameInfo, roundInfo: roundInfo, coordinator: coordinator, vibOn: vibOn, volume: volume)
-            if(gameInfo.multiChoice == true){
-                vm.GetOption()
-            }
-            if(roundInfo.roundNumber == 0 ){ 
-                vm.PlayBackground()
-            }
+            vm.SetUpView()
         }
         .onReceive(timer){ _ in
             vm.count += 1
