@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AuthenticationServices
+import MessageUI
 
 struct Settings: View {
     @EnvironmentObject private var coordinator: Coordinator
@@ -17,8 +18,10 @@ struct Settings: View {
     @AppStorage("darkMode") var darkMode: Bool = false
     @AppStorage("postScores") var postScores: Bool = true
     
+    @State var result: Result<MFMailComposeResult, Error>? = nil
+    
     var body: some View {
-        VStack{
+        ScrollView{
             VStack{
                 Text("Settings").font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg))
             }.frame(maxWidth: .infinity).background(){
@@ -55,10 +58,45 @@ struct Settings: View {
                         Text("Play Tutorial").padding(.leading)
                     }.padding(.leading)
                         .onTapGesture {
-                            let generator = UIImpactFeedbackGenerator(style: .light)
-                            generator.impactOccurred()
+                            if(vibOn){
+                                let generator = UIImpactFeedbackGenerator(style: .light)
+                                generator.impactOccurred()
+                            }
                         }
                     Spacer()
+                }
+                VStack{
+                    Text("Questions, Comments, Concerns?")
+                    Text("Please reaach out to me with any issues you have with the app. I'd also love to hear about any ways the app could be improved. Thanks for playing!")
+                    HStack{
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: 150, height: 30)
+                            Text("Contact Dev").padding(.leading)
+                        }.padding(.leading)
+                            .onTapGesture {
+                                if(vibOn){
+                                    let generator = UIImpactFeedbackGenerator(style: .light)
+                                    generator.impactOccurred()
+                                }
+                                if let url = URL(string: "mailto:\(Const.email)") {
+                                    UIApplication.shared.open(url)
+                                }
+                            }
+                        Spacer()
+                    }
+                }
+                HStack{
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: 150, height: 30)
+                        Text("Privacy Policy").padding(.leading)
+                    }.padding(.leading)
+                        .onTapGesture {
+                            if(vibOn){
+                                let generator = UIImpactFeedbackGenerator(style: .light)
+                                generator.impactOccurred()
+                            }
+                            //TODO: view policy
+                        }
                 }
             }.padding().background(){
                 RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
@@ -69,6 +107,8 @@ struct Settings: View {
         }.background(CustomColor.secondary)
     }
 }
+
+//TODO: private policy link https://developer.apple.com/app-store/review/guidelines/
 
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {

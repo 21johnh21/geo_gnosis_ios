@@ -53,4 +53,6 @@ struct Const{
     static let maxRoundScoreValue = 100
     
     static let numOfRounds = 5
+    
+    static let email = "geo.gnosis.dev@gmail.com"
 }

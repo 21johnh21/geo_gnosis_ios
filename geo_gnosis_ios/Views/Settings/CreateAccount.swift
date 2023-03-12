@@ -22,7 +22,7 @@ struct CreateAccount: View {
     @State var user: User?
     
     var body: some View {
-        ScrollView{
+        VStack{
             Text("Create and Account")
             HStack{
                 Text("User Name: ")

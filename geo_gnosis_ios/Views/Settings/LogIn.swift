@@ -22,7 +22,7 @@ struct LogIn: View {
     var body: some View {
         if(userIDSt == "") { //If the user is not signed in
             //TODO: Check if userName is already used? 
-            VStack{
+            ScrollView{
                 //MARK: Login -------------------------------------------------------
                 VStack{
                     Text("Have an account?")
