@@ -53,9 +53,11 @@ struct GameMap: View {
                             Spacer()
                             ZStack{
                                 if(gameInfo.multiChoice){
-                                    RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
-                                        .shadow(color: .black, radius: 3, x: 2, y: 2)
-                                    Text("Give Up").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
+                                            .shadow(color: .black, radius: 3, x: 2, y: 2)
+                                        Text("Give Up").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                    }.padding(.bottom)
                                 }
                             }.onTapGesture {
                                 if(vibOn){
@@ -75,7 +77,8 @@ struct GameMap: View {
                     HStack{
                         //MARK: Fill The Blank --------------------------------------------------
                         if(gameInfo.multiChoice == false){ //if mode is typing
-                            TextField("Answer...",text: $guess).font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                            TextField("Answer...",text: $guess)
+                                .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                                 .background(CustomColor.trim)
                                 .rotationEffect(.degrees(animationAmount[4]))
                                 .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: animationAmount[4])
