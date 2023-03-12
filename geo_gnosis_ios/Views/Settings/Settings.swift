@@ -6,11 +6,10 @@
 //
 
 import SwiftUI
-import AuthenticationServices
-import MessageUI
 
 struct Settings: View {
     @EnvironmentObject private var coordinator: Coordinator
+    
     @AppStorage("vibOn") var vibOn: Bool = true
     @AppStorage("volume") var volume: Double = 100
     @AppStorage("sateliteMapOn") var sateliteMapOn: Bool = false
@@ -18,7 +17,6 @@ struct Settings: View {
     @AppStorage("darkMode") var darkMode: Bool = false
     @AppStorage("postScores") var postScores: Bool = true
     
-    //@State var result: Result<MFMailComposeResult, Error>? = nil
     @State var showPrivacyPolicy: Bool = false
     
     var body: some View {
@@ -30,10 +28,8 @@ struct Settings: View {
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                 }
                 HStack{
-                    
                     Text("Log In").padding(.leading)//either say login or thier user name here
                     Spacer()
-                    //Image("defaultProfile").resizable()
                     Image(systemName: "person.circle.fill")
                         .frame(width: 20.0, height: 20.0).padding().clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/).font(.system(size: 50, weight: .bold))
                         .shadow(radius: 7).padding()
@@ -97,7 +93,6 @@ struct Settings: View {
                                     let generator = UIImpactFeedbackGenerator(style: .light)
                                     generator.impactOccurred()
                                 }
-                                //TODO: view policy
                                 showPrivacyPolicy.toggle()
                             }
                         Spacer()
@@ -110,14 +105,10 @@ struct Settings: View {
                 Spacer()
             }.background(CustomColor.secondary)
         }.overlay(alignment: .bottom){
-            if(showPrivacyPolicy){
-                PrivacyPolicy()
-            }
+            PrivacyPolicy(showPriacyPolicy: $showPrivacyPolicy)
         }.ignoresSafeArea()
     }
 }
-
-//TODO: private policy link https://developer.apple.com/app-store/review/guidelines/
 
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {
