@@ -188,7 +188,7 @@ struct GameMap: View {
             if(gameInfo.multiChoice == true){
                 GetOption()
             }
-            if(roundInfo.roundNumber == 0 ){ //TODO: if muted
+            if(roundInfo.roundNumber == 0 ){ 
                 PlayBackground()
             }
         }

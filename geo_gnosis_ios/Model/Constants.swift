@@ -55,4 +55,6 @@ struct Const{
     static let numOfRounds = 5
     
     static let email = "geo.gnosis.dev@gmail.com"
+    
+    static let locationDataFile = "locationDataUpdated3"
 }

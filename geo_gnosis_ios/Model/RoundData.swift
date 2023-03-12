@@ -20,7 +20,7 @@ public class RoundData{
     var locations = [Location]()
     var usedCountries: [String] = [String]()
     var count: Int = 0
-    //TODO: replace
+    
     init(multiChoice: Bool, difficulty: String, regionMode: String, region: String){
         self.multiChoice = multiChoice
         self.difficulty = difficulty

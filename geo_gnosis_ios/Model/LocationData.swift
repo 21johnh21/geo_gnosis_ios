@@ -9,7 +9,7 @@ import Foundation
 
 public class LocationData{
     var difficulty: String
-    var regionMode: String //TODO: Replace
+    var regionMode: String
     var region: String
     
     var numOfRounds = 5
@@ -36,8 +36,8 @@ public class LocationData{
         load()
     }
 
-    func load(){ //TODO: Const for data file here
-        if let fileLocation = Bundle.main.url(forResource: "locationDataUpdated3", withExtension: "json"){ //create file location var
+    func load(){
+        if let fileLocation = Bundle.main.url(forResource: Const.locationDataFile, withExtension: "json"){
             do{
                 
                 let data = try Data(contentsOf: fileLocation) //try to get data from filelocation
