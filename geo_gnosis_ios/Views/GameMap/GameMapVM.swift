@@ -18,7 +18,6 @@ extension GameMap{
         @Published var guessText: String = ""
         
         @Published var options: [String] = ["", "", "", ""]
-        @Published var count: Int = 0
         @Published var multiChoiceAnsers: [String] = [String]()
 
         @Published var animate : [Bool] = [false, false, false, false, false ]
@@ -33,7 +32,7 @@ extension GameMap{
         var coordinator: Coordinator = Coordinator()
         var vibOn: Bool = true
         var volume: Double = 100.0
-
+        
         func GetInfo(gameInfo: GameInfo, roundInfo: RoundInfo, coordinator: Coordinator, vibOn: Bool, volume: Double){
             self.gameInfo = gameInfo
             self.roundInfo = roundInfo
@@ -164,7 +163,6 @@ extension GameMap{
             if(roundInfo.roundNumber == 4){
                 audioPlayer1?.pause()
             }
-            roundInfo.times[roundInfo.roundNumber] = count
             roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber + 1
             roundInfo.answers[roundInfo.roundNumber] = true
         }
@@ -187,20 +185,6 @@ extension GameMap{
             roundInfo.times[roundInfo.roundNumber] = -1
             coordinator.show(EndGame.self)
         }
-//        func InitPinLocations() -> Array <PinLocation>{
-//            var pinLocations = [PinLocation]()
-//            var pinLocation = PinLocation(name: "", coordinate: CLLocationCoordinate2D(
-//                latitude: 0.0, longitude: 0.0))
-//            
-//            for i in 0...roundInfo.roundNumber{
-//                //var pinLocation: PinLocation
-//                pinLocation.coordinate = CLLocationCoordinate2D(
-//                    latitude: roundInfo.locations[i].lat, longitude: roundInfo.locations[i].lng)
-//                pinLocation.name=""
-//                pinLocations.append(pinLocation)
-//            }
-//            return pinLocations
-//        }
         func PlayBackground(){
             if let path = Bundle.main.path(forResource: Const.audioActionBackground, ofType: "mp3"){
                 self.audioPlayer1 = AVAudioPlayer()

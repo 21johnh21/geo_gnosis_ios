@@ -251,6 +251,7 @@
 				F83C878C297DC10F008FA89D /* GameMap.swift */,
 				F84E7C9D29BE81F600F60C34 /* GameMapVM.swift */,
 				F83C878E297DCACB008FA89D /* MapView.swift */,
+				F8996FD629A5B0440039C685 /* TimerView.swift */,
 			);
 			path = GameMap;
 			sourceTree = "<group>";
@@ -329,7 +330,6 @@
 				F82315DA299723EA0026D036 /* Settings */,
 				F82315D9299723D50026D036 /* Leaderboard */,
 				F8996FCA29A46C5E0039C685 /* DevTestHapticFeedback.swift */,
-				F8996FD629A5B0440039C685 /* TimerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

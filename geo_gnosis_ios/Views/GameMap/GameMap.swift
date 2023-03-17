@@ -18,9 +18,10 @@ struct GameMap: View {
     @EnvironmentObject var gameInfo: GameInfo
     
     @StateObject private var vm = GameMapVM()
+    @State var counter: Int = Int()
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    //TODO: //This is causing the PURPLE modifying view warning !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    @State var count: Int = 0
 
     var body: some View {
         ZStack {
@@ -154,13 +155,6 @@ struct GameMap: View {
                     Text("Round: \(roundInfo.roundNumber + 1)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)) //Round number
                 }.padding(.leading)
                 Spacer()
-//                ZStack{
-//                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
-//                        .frame(width: 80, height: 30)
-//                    Text("\(count)").onReceive(timer){ _ in
-//                        count += 1
-//                    }
-//                }.padding(.trailing)
                 TimerView()
             }.safeAreaInset(edge: .bottom){
                 
@@ -171,17 +165,19 @@ struct GameMap: View {
             vm.GetInfo(gameInfo: gameInfo, roundInfo: roundInfo, coordinator: coordinator, vibOn: vibOn, volume: volume)
             vm.SetUpView()
         }
-        .onReceive(timer){ _ in
-            vm.count += 1
+        .onDisappear{
+            roundInfo.times[roundInfo.roundNumber] = count
         }
-    }//TODO: add Animation to view load / disapear ? 
+        .onReceive(timer){ _ in
+            count += 1
+        }
+    }
     func InitPinLocations() -> Array <PinLocation>{
         var pinLocations = [PinLocation]()
         var pinLocation = PinLocation(name: "", coordinate: CLLocationCoordinate2D(
             latitude: 0.0, longitude: 0.0))
         
         for i in 0...roundInfo.roundNumber{
-            //var pinLocation: PinLocation
             pinLocation.coordinate = CLLocationCoordinate2D(
                 latitude: roundInfo.locations[i].lat, longitude: roundInfo.locations[i].lng)
             pinLocation.name=""
