@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TimerView: View {
     
+    @EnvironmentObject var roundInfo : RoundInfo
+    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var count: Int = 0
     
@@ -20,6 +22,9 @@ struct TimerView: View {
                 count += 1
             }
         }.padding(.trailing)
+            .onDisappear(){
+                roundInfo.times[roundInfo.roundNumber - 1] = count
+            }
     }
 }
 

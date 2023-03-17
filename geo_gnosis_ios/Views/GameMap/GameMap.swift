@@ -18,10 +18,6 @@ struct GameMap: View {
     @EnvironmentObject var gameInfo: GameInfo
     
     @StateObject private var vm = GameMapVM()
-    @State var counter: Int = Int()
-    
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    @State var count: Int = 0
 
     var body: some View {
         ZStack {
@@ -165,12 +161,12 @@ struct GameMap: View {
             vm.GetInfo(gameInfo: gameInfo, roundInfo: roundInfo, coordinator: coordinator, vibOn: vibOn, volume: volume)
             vm.SetUpView()
         }
-        .onDisappear{
-            roundInfo.times[roundInfo.roundNumber] = count
-        }
-        .onReceive(timer){ _ in
-            count += 1
-        }
+//        .onDisappear{
+//            roundInfo.times[roundInfo.roundNumber] = count
+//        }
+//        .onReceive(timer){ _ in
+//            count += 1
+//        }
     }
     func InitPinLocations() -> Array <PinLocation>{
         var pinLocations = [PinLocation]()
