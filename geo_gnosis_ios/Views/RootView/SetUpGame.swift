@@ -17,7 +17,7 @@ struct SetUpGame: View {
     var difficulties = ["Easy", "Medium", "Hard"]
     //@State var regionMode = "World"
     @Binding var regionMode: String
-    var regionModes = ["World", "State", "City"]
+    var regionModes = ["World", Const.modeRegRegionText, "City"]
     
     var body: some View {
         VStack(spacing: 0){

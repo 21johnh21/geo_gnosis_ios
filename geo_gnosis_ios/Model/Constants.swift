@@ -26,13 +26,11 @@ struct Const{
     static let modeDiffHardText = "Hard"
     
     static let modeRegCountryText = "World"
-    static let modeRegRegionText = "Region"
+    static let modeRegRegionText = "District"
     static let modeRegCityText = "City"
     
     static let modeMultiChoiceText = "Multiple Choice"
     static let modeFillBlankText = "Fill the Blank"
-    
-    //Should probably add text values for these  ^ as well
     
     static let dbScoreCollection = "Score Collection"
     

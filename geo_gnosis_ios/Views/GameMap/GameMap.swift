@@ -161,12 +161,6 @@ struct GameMap: View {
             vm.GetInfo(gameInfo: gameInfo, roundInfo: roundInfo, coordinator: coordinator, vibOn: vibOn, volume: volume)
             vm.SetUpView()
         }
-//        .onDisappear{
-//            roundInfo.times[roundInfo.roundNumber] = count
-//        }
-//        .onReceive(timer){ _ in
-//            count += 1
-//        }
     }
     func InitPinLocations() -> Array <PinLocation>{
         var pinLocations = [PinLocation]()

@@ -25,7 +25,6 @@ public class LocationData{
     let regionCanada: String = "Canada"
     let regionMexico: String = "Mexico"
     let regionUK: String = "United Kingdom"
-//    var region: String //get this from root eventually
     
     var multiChoiceOptions: [[String]] = [[String]]()
     

@@ -26,7 +26,7 @@ struct LeaderboardTab: View {
                         LBRegionModeSec(multiChoice: multiChoice, gameMode: Const.modeRegCountryText)
                     }
                     VStack{
-                        LeaderboardHeader(headerText: "Region")
+                        LeaderboardHeader(headerText: Const.modeRegRegionText)
                         LBRegionModeSec(multiChoice: multiChoice, gameMode: Const.modeRegRegionText)
                     }
                     
