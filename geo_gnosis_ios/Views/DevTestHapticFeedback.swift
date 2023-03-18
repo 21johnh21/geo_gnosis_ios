@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DevTestHapticFeedback: View {
-    //@State var response : String = ""
     var body: some View {
         var count : Int = 1
         let response : String = ""
@@ -20,7 +19,6 @@ struct DevTestHapticFeedback: View {
                     Text("type: \(response)")
                 }
             }.onTapGesture {
-                //Alert(title: Text(giveFeedback(i: count)))
                 count = count + 1
             }
             ZStack{
@@ -35,7 +33,6 @@ struct DevTestHapticFeedback: View {
     }
     func giveFeedback(i: Int) -> String{
         var typeText: String = ""
-               print("Running \(i)")
 
                switch i {
                case 1:

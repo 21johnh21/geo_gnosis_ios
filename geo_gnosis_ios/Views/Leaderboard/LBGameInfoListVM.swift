@@ -30,7 +30,6 @@ class LBGameInfoListVM: ObservableObject{
                 return
             }
             self.lbData = documents.compactMap{ (queryDocumentSnapshot) -> LBData? in
-                print()
                 return try? queryDocumentSnapshot.data(as: LBData.self)
             }
         }

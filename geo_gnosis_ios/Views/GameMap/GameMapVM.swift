@@ -65,7 +65,6 @@ extension GameMap{
                     CorrectGuess()
                     roundInfo.roundNumber += 1
                     coordinator.show(GameMap.self)
-                    print("Correct!")
                 }
             }
             else{
@@ -116,12 +115,10 @@ extension GameMap{
                 if(roundInfo.roundNumber == 4){
                     CorrectGuess()
                     coordinator.show(EndGame.self)
-                    print("Correct!")
                 }else{
                     CorrectGuess()
                     roundInfo.roundNumber += 1
                     coordinator.show(GameMap.self)
-                    print("Correct!")
                 }
             }
             else{
@@ -228,7 +225,7 @@ extension GameMap{
                     self.audioPlayer3?.prepareToPlay()
                     self.audioPlayer3?.play()
                 }catch {
-                    print("Eror")
+                    print("Error")
                 }
             }
         }

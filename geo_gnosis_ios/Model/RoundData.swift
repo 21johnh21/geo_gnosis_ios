@@ -42,13 +42,9 @@ public class RoundData{
                 locations.append(locationsByRegion[locationIndex])
             }
         }else{ //if its world mode prevent locations from the same country
-            //for i in 0...numOfRounds-1{
             while(count < numOfRounds){
                 let locationIndex = Int.random(in: 0..<locationsByRegion.count)
-                if(usedCountries.contains(locationsByRegion[locationIndex].country)){
-//                    locations.append(locationsByRegion[locationIndex])
-//                    usedCountries.append(locations[i].country)
-                }else{
+                if(!(usedCountries.contains(locationsByRegion[locationIndex].country))){
                     locations.append(locationsByRegion[locationIndex])
                     usedCountries.append(locations[count].country)
                     count = count + 1
@@ -59,24 +55,16 @@ public class RoundData{
         //Get Multi Choice Options
         if(multiChoice && locationsByRegion.count != 0){
             for i in 0...numOfRounds - 1{ // for every round
-                //multiChoiceOptions2[i] // init this to 4 locations
                 var roundMultiChoiceOptionCountries: [String] = [String]()
                 var roundMultiChoiceOptions = [Location]()
                 roundMultiChoiceOptions.append(locations[i])
                 roundMultiChoiceOptionCountries.append(locations[i].country)
                 for _ in 0...2{ //append 3 random locations
                     var locationIndex = Int.random(in: 0..<locationsByRegion.count)
-                    //roundMultiChoiceOptions.append(locationsByRegion[locationIndex])
-                    //if this locations country is not = to the correct locations country
                     if(regionMode == Const.modeRegCountryText){
                         var locationChosen: Bool = false
                         var count: Int = 0
                         while(!locationChosen){
-//                            if(locationsByRegion[locationIndex].country != roundMultiChoiceOptions[0].country){
-                            
-                            //let countryUsed: Bool = roundMultiChoiceOptions.contains(where: {$0.country !=  locationsByRegion[locationIndex].country})
-                            
-                            //var roundMultiChoiceOptionCountries: [String] = [String]()
                             
                             let countryUsed: Bool = roundMultiChoiceOptionCountries.contains(locationsByRegion[locationIndex].country)
                             
@@ -85,18 +73,13 @@ public class RoundData{
                                 roundMultiChoiceOptions.append(locationsByRegion[locationIndex])
                                 locationChosen = true
                             }else{
-                                //TODO: Maybe log error here somehow
                                 locationIndex = Int.random(in: 0..<locationsByRegion.count)
                                 count = count + 1
-                                print(count)
                             }
                         }
                     }else{
                         roundMultiChoiceOptions.append(locationsByRegion[locationIndex])
                     }
-//                    let locationIndex = Int.random(in: 0..<locationsByRegion.count)
-//                    roundMultiChoiceOptions.append(locationsByRegion[locationIndex])
-                    //------
                 }
                 multiChoiceOptions.append(roundMultiChoiceOptions)
             }

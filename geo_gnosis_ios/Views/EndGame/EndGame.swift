@@ -149,7 +149,6 @@ struct EndGame: View {
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
 
         let dateString = formatter.string(from: date)
-        print(dateString)
         return dateString
     }
 }

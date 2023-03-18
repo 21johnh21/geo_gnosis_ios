@@ -45,7 +45,6 @@ struct LBData: Identifiable, Codable{
     }
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        //print("\(container)")
         self.admin_name = try container.decode([String].self, forKey: .admin_name)
         self.capital = try container.decode([String].self, forKey: .capital)
         self.city_ascii = try container.decode([String].self, forKey: .city_ascii)
@@ -61,6 +60,5 @@ struct LBData: Identifiable, Codable{
         self.regionMode = try container.decode(String.self, forKey: .regionMode)
         self.times = try container.decode([Int].self, forKey: .times)
         self.userName = try container.decode(String.self, forKey: .userName)
-        //print("LBData: \(self)")
     }
 }

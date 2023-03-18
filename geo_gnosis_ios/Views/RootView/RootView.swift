@@ -208,17 +208,6 @@ struct RootView: View {
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
 
         let dateString = formatter.string(from: date)
-        print(dateString)
         return dateString
     }
-//    func GetDiffIntValue(textValue: String) -> Int{
-//        var intValue: Int
-//        intValue = difficulties.firstIndex(of: textValue)!
-//        return intValue + 1
-//    }
-//    func GetRegModeIntValue(textValue: String) -> Int{
-//        var intValue: Int
-//        intValue = regionModes.firstIndex(of: textValue)!
-//        return intValue + 1
-//    }
 }
