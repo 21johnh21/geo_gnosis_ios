@@ -5,8 +5,6 @@
 //  Created by John Hawley on 1/22/23.
 //
 
-//TODO: REPLACE "World" with "Country" when refering to the region mode
-
 import SwiftUI
 import AVFAudio
 
@@ -60,7 +58,7 @@ struct Start: View {
                     StartGame()
                 }
             }.frame(maxWidth: .infinity)
-            .background(CustomColor.secondary)
+            .background(alignment: .center){BackgroundView()}
     }
     func StartGame(){
         if(gameInfo.multiChoice){ //if multiple choice get the multi choice options

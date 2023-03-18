@@ -65,7 +65,6 @@ public class LocationData{
                 
                 //filter locations based on region
                 if(region != Const.modeRegCountryText){
-                    //TODO: My logic may havea flaw here, should I seperate the area the user is searching in and what they are guessing by ?? 
                     FilterByRegion()
                 }else{
                     locationsByRegion = locationsByDif

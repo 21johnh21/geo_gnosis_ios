@@ -155,7 +155,8 @@ struct GameMap: View {
             }.safeAreaInset(edge: .bottom){
                 
             }
-        }.background(CustomColor.secondary)
+        }//.background(CustomColor.secondary)
+        .background(alignment: .center){BackgroundView()}
         .navigationBarBackButtonHidden(true)
         .onAppear{
             vm.GetInfo(gameInfo: gameInfo, roundInfo: roundInfo, coordinator: coordinator, vibOn: vibOn, volume: volume)

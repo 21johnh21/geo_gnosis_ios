@@ -76,7 +76,8 @@ struct EndGame: View {
                 }
             }
         }.navigationBarBackButtonHidden(true)
-        .background(CustomColor.secondary)
+        //.background(CustomColor.secondary)
+        .background(alignment: .center){BackgroundView()}
         .onAppear(){
             finalScore = CalcFinalScore()
             SendResultsToDB()

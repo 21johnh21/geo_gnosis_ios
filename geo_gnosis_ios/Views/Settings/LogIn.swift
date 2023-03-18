@@ -21,7 +21,6 @@ struct LogIn: View {
     
     var body: some View {
         if(userIDSt == "") { //If the user is not signed in
-            //TODO: Check if userName is already used? 
             ScrollView{
                 //MARK: Login -------------------------------------------------------
                 VStack{
@@ -52,7 +51,8 @@ struct LogIn: View {
                 //MARK: Create an Account -------------------------------------------------------
                 CreateAccount()
                 Spacer()
-            }.background(CustomColor.secondary)
+            }//.background(CustomColor.secondary)
+            .background(alignment: .center){BackgroundView()}
         }
         else {
             //MARK: Already Logged In  -------------------------------------------------------

@@ -104,7 +104,8 @@ struct Settings: View {
                         RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
                     }
                     Spacer()
-                }.background(CustomColor.secondary)
+                }//.background(CustomColor.secondary)
+                .background(alignment: .center){BackgroundView()}
             }.overlay(alignment: .bottom){
                 PrivacyPolicy(showPriacyPolicy: $showPrivacyPolicy).ignoresSafeArea()
             }//.ignoresSafeArea()

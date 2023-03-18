@@ -90,7 +90,6 @@ struct CreateAccount: View {
                     }
                     
                 } else {
-                    //TODO: verify that the username is provided and not already in use?
                     print("Error: \(error!.localizedDescription)")
                     if(error!.localizedDescription == "An email address must be provided."){ //no email
                         createAccountErrorCode = 6

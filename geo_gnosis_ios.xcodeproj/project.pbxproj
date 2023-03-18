@@ -30,6 +30,7 @@
 		F84E7C9C29BD820400F60C34 /* PrivacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E7C9B29BD820400F60C34 /* PrivacyPolicy.swift */; };
 		F84E7C9E29BE81F600F60C34 /* GameMapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E7C9D29BE81F600F60C34 /* GameMapVM.swift */; };
 		F84E7CA229C3FADF00F60C34 /* MapViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E7CA129C3FADF00F60C34 /* MapViewVM.swift */; };
+		F84E7CA629C5FA7B00F60C34 /* ViewAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E7CA529C5FA7B00F60C34 /* ViewAssets.swift */; };
 		F87ABBB029820DD6007E2EA3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBAF29820DD6007E2EA3 /* Coordinator.swift */; };
 		F87ABBB229820E10007E2EA3 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBB129820E10007E2EA3 /* RootView.swift */; };
 		F87ABBB429836663007E2EA3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBB329836663007E2EA3 /* Location.swift */; };
@@ -121,6 +122,7 @@
 		F84E7C9B29BD820400F60C34 /* PrivacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicy.swift; sourceTree = "<group>"; };
 		F84E7C9D29BE81F600F60C34 /* GameMapVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMapVM.swift; sourceTree = "<group>"; };
 		F84E7CA129C3FADF00F60C34 /* MapViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewVM.swift; sourceTree = "<group>"; };
+		F84E7CA529C5FA7B00F60C34 /* ViewAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAssets.swift; sourceTree = "<group>"; };
 		F87ABBAF29820DD6007E2EA3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F87ABBB129820E10007E2EA3 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		F87ABBB329836663007E2EA3 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				F82315DA299723EA0026D036 /* Settings */,
 				F82315D9299723D50026D036 /* Leaderboard */,
 				F8996FCA29A46C5E0039C685 /* DevTestHapticFeedback.swift */,
+				F84E7CA529C5FA7B00F60C34 /* ViewAssets.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				F8996FF429B6C9100039C685 /* UserHistoryVM.swift in Sources */,
 				F899701329BCC4C80039C685 /* SetUpGame.swift in Sources */,
 				F8996FF829B6CEFC0039C685 /* UserHistoryNew.swift in Sources */,
+				F84E7CA629C5FA7B00F60C34 /* ViewAssets.swift in Sources */,
 				F83C878F297DCACB008FA89D /* MapView.swift in Sources */,
 				F87ABBD2298E9AAE007E2EA3 /* DropDown.swift in Sources */,
 				F87ABBDE29932D3F007E2EA3 /* LogIn.swift in Sources */,

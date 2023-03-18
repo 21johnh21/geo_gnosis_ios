@@ -177,7 +177,8 @@ struct RootView: View {
                     DevTestHapticFeedback()
                 }
                 
-            }.background(CustomColor.secondary)
+            }//.background(CustomColor.secondary)
+            .background(alignment: .center){BackgroundView()}
         }
         .environmentObject(coordinator)
     }
