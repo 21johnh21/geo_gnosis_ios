@@ -23,6 +23,7 @@ struct RootView: View {
     @State var multiChoice = Const.modeMultiChoiceText
     @State var difficulty = Const.modeDiffEasyText
     @State var regionMode = Const.modeRegCountryText
+    @State var showSetUp = false
     
     let screenSize: CGRect = UIScreen.main.bounds
     
@@ -42,8 +43,8 @@ struct RootView: View {
                         
                     VStack{
                         HStack{
-                            Text("Play Again").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
                             Image(systemName: "play.fill").font(.system(size: 25, weight: .bold))
+                            Text("Play Again").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
                         }
                         let lastMultiChoiceText = lastMultiChoice ? Const.modeMultiChoiceText : Const.modeFillBlankText
                         Text("\(lastMultiChoiceText) \(Image(systemName: "circle.fill")) \(lastRegionMode) \(Image(systemName: "circle.fill")) \(lastRegion) \(Image(systemName: "circle.fill")) \(lastDifficulty)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
@@ -60,15 +61,30 @@ struct RootView: View {
                     coordinator.show(Start.self)
                 }
                 //MARK: Set Up Game ----------------------------
-                SetUpGame(multiChoice: $multiChoice, difficulty: $difficulty, regionMode: $regionMode)
+                if(showSetUp){
+                    SetUpGame(multiChoice: $multiChoice, difficulty: $difficulty, regionMode: $regionMode)
+                }else{
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
+                            .shadow(color: .black, radius: 3, x: 2, y: 2)
+                        VStack{
+                            HStack{
+                                Image(systemName: "gear").font(.system(size: 25, weight: .bold))
+                                Text("Set Up Game").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
+                            }
+                        }.padding()
+                    }.onTapGesture {
+                        showSetUp.toggle()
+                    }
+                }
                 //MARK: Start Buton ----------------------------
                 ZStack{
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
                     VStack{
                         HStack{
-                            Text("Start").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
                             Image(systemName: "play.fill").font(.system(size: 25, weight: .bold))
+                            Text("Start").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
                         }
                     }.padding()
                 }.onTapGesture {
@@ -154,6 +170,9 @@ struct RootView: View {
                         print("Error writing city to Firestore: \(error)")
                     }
                 }
+            }
+            .onAppear(){
+                showSetUp = false
             }
             .navigationDestination(for: String.self) { id in
                 if id == String(describing: Start.self) {
