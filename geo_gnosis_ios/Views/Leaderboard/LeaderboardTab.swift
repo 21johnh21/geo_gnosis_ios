@@ -22,7 +22,7 @@ struct LeaderboardTab: View {
             }
                 ScrollView{
                     VStack{
-                        LeaderboardHeader(headerText: "World")
+                        LeaderboardHeader(headerText: Const.modeRegCountryText)
                         LBRegionModeSec(multiChoice: multiChoice, gameMode: Const.modeRegCountryText)
                     }
                     VStack{

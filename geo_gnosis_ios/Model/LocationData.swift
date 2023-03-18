@@ -69,7 +69,6 @@ public class LocationData{
                     FilterByRegion()
                 }else{
                     locationsByRegion = locationsByDif
-                    //filter this so the user doen't keep getting china
                 }
             }
             catch{

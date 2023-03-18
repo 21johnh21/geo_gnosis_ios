@@ -9,15 +9,12 @@ import SwiftUI
 
 struct SetUpGame: View {
     
-    //@State var multiChoice = "Multiple Choice"
     @Binding var multiChoice: String
     var multiChoiceModes = ["Multiple Choice", "Fill the Blank"]
-    //@State var difficulty = "Easy"
     @Binding var difficulty: String
     var difficulties = ["Easy", "Medium", "Hard"]
-    //@State var regionMode = "World"
     @Binding var regionMode: String
-    var regionModes = ["World", Const.modeRegRegionText, "City"]
+    var regionModes = [Const.modeRegCountryText, Const.modeRegRegionText, "City"]
     
     var body: some View {
         VStack(spacing: 0){
@@ -40,7 +37,7 @@ struct SetUpGame: View {
                     Text($0).font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                 }
             }.pickerStyle(.segmented).colorMultiply(CustomColor.primary).background(CustomColor.trim).cornerRadius(5)
-            if(regionMode != "World"){
+            if(regionMode != Const.modeRegCountryText){
                 DropDown()
             }
         }.padding().overlay(){

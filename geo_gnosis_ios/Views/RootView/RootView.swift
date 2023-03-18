@@ -14,18 +14,15 @@ struct RootView: View {
     
     @AppStorage("lastMultiChoice") var lastMultiChoice: Bool = true
     @AppStorage("lastRegionMode") var lastRegionMode: String = Const.modeRegCountryText
-    @AppStorage("lastRegion") var lastRegion: String = "World"
+    @AppStorage("lastRegion") var lastRegion: String = Const.modeRegCountryText
     @AppStorage("lastDifficulty") var lastDifficulty: String = Const.modeDiffEasyText
     @AppStorage("vibOn") var vibOn: Bool = true
     
     @EnvironmentObject var gameInfo: GameInfo
     @StateObject private var coordinator = Coordinator()
     @State var multiChoice = "Multiple Choice"
-//    var multiChoiceModes = ["Multiple Choice", "Fill the Blank"]
     @State var difficulty = "Easy"
-//    var difficulties = ["Easy", "Medium", "Hard"]
-    @State var regionMode = "World"
-//    var regionModes = ["World", "State", "City"]
+    @State var regionMode = Const.modeRegCountryText
     
     let screenSize: CGRect = UIScreen.main.bounds
     
@@ -135,7 +132,7 @@ struct RootView: View {
                     let multiChoice = true
                     let regionMode = Const.modeRegCountryText
                     let difficulty = Const.modeDiffEasyText
-                    let region = "World"
+                    let region = Const.modeRegCountryText
                     let times = [10, 50, 20, 15, 5]
                     let city_ascii = ["NY", "NY", "NY", "NY", "NY"]
                     let lat = [50.12345, 50.0, 50.0, 50.0, 50.0]

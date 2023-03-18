@@ -11,5 +11,5 @@ class GameInfo: ObservableObject {
     @Published var multiChoice = false
     @Published var regionMode = Const.modeRegCountryText
     @Published var difficulty: String = Const.modeDiffEasyText
-    @Published var region = "World"
+    @Published var region = Const.modeRegCountryText
 }

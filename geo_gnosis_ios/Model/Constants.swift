@@ -25,7 +25,7 @@ struct Const{
     static let modeDiffMedText = "Medium"
     static let modeDiffHardText = "Hard"
     
-    static let modeRegCountryText = "World"
+    static let modeRegCountryText = "Country"
     static let modeRegRegionText = "District"
     static let modeRegCityText = "City"
     
