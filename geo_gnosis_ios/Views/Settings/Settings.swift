@@ -25,7 +25,7 @@ struct Settings: View {
                 ScrollView{
                     VStack{
                         Text("Settings").font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg))
-                    }.frame(maxWidth: .infinity).background(){
+                    }.frame(maxWidth: .infinity, minHeight: 80).background(){
                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                     }
                     HStack{

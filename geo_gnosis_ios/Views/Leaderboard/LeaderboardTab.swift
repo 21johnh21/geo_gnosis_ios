@@ -36,7 +36,7 @@ struct LeaderboardTab: View {
                     }
                 
                 }
-        }.background(CustomColor.secondary)
+        }
     }
 }
 

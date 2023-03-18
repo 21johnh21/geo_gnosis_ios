@@ -21,7 +21,8 @@ struct UserHistory: View {
                     UserHistoryCard(lbData: lbData)
                 }
             }
-        }.background(CustomColor.secondary)
+        }
+        .background(alignment: .center){BackgroundView()}
         .onAppear(){
             self.viewModel.GetData()
         }
