@@ -20,8 +20,8 @@ struct RootView: View {
     
     @EnvironmentObject var gameInfo: GameInfo
     @StateObject private var coordinator = Coordinator()
-    @State var multiChoice = "Multiple Choice"
-    @State var difficulty = "Easy"
+    @State var multiChoice = Const.modeMultiChoiceText
+    @State var difficulty = Const.modeDiffEasyText
     @State var regionMode = Const.modeRegCountryText
     
     let screenSize: CGRect = UIScreen.main.bounds
@@ -45,7 +45,7 @@ struct RootView: View {
                             Text("Play Again").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
                             Image(systemName: "play.fill").font(.system(size: 25, weight: .bold))
                         }
-                        let lastMultiChoiceText = lastMultiChoice ? "Multiple Choice" : "Fill the Blank"
+                        let lastMultiChoiceText = lastMultiChoice ? Const.modeMultiChoiceText : Const.modeFillBlankText
                         Text("\(lastMultiChoiceText) \(Image(systemName: "circle.fill")) \(lastRegionMode) \(Image(systemName: "circle.fill")) \(lastRegion) \(Image(systemName: "circle.fill")) \(lastDifficulty)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                     }.padding()
                 }.onTapGesture {
@@ -76,7 +76,7 @@ struct RootView: View {
                         let generator = UIImpactFeedbackGenerator(style: .light)
                         generator.impactOccurred()
                     }
-                    gameInfo.multiChoice = multiChoice == "Multiple Choice" ? true : false
+                    gameInfo.multiChoice = multiChoice == Const.modeMultiChoiceText ? true : false
                     gameInfo.difficulty = difficulty
                     gameInfo.regionMode = regionMode
                     

@@ -13,7 +13,7 @@ struct LeaderboardTab: View {
     @State var regionMode: String = Const.modeRegCountryText
     var body: some View {
         VStack{
-            let gameMode = multiChoice == true ? "Multiple Choice" : "Fill the Blank"
+            let gameMode = multiChoice == true ? Const.modeMultiChoiceText : Const.modeFillBlankText
             VStack{
                 Text("Leaderboard").font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg))
                 Text("\(gameMode)").font(.custom(Const.fontTitle, size: Const.fontSizeTitleSm))
@@ -31,7 +31,7 @@ struct LeaderboardTab: View {
                     }
                     
                     VStack{
-                        LeaderboardHeader(headerText: "City")
+                        LeaderboardHeader(headerText: Const.modeRegCityText)
                         LBRegionModeSec(multiChoice: multiChoice, gameMode: Const.modeRegCityText)
                     }
                 

@@ -14,11 +14,11 @@ struct LBRegionModeSec: View {
     
     var body: some View {
         ScrollView{
-            LeaderboardHeader(headerText: "Easy")
+            LeaderboardHeader(headerText: Const.modeDiffEasyText)
             LBGameInfoList(multiChoice: multiChoice, gameMode: gameMode, gameDiff: Const.modeDiffEasyText)
-            LeaderboardHeader(headerText: "Medium")
+            LeaderboardHeader(headerText: Const.modeDiffMedText)
             LBGameInfoList(multiChoice: multiChoice, gameMode: gameMode, gameDiff: Const.modeDiffMedText)
-            LeaderboardHeader(headerText: "Hard")
+            LeaderboardHeader(headerText: Const.modeDiffEasyText)
             LBGameInfoList(multiChoice: multiChoice, gameMode: gameMode, gameDiff: Const.modeDiffHardText)
         }.padding(.trailing)
             .overlay(){

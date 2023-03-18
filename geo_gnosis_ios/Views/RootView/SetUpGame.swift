@@ -10,11 +10,11 @@ import SwiftUI
 struct SetUpGame: View {
     
     @Binding var multiChoice: String
-    var multiChoiceModes = ["Multiple Choice", "Fill the Blank"]
+    var multiChoiceModes = [Const.modeMultiChoiceText, Const.modeFillBlankText]
     @Binding var difficulty: String
-    var difficulties = ["Easy", "Medium", "Hard"]
+    var difficulties = [Const.modeDiffEasyText, Const.modeDiffMedText, Const.modeDiffHardText]
     @Binding var regionMode: String
-    var regionModes = [Const.modeRegCountryText, Const.modeRegRegionText, "City"]
+    var regionModes = [Const.modeRegCountryText, Const.modeRegRegionText, Const.modeRegCityText]
     
     var body: some View {
         VStack(spacing: 0){

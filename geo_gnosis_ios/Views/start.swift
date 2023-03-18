@@ -33,7 +33,7 @@ struct Start: View {
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
                     VStack(alignment: .center){
-                       let gameMode = gameInfo.multiChoice == true ? "Multiple Choice" : "Fill the Blank"
+                        let gameMode = gameInfo.multiChoice == true ? Const.modeMultiChoiceText : Const.modeFillBlankText
                         Text("Game Mode \(Image(systemName: "circle.fill")) \(gameMode)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                         Text("Region Mode \(Image(systemName: "circle.fill")) \(gameInfo.regionMode)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                         if(gameInfo.regionMode != Const.modeRegCountryText){
