@@ -181,8 +181,8 @@ extension GameMap{
         }
         func GiveUp(){
             roundInfo.answers[roundInfo.roundNumber] =  true //so the last round will show on end game, may need to change this later
-            roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber
-            roundInfo.times[roundInfo.roundNumber - 1] = -1 //TODO: Error when quiting on first round 
+            roundInfo.roundNumbers[roundInfo.roundNumber] = (roundInfo.roundNumber + 1)
+            roundInfo.times[roundInfo.roundNumber] = -1 
             coordinator.show(EndGame.self)
         }
         func PlayBackground(){

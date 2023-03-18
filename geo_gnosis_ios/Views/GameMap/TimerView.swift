@@ -23,7 +23,9 @@ struct TimerView: View {
             }
         }.padding(.trailing)
             .onDisappear(){
-                roundInfo.times[roundInfo.roundNumber - 1] = count
+                if(roundInfo.times[roundInfo.roundNumber] != -1){
+                    roundInfo.times[roundInfo.roundNumber - 1] = count
+                }
             }
     }
 }
