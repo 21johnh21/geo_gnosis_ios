@@ -77,10 +77,7 @@ extension GameMap{
                 //sound
                 PlayIncorrect()
                 //haptic
-                if(vibOn){
-                    let generator = UIImpactFeedbackGenerator(style: .light)
-                    generator.impactOccurred()
-                }
+                PlayDefaultFeedback().play()
             }
         }
         func AlternativeName(country: String) -> [String]{
@@ -131,10 +128,7 @@ extension GameMap{
                 //sound
                 PlayIncorrect()
                 //haptic
-                if(vibOn){
-                    let generator = UIImpactFeedbackGenerator(style: .light)
-                    generator.impactOccurred()
-                }
+                PlayDefaultFeedback().play()
             }
         }
         func GetOption() {

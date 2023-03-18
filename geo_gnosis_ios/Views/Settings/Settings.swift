@@ -16,6 +16,7 @@ struct Settings: View {
     @AppStorage("loggedIn") var loggedIn: Bool = false
     @AppStorage("darkMode") var darkMode: Bool = false
     @AppStorage("postScores") var postScores: Bool = true
+    @AppStorage("userName") var userIDSt: String = ""
     
     @State var showPrivacyPolicy: Bool = false
     
@@ -29,20 +30,19 @@ struct Settings: View {
                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                     }
                     HStack{
-                        Text("Log In").padding(.leading)//either say login or thier user name here
+                        Text(userIDSt == "" ? "Log In" : userIDSt).padding(.leading)
                         Spacer()
                         Image(systemName: "person.circle.fill")
                             .frame(width: 20.0, height: 20.0).padding().clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/).font(.system(size: 50, weight: .bold))
                             .shadow(radius: 7).padding()
-                            .onTapGesture {
-                                let generator = UIImpactFeedbackGenerator(style: .light)
-                                generator.impactOccurred()
-                                coordinator.show(LogIn.self)
-                            }
                     }.padding().background(){
                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                     }.overlay(){
                         RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
+                    }
+                    .onTapGesture {
+                        PlayDefaultFeedback().play()
+                        coordinator.show(LogIn.self)
                     }
                     VStack{
                         Toggle("Vibration On", isOn: $vibOn).padding(.leading)
@@ -57,10 +57,7 @@ struct Settings: View {
                                 Text("Play Tutorial").padding(.leading)
                             }.padding(.leading)
                                 .onTapGesture {
-                                    if(vibOn){
-                                        let generator = UIImpactFeedbackGenerator(style: .light)
-                                        generator.impactOccurred()
-                                    }
+                                    PlayDefaultFeedback().play()
                                 }
                             Spacer()
                         }
@@ -73,10 +70,7 @@ struct Settings: View {
                                     Text("Contact Dev").padding(.leading)
                                 }.padding(.leading)
                                     .onTapGesture {
-                                        if(vibOn){
-                                            let generator = UIImpactFeedbackGenerator(style: .light)
-                                            generator.impactOccurred()
-                                        }
+                                        PlayDefaultFeedback().play()
                                         if let url = URL(string: "mailto:\(Const.email)") {
                                             UIApplication.shared.open(url)
                                         }
@@ -90,10 +84,7 @@ struct Settings: View {
                                 Text("Privacy Policy").padding(.leading)
                             }.padding(.leading)
                                 .onTapGesture {
-                                    if(vibOn){
-                                        let generator = UIImpactFeedbackGenerator(style: .light)
-                                        generator.impactOccurred()
-                                    }
+                                    PlayDefaultFeedback().play()
                                     showPrivacyPolicy.toggle()
                                 }
                             Spacer()
@@ -104,11 +95,11 @@ struct Settings: View {
                         RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
                     }
                     Spacer()
-                }//.background(CustomColor.secondary)
+                }
                 .background(alignment: .center){BackgroundView()}
             }.overlay(alignment: .bottom){
                 PrivacyPolicy(showPriacyPolicy: $showPrivacyPolicy).ignoresSafeArea()
-            }//.ignoresSafeArea()
+            }
         }
     }
 }

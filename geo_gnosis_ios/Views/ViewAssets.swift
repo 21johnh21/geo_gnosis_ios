@@ -13,6 +13,17 @@ struct BackgroundView: View {
     }
 }
 
+struct PlayDefaultFeedback {
+    @AppStorage("vibOn") var vibOn: Bool = true
+    
+    let generator = UIImpactFeedbackGenerator(style: .light)
+    func play(){
+        if(vibOn){
+            generator.impactOccurred()
+        }
+    }
+}
+
 struct ViewAssets_Previews: PreviewProvider {
     static var previews: some View {
         BackgroundView()

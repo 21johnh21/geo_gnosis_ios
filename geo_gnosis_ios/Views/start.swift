@@ -10,8 +10,6 @@ import AVFAudio
 
 struct Start: View {
     
-    @AppStorage("vibOn") var vibOn: Bool = true
-    
     @State var round: Int = 0 
     @EnvironmentObject private var coordinator: Coordinator
     @EnvironmentObject var roundInfo: RoundInfo
@@ -51,10 +49,7 @@ struct Start: View {
                 }
                 .padding(.bottom)
                 .onTapGesture {
-                    if(vibOn){
-                        let generator = UIImpactFeedbackGenerator(style: .light)
-                        generator.impactOccurred()
-                    }
+                    PlayDefaultFeedback().play()
                     StartGame()
                 }
             }.frame(maxWidth: .infinity)

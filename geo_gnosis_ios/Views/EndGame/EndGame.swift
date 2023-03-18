@@ -14,8 +14,6 @@ import FirebaseFirestoreSwift
 struct EndGame: View {
     let database = Firestore.firestore()
     
-    @AppStorage("vibOn") var vibOn: Bool = true
-    
     @AppStorage("userName") var userNameSt: String = ""
     @AppStorage("userID") var userIDSt: String = ""
     @AppStorage("postScores") var postScores: Bool = true
@@ -49,10 +47,7 @@ struct EndGame: View {
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
                     Text("Play Again").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                 }.onTapGesture {
-                    if(vibOn){
-                        let generator = UIImpactFeedbackGenerator(style: .light)
-                        generator.impactOccurred()
-                    }
+                    PlayDefaultFeedback().play()
                     coordinator.show(Start.self)
                 }
                 ZStack{
@@ -60,10 +55,7 @@ struct EndGame: View {
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
                     Text("Return to Menu").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                 }.onTapGesture {
-                    if(vibOn){
-                        let generator = UIImpactFeedbackGenerator(style: .light)
-                        generator.impactOccurred()
-                    }
+                    PlayDefaultFeedback().play()
                     coordinator.popToRoot()
                 }
             }

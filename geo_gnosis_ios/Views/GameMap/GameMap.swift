@@ -43,10 +43,7 @@ struct GameMap: View {
                                     }.padding(.bottom)
                                 }
                             }.onTapGesture {
-                                if(vibOn){
-                                    let generator = UIImpactFeedbackGenerator(style: .light)
-                                    generator.impactOccurred()
-                                }
+                                PlayDefaultFeedback().play()
                                 vm.GiveUp()
                             }
                         }
@@ -76,10 +73,7 @@ struct GameMap: View {
                                     .shadow(color: .black, radius: 3, x: 2, y: 2)
                                 Text("Give Up").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                             }.onTapGesture {
-                                if(vibOn){
-                                    let generator = UIImpactFeedbackGenerator(style: .light)
-                                    generator.impactOccurred()
-                                }
+                                PlayDefaultFeedback().play()
                                 vm.GiveUp()
                             }
                         } else{
