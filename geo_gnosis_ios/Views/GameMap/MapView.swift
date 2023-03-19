@@ -8,7 +8,8 @@
 import SwiftUI
 import MapKit
 
-struct MapView: View {
+struct MapView: View, Equatable{
+    
     var coordinate: CLLocationCoordinate2D
     @State private var region = MKCoordinateRegion()
     var pinLocations: [PinLocation]
@@ -35,6 +36,10 @@ struct MapView: View {
             span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
         )
     }
+}
+
+func == (lhs: MapView, rhs: MapView) -> Bool {
+    lhs.coordinate.latitude == rhs.coordinate.latitude
 }
 
 //struct MapView_Previews: PreviewProvider {

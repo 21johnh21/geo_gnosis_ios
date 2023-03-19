@@ -17,8 +17,15 @@ struct UserHistory: View {
                 Text("Game History").font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg)).padding(.top).padding(.top)
             }
             ScrollView{
-                ForEach(viewModel.lbData) { lbData in
-                    UserHistoryCard(lbData: lbData)
+                if(viewModel.lbData.count > 0){
+                    ForEach(viewModel.lbData) { lbData in
+                        UserHistoryCard(lbData: lbData)
+                    }
+                }else{
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 25, style: .continuous).fill(CustomColor.primary)
+                        Text(viewModel.userNameSt == "" ? "Login to get your scores." : "No games retrieved.")
+                    }
                 }
             }
         }

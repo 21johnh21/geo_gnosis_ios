@@ -22,13 +22,14 @@ struct GameMap: View {
     var body: some View {
         ZStack {
             VStack {
-                MapView(coordinate:
+                EquatableView(
+                    content: MapView(coordinate:
                     CLLocationCoordinate2D(
                         latitude: roundInfo.locations[roundInfo.roundNumber].lat,
                         longitude: roundInfo.locations[roundInfo.roundNumber].lng),
                         pinLocations: InitPinLocations()
-                )
-                .ignoresSafeArea(edges: .top)
+                ))
+                //.ignoresSafeArea(edges: .top)
                 .overlay(){
                     VStack {
                         Spacer()
@@ -56,6 +57,7 @@ struct GameMap: View {
                         if(gameInfo.multiChoice == false){ //if mode is typing
                             TextField("Answer...",text: $vm.guessText)
                                 .background(CustomColor.primary)
+                                .border(.black)
                                 .rotationEffect(.degrees(vm.animationAmount[4]))
                                 .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: vm.animationAmount[4])
                                 .onSubmit{
@@ -64,6 +66,9 @@ struct GameMap: View {
                                 .onChange(of: vm.animate[4]){ newValue in
                                     vm.animationAmount[4] -= 1
                                 }
+//                                .onChange(of: guessText){ newValue in
+//                                    vm.guessText = guessText
+//                                }
                             
                             ZStack{
                                 RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)

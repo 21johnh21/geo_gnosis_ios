@@ -4,6 +4,7 @@
 //
 //  Created by John Hawley on 3/5/23.
 //
+// Used for pulling data from Firebase
 
 import Foundation
 

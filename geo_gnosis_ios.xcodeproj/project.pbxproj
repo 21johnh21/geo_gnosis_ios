@@ -328,14 +328,14 @@
 			isa = PBXGroup;
 			children = (
 				F87ABBB52983671C007E2EA3 /* LocationData.swift */,
-				F8996FF129B52D1F0039C685 /* LBData.swift */,
 				F87ABBCF298C783A007E2EA3 /* RoundData.swift */,
 				F87ABBB329836663007E2EA3 /* Location.swift */,
 				F87ABBBD2986050B007E2EA3 /* RoundInfo.swift */,
 				F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */,
 				F87ABBC729870A4A007E2EA3 /* PinLocation.swift */,
-				F82315DF2997E6310026D036 /* CustomColor.swift */,
+				F8996FF129B52D1F0039C685 /* LBData.swift */,
 				F8947BD8299B13A40030BFCA /* LeaderboardInfo.swift */,
+				F82315DF2997E6310026D036 /* CustomColor.swift */,
 				F899700029BAD5CF0039C685 /* Constants.swift */,
 			);
 			path = Model;
@@ -738,7 +738,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "geo-gnosis-ios-Info.plist";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -770,7 +769,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "geo-gnosis-ios-Info.plist";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
