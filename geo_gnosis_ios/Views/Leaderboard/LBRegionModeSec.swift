@@ -21,9 +21,6 @@ struct LBRegionModeSec: View {
             LeaderboardHeader(headerText: Const.modeDiffEasyText)
             LBGameInfoList(multiChoice: multiChoice, gameMode: gameMode, gameDiff: Const.modeDiffHardText)
         }.padding(.trailing)
-            .overlay(){
-                RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
-            }
     }
 }
 

@@ -16,9 +16,9 @@ struct LBGameInfoCard: View {
                 Spacer()
                 Text("Score").padding(.trailing)
             }
-        }.onTapGesture {
-            LBGameDetail() //TODO: 
-        }
+        }//.onTapGesture {
+            //LBGameDetail() //TODO:
+        //}
     }
 }
 

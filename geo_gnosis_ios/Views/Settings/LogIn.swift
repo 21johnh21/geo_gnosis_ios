@@ -25,7 +25,9 @@ struct LogIn: View {
                 //MARK: Login -------------------------------------------------------
                 VStack{
                     Text("Have an account?")
-                    SignInWithApple()
+                    if(false){
+                        SignInWithApple()
+                    }
                     Text("Or sign in with email")
                     VStack{
                         TextField("email", text: $email).textInputAutocapitalization(.never).autocorrectionDisabled(true)
@@ -67,7 +69,6 @@ struct LogIn: View {
             print("user: \(String(describing: user))")
             let uuid = user?.uid
             print("user ID: \(String(describing: uuid))")
-            //authenticationState = .authenticated
             let displayName = user?.displayName
             print("display name: \(String(describing: displayName))")
             userIDSt = user?.uid ?? ""

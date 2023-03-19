@@ -41,10 +41,7 @@ struct DropDown: View {
                         }
                     }
                 }
-            }//.overlay{
-//                RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
-//                    //.frame(width: screenWidth)
-//            }
+            }
         }.frame(maxHeight: 100).padding(.leading)
     }
 }

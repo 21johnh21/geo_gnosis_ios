@@ -1,9 +1,9 @@
-/*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-A view that presents a map of a landmark.
-*/
+//
+//  GameMap.swift
+//  geo_gnosis_ios
+//
+//  Created by John Hawley on 3/12/23.
+//
 
 import SwiftUI
 import MapKit

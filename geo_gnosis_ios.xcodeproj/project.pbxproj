@@ -24,8 +24,6 @@
 		F83C878B297DB970008FA89D /* Start.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C878A297DB970008FA89D /* Start.swift */; };
 		F83C878D297DC10F008FA89D /* GameMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C878C297DC10F008FA89D /* GameMap.swift */; };
 		F83C878F297DCACB008FA89D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C878E297DCACB008FA89D /* MapView.swift */; };
-		F83C879E297DF75B008FA89D /* locationData.json in Resources */ = {isa = PBXBuildFile; fileRef = F83C879D297DF75B008FA89D /* locationData.json */; };
-		F83C87A4297E030F008FA89D /* sampleLocationData.json in Resources */ = {isa = PBXBuildFile; fileRef = F83C87A3297E030F008FA89D /* sampleLocationData.json */; };
 		F83C87AA297F5500008FA89D /* EndGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C87A9297F5500008FA89D /* EndGame.swift */; };
 		F84E7C9C29BD820400F60C34 /* PrivacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E7C9B29BD820400F60C34 /* PrivacyPolicy.swift */; };
 		F84E7C9E29BE81F600F60C34 /* GameMapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E7C9D29BE81F600F60C34 /* GameMapVM.swift */; };
@@ -35,7 +33,6 @@
 		F87ABBB229820E10007E2EA3 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBB129820E10007E2EA3 /* RootView.swift */; };
 		F87ABBB429836663007E2EA3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBB329836663007E2EA3 /* Location.swift */; };
 		F87ABBB62983671C007E2EA3 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBB52983671C007E2EA3 /* LocationData.swift */; };
-		F87ABBBA29837475007E2EA3 /* sampleLocationData2.json in Resources */ = {isa = PBXBuildFile; fileRef = F87ABBB929837475007E2EA3 /* sampleLocationData2.json */; };
 		F87ABBBE2986050B007E2EA3 /* RoundInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBBD2986050B007E2EA3 /* RoundInfo.swift */; };
 		F87ABBC029862FBF007E2EA3 /* EndGameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBBF29862FBF007E2EA3 /* EndGameCard.swift */; };
 		F87ABBC6298702F8007E2EA3 /* MapView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBC5298702F8007E2EA3 /* MapView2.swift */; };
@@ -43,8 +40,6 @@
 		F87ABBCC2989F79B007E2EA3 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */; };
 		F87ABBD0298C783A007E2EA3 /* RoundData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBCF298C783A007E2EA3 /* RoundData.swift */; };
 		F87ABBD2298E9AAE007E2EA3 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBD1298E9AAE007E2EA3 /* DropDown.swift */; };
-		F87ABBD4298F2F7E007E2EA3 /* locationDataUpdated.json in Resources */ = {isa = PBXBuildFile; fileRef = F87ABBD3298F2F7E007E2EA3 /* locationDataUpdated.json */; };
-		F87ABBD6298F6B48007E2EA3 /* locationDataUpdated2.json in Resources */ = {isa = PBXBuildFile; fileRef = F87ABBD5298F6B48007E2EA3 /* locationDataUpdated2.json */; };
 		F87ABBD8298F6E5A007E2EA3 /* locationDataUpdated3.json in Resources */ = {isa = PBXBuildFile; fileRef = F87ABBD7298F6E5A007E2EA3 /* locationDataUpdated3.json */; };
 		F87ABBDA29932449007E2EA3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBD929932449007E2EA3 /* Settings.swift */; };
 		F87ABBDC29932462007E2EA3 /* LeaderBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBDB29932462007E2EA3 /* LeaderBoard.swift */; };
@@ -116,8 +111,6 @@
 		F83C878A297DB970008FA89D /* Start.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Start.swift; sourceTree = "<group>"; };
 		F83C878C297DC10F008FA89D /* GameMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMap.swift; sourceTree = "<group>"; };
 		F83C878E297DCACB008FA89D /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		F83C879D297DF75B008FA89D /* locationData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locationData.json; sourceTree = "<group>"; };
-		F83C87A3297E030F008FA89D /* sampleLocationData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleLocationData.json; sourceTree = "<group>"; };
 		F83C87A9297F5500008FA89D /* EndGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGame.swift; sourceTree = "<group>"; };
 		F84E7C9B29BD820400F60C34 /* PrivacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicy.swift; sourceTree = "<group>"; };
 		F84E7C9D29BE81F600F60C34 /* GameMapVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMapVM.swift; sourceTree = "<group>"; };
@@ -127,7 +120,6 @@
 		F87ABBB129820E10007E2EA3 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		F87ABBB329836663007E2EA3 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		F87ABBB52983671C007E2EA3 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
-		F87ABBB929837475007E2EA3 /* sampleLocationData2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleLocationData2.json; sourceTree = "<group>"; };
 		F87ABBBD2986050B007E2EA3 /* RoundInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundInfo.swift; sourceTree = "<group>"; };
 		F87ABBBF29862FBF007E2EA3 /* EndGameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameCard.swift; sourceTree = "<group>"; };
 		F87ABBC5298702F8007E2EA3 /* MapView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView2.swift; sourceTree = "<group>"; };
@@ -135,8 +127,6 @@
 		F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 		F87ABBCF298C783A007E2EA3 /* RoundData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundData.swift; sourceTree = "<group>"; };
 		F87ABBD1298E9AAE007E2EA3 /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
-		F87ABBD3298F2F7E007E2EA3 /* locationDataUpdated.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locationDataUpdated.json; sourceTree = "<group>"; };
-		F87ABBD5298F6B48007E2EA3 /* locationDataUpdated2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locationDataUpdated2.json; sourceTree = "<group>"; };
 		F87ABBD7298F6E5A007E2EA3 /* locationDataUpdated3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = locationDataUpdated3.json; path = ../../../../../../Downloads/locationDataUpdated3.json; sourceTree = "<group>"; };
 		F87ABBD929932449007E2EA3 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		F87ABBDB29932462007E2EA3 /* LeaderBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoard.swift; sourceTree = "<group>"; };
@@ -361,11 +351,6 @@
 			isa = PBXGroup;
 			children = (
 				F87ABBD7298F6E5A007E2EA3 /* locationDataUpdated3.json */,
-				F87ABBD5298F6B48007E2EA3 /* locationDataUpdated2.json */,
-				F87ABBD3298F2F7E007E2EA3 /* locationDataUpdated.json */,
-				F83C87A3297E030F008FA89D /* sampleLocationData.json */,
-				F87ABBB929837475007E2EA3 /* sampleLocationData2.json */,
-				F83C879D297DF75B008FA89D /* locationData.json */,
 				F8996FD829AA973C0039C685 /* Fonts */,
 				F8996FD529A59BC60039C685 /* Audio */,
 			);
@@ -518,20 +503,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F87ABBD6298F6B48007E2EA3 /* locationDataUpdated2.json in Resources */,
 				F8996FCF29A598170039C685 /* action-sound-effect.mp3 in Resources */,
 				F8996FDC29AA97D50039C685 /* BebasNeue-Regular.ttf in Resources */,
 				F8996FD329A59BA50039C685 /* button-click-sound-effect.mp3 in Resources */,
-				F83C87A4297E030F008FA89D /* sampleLocationData.json in Resources */,
 				F82315E22999CC170026D036 /* GoogleService-Info.plist in Resources */,
 				F87ABBD8298F6E5A007E2EA3 /* locationDataUpdated3.json in Resources */,
 				F8996FDA29AA97C20039C685 /* Changa-Light.ttf in Resources */,
-				F87ABBBA29837475007E2EA3 /* sampleLocationData2.json in Resources */,
 				F827D59929777AF5007DE110 /* Preview Assets.xcassets in Resources */,
 				F8996FD129A59B940039C685 /* Ding-sound-effect.mp3 in Resources */,
 				F827D59629777AF5007DE110 /* Assets.xcassets in Resources */,
-				F87ABBD4298F2F7E007E2EA3 /* locationDataUpdated.json in Resources */,
-				F83C879E297DF75B008FA89D /* locationData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

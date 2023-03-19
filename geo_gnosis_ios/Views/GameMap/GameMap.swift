@@ -54,7 +54,6 @@ struct GameMap: View {
                     HStack{
                         //MARK: Fill The Blank --------------------------------------------------
                         if(gameInfo.multiChoice == false){ //if mode is typing
-                            //TODO: fix this set Field
                             TextField("Answer...",text: $vm.guessText)
                                 .background(CustomColor.primary)
                                 .rotationEffect(.degrees(vm.animationAmount[4]))

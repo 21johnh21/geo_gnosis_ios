@@ -33,7 +33,6 @@ struct LoggedIn: View {
                 Text("Are you sure?")
                 Button("Yes"){
                     DeleteAccount()
-                    //when that returns true send confirmation
                 }
             } message: {
                 Text("Are you sure?")

@@ -13,13 +13,6 @@ import Foundation
  */
 
 struct Const{
-    static let modeDiffEasy = 1
-    static let modeDiffMed = 2
-    static let modeDiffHard = 3
-    
-    static let modeRegCountry = 1
-    static let modeRegRegion = 2
-    static let modeRegCity = 3
     
     static let modeDiffEasyText = "Easy"
     static let modeDiffMedText = "Medium"
@@ -44,8 +37,6 @@ struct Const{
     static let audioActionBackground = "action-sound-effect"
     static let audioCorrectEffect = "Ding-sound-effect"
     static let audioIncorrectEffect = "button-click-sound-effect"
-    
-    //Image values
     
     static let maxFinalScoreValue = 500
     static let maxRoundScoreValue = 100

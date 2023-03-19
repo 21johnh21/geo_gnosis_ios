@@ -45,22 +45,25 @@ struct Settings: View {
                         coordinator.show(LogIn.self)
                     }
                     VStack{
-                        Toggle("Vibration On", isOn: $vibOn).padding(.leading)
                         Slider(value: $volume, in: 0...100).tint(Color.green).padding()
                         Text("Volume \(String(format: "%.0f", volume))")
-                        Toggle("Satelite Map Mode", isOn: $sateliteMapOn).padding(.leading)
+                        Divider()
+                        Toggle("Vibration On", isOn: $vibOn).padding(.leading)
+                        //Toggle("Satelite Map Mode", isOn: $sateliteMapOn).padding(.leading) //TODO:
                         Toggle("Post Scores on leaderboard", isOn: $postScores).padding(.leading)
-                        Toggle("Dark Mode", isOn: $darkMode).padding(.leading)
-                        HStack {
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: 150, height: 30)
-                                Text("Play Tutorial").padding(.leading)
-                            }.padding(.leading)
-                                .onTapGesture {
-                                    PlayDefaultFeedback().play()
-                                }
-                            Spacer()
-                        }
+                        //Toggle("Dark Mode", isOn: $darkMode).padding(.leading) //TODO:
+                        //TODO: tutorial
+//                        HStack {
+//                            ZStack{
+//                                RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: 150, height: 30)
+//                                Text("Play Tutorial").padding(.leading)
+//                            }.padding(.leading)
+//                                .onTapGesture {
+//                                    PlayDefaultFeedback().play()
+//                                }
+//                            Spacer()
+//                        }
+                        Divider()
                         VStack{
                             Text("Questions, Comments, Concerns?")
                             Text("Please reaach out to me with any issues you have with the app. I'd also love to hear about any ways the app could be improved. Thanks for playing!")

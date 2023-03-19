@@ -19,8 +19,7 @@ struct SetUpGame: View {
     var body: some View {
         VStack(spacing: 0){
             //TODO: Improve this UI
-            //Text("Set Up Game").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-            Text("Game Mode").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+            Text("Game Mode:").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
             Picker("Choose a Mode:", selection: $multiChoice){
                 ForEach(multiChoiceModes, id: \.self){
                     Text($0).font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
@@ -43,7 +42,6 @@ struct SetUpGame: View {
             }
         }.padding()
         .background(){
-            //RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
             RoundedRectangle(cornerRadius: 5) .fill(CustomColor.primary)
         }
     }

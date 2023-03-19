@@ -160,14 +160,12 @@ struct CreateAccount: View {
             print("user: \(String(describing: user))")
             let uuid = user?.uid
             print("user ID: \(String(describing: uuid))")
-            //authenticationState = .authenticated
             let displayName = user?.displayName
             print("display name: \(String(describing: displayName))")
             userIDSt = user?.uid ?? ""
             userNameSt = user?.displayName ?? ""
         }
         catch{
-            //hadErrorLoggingIn = true
             print("Error: \(error.localizedDescription)")
         }
     }

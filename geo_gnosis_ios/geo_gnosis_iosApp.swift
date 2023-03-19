@@ -10,7 +10,6 @@ import Firebase
 import FirebaseAuth
 
 //TODO: Clean the datafile again, try to be able to manipulate with SQL remove special chars fix country names
-//TODO: Remove Old Data Files
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
