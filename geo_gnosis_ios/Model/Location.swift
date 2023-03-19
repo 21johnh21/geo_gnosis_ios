@@ -16,10 +16,8 @@ struct Location: Identifiable, Decodable{
     var lng : Double
     var country: String
     var admin_name : String
-    var capital : String// change to bool somehow
+    var capital : String
     var population : Int
-    //let multiChoiceOptions: [[String]]? = [[String]]()
-    
     
     
     init(id: ObjectIdentifier, city_ascii: String, lat: Double, lng: Double, country: String, admin_name: String, capital: String, population: Int) {

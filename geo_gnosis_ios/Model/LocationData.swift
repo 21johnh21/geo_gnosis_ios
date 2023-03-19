@@ -44,7 +44,7 @@ public class LocationData{
                 let jsonData = try jsonDecoder.decode([Location].self, from: data) //create array of objects from daata
                 locationsRaw = jsonData
                 
-                //parse location based on difficulty
+                //filter locations based on difficulty
                 switch(difficulty){
                 case(Const.modeDiffEasyText):
                     for i in 0...locationsRaw.count-1{

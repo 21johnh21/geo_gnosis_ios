@@ -52,9 +52,9 @@ extension GameMap{
             var answer: String
             answer = GetCorrectAnswer()
             
-            if(guessIn.trimmingCharacters(in: .whitespaces).lowercased()
-               == answer.lowercased()
-               || AlternativeName(country: answer).contains(guessIn)){
+            if((guessIn.trimmingCharacters(in: .whitespaces).lowercased()
+               == answer.lowercased())
+               || (AlternativeName(country: answer).contains(guessIn))){
                 //TODO: somehow allow like 2 - 3 charachters mispelling
                 
                 if(roundInfo.roundNumber == 4){

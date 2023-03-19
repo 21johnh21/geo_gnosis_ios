@@ -10,8 +10,6 @@
 		F82315CE299708190026D036 /* LeaderboardHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315CD299708190026D036 /* LeaderboardHeader.swift */; };
 		F82315D029971AD90026D036 /* LBRegionModeSec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315CF29971AD90026D036 /* LBRegionModeSec.swift */; };
 		F82315D229971CDD0026D036 /* LBGameInfoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315D129971CDD0026D036 /* LBGameInfoList.swift */; };
-		F82315D62997214A0026D036 /* LBGameInfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315D52997214A0026D036 /* LBGameInfoCard.swift */; };
-		F82315D8299721690026D036 /* LBGameDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315D7299721690026D036 /* LBGameDetail.swift */; };
 		F82315E02997E6310026D036 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315DF2997E6310026D036 /* CustomColor.swift */; };
 		F82315E22999CC170026D036 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F82315E12999CC170026D036 /* GoogleService-Info.plist */; };
 		F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F827D59129777AF4007DE110 /* geo_gnosis_iosApp.swift */; };
@@ -94,8 +92,6 @@
 		F82315CD299708190026D036 /* LeaderboardHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardHeader.swift; sourceTree = "<group>"; };
 		F82315CF29971AD90026D036 /* LBRegionModeSec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBRegionModeSec.swift; sourceTree = "<group>"; };
 		F82315D129971CDD0026D036 /* LBGameInfoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBGameInfoList.swift; sourceTree = "<group>"; };
-		F82315D52997214A0026D036 /* LBGameInfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBGameInfoCard.swift; sourceTree = "<group>"; };
-		F82315D7299721690026D036 /* LBGameDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBGameDetail.swift; sourceTree = "<group>"; };
 		F82315DF2997E6310026D036 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		F82315E12999CC170026D036 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F827D58E29777AF4007DE110 /* geo_gnosis_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = geo_gnosis_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,9 +191,7 @@
 				F82315CF29971AD90026D036 /* LBRegionModeSec.swift */,
 				F82315D129971CDD0026D036 /* LBGameInfoList.swift */,
 				F8996FFD29B821710039C685 /* LBGameInfoListVM.swift */,
-				F82315D52997214A0026D036 /* LBGameInfoCard.swift */,
 				F82315CD299708190026D036 /* LeaderboardHeader.swift */,
-				F82315D7299721690026D036 /* LBGameDetail.swift */,
 				F8996FF329B6C9100039C685 /* UserHistoryVM.swift */,
 				F8996FF729B6CEFC0039C685 /* UserHistory.swift */,
 				F8996FF929B6D0660039C685 /* UserHistoryCard.swift */,
@@ -285,7 +279,6 @@
 				F827D59529777AF5007DE110 /* Assets.xcassets */,
 				F82315E12999CC170026D036 /* GoogleService-Info.plist */,
 				F827D59729777AF5007DE110 /* Preview Content */,
-				F87ABBAF29820DD6007E2EA3 /* Coordinator.swift */,
 			);
 			path = geo_gnosis_ios;
 			sourceTree = "<group>";
@@ -326,6 +319,7 @@
 				F82315D9299723D50026D036 /* Leaderboard */,
 				F8996FCA29A46C5E0039C685 /* DevTestHapticFeedback.swift */,
 				F84E7CA529C5FA7B00F60C34 /* ViewAssets.swift */,
+				F87ABBAF29820DD6007E2EA3 /* Coordinator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -545,7 +539,6 @@
 				F87ABBC6298702F8007E2EA3 /* MapView2.swift in Sources */,
 				F87ABBCC2989F79B007E2EA3 /* GameInfo.swift in Sources */,
 				F87ABBDC29932462007E2EA3 /* LeaderBoard.swift in Sources */,
-				F82315D8299721690026D036 /* LBGameDetail.swift in Sources */,
 				F899700329BBF2DE0039C685 /* SignInWithApple.swift in Sources */,
 				F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */,
 				F87ABBB62983671C007E2EA3 /* LocationData.swift in Sources */,
@@ -561,7 +554,6 @@
 				F87ABBD2298E9AAE007E2EA3 /* DropDown.swift in Sources */,
 				F87ABBDE29932D3F007E2EA3 /* LogIn.swift in Sources */,
 				F84E7C9E29BE81F600F60C34 /* GameMapVM.swift in Sources */,
-				F82315D62997214A0026D036 /* LBGameInfoCard.swift in Sources */,
 				F87ABBB029820DD6007E2EA3 /* Coordinator.swift in Sources */,
 				F8996FFA29B6D0660039C685 /* UserHistoryCard.swift in Sources */,
 				F899700F29BBFC390039C685 /* CreateAccount.swift in Sources */,
@@ -751,6 +743,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -782,6 +775,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

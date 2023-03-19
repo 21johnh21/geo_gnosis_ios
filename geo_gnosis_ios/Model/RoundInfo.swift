@@ -12,7 +12,7 @@ class RoundInfo: ObservableObject, Identifiable{
     //This will be for arrays with data associated with each round
     
     @Published var locations = [Location]()
-    @Published var roundNumber = 0 //move this over to GameInfo
+    @Published var roundNumber = 0
     @Published var times = [Int]()
     @Published var roundNumbers = [Int]()
     @Published var answers = [Bool]()
