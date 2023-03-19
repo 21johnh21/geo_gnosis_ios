@@ -54,6 +54,7 @@ struct GameMap: View {
                     HStack{
                         //MARK: Fill The Blank --------------------------------------------------
                         if(gameInfo.multiChoice == false){ //if mode is typing
+                            //TODO: fix this set Field
                             TextField("Answer...",text: $vm.guessText)
                                 .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                                 .lineLimit(1)
@@ -149,7 +150,7 @@ struct GameMap: View {
             }.safeAreaInset(edge: .bottom){
                 
             }
-        }//.background(CustomColor.secondary)
+        }
         .background(alignment: .center){BackgroundView()}
         .navigationBarBackButtonHidden(true)
         .onAppear{

@@ -55,12 +55,11 @@ extension GameMap{
             if(guessIn.trimmingCharacters(in: .whitespaces).lowercased()
                == answer.lowercased()
                || AlternativeName(country: answer).contains(guessIn)){
-                //somehow allow like 2 - 3 charachters mispelling
+                //TODO: somehow allow like 2 - 3 charachters mispelling
                 
                 if(roundInfo.roundNumber == 4){
                     CorrectGuess()
                     coordinator.show(EndGame.self)
-                    print("Correct!")
                 }else{
                     CorrectGuess()
                     roundInfo.roundNumber += 1
@@ -154,7 +153,7 @@ extension GameMap{
             if(roundInfo.roundNumber == 4){
                 audioPlayer1?.pause()
             }
-            roundInfo.roundNumbers[roundInfo.roundNumber] = roundInfo.roundNumber + 1
+            roundInfo.roundNumbers[roundInfo.roundNumber] = (roundInfo.roundNumber + 1)
             roundInfo.answers[roundInfo.roundNumber] = true
         }
         func GetCorrectAnswer()-> String{

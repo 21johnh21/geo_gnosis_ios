@@ -18,14 +18,15 @@ struct SetUpGame: View {
     
     var body: some View {
         VStack(spacing: 0){
-            Text("Set Up Game").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+            //TODO: Improve this UI
+            //Text("Set Up Game").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
             Text("Game Mode").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-            Picker("Choose a Mode", selection: $multiChoice){
+            Picker("Choose a Mode:", selection: $multiChoice){
                 ForEach(multiChoiceModes, id: \.self){
                     Text($0).font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                 }
             }.pickerStyle(.segmented).colorMultiply(CustomColor.primary).background(CustomColor.trim).cornerRadius(5)
-            Text("Difficulty").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+            Text("Difficulty:").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
             Picker("Choose a difficulty", selection: $difficulty){
                 ForEach(difficulties, id: \.self){
                     Text($0).font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
@@ -38,10 +39,12 @@ struct SetUpGame: View {
                 }
             }.pickerStyle(.segmented).colorMultiply(CustomColor.primary).background(CustomColor.trim).cornerRadius(5)
             if(regionMode != Const.modeRegCountryText){
-                DropDown()
+                DropDown().padding(.top)
             }
-        }.padding().overlay(){
-            RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
+        }.padding()
+        .background(){
+            //RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
+            RoundedRectangle(cornerRadius: 5) .fill(CustomColor.primary)
         }
     }
 }
