@@ -23,8 +23,6 @@ struct EndGame: View {
     @EnvironmentObject var gameInfo: GameInfo
     
     @State var finalScore: Int = 0
-    
-    //var roundNumber: Int = 0
 
     var body: some View {
         VStack {
@@ -43,7 +41,7 @@ struct EndGame: View {
             MapView2(pinLocations: InitPinLocations())
             HStack{
                 ZStack{
-                    RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
+                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
                     Text("Play Again").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                 }.onTapGesture {
@@ -51,7 +49,7 @@ struct EndGame: View {
                     coordinator.show(Start.self)
                 }
                 ZStack{
-                    RoundedRectangle(cornerRadius: 5).fill(.green).frame(height: 30)
+                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
                     Text("Return to Menu").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                 }.onTapGesture {
@@ -59,16 +57,12 @@ struct EndGame: View {
                     coordinator.popToRoot()
                 }
             }
-            
-           
             ScrollView{
-                
                 ForEach(roundInfo.roundNumbers.indices) { index in
                     EndGameCard(location: roundInfo.locations[index], roundNumber: roundInfo.roundNumbers[index], time: roundInfo.times[index], answer: roundInfo.answers[index])
                 }
             }
         }.navigationBarBackButtonHidden(true)
-        //.background(CustomColor.secondary)
         .background(alignment: .center){BackgroundView()}
         .onAppear(){
             finalScore = CalcFinalScore()
@@ -82,7 +76,6 @@ struct EndGame: View {
             latitude: 0.0, longitude: 0.0))
         
         for i in 0...roundInfo.roundNumber{
-            //var pinLocation: PinLocation
             pinLocation.coordinate = CLLocationCoordinate2D(
                 latitude: roundInfo.locations[i].lat, longitude: roundInfo.locations[i].lng)
             pinLocation.name=""
@@ -104,7 +97,7 @@ struct EndGame: View {
     }
     func SendResultsToDB(){
         let userName = userNameSt
-        //If the user is logged in, allows posting scores
+        //If the user is logged in and allows posting scores
         if(userName != "" && postScores){
             var city_asciis: [String] = [String]()
             var lats: [Double] = [Double]()

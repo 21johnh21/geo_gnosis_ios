@@ -32,8 +32,6 @@ struct TimerView: View {
                         roundInfo.times[roundInfo.roundNumber - 1] = count
                     }
                 }
-                print(roundInfo.roundNumber)
-                print(roundInfo.times[roundInfo.roundNumber - 1])
             }
     }
 }
