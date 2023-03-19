@@ -14,7 +14,7 @@ struct DropDown: View {
     let countries = ["United States", "United Kingdom", "Mexico", "Canada"]
     
     var body: some View {
-        //TODO: Make a Countries Data File to fille the Drop Down
+        //TODO: Make a Countries Data File to fill the Drop Down
         VStack(alignment: .leading){
             TextField("Choose a Region", text: $countrySelection).font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).background(CustomColor.trim)
             

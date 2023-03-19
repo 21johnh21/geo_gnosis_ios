@@ -56,10 +56,7 @@ struct GameMap: View {
                         if(gameInfo.multiChoice == false){ //if mode is typing
                             //TODO: fix this set Field
                             TextField("Answer...",text: $vm.guessText)
-                                .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                                .lineLimit(1)
-                                .frame(height: 30)
-                                .background(CustomColor.trim)
+                                .background(CustomColor.primary)
                                 .rotationEffect(.degrees(vm.animationAmount[4]))
                                 .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: vm.animationAmount[4])
                                 .onSubmit{

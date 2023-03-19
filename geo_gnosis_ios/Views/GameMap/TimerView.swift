@@ -23,10 +23,9 @@ struct TimerView: View {
             }
         }.padding(.trailing)
             .onDisappear(){
-                //TODO: This isn't setting the timer value on the last round
                 if(roundInfo.times[roundInfo.roundNumber] != -1){
                     if(roundInfo.roundNumber == 4 && roundInfo.roundNumbers[4] != 0){
-                        //this is super hackey but it allows me to set the time on the last round
+                        //this is super hacky but it allows me to set the time on the last round
                         //If I increment the roundnumer on the last round it tries to update the map and causes an index out of bounds error.
                         roundInfo.times[roundInfo.roundNumber] = count
                     }else{
