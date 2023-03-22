@@ -29,7 +29,6 @@ struct GameMap: View {
                         longitude: roundInfo.locations[roundInfo.roundNumber].lng),
                         pinLocations: InitPinLocations()
                 ))
-                //.ignoresSafeArea(edges: .top)
                 .overlay(){
                     VStack {
                         Spacer()
@@ -55,9 +54,13 @@ struct GameMap: View {
                     HStack{
                         //MARK: Fill The Blank --------------------------------------------------
                         if(gameInfo.multiChoice == false){ //if mode is typing
+                            ZStack{
+                            RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
+                                    .frame(height: 30)
+                                    .padding(.leading)
                             TextField("Answer...",text: $vm.guessText)
                                 .background(CustomColor.primary)
-                                .border(.black)
+                            //.border(.black)
                                 .rotationEffect(.degrees(vm.animationAmount[4]))
                                 .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: vm.animationAmount[4])
                                 .onSubmit{
@@ -66,14 +69,12 @@ struct GameMap: View {
                                 .onChange(of: vm.animate[4]){ newValue in
                                     vm.animationAmount[4] -= 1
                                 }
-//                                .onChange(of: guessText){ newValue in
-//                                    vm.guessText = guessText
-//                                }
+                            }
                             
                             ZStack{
                                 RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
                                     .shadow(color: .black, radius: 3, x: 2, y: 2)
-                                Text("Give Up").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                Text("Give Up").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding(.trailing)
                             }.onTapGesture {
                                 PlayDefaultFeedback().play()
                                 vm.GiveUp()
