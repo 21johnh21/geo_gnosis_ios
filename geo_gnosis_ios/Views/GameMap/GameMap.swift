@@ -146,9 +146,15 @@ struct GameMap: View {
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                         .frame(width: 80, height: 30)
                     Text("Round: \(roundInfo.roundNumber + 1)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)) //Round number
-                }.padding(.leading)
+                }.padding(.leading).padding(.top)
                 Spacer()
-                TimerView()
+                ZStack{
+                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
+                        .frame(width: 160, height: 30)
+                    Text("Guess the \(gameInfo.regionMode)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)) //Round number
+                }.padding(.top)
+                Spacer()
+                TimerView().padding(.top)
             }.safeAreaInset(edge: .bottom){
                 
             }
