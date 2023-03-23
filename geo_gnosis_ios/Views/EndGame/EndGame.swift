@@ -23,6 +23,9 @@ struct EndGame: View {
     @EnvironmentObject var gameInfo: GameInfo
     
     @State var finalScore: Int = 0
+    
+    @State var centerLat: Double = 0
+    @State var centerLng: Double = 0
 
     var body: some View {
         VStack {
@@ -38,7 +41,7 @@ struct EndGame: View {
                 RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
             }
             
-            MapView2(pinLocations: InitPinLocations())
+            MapView2(pinLocations: InitPinLocations(), centerLat: $centerLat, centerLng: $centerLng)
             HStack{
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
@@ -138,8 +141,8 @@ struct EndGame: View {
     }
 }
 
-struct EndGame_Previews: PreviewProvider {
-    static var previews: some View {
-        EndGame()
-    }
-}
+//struct EndGame_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EndGame()
+//    }
+//}

@@ -10,9 +10,14 @@ import MapKit
 
 struct MapView2: View {
     
-    var pinLocations: [PinLocation]
+    @EnvironmentObject var roundInfo : RoundInfo
+    @EnvironmentObject var gameInfo: GameInfo
     
-    @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12), span: MKCoordinateSpan(latitudeDelta: 15, longitudeDelta: 15))
+    var pinLocations: [PinLocation]
+    @Binding var centerLat: Double
+    @Binding var centerLng: Double
+    
+    @State private var mapRegion = MKCoordinateRegion()
     
     var body: some View{
         Map(coordinateRegion: $mapRegion, annotationItems: pinLocations) { pinLocation in
@@ -29,7 +34,67 @@ struct MapView2: View {
                             }
                         }
                 }
+        }.onAppear(){
+            if(gameInfo.regionMode == Const.modeRegCountryText){
+            centerLat = 51.5072
+            centerLng = 0.1276
+            }else{
+                findCenterCoordinate()
             }
+            mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: centerLat, longitude: centerLng), span: MKCoordinateSpan(latitudeDelta: 15, longitudeDelta: 15))
+            print("End Game \(centerLat), \(centerLng)")
+        }
+    }
+    func findCenterCoordinate(){
+        var i: Int = 0
+        
+        var radianLat: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
+        var radianLng: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
+        
+        var cartesianX: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
+        var cartesianY: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
+        var cartesianZ: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
+        //var CoordinateWeight: [Double] = [Double]()
+        var totalWeight: Int = 5 //one for each coord
+        var weightedX: Double = 0
+        var weightedY: Double = 0
+        var weightedZ: Double = 0
+        
+        var centerRadianLat: Double = 0
+        var centerRadianLng: Double = 0
+        var centerHyp: Double = 0
+        
+        //var centerLat: Double = 0
+        //var centerLng: Double = 0
+        
+        for coordinate in roundInfo.locations{
+            radianLat[i] = coordinate.lat * Double.pi / 180
+            radianLng[i] = coordinate.lng * Double.pi / 180
+            cartesianX[i] = cos(radianLat[i]) * cos(radianLng[i])
+            cartesianY[i] = cos(radianLat[i]) * sin(radianLng[i])
+            cartesianZ[i] = sin(radianLat[i])
+            //CoordinateWeight[i] = 1 //??
+            
+            i += 1
+        }
+        
+        for j in 0 ... 4 {
+            weightedX += weightedX + cartesianX[j]
+            weightedY += weightedY + cartesianY[j]
+            weightedZ += weightedZ + cartesianZ[j]
+        }
+        weightedX = weightedX / Double(totalWeight)
+        weightedY = weightedY / Double(totalWeight)
+        weightedZ = weightedZ / Double(totalWeight)
+        
+        centerRadianLng = atan2(weightedY, weightedX)
+        centerHyp = sqrt(weightedX * weightedX + weightedY * weightedY)
+        centerRadianLat = atan2(weightedZ, centerHyp)
+        
+        centerLat = centerRadianLat * 180 / Double.pi
+        centerLng = centerRadianLng * 180 / Double.pi
+        print("Center Coordinates \(centerLat), \(centerLng)")
+        
     }
     
 }
