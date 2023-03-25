@@ -20,58 +20,44 @@ struct CreateAccount: View {
     @State var hadErrorCreatingAccount: Bool = false
     @State var createAccountErrorCode: Int = 0 //no error = 0
     @State var user: User?
+    @State var showProgress = false
     
     var body: some View {
-        VStack{
-            Text("Create and Account")
-            HStack{
-                Text("User Name: ")
-                TextField("User Name", text: $userName).textInputAutocapitalization(.never).autocorrectionDisabled(true)
+        ZStack {
+            VStack{
+                Text("Create and Account")
+                HStack{
+                    Text("User Name: ")
+                    TextField("User Name", text: $userName).textInputAutocapitalization(.never).autocorrectionDisabled(true)
+                }
+                HStack{
+                    Text("Email: ")
+                    TextField("user@sample.com", text: $email).textInputAutocapitalization(.never).autocorrectionDisabled(true)
+                }
+                SecureInputView("Password", text: $password)
+                ErrorMessage(createAccountErrorCode: $createAccountErrorCode)
+                SecureInputView("Password", text: $passwordCon)
+                ZStack{
+                    RoundedRectangle(cornerRadius: 5).fill(.green).frame(width: 150, height: 30)
+                    Text("Create Account")
+                }.onTapGesture {
+                    CreateAccWithEmailAndPass()
+                }
+            }.padding().background(){
+                RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
             }
-            HStack{
-                Text("Email: ")
-                TextField("user@sample.com", text: $email).textInputAutocapitalization(.never).autocorrectionDisabled(true)
+            .overlay(){
+                RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
             }
-            SecureInputView("Password", text: $password)
-            Group{
-                Text("At least 8 charachters").foregroundColor(createAccountErrorCode == 1 ? .red : .black)
-                Text("One Upper and one lower case").foregroundColor(createAccountErrorCode == 2 ? .red : .black)
-                Text("One number").foregroundColor(createAccountErrorCode == 3 ? .red : .black)
-                Text("One Special Charachter").foregroundColor(createAccountErrorCode == 4 ? .red : .black)
-                if(createAccountErrorCode == 5){
-                    Text("Passwords don't match").foregroundColor(.red)
-                }
-                if(createAccountErrorCode == 6){
-                    Text("Must provide and email").foregroundColor(.red)
-                }
-                if(createAccountErrorCode == 7){
-                    Text("Must provide a valid email").foregroundColor(.red)
-                }
-                if(createAccountErrorCode == 8){
-                    Text("This email is already in use").foregroundColor(.red)
-                }
-                if(createAccountErrorCode == 9){
-                    Text("Error creating an account").foregroundColor(.red)
-                }
+            if(showProgress){
+                Progress()
             }
-            SecureInputView("Password", text: $passwordCon)
-            ZStack{
-                RoundedRectangle(cornerRadius: 5).fill(.green).frame(width: 150, height: 30)
-                Text("Create Account")
-            }.onTapGesture {
-                CreateAccWithEmailAndPass()
-            }
-        }.padding().background(){
-            RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
-        }
-        .overlay(){
-            RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
         }
     }
     func CreateAccWithEmailAndPass(){
         
         if(PassIsValid()){
-            
+            showProgress = true
             Auth.auth().createUser(withEmail: email, password: password) { user, error in
                 if error == nil && user != nil {
                     print("User created!")
@@ -83,7 +69,6 @@ struct CreateAccount: View {
                         if error == nil {
                             print("User display name changed!")
                             callSignIn()
-                            //self.dismiss(animated: false, completion: nil)
                         } else {
                             print("Error: \(error!.localizedDescription)")
                         }
