@@ -24,7 +24,7 @@ struct Start: View {
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
                     Text("Geo Gnosis").font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg)).padding(.top).padding(.top)
                 }
-                Image("logo").resizable().frame(width: 255, height: 255).clipShape(Circle()).padding()
+                Image(Const.picLogo).resizable().frame(width: 255, height: 255).clipShape(Circle()).padding()
                 
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
