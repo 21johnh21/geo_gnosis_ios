@@ -46,4 +46,6 @@ struct Const{
     static let email = "geo.gnosis.dev@gmail.com"
     
     static let locationDataFile = "locationDataUpdated3"
+    
+    static let picLogo = "logoNoBack"
 }
