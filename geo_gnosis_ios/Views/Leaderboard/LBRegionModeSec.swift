@@ -18,7 +18,7 @@ struct LBRegionModeSec: View {
             LBGameInfoList(multiChoice: multiChoice, gameMode: gameMode, gameDiff: Const.modeDiffEasyText)
             LeaderboardHeader(headerText: Const.modeDiffMedText)
             LBGameInfoList(multiChoice: multiChoice, gameMode: gameMode, gameDiff: Const.modeDiffMedText)
-            LeaderboardHeader(headerText: Const.modeDiffEasyText)
+            LeaderboardHeader(headerText: Const.modeDiffHardText)
             LBGameInfoList(multiChoice: multiChoice, gameMode: gameMode, gameDiff: Const.modeDiffHardText)
         }.padding(.trailing)
     }
