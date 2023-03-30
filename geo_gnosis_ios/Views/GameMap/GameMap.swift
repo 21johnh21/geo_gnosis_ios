@@ -158,6 +158,9 @@ struct GameMap: View {
             }.safeAreaInset(edge: .bottom){
                 
             }
+            if(vm.showPenalty){
+                Penalty().id(vm.viewID) 
+            }
         }
         .background(alignment: .center){BackgroundView()}
         .navigationBarBackButtonHidden(true)

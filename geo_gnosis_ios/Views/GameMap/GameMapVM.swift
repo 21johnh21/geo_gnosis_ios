@@ -27,6 +27,9 @@ extension GameMap{
         @Published var audioPlayer2:AVAudioPlayer?
         @Published var audioPlayer3:AVAudioPlayer?
         
+        @Published var showPenalty: Bool = false
+        @Published var viewID: Int = 0
+        
         var gameInfo: GameInfo = GameInfo()
         var roundInfo: RoundInfo = RoundInfo()
         var coordinator: Coordinator = Coordinator()
@@ -51,6 +54,7 @@ extension GameMap{
             }
         }
         func ValidateAnswer (guessIn: String) {
+            showPenalty = false
             var answer: String
             answer = GetCorrectAnswer()
             
@@ -72,6 +76,9 @@ extension GameMap{
             }
             else{
                 timerGlobal.timerGlobal += 5
+                //showPenalty.toggle()
+                viewID += 1
+                showPenalty.toggle()
                 guessText = "" //clear text
                 //send give user feed back
                 //animation
@@ -107,6 +114,7 @@ extension GameMap{
             return countryNames
         }
         func ValidateAnswerMultiChoice(guessIn: String, optionClicked: Int){
+            showPenalty = false
             var answer: String
             answer = GetCorrectAnswer()
             
@@ -127,6 +135,8 @@ extension GameMap{
                 
                 guessText = "" //clear text
                 timerGlobal.timerGlobal += 20
+                showPenalty = true
+                //showPenalty?.toggle()
                 //send give user feed back
                 //animation
                 animationAmount[optionClicked] += 1
@@ -135,6 +145,7 @@ extension GameMap{
                 PlayIncorrect()
                 //haptic
                 PlayDefaultFeedback().play()
+                viewID += 1
             }
         }
         func GetOption() {
