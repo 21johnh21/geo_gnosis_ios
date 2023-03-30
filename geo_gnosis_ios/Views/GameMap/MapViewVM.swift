@@ -14,9 +14,7 @@ extension MapView{
         
         var roundInfo: RoundInfo = RoundInfo()
         
-//        var coordinate: CLLocationCoordinate2D
         @Published private var region = MKCoordinateRegion()
-//        var pinLocations: [PinLocation]
         
         private func setRegion(_ coordinate: CLLocationCoordinate2D) {
             region = MKCoordinateRegion(

@@ -32,13 +32,15 @@ extension GameMap{
         var coordinator: Coordinator = Coordinator()
         var vibOn: Bool = true
         var volume: Double = 100.0
+        var timerGlobal: TimerGlobal = TimerGlobal()
         
-        func GetInfo(gameInfo: GameInfo, roundInfo: RoundInfo, coordinator: Coordinator, vibOn: Bool, volume: Double){
+        func GetInfo(gameInfo: GameInfo, roundInfo: RoundInfo, coordinator: Coordinator, vibOn: Bool, volume: Double, timerGlobal: TimerGlobal){
             self.gameInfo = gameInfo
             self.roundInfo = roundInfo
             self.coordinator = coordinator
             self.vibOn = vibOn
             self.volume = volume
+            self.timerGlobal = timerGlobal
         }
         func SetUpView(){
             if(gameInfo.multiChoice == true){
@@ -58,16 +60,18 @@ extension GameMap{
                 //TODO: somehow allow like 2 - 3 charachters mispelling
                 
                 if(roundInfo.roundNumber == 4){
+                    timerGlobal.timerGlobal = 0
                     CorrectGuess()
                     coordinator.show(EndGame.self)
                 }else{
+                    timerGlobal.timerGlobal = 0 
                     CorrectGuess()
                     roundInfo.roundNumber += 1
                     coordinator.show(GameMap.self)
                 }
             }
             else{
-                
+                timerGlobal.timerGlobal += 5
                 guessText = "" //clear text
                 //send give user feed back
                 //animation
@@ -109,9 +113,11 @@ extension GameMap{
             if(guessIn == answer){
 
                 if(roundInfo.roundNumber == 4){
+                    timerGlobal.timerGlobal = 0
                     CorrectGuess()
                     coordinator.show(EndGame.self)
                 }else{
+                    timerGlobal.timerGlobal = 0
                     CorrectGuess()
                     roundInfo.roundNumber += 1
                     coordinator.show(GameMap.self)
@@ -120,6 +126,7 @@ extension GameMap{
             else{
                 
                 guessText = "" //clear text
+                timerGlobal.timerGlobal += 20
                 //send give user feed back
                 //animation
                 animationAmount[optionClicked] += 1

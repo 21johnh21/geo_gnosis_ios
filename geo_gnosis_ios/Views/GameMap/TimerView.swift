@@ -10,6 +10,7 @@ import SwiftUI
 struct TimerView: View {
     
     @EnvironmentObject var roundInfo : RoundInfo
+    @EnvironmentObject var timerGlobal : TimerGlobal
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var count: Int = 0
@@ -18,8 +19,9 @@ struct TimerView: View {
         ZStack{
             RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                 .frame(width: 80, height: 30)
-            Text("\(count)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).onReceive(timer){ _ in
-                count += 1
+            Text("\(timerGlobal.timerGlobal)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).onReceive(timer){ _ in
+                timerGlobal.timerGlobal += 1
+                count = timerGlobal.timerGlobal
             }
         }.padding(.trailing)
             .onDisappear(){
@@ -32,6 +34,7 @@ struct TimerView: View {
                         roundInfo.times[roundInfo.roundNumber - 1] = count
                     }
                 }
+                timer.upstream.connect().cancel()
             }
     }
 }

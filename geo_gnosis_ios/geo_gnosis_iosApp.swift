@@ -25,12 +25,14 @@ struct geo_gnosis_iosApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delagate
     @StateObject var roundInfo = RoundInfo()
     @StateObject var gameInfo = GameInfo()
+    @StateObject var timerGlobal = TimerGlobal()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(roundInfo)
                 .environmentObject(gameInfo)
+                .environmentObject(timerGlobal)
         }
     }
 }

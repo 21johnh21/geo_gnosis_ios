@@ -14,6 +14,7 @@ struct Start: View {
     @EnvironmentObject private var coordinator: Coordinator
     @EnvironmentObject var roundInfo: RoundInfo
     @EnvironmentObject var gameInfo: GameInfo
+    @EnvironmentObject var timerGlobal: TimerGlobal
     
     let numberOfRounds = 5
     
@@ -56,6 +57,7 @@ struct Start: View {
             .background(alignment: .center){BackgroundView()}
     }
     func StartGame(){
+        timerGlobal.timerGlobal = 0
         if(gameInfo.multiChoice){ //if multiple choice get the multi choice options
             roundInfo.multiChoiceOptions = RoundData(multiChoice: gameInfo.multiChoice, difficulty: gameInfo.difficulty, regionMode: gameInfo.regionMode, region: gameInfo.region).multiChoiceOptions
             if(roundInfo.locations.count>0){
