@@ -10,12 +10,13 @@ import SwiftUI
 struct Penalty: View {
     
     @State private var isAnimating = false
+    var penaltyAmount: Int
     
     var body: some View {
         let widthBound = UIScreen.main.bounds.width / 2
         let heightBound: Double = -(UIScreen.main.bounds.height / 2)
         
-        Text("-1")
+        Text("+\(penaltyAmount)")
             .font(.system(size: 60))
             .fontWeight(.bold)
             .foregroundColor(.green)
@@ -32,6 +33,6 @@ struct Penalty: View {
 
 struct Penalty_Previews: PreviewProvider {
     static var previews: some View {
-        Penalty()
+        Penalty(penaltyAmount: 20)
     }
 }

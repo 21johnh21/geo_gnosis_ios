@@ -29,6 +29,7 @@ extension GameMap{
         
         @Published var showPenalty: Bool = false
         @Published var viewID: Int = 0
+        @Published var penaltyAmount = 0 
         
         var gameInfo: GameInfo = GameInfo()
         var roundInfo: RoundInfo = RoundInfo()
@@ -75,18 +76,14 @@ extension GameMap{
                 }
             }
             else{
-                timerGlobal.timerGlobal += 5
-                //showPenalty.toggle()
+                timerGlobal.timerGlobal += Const.PenaltyIncorrectFTB
+                penaltyAmount = Const.PenaltyIncorrectFTB
                 viewID += 1
                 showPenalty.toggle()
-                guessText = "" //clear text
-                //send give user feed back
-                //animation
+                guessText = ""
                 animationAmount[4] += 1
                 animate[4].toggle()
-                //sound
                 PlayIncorrect()
-                //haptic
                 PlayDefaultFeedback().play()
             }
         }
@@ -134,16 +131,12 @@ extension GameMap{
             else{
                 
                 guessText = "" //clear text
-                timerGlobal.timerGlobal += 20
+                timerGlobal.timerGlobal += Const.PenaltyIncorrectMC
+                penaltyAmount = Const.PenaltyIncorrectMC
                 showPenalty = true
-                //showPenalty?.toggle()
-                //send give user feed back
-                //animation
                 animationAmount[optionClicked] += 1
                 animate[optionClicked].toggle()
-                //sound
                 PlayIncorrect()
-                //haptic
                 PlayDefaultFeedback().play()
                 viewID += 1
             }

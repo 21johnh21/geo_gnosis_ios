@@ -159,7 +159,7 @@ struct GameMap: View {
                 
             }
             if(vm.showPenalty){
-                Penalty().id(vm.viewID) 
+                Penalty(penaltyAmount: vm.penaltyAmount).id(vm.viewID)
             }
         }
         .background(alignment: .center){BackgroundView()}

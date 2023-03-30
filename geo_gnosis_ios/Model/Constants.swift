@@ -41,6 +41,9 @@ struct Const{
     static let maxFinalScoreValue = 500
     static let maxRoundScoreValue = 100
     
+    static let PenaltyIncorrectMC = 20
+    static let PenaltyIncorrectFTB = 5
+    
     static let numOfRounds = 5
     
     static let email = "geo.gnosis.dev@gmail.com"
