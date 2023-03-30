@@ -30,6 +30,7 @@
 		F876507629CD205800D7CCE6 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F876507529CD205800D7CCE6 /* Progress.swift */; };
 		F876507A29CF544D00D7CCE6 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F876507929CF544D00D7CCE6 /* ErrorMessage.swift */; };
 		F876507C29D3C56C00D7CCE6 /* TimerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F876507B29D3C56C00D7CCE6 /* TimerData.swift */; };
+		F876507E29D5183300D7CCE6 /* Penalty.swift in Sources */ = {isa = PBXBuildFile; fileRef = F876507D29D5183300D7CCE6 /* Penalty.swift */; };
 		F87ABBB029820DD6007E2EA3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBAF29820DD6007E2EA3 /* Coordinator.swift */; };
 		F87ABBB229820E10007E2EA3 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBB129820E10007E2EA3 /* RootView.swift */; };
 		F87ABBB429836663007E2EA3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBB329836663007E2EA3 /* Location.swift */; };
@@ -118,6 +119,7 @@
 		F876507529CD205800D7CCE6 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
 		F876507929CF544D00D7CCE6 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		F876507B29D3C56C00D7CCE6 /* TimerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerData.swift; sourceTree = "<group>"; };
+		F876507D29D5183300D7CCE6 /* Penalty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Penalty.swift; sourceTree = "<group>"; };
 		F87ABBAF29820DD6007E2EA3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F87ABBB129820E10007E2EA3 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		F87ABBB329836663007E2EA3 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				F83C878E297DCACB008FA89D /* MapView.swift */,
 				F84E7CA129C3FADF00F60C34 /* MapViewVM.swift */,
 				F8996FD629A5B0440039C685 /* TimerView.swift */,
+				F876507D29D5183300D7CCE6 /* Penalty.swift */,
 			);
 			path = GameMap;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				F899700129BAD5CF0039C685 /* Constants.swift in Sources */,
 				F87ABBC029862FBF007E2EA3 /* EndGameCard.swift in Sources */,
 				F8996FEE29B3E8B80039C685 /* SecureInputView.swift in Sources */,
+				F876507E29D5183300D7CCE6 /* Penalty.swift in Sources */,
 				F83C87AA297F5500008FA89D /* EndGame.swift in Sources */,
 				F8996FCB29A46C5E0039C685 /* DevTestHapticFeedback.swift in Sources */,
 				F876507629CD205800D7CCE6 /* Progress.swift in Sources */,

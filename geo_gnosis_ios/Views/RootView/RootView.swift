@@ -148,7 +148,6 @@ struct RootView: View {
                         
                         let lbInfo = LBInfo(userName: userName, finalScore: finalScore, dateTime: GetFormattedDate(), multiChoice: multiChoice, regionMode: regionMode, difficulty: difficulty, region: region, times: times, city_ascii: city_ascii, lat: lat, lng: lng, country: country, admin_name: admin_name, capital: capital, population: population)
                         
-                        //                    var lbInfo = LBInfo(userName: "JH_DEV", finalScore: finalScore)
                         let db = Firestore.firestore()
                         do {
                             try db.collection(Const.dbScoreCollection).document(UUID().uuidString).setData(from: lbInfo)
