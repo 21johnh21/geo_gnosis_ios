@@ -90,15 +90,8 @@ struct EndGame: View {
     func CalcFinalScore() -> Int{
         var finalScore: Int = 0
         for i in 0...roundInfo.roundNumber{
-            if(roundInfo.times[i] < 0){
-                roundInfo.times[i] = 0
-            }
-            
             if(roundInfo.times[i] != -1){
                 finalScore += roundInfo.times[i]
-            }else{
-                let numOfRoundsUncomplete = Const.numOfRounds - i
-                finalScore += Const.maxRoundScoreValue * numOfRoundsUncomplete
             }
         }
         return finalScore

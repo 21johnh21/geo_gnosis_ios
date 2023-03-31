@@ -29,8 +29,6 @@ struct TimerView: View {
             }
         }.padding(.trailing)
             .onDisappear(){
-                if(roundInfo.times[roundInfo.roundNumber] != -1){ //TODO: This may break no on give up 
-                }
                 timer.upstream.connect().cancel()
             }
     }
