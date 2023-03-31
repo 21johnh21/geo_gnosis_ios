@@ -19,7 +19,7 @@ struct TimerView: View {
         ZStack{
             RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                 .frame(width: 80, height: 30)
-            Text("\(timerGlobal.timerGlobal)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).onReceive(timer){ _ in
+            Text("\(timerGlobal.timerGlobal > 0 ? timerGlobal.timerGlobal : 0)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).onReceive(timer){ _ in
                 timerGlobal.timerGlobal -= 1
                 count = timerGlobal.timerGlobal
                 if(timerGlobal.timerGlobal <= 0){

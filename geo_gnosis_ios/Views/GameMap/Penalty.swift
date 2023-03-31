@@ -19,7 +19,7 @@ struct Penalty: View {
         Text("-\(penaltyAmount)")
             .font(.system(size: 60))
             .fontWeight(.bold)
-            .foregroundColor(.green)
+            .foregroundColor(.red)
             .rotationEffect(Angle(degrees: isAnimating ? 5 : -5), anchor: .center)
             .offset(y: isAnimating ? heightBound : 0)
             .offset(x: isAnimating ? widthBound: 0)

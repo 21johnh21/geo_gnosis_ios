@@ -158,7 +158,7 @@ struct GameMap: View {
             }.safeAreaInset(edge: .bottom){
                 
             }
-            if(vm.showPenalty){
+            if(vm.showPenalty && timerGlobal.timerGlobal > 0){
                 Penalty(penaltyAmount: vm.penaltyAmount).id(vm.viewID)
             }
         }

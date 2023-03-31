@@ -64,16 +64,12 @@ struct MapView2: View {
         var centerRadianLng: Double = 0
         var centerHyp: Double = 0
         
-        //var centerLat: Double = 0
-        //var centerLng: Double = 0
-        
         for coordinate in roundInfo.locations{
             radianLat[i] = coordinate.lat * Double.pi / 180
             radianLng[i] = coordinate.lng * Double.pi / 180
             cartesianX[i] = cos(radianLat[i]) * cos(radianLng[i])
             cartesianY[i] = cos(radianLat[i]) * sin(radianLng[i])
             cartesianZ[i] = sin(radianLat[i])
-            //CoordinateWeight[i] = 1 //??
             
             i += 1
         }
