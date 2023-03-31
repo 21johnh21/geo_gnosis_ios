@@ -24,7 +24,7 @@ struct EndGameCard: View {
                     HStack{
                         Text("Round: \(roundNumber)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding()
                         if(time != -1){
-                            Text("Score: \(Const.maxRoundScoreValue - time)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding()
+                            Text("Score: \(time)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding()
                         }else{
                             Text("Score: DNF").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding()
                         }

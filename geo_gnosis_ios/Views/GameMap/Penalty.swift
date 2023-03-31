@@ -16,7 +16,7 @@ struct Penalty: View {
         let widthBound = UIScreen.main.bounds.width / 2
         let heightBound: Double = -(UIScreen.main.bounds.height / 2)
         
-        Text("+\(penaltyAmount)")
+        Text("-\(penaltyAmount)")
             .font(.system(size: 60))
             .fontWeight(.bold)
             .foregroundColor(.green)

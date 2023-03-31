@@ -8,5 +8,5 @@
 import Foundation
 
 class TimerGlobal: ObservableObject {
-    @Published var timerGlobal = 0
+    @Published var timerGlobal = Const.maxRoundScoreValue
 }

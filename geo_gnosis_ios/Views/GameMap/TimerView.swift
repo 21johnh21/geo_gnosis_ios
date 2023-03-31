@@ -20,19 +20,16 @@ struct TimerView: View {
             RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                 .frame(width: 80, height: 30)
             Text("\(timerGlobal.timerGlobal)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).onReceive(timer){ _ in
-                timerGlobal.timerGlobal += 1
+                timerGlobal.timerGlobal -= 1
                 count = timerGlobal.timerGlobal
+                if(timerGlobal.timerGlobal <= 0){
+                    timer.upstream.connect().cancel()
+                    timerGlobal.timerGlobal = 0
+                }
             }
         }.padding(.trailing)
             .onDisappear(){
-                if(roundInfo.times[roundInfo.roundNumber] != -1){
-                    if(roundInfo.roundNumber == 4 && roundInfo.roundNumbers[4] != 0){
-                        //this is super hacky but it allows me to set the time on the last round
-                        //If I increment the roundnumer on the last round it tries to update the map and causes an index out of bounds error.
-                        roundInfo.times[roundInfo.roundNumber] = count
-                    }else{
-                        roundInfo.times[roundInfo.roundNumber - 1] = count
-                    }
+                if(roundInfo.times[roundInfo.roundNumber] != -1){ //TODO: This may break no on give up 
                 }
                 timer.upstream.connect().cancel()
             }

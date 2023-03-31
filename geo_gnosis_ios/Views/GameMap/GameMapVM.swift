@@ -65,18 +65,18 @@ extension GameMap{
                 //TODO: somehow allow like 2 - 3 charachters mispelling
                 
                 if(roundInfo.roundNumber == 4){
-                    timerGlobal.timerGlobal = 0
                     CorrectGuess()
+                    timerGlobal.timerGlobal = Const.maxRoundScoreValue
                     coordinator.show(EndGame.self)
                 }else{
-                    timerGlobal.timerGlobal = 0 
                     CorrectGuess()
+                    timerGlobal.timerGlobal = Const.maxRoundScoreValue
                     roundInfo.roundNumber += 1
                     coordinator.show(GameMap.self)
                 }
             }
             else{
-                timerGlobal.timerGlobal += Const.PenaltyIncorrectFTB
+                timerGlobal.timerGlobal -= Const.PenaltyIncorrectFTB
                 penaltyAmount = Const.PenaltyIncorrectFTB
                 viewID += 1
                 showPenalty.toggle()
@@ -118,12 +118,12 @@ extension GameMap{
             if(guessIn == answer){
 
                 if(roundInfo.roundNumber == 4){
-                    timerGlobal.timerGlobal = 0
                     CorrectGuess()
+                    timerGlobal.timerGlobal = Const.maxRoundScoreValue
                     coordinator.show(EndGame.self)
                 }else{
-                    timerGlobal.timerGlobal = 0
                     CorrectGuess()
+                    timerGlobal.timerGlobal = Const.maxRoundScoreValue
                     roundInfo.roundNumber += 1
                     coordinator.show(GameMap.self)
                 }
@@ -131,7 +131,7 @@ extension GameMap{
             else{
                 
                 guessText = "" //clear text
-                timerGlobal.timerGlobal += Const.PenaltyIncorrectMC
+                timerGlobal.timerGlobal -= Const.PenaltyIncorrectMC
                 penaltyAmount = Const.PenaltyIncorrectMC
                 showPenalty = true
                 animationAmount[optionClicked] += 1
@@ -164,6 +164,7 @@ extension GameMap{
             if(roundInfo.roundNumber == 4){
                 audioPlayer1?.pause()
             }
+            roundInfo.times[roundInfo.roundNumber] = timerGlobal.timerGlobal
             roundInfo.roundNumbers[roundInfo.roundNumber] = (roundInfo.roundNumber + 1)
             roundInfo.answers[roundInfo.roundNumber] = true
         }
