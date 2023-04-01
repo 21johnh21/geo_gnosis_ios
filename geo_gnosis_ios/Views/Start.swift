@@ -10,11 +10,17 @@ import AVFAudio
 
 struct Start: View {
     
+    @State var showSetUp: Bool
+    
     @State var round: Int = 0 
     @EnvironmentObject private var coordinator: Coordinator
     @EnvironmentObject var roundInfo: RoundInfo
     @EnvironmentObject var gameInfo: GameInfo
     @EnvironmentObject var timerGlobal: TimerGlobal
+    
+    @State var multiChoice = Const.modeMultiChoiceText
+    @State var difficulty = Const.modeDiffEasyText
+    @State var regionMode = Const.modeRegCountryText
     
     let numberOfRounds = 5
     
@@ -25,20 +31,23 @@ struct Start: View {
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
                     Text("Geo Gnosis").font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg)).padding(.top).padding(.top)
                 }
-                Image(Const.picLogo).resizable().frame(width: 255, height: 255).clipShape(Circle()).padding()
-                
-                ZStack{
-                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
-                    VStack(alignment: .center){
-                        let gameMode = gameInfo.multiChoice == true ? Const.modeMultiChoiceText : Const.modeFillBlankText
-                        Text("Game Mode \(Image(systemName: "circle.fill")) \(gameMode)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                        Text("Region Mode \(Image(systemName: "circle.fill")) \(gameInfo.regionMode)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                        if(gameInfo.regionMode != Const.modeRegCountryText){
-                            Text("Region \(Image(systemName: "circle.fill")) \(gameInfo.region)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                        }
-                        Text("Difficulty \(Image(systemName: "circle.fill")) \(gameInfo.difficulty)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                    }.frame(maxWidth: .infinity)
-                    .background(RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(maxWidth: .infinity))
+                if(!showSetUp){
+                    Image(Const.picLogo).resizable().frame(width: 255, height: 255).clipShape(Circle()).padding()
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
+                        VStack(alignment: .center){
+                            let gameMode = gameInfo.multiChoice == true ? Const.modeMultiChoiceText : Const.modeFillBlankText
+                            Text("Game Mode \(Image(systemName: "circle.fill")) \(gameMode)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                            Text("Region Mode \(Image(systemName: "circle.fill")) \(gameInfo.regionMode)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                            if(gameInfo.regionMode != Const.modeRegCountryText){
+                                Text("Region \(Image(systemName: "circle.fill")) \(gameInfo.region)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                            }
+                            Text("Difficulty \(Image(systemName: "circle.fill")) \(gameInfo.difficulty)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                        }.frame(maxWidth: .infinity)
+                            .background(RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(maxWidth: .infinity))
+                    }
+                }else{
+                    SetUpGame(multiChoice: $multiChoice, difficulty: $difficulty, regionMode: $regionMode)
                 }
 
                 Spacer()
@@ -46,7 +55,7 @@ struct Start: View {
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                         .frame(width: 200, height: 80)
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
-                    Text("Start").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg)).padding(.top)
+                    Text("\(Image(systemName: "play.fill")) Start").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg)).padding(.top)
                 }
                 .padding(.bottom)
                 .onTapGesture {
@@ -77,8 +86,8 @@ struct Start: View {
     }
 }
 
-struct start_Previews: PreviewProvider {
-    static var previews: some View {
-        Start()
-    }
-}
+//struct start_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Start(showSetUp: Const.Bool)
+//    }
+//}

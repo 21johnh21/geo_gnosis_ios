@@ -19,32 +19,22 @@ struct RootView: View {
     
     @EnvironmentObject var gameInfo: GameInfo
     @StateObject private var coordinator = Coordinator()
-    @State var multiChoice = Const.modeMultiChoiceText
-    @State var difficulty = Const.modeDiffEasyText
-    @State var regionMode = Const.modeRegCountryText
-    @State var showSetUp = false
-    
-    let screenSize: CGRect = UIScreen.main.bounds
+    @State var showSetUp: Bool = false
     
     var body: some View {
-        
         NavigationStack(path: $coordinator.path) {
-            
             ScrollView{
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
                     Text("Geo Gnosis").font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg)).padding(.top)
                 }
+                Image(Const.picLogo).resizable().frame(width: 255, height: 255).clipShape(Circle()).padding()
                 //MARK: Play Again Button ---------------------------------
                 ZStack{
                     RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
-                        
                     VStack{
-                        HStack{
-                            Image(systemName: "play.fill").font(.system(size: 25, weight: .bold))
-                            Text("Play Again").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
-                        }
+                        Text("\(Image(systemName: "play.fill")) Play Again").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
                         let lastMultiChoiceText = lastMultiChoice ? Const.modeMultiChoiceText : Const.modeFillBlankText
                         Text("\(lastMultiChoiceText) \(Image(systemName: "circle.fill")) \(lastRegionMode) \(Image(systemName: "circle.fill")) \(lastRegion) \(Image(systemName: "circle.fill")) \(lastDifficulty)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                     }.padding()
@@ -54,46 +44,17 @@ struct RootView: View {
                     gameInfo.regionMode = lastRegionMode
                     gameInfo.region = lastRegion
                     gameInfo.difficulty = lastDifficulty
+                    showSetUp = false
                     coordinator.show(Start.self)
                 }
                 //MARK: Set Up Game ----------------------------
-                if(showSetUp){
-                    SetUpGame(multiChoice: $multiChoice, difficulty: $difficulty, regionMode: $regionMode)
-                }else{
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
-                            .shadow(color: .black, radius: 3, x: 2, y: 2)
-                        VStack{
-                            HStack{
-                                Image(systemName: "gear").font(.system(size: 25, weight: .bold))
-                                Text("Set Up Game").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
-                            }
-                        }.padding()
-                    }.onTapGesture {
-                        showSetUp.toggle()
-                    }
-                }
-                //MARK: Start Buton ----------------------------
                 ZStack{
-                    RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
-                        .shadow(color: .black, radius: 3, x: 2, y: 2)
+                    RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary).shadow(color: .black, radius: 3, x: 2, y: 2)
                     VStack{
-                        HStack{
-                            Image(systemName: "play.fill").font(.system(size: 25, weight: .bold))
-                            Text("Start").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
-                        }
+                        Text("\(Image(systemName: "gear")) Set Up Game").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
                     }.padding()
                 }.onTapGesture {
-                    PlayDefaultFeedback().play()
-                    gameInfo.multiChoice = multiChoice == Const.modeMultiChoiceText ? true : false
-                    gameInfo.difficulty = difficulty
-                    gameInfo.regionMode = regionMode
-                    
-                    lastMultiChoice = gameInfo.multiChoice
-                    lastRegionMode = gameInfo.regionMode
-                    lastRegion = gameInfo.region
-                    lastDifficulty = gameInfo.difficulty
-                    
+                    showSetUp = true
                     coordinator.show(Start.self)
                 }
                 //MARK: Other buttons ------------------------------------------
@@ -116,7 +77,7 @@ struct RootView: View {
                 }
                 
                 if(false){
-                    
+                
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                         Text("DEV - Test Haptic")
@@ -157,12 +118,9 @@ struct RootView: View {
                     }
                 }
             }
-            .onAppear(){
-                showSetUp = false
-            }
             .navigationDestination(for: String.self) { id in
                 if id == String(describing: Start.self) {
-                    Start()
+                    Start(showSetUp: showSetUp)
                 } else if id == String(describing: GameMap.self) {
                     GameMap()
                 }
@@ -181,7 +139,6 @@ struct RootView: View {
                 else if id == String(describing: DevTestHapticFeedback.self){
                     DevTestHapticFeedback()
                 }
-                
             }
             .background(alignment: .center){BackgroundView()}
         }
