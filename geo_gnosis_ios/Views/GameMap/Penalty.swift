@@ -20,11 +20,11 @@ struct Penalty: View {
             .font(.system(size: 60))
             .fontWeight(.bold)
             .foregroundColor(.red)
-            .rotationEffect(Angle(degrees: isAnimating ? 5 : -5), anchor: .center)
+            .rotationEffect(Angle(degrees: isAnimating ? 30 : -30), anchor: .center)
             .offset(y: isAnimating ? heightBound : 0)
             .offset(x: isAnimating ? widthBound: 0)
             .opacity(isAnimating ? 0 : 1)
-            .animation(.linear(duration: 1).repeatCount(0, autoreverses: true), value: isAnimating)
+            .animation(.easeInOut(duration: 1).repeatCount(0, autoreverses: true), value: isAnimating)
             .onAppear {
                 self.isAnimating = true
             }
