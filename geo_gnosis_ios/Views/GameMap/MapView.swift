@@ -21,7 +21,8 @@ struct MapView: View, Equatable{
         ){
             pinLocation in
                 MapAnnotation(coordinate: pinLocation.coordinate) {
-                    Image(systemName: "mappin").font(.system(size: 25, weight: .bold))
+                    //Image(systemName: "mappin").font(.system(size: 25, weight: .bold)).foregroundColor(Color(.red))
+                    Image("customMapPin")
                 }
         }
         .onAppear {

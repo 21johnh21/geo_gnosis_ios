@@ -23,9 +23,7 @@ struct MapView2: View {
         Map(coordinateRegion: $mapRegion, annotationItems: pinLocations) { pinLocation in
                 MapAnnotation(coordinate: pinLocation.coordinate) {
 
-                    Circle()
-                        .stroke(.red, lineWidth: 3)
-                        .frame(width: 44, height: 44)
+                    Image("customMapPin")
                         .onTapGesture {
                             let url = URL(string: "maps://?ll=\(pinLocation.coordinate.latitude),\(pinLocation.coordinate.longitude)&z=10.0")
                             //in this url ll = the coordinates of map center, z = the zoom level (smaller value is more zoomed)
@@ -36,8 +34,8 @@ struct MapView2: View {
                 }
         }.onAppear(){
             if(gameInfo.regionMode == Const.modeRegCountryText){
-            centerLat = 51.5072
-            centerLng = 0.1276
+                centerLat = roundInfo.locations[1].lat
+                centerLng = roundInfo.locations[1].lng
             }else{
                 findCenterCoordinate()
             }
