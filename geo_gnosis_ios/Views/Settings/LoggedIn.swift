@@ -17,28 +17,41 @@ struct LoggedIn: View {
     
     var body: some View {
         VStack{
-            Text("Logged in as \(userNameSt)")
             ZStack{
-                RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 150, height: 30)
-                Text("Log Out")
-            }.onTapGesture {
-                SignOut()
+                RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
+                Text("Profile").font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg)).padding(.top).padding(.top)
             }
             ZStack{
-                RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 150, height: 30)
-                Text("Delete Account")
-            }.onTapGesture {
-                deleteAccount = true
-            }.confirmationDialog("Are you sure", isPresented: $deleteAccount){
-                Text("Are you sure?")
-                Button("Yes"){
-                    DeleteAccount()
+                RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
+                Text("Logged in as \(userNameSt)")
+            }
+            Image(Const.picLogo).resizable().frame(width: 255, height: 255).clipShape(Circle()).padding()
+            HStack {
+                ZStack{
+                    RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 150, height: 30)
+                    Text("Log Out")
+                }.onTapGesture {
+                    SignOut()
+                }.padding(.leading)
+                Spacer()
+                ZStack{
+                    RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 150, height: 30)
+                    Text("Delete Account")
+                }.padding(.trailing)
+                .onTapGesture {
+                    deleteAccount = true
+                }.confirmationDialog("Are you sure", isPresented: $deleteAccount){
+                    Text("Are you sure?")
+                    Button("Yes"){
+                        DeleteAccount()
+                    }
+                } message: {
+                    Text("Are you sure?")
                 }
-            } message: {
-                Text("Are you sure?")
             }
             Spacer()
-        }.frame(maxWidth: .infinity).background(CustomColor.secondary)
+        }.background(alignment: .center){BackgroundView()}
+        //.frame(maxWidth: .infinity).background(CustomColor.secondary)
 
     }
     func DeleteAccount(){
