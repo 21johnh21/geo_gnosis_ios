@@ -27,6 +27,7 @@ struct Penalty: View {
             .offset(x: isAnimating ? widthBound: 0)
             .opacity(isAnimating ? 0 : 1)
             .onAppear {
+                PlayDefaultFeedback().play()
                 Task{
                     await animate(duration: 0.5){
                         isAnimating = true
