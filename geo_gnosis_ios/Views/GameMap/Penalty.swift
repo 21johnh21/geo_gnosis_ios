@@ -29,7 +29,7 @@ struct Penalty: View {
             .onAppear {
                 PlayDefaultFeedback().play()
                 Task{
-                    await animate(duration: 0.5){
+                    await animate(duration: 1){
                         isAnimating = true
                     }
                     timerGlobal.timerGlobal -= 5 //out of bounds penalty
