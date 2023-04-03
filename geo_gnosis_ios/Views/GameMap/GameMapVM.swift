@@ -29,7 +29,7 @@ extension GameMap{
         
         @Published var showPenalty: Bool = false
         @Published var viewID: Int = 0
-        @Published var penaltyAmount = 0 
+        @Published var penaltyAmount = 0
         
         var gameInfo: GameInfo = GameInfo()
         var roundInfo: RoundInfo = RoundInfo()
@@ -190,7 +190,6 @@ extension GameMap{
         func PlayBackground(){
             if let path = Bundle.main.path(forResource: Const.audioActionBackground, ofType: "mp3"){
                 self.audioPlayer1 = AVAudioPlayer()
-                //self.isPlaying.toggle()
                 let url = URL(fileURLWithPath: path)
                 
                 do {

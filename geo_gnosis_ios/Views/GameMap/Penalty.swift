@@ -9,6 +9,8 @@ import SwiftUI
 
 struct Penalty: View {
     
+    @EnvironmentObject var timerGlobal: TimerGlobal
+    
     @State private var isAnimating = false
     var penaltyAmount: Int
     
@@ -24,10 +26,28 @@ struct Penalty: View {
             .offset(y: isAnimating ? heightBound : 0)
             .offset(x: isAnimating ? widthBound: 0)
             .opacity(isAnimating ? 0 : 1)
-            .animation(.easeInOut(duration: 1).repeatCount(0, autoreverses: true), value: isAnimating)
             .onAppear {
-                self.isAnimating = true
+                Task{
+                    await animate(duration: 0.5){
+                        isAnimating = true
+                    }
+                    timerGlobal.timerGlobal -= 5 //out of bounds penalty
+                    timerGlobal.penalty = false
+                }
             }
+    }
+}
+extension View {
+    func animate(duration: CGFloat, _ execute: @escaping () -> Void) async {
+        await withCheckedContinuation { continuation in
+            withAnimation(.linear(duration: duration)) {
+                execute()
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
+                continuation.resume()
+            }
+        }
     }
 }
 

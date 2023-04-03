@@ -19,6 +19,8 @@ struct GameMap: View {
     @EnvironmentObject var timerGlobal: TimerGlobal
     
     @StateObject private var vm = GameMapVM()
+    
+    @State var mapViewID = 0
 
     var body: some View {
         ZStack {
@@ -29,7 +31,11 @@ struct GameMap: View {
                         latitude: roundInfo.locations[roundInfo.roundNumber].lat,
                         longitude: roundInfo.locations[roundInfo.roundNumber].lng),
                         pinLocations: InitPinLocations()
-                ))
+                                    )).id(mapViewID)
+                    .onAppear(){
+                        timerGlobal.penalty = false
+                        mapViewID += 1
+                    }
                 .overlay(){
                     VStack {
                         Spacer()
@@ -158,8 +164,9 @@ struct GameMap: View {
             }.safeAreaInset(edge: .bottom){
                 
             }
-            if(vm.showPenalty && timerGlobal.timerGlobal > 0){
-                Penalty(penaltyAmount: vm.penaltyAmount).id(vm.viewID)
+            
+            if((vm.showPenalty || (timerGlobal.penalty)) && timerGlobal.timerGlobal > 0){
+                Penalty(penaltyAmount: vm.penaltyAmount > 0 ? vm.penaltyAmount : 5).id(vm.viewID)
             }
         }
         .background(alignment: .center){BackgroundView()}
