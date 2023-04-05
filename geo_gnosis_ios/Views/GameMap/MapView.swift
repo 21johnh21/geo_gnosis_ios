@@ -15,7 +15,7 @@ struct MapView: View, Equatable{
     
     @State private var region = MKCoordinateRegion()
     @State private var distanceFromPin: Double = 0
-    @State private var penaltyDistance: Double = 100 //km
+    @State private var penaltyDistance: Double = Const.PenaltyDistance
     
     @EnvironmentObject var timerGlobal: TimerGlobal
     @EnvironmentObject var roundInfo : RoundInfo
@@ -32,11 +32,11 @@ struct MapView: View, Equatable{
         }
         .onAppear {
             setRegion(coordinate)
-            penaltyDistance = 100
+            penaltyDistance = Const.PenaltyDistance
         }
         .onChange(of: region.center.latitude) { value in
             if(GetDistance() >= penaltyDistance){
-                penaltyDistance += 100
+                penaltyDistance += Const.PenaltyDistance
                 timerGlobal.penalty.toggle()
                 print("Out of Bounds! \(penaltyDistance) penalty \(timerGlobal.penalty) centerLat: \(pinLocations[roundInfo.roundNumber].coordinate.latitude) centerLng: \(pinLocations[roundInfo.roundNumber].coordinate.longitude) currentLat: \(region.center.latitude) currentLng: \(region.center.longitude)")
             }

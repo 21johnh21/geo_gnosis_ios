@@ -43,6 +43,7 @@ struct Const{
     
     static let PenaltyIncorrectMC = 20
     static let PenaltyIncorrectFTB = 5
+    static let PenaltyDistance = 50.0 //km
     
     static let numOfRounds = 5
     
