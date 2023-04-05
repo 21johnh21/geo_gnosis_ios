@@ -17,6 +17,7 @@ struct GameMap: View {
     @EnvironmentObject var roundInfo : RoundInfo
     @EnvironmentObject var gameInfo: GameInfo
     @EnvironmentObject var timerGlobal: TimerGlobal
+    @EnvironmentObject var audioPlayer: AudioPlayer
     
     @StateObject private var vm = GameMapVM()
     
@@ -172,7 +173,7 @@ struct GameMap: View {
         .background(alignment: .center){BackgroundView()}
         .navigationBarBackButtonHidden(true)
         .onAppear{
-            vm.GetInfo(gameInfo: gameInfo, roundInfo: roundInfo, coordinator: coordinator, vibOn: vibOn, volume: volume, timerGlobal: timerGlobal)
+            vm.GetInfo(gameInfo: gameInfo, roundInfo: roundInfo, coordinator: coordinator, vibOn: vibOn, volume: volume, timerGlobal: timerGlobal, audioPlayer: audioPlayer)
             vm.SetUpView()
         }
     }

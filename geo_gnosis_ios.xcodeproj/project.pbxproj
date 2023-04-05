@@ -31,6 +31,7 @@
 		F876507A29CF544D00D7CCE6 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F876507929CF544D00D7CCE6 /* ErrorMessage.swift */; };
 		F876507C29D3C56C00D7CCE6 /* TimerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F876507B29D3C56C00D7CCE6 /* TimerData.swift */; };
 		F876507E29D5183300D7CCE6 /* Penalty.swift in Sources */ = {isa = PBXBuildFile; fileRef = F876507D29D5183300D7CCE6 /* Penalty.swift */; };
+		F876508029DD041D00D7CCE6 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F876507F29DD041D00D7CCE6 /* AudioPlayer.swift */; };
 		F87ABBB029820DD6007E2EA3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBAF29820DD6007E2EA3 /* Coordinator.swift */; };
 		F87ABBB229820E10007E2EA3 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBB129820E10007E2EA3 /* RootView.swift */; };
 		F87ABBB429836663007E2EA3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBB329836663007E2EA3 /* Location.swift */; };
@@ -120,6 +121,7 @@
 		F876507929CF544D00D7CCE6 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		F876507B29D3C56C00D7CCE6 /* TimerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerData.swift; sourceTree = "<group>"; };
 		F876507D29D5183300D7CCE6 /* Penalty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Penalty.swift; sourceTree = "<group>"; };
+		F876507F29DD041D00D7CCE6 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		F87ABBAF29820DD6007E2EA3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F87ABBB129820E10007E2EA3 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		F87ABBB329836663007E2EA3 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				F82315DF2997E6310026D036 /* CustomColor.swift */,
 				F899700029BAD5CF0039C685 /* Constants.swift */,
 				F876507B29D3C56C00D7CCE6 /* TimerData.swift */,
+				F876507F29DD041D00D7CCE6 /* AudioPlayer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				F87ABBC6298702F8007E2EA3 /* MapView2.swift in Sources */,
 				F87ABBCC2989F79B007E2EA3 /* GameInfo.swift in Sources */,
 				F87ABBDC29932462007E2EA3 /* LeaderBoard.swift in Sources */,
+				F876508029DD041D00D7CCE6 /* AudioPlayer.swift in Sources */,
 				F899700329BBF2DE0039C685 /* SignInWithApple.swift in Sources */,
 				F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */,
 				F87ABBB62983671C007E2EA3 /* LocationData.swift in Sources */,

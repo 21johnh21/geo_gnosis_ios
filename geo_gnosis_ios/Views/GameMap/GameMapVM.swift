@@ -37,14 +37,16 @@ extension GameMap{
         var vibOn: Bool = true
         var volume: Double = 100.0
         var timerGlobal: TimerGlobal = TimerGlobal()
+        var audioPlayer: AudioPlayer = AudioPlayer()
         
-        func GetInfo(gameInfo: GameInfo, roundInfo: RoundInfo, coordinator: Coordinator, vibOn: Bool, volume: Double, timerGlobal: TimerGlobal){
+        func GetInfo(gameInfo: GameInfo, roundInfo: RoundInfo, coordinator: Coordinator, vibOn: Bool, volume: Double, timerGlobal: TimerGlobal, audioPlayer: AudioPlayer){
             self.gameInfo = gameInfo
             self.roundInfo = roundInfo
             self.coordinator = coordinator
             self.vibOn = vibOn
             self.volume = volume
             self.timerGlobal = timerGlobal
+            self.audioPlayer = audioPlayer
         }
         func SetUpView(){
             if(gameInfo.multiChoice == true){
@@ -188,20 +190,7 @@ extension GameMap{
             coordinator.show(EndGame.self)
         }
         func PlayBackground(){
-            if let path = Bundle.main.path(forResource: Const.audioActionBackground, ofType: "mp3"){
-                self.audioPlayer1 = AVAudioPlayer()
-                let url = URL(fileURLWithPath: path)
-                
-                do {
-                    self.audioPlayer1 = try AVAudioPlayer(contentsOf: url)
-                    audioPlayer1?.volume = Float(volume/100)
-                    self.audioPlayer1?.prepareToPlay()
-                    self.audioPlayer1?.numberOfLoops = -1
-                    self.audioPlayer1?.play()
-                }catch {
-                    print("Error")
-                }
-            }
+            audioPlayer.PlayBackground(volume: volume)
         }
         func PlayCorrect(){
             if let path = Bundle.main.path(forResource: Const.audioCorrectEffect, ofType: "mp3"){

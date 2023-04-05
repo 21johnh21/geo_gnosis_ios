@@ -26,6 +26,7 @@ struct geo_gnosis_iosApp: App {
     @StateObject var roundInfo = RoundInfo()
     @StateObject var gameInfo = GameInfo()
     @StateObject var timerGlobal = TimerGlobal()
+    @StateObject var audioPlayer = AudioPlayer()
     
     var body: some Scene {
         WindowGroup {
@@ -33,6 +34,7 @@ struct geo_gnosis_iosApp: App {
                 .environmentObject(roundInfo)
                 .environmentObject(gameInfo)
                 .environmentObject(timerGlobal)
+                .environmentObject(audioPlayer)
         }
     }
 }

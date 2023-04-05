@@ -21,6 +21,7 @@ struct EndGame: View {
     @EnvironmentObject private var coordinator: Coordinator
     @EnvironmentObject var roundInfo : RoundInfo
     @EnvironmentObject var gameInfo: GameInfo
+    @EnvironmentObject var audioPlayer: AudioPlayer
     
     @State var finalScore: Int = 0
     
@@ -68,7 +69,7 @@ struct EndGame: View {
         }.navigationBarBackButtonHidden(true)
         .background(alignment: .center){BackgroundView()}
         .onAppear(){
-        
+            audioPlayer.StopBackground()
             finalScore = CalcFinalScore()
             SendResultsToDB()
         }
