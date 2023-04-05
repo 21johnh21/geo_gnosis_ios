@@ -74,6 +74,10 @@ struct Start: View {
         
         GetSetUpData()
         
+        if(gameInfo.region == "World"){
+            gameInfo.region = Const.modeRegCountryText
+        }
+        
         timerGlobal.timerGlobal = Const.maxRoundScoreValue
         if(gameInfo.multiChoice){ //if multiple choice get the multi choice options
             roundInfo.multiChoiceOptions = RoundData(multiChoice: gameInfo.multiChoice, difficulty: gameInfo.difficulty, regionMode: gameInfo.regionMode, region: gameInfo.region).multiChoiceOptions

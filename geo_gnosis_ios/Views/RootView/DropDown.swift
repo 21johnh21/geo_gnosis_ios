@@ -11,7 +11,7 @@ struct DropDown: View {
     @EnvironmentObject var gameInfo: GameInfo
     @State var countrySelection: String = ""
     let screenWidth = UIScreen.main.bounds.size.width
-    let countries = ["United States", "United Kingdom", "Mexico", "Canada"]
+    let countries = ["World", "United States", "United Kingdom", "Mexico", "Canada"]
     
     var body: some View {
         //TODO: Make a Countries Data File to fill the Drop Down
