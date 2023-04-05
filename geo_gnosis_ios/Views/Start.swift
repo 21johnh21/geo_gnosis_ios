@@ -12,12 +12,17 @@ struct Start: View {
     
     @State var showSetUp: Bool
     
-    @State var round: Int = 0 
+    @AppStorage("lastMultiChoice") var lastMultiChoice: Bool = true
+    @AppStorage("lastRegionMode") var lastRegionMode: String = Const.modeRegCountryText
+    @AppStorage("lastRegion") var lastRegion: String = Const.modeRegCountryText
+    @AppStorage("lastDifficulty") var lastDifficulty: String = Const.modeDiffEasyText
+    
     @EnvironmentObject private var coordinator: Coordinator
     @EnvironmentObject var roundInfo: RoundInfo
     @EnvironmentObject var gameInfo: GameInfo
     @EnvironmentObject var timerGlobal: TimerGlobal
     
+    @State var round: Int = 0
     @State var multiChoice = Const.modeMultiChoiceText
     @State var difficulty = Const.modeDiffEasyText
     @State var regionMode = Const.modeRegCountryText
@@ -66,6 +71,9 @@ struct Start: View {
             .background(alignment: .center){BackgroundView()}
     }
     func StartGame(){
+        
+        GetSetUpData()
+        
         timerGlobal.timerGlobal = Const.maxRoundScoreValue
         if(gameInfo.multiChoice){ //if multiple choice get the multi choice options
             roundInfo.multiChoiceOptions = RoundData(multiChoice: gameInfo.multiChoice, difficulty: gameInfo.difficulty, regionMode: gameInfo.regionMode, region: gameInfo.region).multiChoiceOptions
@@ -83,6 +91,16 @@ struct Start: View {
         roundInfo.roundNumbers = [0, 0, 0, 0, 0]
         roundInfo.answers = [false, false, false, false, false]
         coordinator.show(GameMap.self)
+    }
+    func GetSetUpData() {
+        gameInfo.multiChoice = multiChoice == Const.modeMultiChoiceText ? true : false
+        gameInfo.difficulty = difficulty
+        gameInfo.regionMode = regionMode
+
+        lastMultiChoice = gameInfo.multiChoice
+        lastRegionMode = gameInfo.regionMode
+        lastRegion = gameInfo.region
+        lastDifficulty = gameInfo.difficulty
     }
 }
 
