@@ -36,7 +36,8 @@ struct RootView: View {
                     VStack{
                         Text("\(Image(systemName: "play.fill")) Play Again").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
                         let lastMultiChoiceText = lastMultiChoice ? Const.modeMultiChoiceText : Const.modeFillBlankText
-                        Text("\(lastMultiChoiceText) \(Image(systemName: "circle.fill")) \(lastRegionMode) \(Image(systemName: "circle.fill")) \(lastRegion) \(Image(systemName: "circle.fill")) \(lastDifficulty)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                        let lastRegionText = lastRegion == Const.modeRegCountryText ? "World" : lastRegion
+                        Text("\(lastMultiChoiceText) \(Image(systemName: "circle.fill")) \(lastRegionMode) \(Image(systemName: "circle.fill")) \(lastRegionText) \(Image(systemName: "circle.fill")) \(lastDifficulty)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                     }.padding()
                 }.onTapGesture {
                     PlayDefaultFeedback().play()

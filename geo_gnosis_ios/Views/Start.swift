@@ -28,6 +28,7 @@ struct Start: View {
     @State var regionMode = Const.modeRegCountryText
     
     let numberOfRounds = 5
+    @State var isGameInitiated: Bool = false
     
     var body: some View {
         
@@ -64,14 +65,18 @@ struct Start: View {
                 }
                 .padding(.bottom)
                 .onTapGesture {
-                    PlayDefaultFeedback().play()
-                    StartGame()
+                    if(!isGameInitiated){
+                        isGameInitiated = true
+                        PlayDefaultFeedback().play()
+                        StartGame()
+                    }
                 }
             }.frame(maxWidth: .infinity)
             .background(alignment: .center){BackgroundView()}
     }
     func StartGame(){
         
+        //TODO: This is freezing when switching game modes, choose a region, play, change the mode back to world, freeze
         GetSetUpData()
         
         if(gameInfo.region == "World"){
