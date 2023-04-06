@@ -26,6 +26,7 @@ struct Start: View {
     @State var multiChoice = Const.modeMultiChoiceText
     @State var difficulty = Const.modeDiffEasyText
     @State var regionMode = Const.modeRegCountryText
+    @State var region = "World" 
     
     let numberOfRounds = 5
     @State var isGameInitiated: Bool = false
@@ -53,7 +54,7 @@ struct Start: View {
                             .background(RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(maxWidth: .infinity))
                     }
                 }else{
-                    SetUpGame(multiChoice: $multiChoice, difficulty: $difficulty, regionMode: $regionMode)
+                    SetUpGame(multiChoice: $multiChoice, difficulty: $difficulty, regionMode: $regionMode, region: $region)
                 }
 
                 Spacer()
@@ -105,6 +106,7 @@ struct Start: View {
         gameInfo.multiChoice = multiChoice == Const.modeMultiChoiceText ? true : false
         gameInfo.difficulty = difficulty
         gameInfo.regionMode = regionMode
+        gameInfo.region = region
 
         lastMultiChoice = gameInfo.multiChoice
         lastRegionMode = gameInfo.regionMode

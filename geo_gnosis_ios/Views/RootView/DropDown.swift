@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct DropDown: View {
+    
+    @Binding var region: String
+    
     @EnvironmentObject var gameInfo: GameInfo
+    
     @State var countrySelection: String = ""
     let screenWidth = UIScreen.main.bounds.size.width
     let countries = ["World", "United States", "United Kingdom", "Mexico", "Canada"]
@@ -26,9 +30,9 @@ struct DropDown: View {
                         if(countries[index].hasPrefix(countrySelection)){
                             ZStack{
                                 Text(("\(countries[index])")).font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                                    .onTapGesture {
-                                        gameInfo.region=countries[index]
-                                    }
+//                                    .onTapGesture {
+//                                        gameInfo.region=countries[index]
+//                                    }
                                 .frame(maxWidth: .infinity)
                                 .background(){
                                     RoundedRectangle(cornerRadius: 5)
@@ -36,7 +40,8 @@ struct DropDown: View {
                                 }
                             }
                             .onTapGesture {
-                                gameInfo.region=countries[index]
+                                //gameInfo.region=countries[index]
+                                region = countries[index]
                             }
                         }
                     }
@@ -46,8 +51,8 @@ struct DropDown: View {
     }
 }
 
-struct DropDown_Previews: PreviewProvider {
-    static var previews: some View {
-        DropDown()
-    }
-}
+//struct DropDown_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DropDown()
+//    }
+//}

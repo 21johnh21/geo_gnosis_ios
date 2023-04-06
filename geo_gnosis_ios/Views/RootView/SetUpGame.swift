@@ -15,6 +15,7 @@ struct SetUpGame: View {
     var difficulties = [Const.modeDiffEasyText, Const.modeDiffMedText, Const.modeDiffHardText]
     @Binding var regionMode: String
     var regionModes = [Const.modeRegCountryText, Const.modeRegRegionText, Const.modeRegCityText]
+    @Binding var region: String
     
     var body: some View {
         VStack(spacing: 0){
@@ -38,7 +39,7 @@ struct SetUpGame: View {
                 }
             }.pickerStyle(.segmented).colorMultiply(CustomColor.primary).background(CustomColor.trim).cornerRadius(5)
             if(regionMode != Const.modeRegCountryText){
-                DropDown().padding(.top)
+                DropDown(region: $region).padding(.top)
             }
         }.padding()
         .background(){
