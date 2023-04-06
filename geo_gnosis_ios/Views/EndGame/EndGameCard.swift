@@ -20,7 +20,7 @@ struct EndGameCard: View {
         if(answer){
             ZStack{
                 RoundedRectangle(cornerRadius: 25, style: .continuous).fill(CustomColor.primary)
-                VStack{
+                VStack(spacing: 0){
                     HStack{
                         Text("Round: \(roundNumber)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding()
                         if(time != -1){
@@ -29,11 +29,12 @@ struct EndGameCard: View {
                             Text("Score: DNF").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding()
                         }
                     }
-                    HStack{
-                        Text("\(location.city_ascii) \(Image(systemName: "circle.fill")) \(location.admin_name) \(Image(systemName: "circle.fill"))  \(location.country)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                    }
+                        VStack(spacing: 0){
+                            Text("\(location.city_ascii), \(location.admin_name)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                            Text("\(location.country)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                        }
                 }
-            }.frame(height: 100)
+            }.frame(height: 130)
         }
     }
 }
