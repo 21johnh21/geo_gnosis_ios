@@ -88,15 +88,15 @@ struct GameMap: View {
                             }
                         } else{
                             //MARK: MultiChoice -----------------------------------------------------
-                            VStack{
-                                HStack{
+                            VStack(spacing: 0){
+                                HStack(spacing: 0){
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
                                             .shadow(color: .black, radius: 3, x: 2, y: 2)
                                             .rotationEffect(.degrees(vm.animationAmount[0]))
                                             .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: vm.animationAmount[0])
                                         Text("\(vm.options[0])").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                                    }
+                                    }.padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
                                     .onTapGesture {
                                         vm.ValidateAnswerMultiChoice(guessIn: vm.options[0], optionClicked: 0)
                                     }
@@ -109,21 +109,23 @@ struct GameMap: View {
                                             .rotationEffect(.degrees(vm.animationAmount[1]))
                                             .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: vm.animationAmount[1])
                                         Text("\(vm.options[1])").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                                    }.onTapGesture {
+                                    }.padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
+                                    .onTapGesture {
                                         vm.ValidateAnswerMultiChoice(guessIn: vm.options[1], optionClicked: 1)
                                     }
                                     .onChange(of: vm.animate[1]){ newValue in
                                         vm.animationAmount[1] -= 1
                                     }
                                 }
-                                HStack{
+                                HStack(spacing: 0){
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
                                             .shadow(color: .black, radius: 3, x: 2, y: 2)
                                             .rotationEffect(.degrees(vm.animationAmount[2]))
                                             .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: vm.animationAmount[2])
                                         Text("\(vm.options[2])").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                                    }.onTapGesture {
+                                    }.padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
+                                    .onTapGesture {
                                         vm.ValidateAnswerMultiChoice(guessIn: vm.options[2], optionClicked: 2)
                                     }
                                     .onChange(of: vm.animate[2]){ newValue in
@@ -135,7 +137,8 @@ struct GameMap: View {
                                             .rotationEffect(.degrees(vm.animationAmount[3]))
                                             .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: vm.animationAmount[3])
                                         Text("\(vm.options[3])").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                                    }.onTapGesture {
+                                    }.padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
+                                    .onTapGesture {
                                         vm.ValidateAnswerMultiChoice(guessIn: vm.options[3], optionClicked: 3)
                                     }
                                     .onChange(of: vm.animate[3]){ newValue in

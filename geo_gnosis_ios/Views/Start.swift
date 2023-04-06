@@ -31,7 +31,7 @@ struct Start: View {
     
     var body: some View {
         
-            VStack{
+            ScrollView{
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
                     Text("Geo Gnosis").font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg)).padding(.top).padding(.top)
