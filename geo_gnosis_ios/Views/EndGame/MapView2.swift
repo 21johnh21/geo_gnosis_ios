@@ -34,8 +34,8 @@ struct MapView2: View {
                 }
         }.onAppear(){
             if(gameInfo.regionMode == Const.modeRegCountryText){
-                centerLat = roundInfo.locations[1].lat
-                centerLng = roundInfo.locations[1].lng
+                centerLat = roundInfo.locations[0].lat
+                centerLng = roundInfo.locations[0].lng
             }else{
                 findCenterCoordinate()
             }
