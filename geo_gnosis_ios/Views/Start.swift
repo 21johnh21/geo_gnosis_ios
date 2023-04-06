@@ -26,7 +26,7 @@ struct Start: View {
     @State var multiChoice = Const.modeMultiChoiceText
     @State var difficulty = Const.modeDiffEasyText
     @State var regionMode = Const.modeRegCountryText
-    @State var region = "World" 
+    @State var region = "World"
     
     let numberOfRounds = 5
     @State var isGameInitiated: Bool = false
@@ -77,7 +77,6 @@ struct Start: View {
     }
     func StartGame(){
         
-        //TODO: This is freezing when switching game modes, choose a region, play, change the mode back to world, freeze
         GetSetUpData()
         
         if(gameInfo.region == "World"){

@@ -53,7 +53,7 @@ struct LogIn: View {
                 //MARK: Create an Account -------------------------------------------------------
                 CreateAccount()
                 Spacer()
-            }//.background(CustomColor.secondary)
+            }
             .background(alignment: .center){BackgroundView()}
         }
         else {

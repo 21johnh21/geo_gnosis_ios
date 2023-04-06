@@ -30,9 +30,6 @@ struct DropDown: View {
                         if(countries[index].hasPrefix(countrySelection)){
                             ZStack{
                                 Text(("\(countries[index])")).font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-//                                    .onTapGesture {
-//                                        gameInfo.region=countries[index]
-//                                    }
                                 .frame(maxWidth: .infinity)
                                 .background(){
                                     RoundedRectangle(cornerRadius: 5)
@@ -40,7 +37,6 @@ struct DropDown: View {
                                 }
                             }
                             .onTapGesture {
-                                //gameInfo.region=countries[index]
                                 region = countries[index]
                             }
                         }

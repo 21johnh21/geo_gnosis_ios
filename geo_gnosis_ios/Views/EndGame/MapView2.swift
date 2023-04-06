@@ -52,7 +52,7 @@ struct MapView2: View {
         var cartesianX: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
         var cartesianY: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
         var cartesianZ: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
-        //var CoordinateWeight: [Double] = [Double]()
+
         var totalWeight: Int = 5 //one for each coord
         var weightedX: Double = 0
         var weightedY: Double = 0
