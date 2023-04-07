@@ -33,7 +33,7 @@ struct DropDown: View {
                                 .frame(maxWidth: .infinity)
                                 .background(){
                                     RoundedRectangle(cornerRadius: 5)
-                                        .fill(gameInfo.region == countries[index] ? CustomColor.primary : CustomColor.trim).padding(.trailing)
+                                        .fill(region == countries[index] ? CustomColor.primary : CustomColor.trim).padding(.trailing)
                                 }
                             }
                             .onTapGesture {
