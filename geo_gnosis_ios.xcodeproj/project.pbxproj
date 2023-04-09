@@ -74,6 +74,7 @@
 		F899700B29BBF9AF0039C685 /* LoggedIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899700A29BBF9AF0039C685 /* LoggedIn.swift */; };
 		F899700F29BBFC390039C685 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899700E29BBFC390039C685 /* CreateAccount.swift */; };
 		F899701329BCC4C80039C685 /* SetUpGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899701229BCC4C80039C685 /* SetUpGame.swift */; };
+		F89C296A29E3026900F7B77F /* LeaderboardCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89C296929E3026900F7B77F /* LeaderboardCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,7 @@
 		F899700A29BBF9AF0039C685 /* LoggedIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedIn.swift; sourceTree = "<group>"; };
 		F899700E29BBFC390039C685 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
 		F899701229BCC4C80039C685 /* SetUpGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpGame.swift; sourceTree = "<group>"; };
+		F89C296929E3026900F7B77F /* LeaderboardCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 				F82315CF29971AD90026D036 /* LBRegionModeSec.swift */,
 				F82315D129971CDD0026D036 /* LBGameInfoList.swift */,
 				F8996FFD29B821710039C685 /* LBGameInfoListVM.swift */,
+				F89C296929E3026900F7B77F /* LeaderboardCard.swift */,
 				F82315CD299708190026D036 /* LeaderboardHeader.swift */,
 				F8996FF329B6C9100039C685 /* UserHistoryVM.swift */,
 				F8996FF729B6CEFC0039C685 /* UserHistory.swift */,
@@ -553,6 +556,7 @@
 				F83C87AA297F5500008FA89D /* EndGame.swift in Sources */,
 				F8996FCB29A46C5E0039C685 /* DevTestHapticFeedback.swift in Sources */,
 				F876507629CD205800D7CCE6 /* Progress.swift in Sources */,
+				F89C296A29E3026900F7B77F /* LeaderboardCard.swift in Sources */,
 				F87ABBC6298702F8007E2EA3 /* MapView2.swift in Sources */,
 				F87ABBCC2989F79B007E2EA3 /* GameInfo.swift in Sources */,
 				F87ABBDC29932462007E2EA3 /* LeaderBoard.swift in Sources */,

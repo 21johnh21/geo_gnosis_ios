@@ -17,7 +17,7 @@ struct LBGameInfoList: View {
     var body: some View {
         VStack{
             ForEach(viewModel.lbData) { lbData in
-                UserHistoryCard(lbData: lbData)
+                LeaderboardCard(lbData: lbData)
             }
         }.onAppear(){
             self.viewModel.SetFields(fieldDiff: gameDiff, fieldRegMode: gameMode, fieldMultiChoice: multiChoice)
