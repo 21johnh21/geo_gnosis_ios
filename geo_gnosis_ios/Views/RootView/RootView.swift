@@ -19,7 +19,7 @@ struct RootView: View {
     
     @EnvironmentObject var gameInfo: GameInfo
     @StateObject private var coordinator = Coordinator()
-    @State var showSetUp: Bool = false
+    @EnvironmentObject var timerGlobal: TimerGlobal
     
     var body: some View {
         NavigationStack(path: $coordinator.path) {
@@ -45,7 +45,7 @@ struct RootView: View {
                     gameInfo.regionMode = lastRegionMode
                     gameInfo.region = lastRegion
                     gameInfo.difficulty = lastDifficulty
-                    showSetUp = false
+                    timerGlobal.showSetUp = false
                     coordinator.show(Start.self)
                 }
                 //MARK: Set Up Game ----------------------------
@@ -55,7 +55,7 @@ struct RootView: View {
                         Text("\(Image(systemName: "gear")) Set Up Game").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
                     }.padding()
                 }.onTapGesture {
-                    showSetUp = true
+                    timerGlobal.showSetUp = true
                     coordinator.show(Start.self)
                 }
                 //MARK: Other buttons ------------------------------------------
@@ -121,7 +121,7 @@ struct RootView: View {
             }
             .navigationDestination(for: String.self) { id in
                 if id == String(describing: Start.self) {
-                    Start(showSetUp: showSetUp)
+                    Start()
                 } else if id == String(describing: GameMap.self) {
                     GameMap()
                 }

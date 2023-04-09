@@ -22,6 +22,7 @@ struct EndGame: View {
     @EnvironmentObject var roundInfo : RoundInfo
     @EnvironmentObject var gameInfo: GameInfo
     @EnvironmentObject var audioPlayer: AudioPlayer
+    @EnvironmentObject var timerGlobal: TimerGlobal
     
     @State var finalScore: Int = 0
     
@@ -49,6 +50,7 @@ struct EndGame: View {
                         .shadow(color: .black, radius: 3, x: 2, y: 2)
                     Text("Play Again").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                 }.onTapGesture {
+                    timerGlobal.showSetUp = false
                     PlayDefaultFeedback().play()
                     coordinator.show(Start.self)
                 }

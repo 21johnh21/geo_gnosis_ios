@@ -10,4 +10,5 @@ import Foundation
 class TimerGlobal: ObservableObject {
     @Published var timerGlobal = Const.maxRoundScoreValue
     @Published var penalty = false
+    @Published var showSetUp = false
 }

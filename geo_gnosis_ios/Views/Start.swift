@@ -10,8 +10,6 @@ import AVFAudio
 
 struct Start: View {
     
-    @State var showSetUp = false
-    
     @AppStorage("lastMultiChoice") var lastMultiChoice: Bool = true
     @AppStorage("lastRegionMode") var lastRegionMode: String = Const.modeRegCountryText
     @AppStorage("lastRegion") var lastRegion: String = Const.modeRegCountryText
@@ -38,7 +36,7 @@ struct Start: View {
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
                     Text("Geo Gnosis").font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg)).padding(.top).padding(.top)
                 }
-                if(!showSetUp){
+                if(!timerGlobal.showSetUp){
                     Image(Const.picLogo).resizable().frame(width: 255, height: 255).clipShape(Circle()).padding()
                     ZStack{
                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
@@ -103,7 +101,7 @@ struct Start: View {
     }
     func GetSetUpData() {
         
-        if(showSetUp){
+        if(timerGlobal.showSetUp){
             gameInfo.multiChoice = multiChoice == Const.modeMultiChoiceText ? true : false
             gameInfo.difficulty = difficulty
             gameInfo.regionMode = regionMode
