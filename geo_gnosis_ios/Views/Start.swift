@@ -10,7 +10,7 @@ import AVFAudio
 
 struct Start: View {
     
-    @State var showSetUp: Bool
+    @State var showSetUp = false
     
     @AppStorage("lastMultiChoice") var lastMultiChoice: Bool = true
     @AppStorage("lastRegionMode") var lastRegionMode: String = Const.modeRegCountryText
@@ -102,15 +102,23 @@ struct Start: View {
         coordinator.show(GameMap.self)
     }
     func GetSetUpData() {
-        gameInfo.multiChoice = multiChoice == Const.modeMultiChoiceText ? true : false
-        gameInfo.difficulty = difficulty
-        gameInfo.regionMode = regionMode
-        gameInfo.region = region
-
-        lastMultiChoice = gameInfo.multiChoice
-        lastRegionMode = gameInfo.regionMode
-        lastRegion = gameInfo.region
-        lastDifficulty = gameInfo.difficulty
+        
+        if(showSetUp){
+            gameInfo.multiChoice = multiChoice == Const.modeMultiChoiceText ? true : false
+            gameInfo.difficulty = difficulty
+            gameInfo.regionMode = regionMode
+            gameInfo.region = region
+            
+            lastMultiChoice = gameInfo.multiChoice
+            lastRegionMode = gameInfo.regionMode
+            lastRegion = gameInfo.region
+            lastDifficulty = gameInfo.difficulty
+        }else{
+            gameInfo.multiChoice = lastMultiChoice
+            gameInfo.difficulty = lastDifficulty
+            gameInfo.regionMode = lastRegionMode
+            gameInfo.region = lastRegion
+        }
     }
 }
 
