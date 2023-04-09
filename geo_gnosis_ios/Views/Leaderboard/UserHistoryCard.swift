@@ -13,18 +13,23 @@ struct UserHistoryCard: View {
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 25, style: .continuous).fill(CustomColor.primary)
-            VStack{
-                HStack{
+            HStack(spacing: 0){
+                VStack(alignment: .leading, spacing: 0){
+                    StdText(textIn: lbData.userName)
+                    StdText(textIn: "Final Score: \(lbData.finalScore)")
                     
-                    Text("\(lbData.userName)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding()
-                    Text("Final Score: \(lbData.finalScore)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding()
-                }
-                HStack{
-                    Text("\(GetGameMode()) \(Image(systemName: "circle.fill")) \(lbData.regionMode) \(Image(systemName: "circle.fill")) \(lbData.region) \(Image(systemName: "circle.fill")) \(lbData.difficulty)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                }
+                }.padding(.leading)
+                Spacer()
+                VStack(alignment: .leading, spacing: 0){
+                    StdText(textIn: "Game Mode: \(GetGameMode())")
+                    StdText(textIn: "Difficulty: \(lbData.difficulty)")
+                    StdText(textIn: "Region Mode: \(lbData.regionMode)")
+                    StdText(textIn: "Region: \(lbData.region)")
+                }.padding(.trailing)
             }
-        }.frame(height: 100)
+        }.frame(height: 130)
     }
+        
     func GetGameMode() -> String{
         if(lbData.multiChoice){
             return Const.modeMultiChoiceText
