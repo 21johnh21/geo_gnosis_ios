@@ -50,7 +50,6 @@
 		F8947BD5299B10280030BFCA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F8947BD4299B10280030BFCA /* FirebaseAnalytics */; };
 		F8947BD7299B10280030BFCA /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F8947BD6299B10280030BFCA /* FirebaseAnalyticsSwift */; };
 		F8947BD9299B13A40030BFCA /* LeaderboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8947BD8299B13A40030BFCA /* LeaderboardInfo.swift */; };
-		F8996FCB29A46C5E0039C685 /* DevTestHapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FCA29A46C5E0039C685 /* DevTestHapticFeedback.swift */; };
 		F8996FCF29A598170039C685 /* action-sound-effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8996FCE29A598170039C685 /* action-sound-effect.mp3 */; };
 		F8996FD129A59B940039C685 /* Ding-sound-effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8996FD029A59B940039C685 /* Ding-sound-effect.mp3 */; };
 		F8996FD329A59BA50039C685 /* button-click-sound-effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8996FD229A59BA50039C685 /* button-click-sound-effect.mp3 */; };
@@ -139,7 +138,6 @@
 		F87ABBDB29932462007E2EA3 /* LeaderBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoard.swift; sourceTree = "<group>"; };
 		F87ABBDD29932D3F007E2EA3 /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 		F8947BD8299B13A40030BFCA /* LeaderboardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardInfo.swift; sourceTree = "<group>"; };
-		F8996FCA29A46C5E0039C685 /* DevTestHapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevTestHapticFeedback.swift; sourceTree = "<group>"; };
 		F8996FCE29A598170039C685 /* action-sound-effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "action-sound-effect.mp3"; sourceTree = "<group>"; };
 		F8996FD029A59B940039C685 /* Ding-sound-effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ding-sound-effect.mp3"; sourceTree = "<group>"; };
 		F8996FD229A59BA50039C685 /* button-click-sound-effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "button-click-sound-effect.mp3"; sourceTree = "<group>"; };
@@ -333,7 +331,6 @@
 				F82315DB299724060026D036 /* RootView */,
 				F82315DA299723EA0026D036 /* Settings */,
 				F82315D9299723D50026D036 /* Leaderboard */,
-				F8996FCA29A46C5E0039C685 /* DevTestHapticFeedback.swift */,
 				F84E7CA529C5FA7B00F60C34 /* ViewAssets.swift */,
 				F87ABBAF29820DD6007E2EA3 /* Coordinator.swift */,
 			);
@@ -554,7 +551,6 @@
 				F8996FEE29B3E8B80039C685 /* SecureInputView.swift in Sources */,
 				F876507E29D5183300D7CCE6 /* Penalty.swift in Sources */,
 				F83C87AA297F5500008FA89D /* EndGame.swift in Sources */,
-				F8996FCB29A46C5E0039C685 /* DevTestHapticFeedback.swift in Sources */,
 				F876507629CD205800D7CCE6 /* Progress.swift in Sources */,
 				F89C296A29E3026900F7B77F /* LeaderboardCard.swift in Sources */,
 				F87ABBC6298702F8007E2EA3 /* MapView2.swift in Sources */,

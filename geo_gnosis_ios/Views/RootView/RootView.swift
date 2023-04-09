@@ -7,8 +7,6 @@
 
 import Foundation
 import SwiftUI
-import FirebaseFirestore //remove after test
-import FirebaseFirestoreSwift //remove after test
 
 struct RootView: View {
     
@@ -78,48 +76,6 @@ struct RootView: View {
                         coordinator.show(LeaderBoard.self)
                     }
                 }
-                
-                if(false){
-                
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
-                        Text("DEV - Test Haptic")
-                    }.onTapGesture {
-                        PlayDefaultFeedback().play()
-                        coordinator.show(DevTestHapticFeedback.self)
-                    }
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
-                        Text("DEV - Test DB")
-                    }.onTapGesture {
-                        //test data
-                        let userName = "DEV_JH"
-                        let finalScore = 100
-                        let multiChoice = true
-                        let regionMode = Const.modeRegCountryText
-                        let difficulty = Const.modeDiffEasyText
-                        let region = Const.modeRegCountryText
-                        let times = [10, 50, 20, 15, 5]
-                        let city_ascii = ["NY", "NY", "NY", "NY", "NY"]
-                        let lat = [50.12345, 50.0, 50.0, 50.0, 50.0]
-                        let lng = [90.0, 90.0, 90.0, 90.0, 90.0]
-                        let country = ["US", "US", "US", "US", "US"]
-                        let admin_name = ["NY", "NY", "NY", "NY", "NY"]
-                        let capital = ["No", "No", "No", "No", "No"]
-                        let population = [1000000, 1000000, 1000000, 1000000, 1000000]
-                        
-                        //End test data
-                        
-                        let lbInfo = LBInfo(userName: userName, finalScore: finalScore, dateTime: GetFormattedDate(), multiChoice: multiChoice, regionMode: regionMode, difficulty: difficulty, region: region, times: times, city_ascii: city_ascii, lat: lat, lng: lng, country: country, admin_name: admin_name, capital: capital, population: population)
-                        
-                        let db = Firestore.firestore()
-                        do {
-                            try db.collection(Const.dbScoreCollection).document(UUID().uuidString).setData(from: lbInfo)
-                        } catch let error {
-                            print("Error writing city to Firestore: \(error)")
-                        }
-                    }
-                }
             }
             .navigationDestination(for: String.self) { id in
                 if id == String(describing: Start.self) {
@@ -139,9 +95,6 @@ struct RootView: View {
                 else if id == String(describing: LogIn.self){
                     LogIn()
                 }
-                else if id == String(describing: DevTestHapticFeedback.self){
-                    DevTestHapticFeedback()
-                }
             }
             .background(alignment: .center){BackgroundView()}
         }
@@ -153,14 +106,5 @@ struct RootView: View {
         }else{
             return true
         }
-    }
-    func GetFormattedDate() -> String{
-        let date = Date()
-
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
-
-        let dateString = formatter.string(from: date)
-        return dateString
     }
 }
