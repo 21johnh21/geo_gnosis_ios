@@ -20,19 +20,21 @@ struct EndGameCard: View {
         if(answer){
             ZStack{
                 RoundedRectangle(cornerRadius: 25, style: .continuous).fill(CustomColor.primary)
-                VStack(spacing: 0){
-                    HStack{
-                        Text("Round: \(roundNumber)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding()
+                HStack(spacing: 0){
+                    VStack(alignment: .leading, spacing: 0){
+                        StdText(textIn: "Round: \(roundNumber)")
                         if(time != -1){
-                            Text("Score: \(time)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding()
+                            StdText(textIn: "Score: \(time)")
                         }else{
-                            Text("Score: DNF").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding()
+                            StdText(textIn: "Score: DNF")
                         }
-                    }
-                        VStack(spacing: 0){
-                            Text("\(location.city_ascii), \(location.admin_name)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                            Text("\(location.country)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                        }
+                    }.padding(.leading)
+                    Spacer()
+                    VStack(alignment: .leading, spacing: 0){
+                        StdText(textIn: "City: \(location.city_ascii)")
+                        StdText(textIn: "District: \(location.admin_name)")
+                        StdText(textIn: "Country: \(location.country)")
+                    }.padding(.trailing)
                 }
             }.frame(height: 130)
         }

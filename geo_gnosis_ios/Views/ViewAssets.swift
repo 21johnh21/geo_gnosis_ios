@@ -24,6 +24,14 @@ struct PlayDefaultFeedback {
     }
 }
 
+struct StdText: View {
+    @State var textIn: String
+    var body: some View {
+        //@State var textIn: String
+        Text(textIn).font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+    }
+}
+
 struct ViewAssets_Previews: PreviewProvider {
     static var previews: some View {
         BackgroundView()
