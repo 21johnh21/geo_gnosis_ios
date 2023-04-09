@@ -31,6 +31,8 @@ struct MapView: View, Equatable{
                 }
         }
         .onAppear {
+           //TODO: import MapKit.MKMapCameraZoomRange //this looks interesting
+            //mkMap type = .satletite to change
             setRegion(coordinate)
             penaltyDistance = Const.PenaltyDistance
         }

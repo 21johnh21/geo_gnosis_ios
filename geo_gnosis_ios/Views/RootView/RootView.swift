@@ -13,9 +13,9 @@ import FirebaseFirestoreSwift //remove after test
 struct RootView: View {
     
     @AppStorage("lastMultiChoice") var lastMultiChoice: Bool = true
-    @AppStorage("lastRegionMode") var lastRegionMode: String = Const.modeRegCountryText
-    @AppStorage("lastRegion") var lastRegion: String = Const.modeRegCountryText
-    @AppStorage("lastDifficulty") var lastDifficulty: String = Const.modeDiffEasyText
+    @AppStorage("lastRegionMode") var lastRegionMode: String = ""
+    @AppStorage("lastRegion") var lastRegion: String = ""
+    @AppStorage("lastDifficulty") var lastDifficulty: String = ""
     
     @EnvironmentObject var gameInfo: GameInfo
     @StateObject private var coordinator = Coordinator()
@@ -30,23 +30,25 @@ struct RootView: View {
                 }
                 Image(Const.picLogo).resizable().frame(width: 255, height: 255).clipShape(Circle()).padding()
                 //MARK: Play Again Button ---------------------------------
-                ZStack{
-                    RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
-                        .shadow(color: .black, radius: 3, x: 2, y: 2)
-                    VStack{
-                        Text("\(Image(systemName: "play.fill")) Play Again").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
-                        let lastMultiChoiceText = lastMultiChoice ? Const.modeMultiChoiceText : Const.modeFillBlankText
-                        let lastRegionText = lastRegion == Const.modeRegCountryText ? "World" : lastRegion
-                        Text("\(lastMultiChoiceText) \(Image(systemName: "circle.fill")) \(lastRegionMode) \(Image(systemName: "circle.fill")) \(lastRegionText) \(Image(systemName: "circle.fill")) \(lastDifficulty)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                    }.padding()
-                }.onTapGesture {
-                    PlayDefaultFeedback().play()
-                    gameInfo.multiChoice = lastMultiChoice
-                    gameInfo.regionMode = lastRegionMode
-                    gameInfo.region = lastRegion
-                    gameInfo.difficulty = lastDifficulty
-                    timerGlobal.showSetUp = false
-                    coordinator.show(Start.self)
+                if(IsStorageSet()){
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
+                            .shadow(color: .black, radius: 3, x: 2, y: 2)
+                        VStack{
+                            Text("\(Image(systemName: "play.fill")) Play Again").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
+                            let lastMultiChoiceText = lastMultiChoice ? Const.modeMultiChoiceText : Const.modeFillBlankText
+                            let lastRegionText = lastRegion == Const.modeRegCountryText ? "World" : lastRegion
+                            Text("\(lastMultiChoiceText) \(Image(systemName: "circle.fill")) \(lastRegionMode) \(Image(systemName: "circle.fill")) \(lastRegionText) \(Image(systemName: "circle.fill")) \(lastDifficulty)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                        }.padding()
+                    }.onTapGesture {
+                        PlayDefaultFeedback().play()
+                        gameInfo.multiChoice = lastMultiChoice
+                        gameInfo.regionMode = lastRegionMode
+                        gameInfo.region = lastRegion
+                        gameInfo.difficulty = lastDifficulty
+                        timerGlobal.showSetUp = false
+                        coordinator.show(Start.self)
+                    }
                 }
                 //MARK: Set Up Game ----------------------------
                 ZStack{
@@ -144,6 +146,13 @@ struct RootView: View {
             .background(alignment: .center){BackgroundView()}
         }
         .environmentObject(coordinator)
+    }
+    func IsStorageSet() -> Bool{
+        if(lastRegionMode == "" || lastRegion == "" || lastDifficulty == ""){
+            return false
+        }else{
+            return true
+        }
     }
     func GetFormattedDate() -> String{
         let date = Date()
