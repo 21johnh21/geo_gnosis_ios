@@ -80,6 +80,9 @@ struct Start: View {
         if(gameInfo.region == "World"){
             gameInfo.region = Const.modeRegCountryText
         }
+        if(gameInfo.regionMode == Const.modeRegCountryText){
+            gameInfo.region = Const.modeRegCountryText
+        }
         
         timerGlobal.timerGlobal = Const.maxRoundScoreValue
         if(gameInfo.multiChoice){ //if multiple choice get the multi choice options

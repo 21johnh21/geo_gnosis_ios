@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>LSMinimumSystemVersion</key>
+	<string>13.3</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Changa-Light.ttf</string>
+		<string>BebasNeue-Regular.ttf</string>
+	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<true/>
+		<key>UISceneConfigurations</key>
+		<dict/>
+	</dict>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>colorSecond</string>
+		<key>UIImageName</key>
+		<string>logo-launch</string>
+	</dict>
+</dict>
+</plist>

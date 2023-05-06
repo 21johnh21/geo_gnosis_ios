@@ -20,7 +20,7 @@ struct DropDown: View {
     var body: some View {
         //TODO: Make a Countries Data File to fill the Drop Down
         VStack(alignment: .leading){
-            TextField("Choose a Region", text: $countrySelection).font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).background(CustomColor.trim)
+            TextField("Choose a Region", text: $countrySelection).font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).background(CustomColor.trim2)
             
             ZStack {
                 RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
@@ -33,7 +33,7 @@ struct DropDown: View {
                                 .frame(maxWidth: .infinity)
                                 .background(){
                                     RoundedRectangle(cornerRadius: 5)
-                                        .fill(region == countries[index] ? CustomColor.primary : CustomColor.trim).padding(.trailing)
+                                        .fill(region == countries[index] ? CustomColor.primary : CustomColor.trim2).padding(.trailing)
                                 }
                             }
                             .onTapGesture {

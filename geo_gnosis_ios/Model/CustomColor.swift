@@ -13,4 +13,5 @@ struct CustomColor{
     static let secondary = Color("colorSecond")
     static let trim = Color("colorTrim")
     static let backgrad1 = Color("colorBack")
+    static let trim2 = Color("colorTrim2")
 }
