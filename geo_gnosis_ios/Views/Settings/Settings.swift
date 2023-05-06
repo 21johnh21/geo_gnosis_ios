@@ -65,32 +65,16 @@ struct Settings: View {
 //                        }
                         Divider()
                         VStack{
-                            Text("Questions, Comments, Concerns?")
-                            Text("Please reaach out to me with any issues you have with the app. I'd also love to hear about any ways the app could be improved. Thanks for playing!")
-                            HStack{
-                                ZStack{
-                                    RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: 150, height: 30)
-                                    Text("Contact Dev").padding(.leading)
-                                }.padding(.leading)
-                                    .onTapGesture {
-                                        PlayDefaultFeedback().play()
-                                        if let url = URL(string: "mailto:\(Const.email)") {
-                                            UIApplication.shared.open(url)
-                                        }
-                                    }
-                                Spacer()
-                            }
-                        }
-                        HStack{
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: 150, height: 30)
-                                Text("Privacy Policy").padding(.leading)
-                            }.padding(.leading)
+                            Text("Application Support")
+                                .background(RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: 215, height: 30))
+                                .padding()
                                 .onTapGesture {
-                                    PlayDefaultFeedback().play()
-                                    showPrivacyPolicy.toggle()
+                                    let SupportURL = "https://sites.google.com/view/geognosis/home"
+                                    
+                                    if let url = URL(string: SupportURL) {
+                                        UIApplication.shared.open(url)
+                                    }
                                 }
-                            Spacer()
                         }
                     }.padding().background(){
                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
