@@ -13,20 +13,7 @@ public class LocationData{
     var region: String
     
     var numOfRounds = 5
-    var locationsRaw = [Location]()
-    var locationsByDif = [Location]()
     var locationsByRegion = [Location]()
-    
-    let difEasyPop: Int = 1000000 //1
-    let difMedPop: Int = 500000 //2
-    let difHardPop: Int = 0 //3
-    
-    let regionUSA: String = "United States"
-    let regionCanada: String = "Canada"
-    let regionMexico: String = "Mexico"
-    let regionUK: String = "United Kingdom"
-    
-    var multiChoiceOptions: [[String]] = [[String]]()
     
     init(difficulty: String, regionMode: String, region: String){
         self.difficulty = difficulty
@@ -42,45 +29,50 @@ public class LocationData{
                 let data = try Data(contentsOf: fileLocation) //try to get data from filelocation
                 let jsonDecoder = JSONDecoder() // create a json decoder
                 let jsonData = try jsonDecoder.decode([Location].self, from: data) //create array of objects from daata
-                locationsRaw = jsonData
-                
-                //filter locations based on difficulty
-                switch(difficulty){
-                case(Const.modeDiffEasyText):
-                    for i in 0...locationsRaw.count-1{
-                        if(locationsRaw[i].population >= difEasyPop){
-                            locationsByDif.append(locationsRaw[i])
-                        }
-                    }
-                case(Const.modeDiffMedText):
-                    for i in 0...locationsRaw.count-1{
-                        if(locationsRaw[i].population >= difMedPop){
-                            locationsByDif.append(locationsRaw[i])
-                        }
-                    }
-                default: //Hard
-                    locationsByDif = locationsRaw
-                }
-                
-                
-                //filter locations based on region
-                if(region != Const.modeRegCountryText){
-                    FilterByRegion()
-                }else{
-                    locationsByRegion = locationsByDif
-                }
+                locationsByRegion = filterLocations(locations: jsonData)
             }
             catch{
-                print(error)
+                print("Error: error decoding json")
             }
         }
     }
     
-    func FilterByRegion(){
-        for i in 0...locationsByDif.count-1{
-            if(locationsByDif[i].country ==  region){
-                locationsByRegion.append(locationsByDif[i])
+    func filterLocations(locations: [Location]) ->[Location]{
+        var filteredLocations = FilterByDiff(locations: FilterByCountry(locations: locations))
+        if(filteredLocations.count > 4){
+            print("succesfuly returned \(filteredLocations.count) locations") //TODO: Delete
+            return FilterByDiff(locations: FilterByCountry(locations: locations))
+        }else{
+            let error = "Error: error filtering locations only \(filteredLocations.count) returned for Game Settings - Diff: \(difficulty), Reg Mode: \(regionMode), Region: \(region)"
+            print(error)
+            return locations
+        }
+    }
+    func FilterByCountry(locations: [Location]) ->[Location]{
+        var filteredLocations = [Location]()
+        if(region == Const.modeRegCountryText){
+            return locations
+        }
+        
+        for i in 0...locations.count-1{
+            if(locations[i].country ==  region){
+                filteredLocations.append(locations[i])
             }
         }
+        return filteredLocations
+    }
+    func FilterByDiff(locations: [Location]) ->[Location]{
+        if(difficulty == Const.modeDiffHardText){
+            return locations
+        }
+        
+        var sortedLocations = [Location]()
+        sortedLocations = SortByPop(locations, population: \.population)
+        var percentOfLocationsToUse: Double = (difficulty == Const.modeDiffEasyText) ? 0.2 : 0.5
+        var numberOfLocationsToUse: Int = Int(Double(locations.count) * percentOfLocationsToUse)
+        return Array(sortedLocations.prefix(numberOfLocationsToUse))
+    }
+    func SortByPop(_ locations: [Location], population: KeyPath<Location, Int>) -> [Location] {
+        return locations.sorted { $0[keyPath: population] > $1[keyPath: population] }
     }
 }
