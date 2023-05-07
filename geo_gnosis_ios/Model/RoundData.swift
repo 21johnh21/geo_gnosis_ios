@@ -31,8 +31,6 @@ public class RoundData{
 
     func load(){
         
-        //TODO: this filtering should be refactored
-        
         locationsByRegion=LocationData(difficulty: difficulty, regionMode: regionMode, region: region).locationsByRegion
         
         //choose 5 locations out of those availible

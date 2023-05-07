@@ -19,7 +19,6 @@ struct SetUpGame: View {
     
     var body: some View {
         VStack(spacing: 0){
-            //TODO: Improve this UI
             Text("Game Mode:").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
             Picker("Choose a Mode:", selection: $multiChoice){
                 ForEach(multiChoiceModes, id: \.self){

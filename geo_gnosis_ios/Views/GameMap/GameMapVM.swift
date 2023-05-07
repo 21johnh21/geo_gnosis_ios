@@ -10,8 +10,6 @@ import CoreLocation
 import AVFAudio
 import UIKit
 
-
-
 extension GameMap{
     @MainActor class GameMapVM: ObservableObject{
         

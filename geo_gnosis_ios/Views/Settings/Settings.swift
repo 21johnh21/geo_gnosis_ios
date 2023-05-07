@@ -49,9 +49,7 @@ struct Settings: View {
                         Text("Volume \(String(format: "%.0f", volume))")
                         Divider()
                         Toggle("Vibration On", isOn: $vibOn).padding(.leading)
-                        //Toggle("Satelite Map Mode", isOn: $sateliteMapOn).padding(.leading) //TODO:
                         Toggle("Post Scores on leaderboard", isOn: $postScores).padding(.leading)
-                        //Toggle("Dark Mode", isOn: $darkMode).padding(.leading) //TODO:
                         //TODO: tutorial
 //                        HStack {
 //                            ZStack{
