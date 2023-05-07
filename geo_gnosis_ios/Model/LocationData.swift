@@ -69,6 +69,7 @@ public class LocationData{
         var sortedLocations = [Location]()
         sortedLocations = SortByPop(locations, population: \.population)
         var percentOfLocationsToUse: Double = (difficulty == Const.modeDiffEasyText) ? 0.2 : 0.5
+        //TODO: more logic should be added to this, 20% in the USA is a lot different from 20% in guatemala, should also consider if smaller countries actually have enough locations to return this percentage. Do some math to determine what the percentage should be. actually for the USA 20% seems really high I still end up with a lot of obscure suburbs and smaller towns 
         var numberOfLocationsToUse: Int = Int(Double(locations.count) * percentOfLocationsToUse)
         return Array(sortedLocations.prefix(numberOfLocationsToUse))
     }

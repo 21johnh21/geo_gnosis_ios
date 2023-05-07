@@ -58,13 +58,9 @@ extension GameMap{
         }
         func ValidateAnswer (guessIn: String) {
             showPenalty = false
-            var answer: String
-            answer = GetCorrectAnswer()
             
-            if((guessIn.trimmingCharacters(in: .whitespaces).lowercased()
-               == answer.lowercased())
-               || (AlternativeName(country: answer).contains(guessIn))){
-                //TODO: somehow allow like 2 - 3 charachters mispelling
+//           //TODO: somehow allow like 2 - 3 charachters mispelling
+            if(CorrectGuess(guessIn: guessIn, answer: GetCorrectAnswer())){
                 
                 if(roundInfo.roundNumber == 4){
                     CorrectGuess()
@@ -103,14 +99,57 @@ extension GameMap{
             case("Congo (Kinshasa)"):
                 countryNames.append("Congo")
                 countryNames.append("DRC")
-                
-            //... CAR, other congo, macedonia, czechia?, ivory coast, east timor, palestine/isreal?
-            // cape verde, bosnia, caribean snts, turkey, taiwan?, new guinea, ...
+            case("Congo (Brazzaville)"):
+                countryNames.append("Congo")
+            case("Central African Republic"):
+                countryNames.append("CAR")
+            case("Macedonia"):
+                countryNames.append("North Macedonia")
+                countryNames.append("Northern Macedonia")
+                countryNames.append("FYROM")
+                countryNames.append("Former Yugoslav Republic of Macedonia")
+            case("Czechia"):
+                countryNames.append("Czech Republic")
+            case("CÃ´te d'Ivoire"):
+                countryNames.append("Ivory Coast")
+                countryNames.append("Côte d'Ivoire")
+                countryNames.append("Cote d Ivoire")
+            case("Timor-Leste"):
+                countryNames.append("East Timor")
+                countryNames.append("Timor Leste")
+            case("Cabo Verde"):
+                countryNames.append("Cape Verde")
+            case("Bosnia And Herzegovina"):
+                countryNames.append("Bosnia")
+            case("Turkey"):
+                countryNames.append("Türkiye")
+            case("Papua New Guinea"):
+                countryNames.append("PNG")
+            case("Federated States of Micronesia"):
+                countryNames.append("Micronesia")
+            case("Myanmar"):
+                countryNames.append("Burma")
+            
+            //palestine/isreal?
+            // caribean snts, taiwan?, ...
                 
             default:
                 break
             }
             return countryNames
+        }
+        func CorrectGuess(guessIn: String, answer: String) -> Bool{
+            if(guessIn.trimmingCharacters(in: .whitespaces).lowercased()
+               == answer.lowercased()){
+                return true
+            }
+            
+            if(AlternativeName(country: answer).contains(guessIn)){
+                return true
+            }
+            
+          return false
+            
         }
         func ValidateAnswerMultiChoice(guessIn: String, optionClicked: Int){
             showPenalty = false

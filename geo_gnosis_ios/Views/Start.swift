@@ -25,9 +25,9 @@ struct Start: View {
     @State var difficulty = Const.modeDiffEasyText
     @State var regionMode = Const.modeRegCountryText
     @State var region = "World"
+    @State var isGameInitiated: Bool = false
     
     let numberOfRounds = 5
-    @State var isGameInitiated: Bool = false
     
     var body: some View {
         
@@ -122,9 +122,3 @@ struct Start: View {
         }
     }
 }
-
-//struct start_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Start(showSetUp: Const.Bool)
-//    }
-//}
