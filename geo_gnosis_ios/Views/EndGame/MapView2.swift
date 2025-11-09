@@ -32,7 +32,8 @@ struct MapView2: View {
                             }
                         }
                 }
-        }.onAppear(){
+        }
+        .onAppear(){
             if(gameInfo.regionMode == Const.modeRegCountryText){
                 centerLat = roundInfo.locations[0].lat
                 centerLng = roundInfo.locations[0].lng
@@ -41,6 +42,18 @@ struct MapView2: View {
             }
             mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: centerLat, longitude: centerLng), span: MKCoordinateSpan(latitudeDelta: 15, longitudeDelta: 15))
             print("End Game \(centerLat), \(centerLng)")
+        }
+        .onChange(of: centerLat) { newLat in
+            // Animate to new location when centerLat changes
+            withAnimation {
+                mapRegion.center = CLLocationCoordinate2D(latitude: newLat, longitude: centerLng)
+            }
+        }
+        .onChange(of: centerLng) { newLng in
+            // Animate to new location when centerLng changes
+            withAnimation {
+                mapRegion.center = CLLocationCoordinate2D(latitude: centerLat, longitude: newLng)
+            }
         }
     }
     func findCenterCoordinate(){

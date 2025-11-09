@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct EndGameCard: View {
-    
+
     var location: Location
     var roundNumber: Int
     var time: Int
     var answer: Bool
-    
-    //TODO: Jump to the corresponding location on map when a card is clicked
-    
+
     var body: some View {
         if(answer){
             ZStack{

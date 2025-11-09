@@ -58,6 +58,12 @@ struct EndGame: View {
             ScrollView{
                 ForEach(roundInfo.roundNumbers.indices) { index in
                     EndGameCard(location: roundInfo.locations[index], roundNumber: roundInfo.roundNumbers[index], time: roundInfo.times[index], answer: roundInfo.answers[index])
+                        .onTapGesture {
+                            // Center map on the tapped location
+                            centerLat = roundInfo.locations[index].lat
+                            centerLng = roundInfo.locations[index].lng
+                            PlayDefaultFeedback().play()
+                        }
                 }
             }
         }.navigationBarBackButtonHidden(true)
