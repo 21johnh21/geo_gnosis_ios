@@ -108,7 +108,7 @@ extension GameMap{
                 countryNames.append("Former Yugoslav Republic of Macedonia")
             case("Czechia"):
                 countryNames.append("Czech Republic")
-            case("CÃ´te d'Ivoire"):
+            case("Côte d'Ivoire"):
                 countryNames.append("Ivory Coast")
                 countryNames.append("Côte d'Ivoire")
                 countryNames.append("Cote d Ivoire")
