@@ -42,7 +42,7 @@ public class RoundData{
             return
         }
 
-        guard locationsByRegion.count >= numOfRounds else {
+        if locationsByRegion.count < numOfRounds {
             logger.warning("Insufficient locations (\(self.locationsByRegion.count)) for \(self.numOfRounds) rounds. Using available locations with duplicates.")
         }
 

@@ -15,7 +15,7 @@ public class LocationData{
 
     var numOfRounds = 5
     var locationsByRegion = [Location]()
-    var loadError: AppError?
+    var loadError: String?
 
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "geo_gnosis_ios", category: "LocationData")
 
@@ -28,9 +28,9 @@ public class LocationData{
 
     func load(){
         guard let fileLocation = Bundle.main.url(forResource: Const.locationDataFile, withExtension: "json") else {
-            let error = AppError.dataLoadFailed(Const.locationDataFile)
-            logger.error("\(error.localizedDescription)")
-            loadError = error
+            let errorMsg = "Failed to load data from: \(Const.locationDataFile)"
+            logger.error("\(errorMsg)")
+            loadError = errorMsg
             return
         }
 
@@ -40,9 +40,9 @@ public class LocationData{
             let jsonData = try jsonDecoder.decode([Location].self, from: data)
 
             if jsonData.isEmpty {
-                let error = AppError.emptyLocationData
-                logger.error("\(error.localizedDescription)")
-                loadError = error
+                let errorMsg = "No location data available"
+                logger.error("\(errorMsg)")
+                loadError = errorMsg
                 return
             }
 
@@ -50,17 +50,17 @@ public class LocationData{
             logger.info("Successfully loaded \(self.locationsByRegion.count) locations")
         }
         catch{
-            let appError = AppError.dataLoadFailed("Failed to decode JSON: \(error.localizedDescription)")
-            logger.error("\(appError.localizedDescription)")
-            loadError = appError
+            let errorMsg = "Failed to decode JSON: \(error.localizedDescription)"
+            logger.error("\(errorMsg)")
+            loadError = errorMsg
         }
     }
     
     func filterLocations(locations: [Location]) ->[Location]{
         guard !locations.isEmpty else {
-            let error = AppError.emptyLocationData
-            logger.error("\(error.localizedDescription)")
-            loadError = error
+            let errorMsg = "No location data available"
+            logger.error("\(errorMsg)")
+            loadError = errorMsg
             return []
         }
 
@@ -72,13 +72,9 @@ public class LocationData{
             return filteredLocations
         } else {
             let settings = "Difficulty: \(difficulty), Region Mode: \(regionMode), Region: \(region)"
-            let error = AppError.insufficientLocations(
-                count: filteredLocations.count,
-                required: minimumRequired,
-                settings: settings
-            )
-            logger.warning("\(error.localizedDescription)")
-            loadError = error
+            let errorMsg = "Not enough locations found. Found \(filteredLocations.count), need at least \(minimumRequired). Settings: \(settings)"
+            logger.warning("\(errorMsg)")
+            loadError = errorMsg
 
             // Fall back to using all locations if filtered set is too small
             if locations.count >= minimumRequired {

@@ -40,7 +40,7 @@ class AudioPlayer: ObservableObject{
     }
 
     private func loadAudioEffect(resource: String, into player: inout AVAudioPlayer?, effectName: String) {
-        guard let path = Bundle.main.path(forResource: resource, withExtension: "mp3") else {
+        guard let path = Bundle.main.path(forResource: resource, ofType: "mp3") else {
             logger.error("Audio file not found: \(resource).mp3")
             return
         }
@@ -56,7 +56,7 @@ class AudioPlayer: ObservableObject{
     }
 
     func playBackground(volume: Double){
-        guard let path = Bundle.main.path(forResource: Const.audioActionBackground, withExtension: "mp3") else {
+        guard let path = Bundle.main.path(forResource: Const.audioActionBackground, ofType: "mp3") else {
             logger.error("Background audio file not found: \(Const.audioActionBackground).mp3")
             return
         }
