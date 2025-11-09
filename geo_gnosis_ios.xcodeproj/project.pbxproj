@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F82315CE299708190026D036 /* LeaderboardHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315CD299708190026D036 /* LeaderboardHeader.swift */; };
-		F82315D029971AD90026D036 /* LBRegionModeSec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315CF29971AD90026D036 /* LBRegionModeSec.swift */; };
-		F82315D229971CDD0026D036 /* LBGameInfoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315D129971CDD0026D036 /* LBGameInfoList.swift */; };
 		F82315E02997E6310026D036 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82315DF2997E6310026D036 /* CustomColor.swift */; };
 		F82315E22999CC170026D036 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F82315E12999CC170026D036 /* GoogleService-Info.plist */; };
 		F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F827D59129777AF4007DE110 /* geo_gnosis_iosApp.swift */; };
@@ -29,8 +26,6 @@
 		F84E7CA629C5FA7B00F60C34 /* ViewAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E7CA529C5FA7B00F60C34 /* ViewAssets.swift */; };
 		F84E8AC42A05EABD00EC986E /* locationDataUpdated3.json in Resources */ = {isa = PBXBuildFile; fileRef = F84E8AC32A05EABD00EC986E /* locationDataUpdated3.json */; };
 		F84E8AC62A05EBE000EC986E /* geo-gnosis-ios-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F84E8AC52A05EBE000EC986E /* geo-gnosis-ios-Info.plist */; };
-		F876507629CD205800D7CCE6 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F876507529CD205800D7CCE6 /* Progress.swift */; };
-		F876507A29CF544D00D7CCE6 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F876507929CF544D00D7CCE6 /* ErrorMessage.swift */; };
 		F876507C29D3C56C00D7CCE6 /* TimerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F876507B29D3C56C00D7CCE6 /* TimerData.swift */; };
 		F876507E29D5183300D7CCE6 /* Penalty.swift in Sources */ = {isa = PBXBuildFile; fileRef = F876507D29D5183300D7CCE6 /* Penalty.swift */; };
 		F876508029DD041D00D7CCE6 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F876507F29DD041D00D7CCE6 /* AudioPlayer.swift */; };
@@ -46,35 +41,14 @@
 		F87ABBD0298C783A007E2EA3 /* RoundData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBCF298C783A007E2EA3 /* RoundData.swift */; };
 		F87ABBD2298E9AAE007E2EA3 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBD1298E9AAE007E2EA3 /* DropDown.swift */; };
 		F87ABBDA29932449007E2EA3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBD929932449007E2EA3 /* Settings.swift */; };
-		F87ABBDC29932462007E2EA3 /* LeaderBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBDB29932462007E2EA3 /* LeaderBoard.swift */; };
-		F87ABBDE29932D3F007E2EA3 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABBDD29932D3F007E2EA3 /* LogIn.swift */; };
-		F8947BD5299B10280030BFCA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F8947BD4299B10280030BFCA /* FirebaseAnalytics */; };
-		F8947BD7299B10280030BFCA /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F8947BD6299B10280030BFCA /* FirebaseAnalyticsSwift */; };
-		F8947BD9299B13A40030BFCA /* LeaderboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8947BD8299B13A40030BFCA /* LeaderboardInfo.swift */; };
 		F8996FCF29A598170039C685 /* action-sound-effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8996FCE29A598170039C685 /* action-sound-effect.mp3 */; };
 		F8996FD129A59B940039C685 /* Ding-sound-effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8996FD029A59B940039C685 /* Ding-sound-effect.mp3 */; };
 		F8996FD329A59BA50039C685 /* button-click-sound-effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F8996FD229A59BA50039C685 /* button-click-sound-effect.mp3 */; };
 		F8996FD729A5B0440039C685 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FD629A5B0440039C685 /* TimerView.swift */; };
 		F8996FDA29AA97C20039C685 /* Changa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8996FD929AA97C20039C685 /* Changa-Light.ttf */; };
 		F8996FDC29AA97D50039C685 /* BebasNeue-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8996FDB29AA97D50039C685 /* BebasNeue-Regular.ttf */; };
-		F8996FE029AC0DDE0039C685 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F8996FDF29AC0DDE0039C685 /* FirebaseFirestore */; };
-		F8996FE229AC0E090039C685 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F8996FE129AC0E090039C685 /* FirebaseAuth */; };
-		F8996FE429AC0E3B0039C685 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F8996FE329AC0E3B0039C685 /* FirebaseFirestore */; };
-		F8996FE629AC0E4A0039C685 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F8996FE529AC0E4A0039C685 /* FirebaseFirestore */; };
-		F8996FE829AD7B840039C685 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F8996FE729AD7B840039C685 /* FirebaseFirestoreSwift */; };
-		F8996FEE29B3E8B80039C685 /* SecureInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FED29B3E8B80039C685 /* SecureInputView.swift */; };
-		F8996FF229B52D1F0039C685 /* LBData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FF129B52D1F0039C685 /* LBData.swift */; };
-		F8996FF429B6C9100039C685 /* UserHistoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FF329B6C9100039C685 /* UserHistoryVM.swift */; };
-		F8996FF829B6CEFC0039C685 /* UserHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FF729B6CEFC0039C685 /* UserHistory.swift */; };
-		F8996FFA29B6D0660039C685 /* UserHistoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FF929B6D0660039C685 /* UserHistoryCard.swift */; };
-		F8996FFC29B80B1D0039C685 /* LeaderboardTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FFB29B80B1D0039C685 /* LeaderboardTab.swift */; };
-		F8996FFE29B821710039C685 /* LBGameInfoListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8996FFD29B821710039C685 /* LBGameInfoListVM.swift */; };
 		F899700129BAD5CF0039C685 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899700029BAD5CF0039C685 /* Constants.swift */; };
-		F899700329BBF2DE0039C685 /* SignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899700229BBF2DD0039C685 /* SignInWithApple.swift */; };
-		F899700B29BBF9AF0039C685 /* LoggedIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899700A29BBF9AF0039C685 /* LoggedIn.swift */; };
-		F899700F29BBFC390039C685 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899700E29BBFC390039C685 /* CreateAccount.swift */; };
 		F899701329BCC4C80039C685 /* SetUpGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899701229BCC4C80039C685 /* SetUpGame.swift */; };
-		F89C296A29E3026900F7B77F /* LeaderboardCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89C296929E3026900F7B77F /* LeaderboardCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,11 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F82315CD299708190026D036 /* LeaderboardHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardHeader.swift; sourceTree = "<group>"; };
-		F82315CF29971AD90026D036 /* LBRegionModeSec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBRegionModeSec.swift; sourceTree = "<group>"; };
-		F82315D129971CDD0026D036 /* LBGameInfoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBGameInfoList.swift; sourceTree = "<group>"; };
 		F82315DF2997E6310026D036 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
-		F82315E12999CC170026D036 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F827D58E29777AF4007DE110 /* geo_gnosis_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = geo_gnosis_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F827D59129777AF4007DE110 /* geo_gnosis_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = geo_gnosis_iosApp.swift; sourceTree = "<group>"; };
 		F827D59329777AF4007DE110 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -120,8 +90,6 @@
 		F84E7CA529C5FA7B00F60C34 /* ViewAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAssets.swift; sourceTree = "<group>"; };
 		F84E8AC32A05EABD00EC986E /* locationDataUpdated3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locationDataUpdated3.json; sourceTree = "<group>"; };
 		F84E8AC52A05EBE000EC986E /* geo-gnosis-ios-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "geo-gnosis-ios-Info.plist"; sourceTree = "<group>"; };
-		F876507529CD205800D7CCE6 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
-		F876507929CF544D00D7CCE6 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		F876507B29D3C56C00D7CCE6 /* TimerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerData.swift; sourceTree = "<group>"; };
 		F876507D29D5183300D7CCE6 /* Penalty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Penalty.swift; sourceTree = "<group>"; };
 		F876507F29DD041D00D7CCE6 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
@@ -137,29 +105,15 @@
 		F87ABBCF298C783A007E2EA3 /* RoundData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundData.swift; sourceTree = "<group>"; };
 		F87ABBD1298E9AAE007E2EA3 /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		F87ABBD929932449007E2EA3 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		F87ABBDB29932462007E2EA3 /* LeaderBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoard.swift; sourceTree = "<group>"; };
-		F87ABBDD29932D3F007E2EA3 /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
-		F8947BD8299B13A40030BFCA /* LeaderboardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardInfo.swift; sourceTree = "<group>"; };
 		F8996FCE29A598170039C685 /* action-sound-effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "action-sound-effect.mp3"; sourceTree = "<group>"; };
 		F8996FD029A59B940039C685 /* Ding-sound-effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ding-sound-effect.mp3"; sourceTree = "<group>"; };
 		F8996FD229A59BA50039C685 /* button-click-sound-effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "button-click-sound-effect.mp3"; sourceTree = "<group>"; };
 		F8996FD629A5B0440039C685 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		F8996FD929AA97C20039C685 /* Changa-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Changa-Light.ttf"; sourceTree = "<group>"; };
 		F8996FDB29AA97D50039C685 /* BebasNeue-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BebasNeue-Regular.ttf"; sourceTree = "<group>"; };
-		F8996FED29B3E8B80039C685 /* SecureInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInputView.swift; sourceTree = "<group>"; };
-		F8996FF129B52D1F0039C685 /* LBData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBData.swift; sourceTree = "<group>"; };
-		F8996FF329B6C9100039C685 /* UserHistoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryVM.swift; sourceTree = "<group>"; };
-		F8996FF729B6CEFC0039C685 /* UserHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistory.swift; sourceTree = "<group>"; };
-		F8996FF929B6D0660039C685 /* UserHistoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryCard.swift; sourceTree = "<group>"; };
-		F8996FFB29B80B1D0039C685 /* LeaderboardTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTab.swift; sourceTree = "<group>"; };
-		F8996FFD29B821710039C685 /* LBGameInfoListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBGameInfoListVM.swift; sourceTree = "<group>"; };
 		F8996FFF29BAC0630039C685 /* geo_gnosis_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = geo_gnosis_ios.entitlements; sourceTree = "<group>"; };
 		F899700029BAD5CF0039C685 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		F899700229BBF2DD0039C685 /* SignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithApple.swift; sourceTree = "<group>"; };
-		F899700A29BBF9AF0039C685 /* LoggedIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedIn.swift; sourceTree = "<group>"; };
-		F899700E29BBFC390039C685 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
 		F899701229BCC4C80039C685 /* SetUpGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpGame.swift; sourceTree = "<group>"; };
-		F89C296929E3026900F7B77F /* LeaderboardCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,11 +121,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8996FE829AD7B840039C685 /* FirebaseFirestoreSwift in Frameworks */,
-				F8947BD7299B10280030BFCA /* FirebaseAnalyticsSwift in Frameworks */,
-				F8947BD5299B10280030BFCA /* FirebaseAnalytics in Frameworks */,
-				F8996FE029AC0DDE0039C685 /* FirebaseFirestore in Frameworks */,
-				F8996FE229AC0E090039C685 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,7 +128,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8996FE429AC0E3B0039C685 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,42 +135,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8996FE629AC0E4A0039C685 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F82315D9299723D50026D036 /* Leaderboard */ = {
-			isa = PBXGroup;
-			children = (
-				F87ABBDB29932462007E2EA3 /* LeaderBoard.swift */,
-				F8996FFB29B80B1D0039C685 /* LeaderboardTab.swift */,
-				F82315CF29971AD90026D036 /* LBRegionModeSec.swift */,
-				F82315D129971CDD0026D036 /* LBGameInfoList.swift */,
-				F8996FFD29B821710039C685 /* LBGameInfoListVM.swift */,
-				F89C296929E3026900F7B77F /* LeaderboardCard.swift */,
-				F82315CD299708190026D036 /* LeaderboardHeader.swift */,
-				F8996FF329B6C9100039C685 /* UserHistoryVM.swift */,
-				F8996FF729B6CEFC0039C685 /* UserHistory.swift */,
-				F8996FF929B6D0660039C685 /* UserHistoryCard.swift */,
-			);
-			path = Leaderboard;
-			sourceTree = "<group>";
-		};
 		F82315DA299723EA0026D036 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				F87ABBD929932449007E2EA3 /* Settings.swift */,
-				F87ABBDD29932D3F007E2EA3 /* LogIn.swift */,
-				F8996FED29B3E8B80039C685 /* SecureInputView.swift */,
-				F899700229BBF2DD0039C685 /* SignInWithApple.swift */,
-				F899700A29BBF9AF0039C685 /* LoggedIn.swift */,
-				F899700E29BBFC390039C685 /* CreateAccount.swift */,
 				F84E7C9B29BD820400F60C34 /* PrivacyPolicy.swift */,
-				F876507529CD205800D7CCE6 /* Progress.swift */,
-				F876507929CF544D00D7CCE6 /* ErrorMessage.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -331,7 +254,6 @@
 				F82315DC2997241C0026D036 /* EndGame */,
 				F82315DB299724060026D036 /* RootView */,
 				F82315DA299723EA0026D036 /* Settings */,
-				F82315D9299723D50026D036 /* Leaderboard */,
 				F84E7CA529C5FA7B00F60C34 /* ViewAssets.swift */,
 				F87ABBAF29820DD6007E2EA3 /* Coordinator.swift */,
 			);
@@ -347,8 +269,6 @@
 				F87ABBBD2986050B007E2EA3 /* RoundInfo.swift */,
 				F87ABBCB2989F79B007E2EA3 /* GameInfo.swift */,
 				F87ABBC729870A4A007E2EA3 /* PinLocation.swift */,
-				F8996FF129B52D1F0039C685 /* LBData.swift */,
-				F8947BD8299B13A40030BFCA /* LeaderboardInfo.swift */,
 				F82315DF2997E6310026D036 /* CustomColor.swift */,
 				F899700029BAD5CF0039C685 /* Constants.swift */,
 				F876507B29D3C56C00D7CCE6 /* TimerData.swift */,
@@ -495,7 +415,6 @@
 			);
 			mainGroup = F827D58529777AF4007DE110;
 			packageReferences = (
-				F8947BD3299B10280030BFCA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = F827D58F29777AF4007DE110 /* Products */;
 			projectDirPath = "";
@@ -550,44 +469,25 @@
 				F827D59429777AF4007DE110 /* ContentView.swift in Sources */,
 				F899700129BAD5CF0039C685 /* Constants.swift in Sources */,
 				F87ABBC029862FBF007E2EA3 /* EndGameCard.swift in Sources */,
-				F8996FEE29B3E8B80039C685 /* SecureInputView.swift in Sources */,
 				F876507E29D5183300D7CCE6 /* Penalty.swift in Sources */,
 				F83C87AA297F5500008FA89D /* EndGame.swift in Sources */,
-				F876507629CD205800D7CCE6 /* Progress.swift in Sources */,
-				F89C296A29E3026900F7B77F /* LeaderboardCard.swift in Sources */,
 				F87ABBC6298702F8007E2EA3 /* MapView2.swift in Sources */,
 				F87ABBCC2989F79B007E2EA3 /* GameInfo.swift in Sources */,
-				F87ABBDC29932462007E2EA3 /* LeaderBoard.swift in Sources */,
 				F876508029DD041D00D7CCE6 /* AudioPlayer.swift in Sources */,
-				F899700329BBF2DE0039C685 /* SignInWithApple.swift in Sources */,
 				F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */,
 				F87ABBB62983671C007E2EA3 /* LocationData.swift in Sources */,
-				F8996FFE29B821710039C685 /* LBGameInfoListVM.swift in Sources */,
-				F899700B29BBF9AF0039C685 /* LoggedIn.swift in Sources */,
-				F8996FFC29B80B1D0039C685 /* LeaderboardTab.swift in Sources */,
 				F84E7C9C29BD820400F60C34 /* PrivacyPolicy.swift in Sources */,
-				F8996FF429B6C9100039C685 /* UserHistoryVM.swift in Sources */,
 				F899701329BCC4C80039C685 /* SetUpGame.swift in Sources */,
-				F8996FF829B6CEFC0039C685 /* UserHistory.swift in Sources */,
 				F84E7CA629C5FA7B00F60C34 /* ViewAssets.swift in Sources */,
 				F876507C29D3C56C00D7CCE6 /* TimerData.swift in Sources */,
 				F83C878F297DCACB008FA89D /* MapView.swift in Sources */,
-				F876507A29CF544D00D7CCE6 /* ErrorMessage.swift in Sources */,
 				F87ABBD2298E9AAE007E2EA3 /* DropDown.swift in Sources */,
-				F87ABBDE29932D3F007E2EA3 /* LogIn.swift in Sources */,
 				F84E7C9E29BE81F600F60C34 /* GameMapVM.swift in Sources */,
 				F87ABBB029820DD6007E2EA3 /* Coordinator.swift in Sources */,
-				F8996FFA29B6D0660039C685 /* UserHistoryCard.swift in Sources */,
-				F899700F29BBFC390039C685 /* CreateAccount.swift in Sources */,
-				F82315D029971AD90026D036 /* LBRegionModeSec.swift in Sources */,
 				F82315E02997E6310026D036 /* CustomColor.swift in Sources */,
-				F8996FF229B52D1F0039C685 /* LBData.swift in Sources */,
 				F87ABBB429836663007E2EA3 /* Location.swift in Sources */,
-				F82315D229971CDD0026D036 /* LBGameInfoList.swift in Sources */,
 				F87ABBBE2986050B007E2EA3 /* RoundInfo.swift in Sources */,
 				F87ABBC829870A4A007E2EA3 /* PinLocation.swift in Sources */,
-				F8947BD9299B13A40030BFCA /* LeaderboardInfo.swift in Sources */,
-				F82315CE299708190026D036 /* LeaderboardHeader.swift in Sources */,
 				F87ABBD0298C783A007E2EA3 /* RoundData.swift in Sources */,
 				F84E7CA229C3FADF00F60C34 /* MapViewVM.swift in Sources */,
 				F8996FD729A5B0440039C685 /* TimerView.swift in Sources */,
@@ -760,7 +660,7 @@
 				DEVELOPMENT_TEAM = W86B92N72B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "/Users/johnhawley/Documents/geo_gnosis_ios/geo_gnosis_ios/geo-gnosis-ios-Info.plist";
+				INFOPLIST_FILE = "geo_gnosis_ios/geo-gnosis-ios-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -791,7 +691,7 @@
 				DEVELOPMENT_TEAM = W86B92N72B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "/Users/johnhawley/Documents/geo_gnosis_ios/geo_gnosis_ios/geo-gnosis-ios-Info.plist";
+				INFOPLIST_FILE = "geo_gnosis_ios/geo-gnosis-ios-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -921,55 +821,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		F8947BD3299B10280030BFCA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		F8947BD4299B10280030BFCA /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F8947BD3299B10280030BFCA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		F8947BD6299B10280030BFCA /* FirebaseAnalyticsSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F8947BD3299B10280030BFCA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalyticsSwift;
-		};
-		F8996FDF29AC0DDE0039C685 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F8947BD3299B10280030BFCA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		F8996FE129AC0E090039C685 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F8947BD3299B10280030BFCA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		F8996FE329AC0E3B0039C685 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F8947BD3299B10280030BFCA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		F8996FE529AC0E4A0039C685 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F8947BD3299B10280030BFCA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		F8996FE729AD7B840039C685 /* FirebaseFirestoreSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F8947BD3299B10280030BFCA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestoreSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F827D58629777AF4007DE110 /* Project object */;
 }

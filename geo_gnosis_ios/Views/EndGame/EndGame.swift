@@ -7,16 +7,8 @@
 
 import SwiftUI
 import MapKit
-import Firebase
-import FirebaseFirestore
-import FirebaseFirestoreSwift
 
 struct EndGame: View {
-    let database = Firestore.firestore()
-    
-    @AppStorage("userName") var userNameSt: String = ""
-    @AppStorage("userID") var userIDSt: String = ""
-    @AppStorage("postScores") var postScores: Bool = true
     
     @EnvironmentObject private var coordinator: Coordinator
     @EnvironmentObject var roundInfo : RoundInfo
@@ -73,7 +65,6 @@ struct EndGame: View {
         .onAppear(){
             audioPlayer.StopBackground()
             finalScore = CalcFinalScore()
-            SendResultsToDB()
         }
     }
     
@@ -98,47 +89,6 @@ struct EndGame: View {
             }
         }
         return finalScore
-    }
-    func SendResultsToDB(){
-        let userName = userNameSt
-        //If the user is logged in and allows posting scores
-        if(userName != "" && postScores){
-            var city_asciis: [String] = [String]()
-            var lats: [Double] = [Double]()
-            var lngs: [Double] = [Double]()
-            var countrys: [String] = [String]()
-            var admin_names: [String] = [String]()
-            var capitals: [String] = [String]()
-            var populations: [Int] = [Int]()
-            
-            for location in roundInfo.locations{
-            city_asciis.append(location.city_ascii)
-            lats.append(location.lat)
-            lngs.append(location.lng)
-            countrys.append(location.country)
-            admin_names.append(location.admin_name)
-            capitals.append(location.capital)
-            populations.append(location.population)
-            }
-        
-            let lbInfo = LBInfo(userName: userName, finalScore: finalScore, dateTime: GetFormattedDate(), multiChoice: gameInfo.multiChoice, regionMode: gameInfo.regionMode, difficulty: gameInfo.difficulty, region: gameInfo.region, times: roundInfo.times, city_ascii: city_asciis, lat: lats, lng: lngs, country: countrys, admin_name: admin_names, capital: capitals, population: populations)
-        
-            let db = Firestore.firestore()
-            do {
-                try db.collection(Const.dbScoreCollection).document(UUID().uuidString).setData(from: lbInfo)
-            } catch let error {
-                print("Error writing score to Firestore: \(error.localizedDescription)")
-            }
-        }
-    }
-    func GetFormattedDate() -> String{
-        let date = Date()
-
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
-
-        let dateString = formatter.string(from: date)
-        return dateString
     }
 }
 

@@ -67,14 +67,6 @@ struct RootView: View {
                         PlayDefaultFeedback().play()
                         coordinator.show(Settings.self)
                     }
-                    Spacer()
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).shadow(color: .black, radius: 3, x: 2, y: 2)
-                        Text("Leaderboard").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                    }.onTapGesture {
-                        PlayDefaultFeedback().play()
-                        coordinator.show(LeaderBoard.self)
-                    }
                 }
             }
             .navigationDestination(for: String.self) { id in
@@ -88,12 +80,6 @@ struct RootView: View {
                 }
                 else if id == String(describing: Settings.self){
                     Settings()
-                }
-                else if id == String(describing: LeaderBoard.self){
-                    LeaderBoard()
-                }
-                else if id == String(describing: LogIn.self){
-                    LogIn()
                 }
             }
             .background(alignment: .center){BackgroundView()}

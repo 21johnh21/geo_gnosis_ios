@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "Start.StartGame():Start.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "gameInfo">
+            </PersistentString>
+            <PersistentString
+               value = "gameInfo.region">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Start.GetSetUpData():Start.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "gameInfo.regionMode">
+            </PersistentString>
+            <PersistentString
+               value = " gameInfo.region">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LocationData.load():LocationData.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "region">
+            </PersistentString>
+            <PersistentString
+               value = "Const.modeRegCountryText">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
