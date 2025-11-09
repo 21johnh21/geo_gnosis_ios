@@ -67,23 +67,23 @@ struct Start: View {
                     if(!isGameInitiated){
                         isGameInitiated = true
                         PlayDefaultFeedback().play()
-                        StartGame()
+                        startGame()
                     }
                 }
             }.frame(maxWidth: .infinity)
             .background(alignment: .center){BackgroundView()}
     }
-    func StartGame(){
-        
-        GetSetUpData()
-        
+    func startGame(){
+
+        getSetUpData()
+
         if(gameInfo.region == "World"){
             gameInfo.region = Const.modeRegCountryText
         }
         if(gameInfo.regionMode == Const.modeRegCountryText){
             gameInfo.region = Const.modeRegCountryText
         }
-        
+
         timerGlobal.timerGlobal = Const.maxRoundScoreValue
         if(gameInfo.multiChoice){ //if multiple choice get the multi choice options
             roundInfo.multiChoiceOptions = RoundData(multiChoice: gameInfo.multiChoice, difficulty: gameInfo.difficulty, regionMode: gameInfo.regionMode, region: gameInfo.region).multiChoiceOptions
@@ -102,14 +102,14 @@ struct Start: View {
         roundInfo.answers = [false, false, false, false, false]
         coordinator.show(GameMap.self)
     }
-    func GetSetUpData() {
-        
+    func getSetUpData() {
+
         if(timerGlobal.showSetUp){
             gameInfo.multiChoice = multiChoice == Const.modeMultiChoiceText ? true : false
             gameInfo.difficulty = difficulty
             gameInfo.regionMode = regionMode
             gameInfo.region = region
-            
+
             lastMultiChoice = gameInfo.multiChoice
             lastRegionMode = gameInfo.regionMode
             lastRegion = gameInfo.region

@@ -28,7 +28,7 @@ struct RootView: View {
                 }
                 Image(Const.picLogo).resizable().frame(width: 255, height: 255).clipShape(Circle()).padding()
                 //MARK: Play Again Button ---------------------------------
-                if(IsStorageSet()){
+                if(isStorageSet()){
                     ZStack{
                         RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
                             .shadow(color: .black, radius: 3, x: 2, y: 2)
@@ -86,7 +86,7 @@ struct RootView: View {
         }
         .environmentObject(coordinator)
     }
-    func IsStorageSet() -> Bool{
+    func isStorageSet() -> Bool{
         if(lastRegionMode == "" || lastRegion == "" || lastDifficulty == ""){
             return false
         }else{

@@ -32,7 +32,7 @@ extension GameMap{
         var timerGlobal: TimerGlobal = TimerGlobal()
         var audioPlayer: AudioPlayer = AudioPlayer()
         
-        func GetInfo(gameInfo: GameInfo, roundInfo: RoundInfo, coordinator: Coordinator, vibOn: Bool, volume: Double, timerGlobal: TimerGlobal, audioPlayer: AudioPlayer){
+        func getInfo(gameInfo: GameInfo, roundInfo: RoundInfo, coordinator: Coordinator, vibOn: Bool, volume: Double, timerGlobal: TimerGlobal, audioPlayer: AudioPlayer){
             self.gameInfo = gameInfo
             self.roundInfo = roundInfo
             self.coordinator = coordinator
@@ -41,26 +41,26 @@ extension GameMap{
             self.timerGlobal = timerGlobal
             self.audioPlayer = audioPlayer
         }
-        func SetUpView(){
+        func setUpView(){
             if(gameInfo.multiChoice == true){
-                GetOption()
+                getOption()
             }
             if(roundInfo.roundNumber == 0 ){
-                PlayBackground()
+                playBackground()
             }
         }
-        func ValidateAnswer (guessIn: String) {
+        func validateAnswer (guessIn: String) {
             showPenalty = false
-            
+
 //           //TODO: somehow allow like 2 - 3 charachters mispelling
-            if(CorrectGuess(guessIn: guessIn, answer: GetCorrectAnswer())){
-                
+            if(isCorrectGuess(guessIn: guessIn, answer: getCorrectAnswer())){
+
                 if(roundInfo.roundNumber == 4){
-                    CorrectGuess()
+                    handleCorrectGuess()
                     timerGlobal.timerGlobal = Const.maxRoundScoreValue
                     coordinator.show(EndGame.self)
                 }else{
-                    CorrectGuess()
+                    handleCorrectGuess()
                     timerGlobal.timerGlobal = Const.maxRoundScoreValue
                     roundInfo.roundNumber += 1
                     coordinator.show(GameMap.self)
@@ -74,11 +74,11 @@ extension GameMap{
                 guessText = ""
                 animationAmount[4] += 1
                 animate[4].toggle()
-                PlayIncorrect()
+                playIncorrect()
                 PlayDefaultFeedback().play()
             }
         }
-        func AlternativeName(country: String) -> [String]{
+        func alternativeName(country: String) -> [String]{
             var countryNames = [String]()
             countryNames.append(country)
             switch(country){
@@ -131,54 +131,54 @@ extension GameMap{
             }
             return countryNames
         }
-        func CorrectGuess(guessIn: String, answer: String) -> Bool{
+        func isCorrectGuess(guessIn: String, answer: String) -> Bool{
             if(guessIn.trimmingCharacters(in: .whitespaces).lowercased()
                == answer.lowercased()){
                 return true
             }
-            
-            if(AlternativeName(country: answer).contains(guessIn)){
+
+            if(alternativeName(country: answer).contains(guessIn)){
                 return true
             }
-            
+
           return false
-            
+
         }
-        func ValidateAnswerMultiChoice(guessIn: String, optionClicked: Int){
+        func validateAnswerMultiChoice(guessIn: String, optionClicked: Int){
             showPenalty = false
             var answer: String
-            answer = GetCorrectAnswer()
-            
+            answer = getCorrectAnswer()
+
             if(guessIn == answer){
 
                 if(roundInfo.roundNumber == 4){
-                    CorrectGuess()
+                    handleCorrectGuess()
                     timerGlobal.timerGlobal = Const.maxRoundScoreValue
                     coordinator.show(EndGame.self)
                 }else{
-                    CorrectGuess()
+                    handleCorrectGuess()
                     timerGlobal.timerGlobal = Const.maxRoundScoreValue
                     roundInfo.roundNumber += 1
                     coordinator.show(GameMap.self)
                 }
             }
             else{
-                
+
                 guessText = "" //clear text
                 timerGlobal.timerGlobal -= Const.PenaltyIncorrectMC
                 penaltyAmount = Const.PenaltyIncorrectMC
                 showPenalty = true
                 animationAmount[optionClicked] += 1
                 animate[optionClicked].toggle()
-                PlayIncorrect()
+                playIncorrect()
                 PlayDefaultFeedback().play()
                 viewID += 1
             }
         }
-        func GetOption() {
+        func getOption() {
             for i in 0...3{
                 let optionIndex = Int.random(in: 0...3-i)
-                
+
                 if(gameInfo.regionMode == Const.modeRegCityText){
                     options[i] = roundInfo.multiChoiceOptions[roundInfo.roundNumber][optionIndex].city_ascii
                 }else if(gameInfo.regionMode == Const.modeRegRegionText){
@@ -189,22 +189,22 @@ extension GameMap{
                 roundInfo.multiChoiceOptions[roundInfo.roundNumber].remove(at: optionIndex)
             }
         }
-        func CorrectGuess(){
+        func handleCorrectGuess(){
             if(vibOn){
                 let generator = UINotificationFeedbackGenerator()
                 generator.notificationOccurred(.success)
             }
-            PlayCorrect()
+            playCorrect()
             if(roundInfo.roundNumber == 4){
-                audioPlayer.PauseBackground()
+                audioPlayer.pauseBackground()
             }
             roundInfo.times[roundInfo.roundNumber] = timerGlobal.timerGlobal
             roundInfo.roundNumbers[roundInfo.roundNumber] = (roundInfo.roundNumber + 1)
             roundInfo.answers[roundInfo.roundNumber] = true
         }
-        func GetCorrectAnswer()-> String{
+        func getCorrectAnswer()-> String{
             var answer: String
-            
+
             if(gameInfo.regionMode == Const.modeRegCityText){
                 answer = roundInfo.locations[roundInfo.roundNumber].city_ascii
             }else if(gameInfo.regionMode == Const.modeRegRegionText){
@@ -212,23 +212,23 @@ extension GameMap{
             }else{ //World
                 answer = roundInfo.locations[roundInfo.roundNumber].country
             }
-            
+
             return answer
         }
-        func GiveUp(){
+        func giveUp(){
             roundInfo.answers[roundInfo.roundNumber] =  true //so the last round will show on end game, may need to change this later
             roundInfo.roundNumbers[roundInfo.roundNumber] = (roundInfo.roundNumber + 1)
-            roundInfo.times[roundInfo.roundNumber] = -1 
+            roundInfo.times[roundInfo.roundNumber] = -1
             coordinator.show(EndGame.self)
         }
-        func PlayBackground(){
-            audioPlayer.PlayBackground(volume: volume)
+        func playBackground(){
+            audioPlayer.playBackground(volume: volume)
         }
-        func PlayCorrect(){
-            audioPlayer.PlayCorrect(volume: volume)
+        func playCorrect(){
+            audioPlayer.playCorrect(volume: volume)
         }
-        func PlayIncorrect(){
-            audioPlayer.PlayIncorrect(volume: volume)
+        func playIncorrect(){
+            audioPlayer.playIncorrect(volume: volume)
         }
     }
 }

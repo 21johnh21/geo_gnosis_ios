@@ -31,7 +31,7 @@ struct GameMap: View {
                     CLLocationCoordinate2D(
                         latitude: roundInfo.locations[roundInfo.roundNumber].lat,
                         longitude: roundInfo.locations[roundInfo.roundNumber].lng),
-                        pinLocations: InitPinLocations()
+                        pinLocations: initPinLocations()
                                     )).id(mapViewID)
                     .onAppear(){
                         timerGlobal.penalty = false
@@ -52,7 +52,7 @@ struct GameMap: View {
                                 }
                             }.onTapGesture {
                                 PlayDefaultFeedback().play()
-                                vm.GiveUp()
+                                vm.giveUp()
                             }
                         }
                     }
@@ -71,7 +71,7 @@ struct GameMap: View {
                                 .rotationEffect(.degrees(vm.animationAmount[4]))
                                 .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: vm.animationAmount[4])
                                 .onSubmit{
-                                    vm.ValidateAnswer(guessIn: vm.guessText)
+                                    vm.validateAnswer(guessIn: vm.guessText)
                                 }.padding(.leading)
                                 .onChange(of: vm.animate[4]){ newValue in
                                     vm.animationAmount[4] -= 1
@@ -84,7 +84,7 @@ struct GameMap: View {
                                 Text("Give Up").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding(.trailing)
                             }.onTapGesture {
                                 PlayDefaultFeedback().play()
-                                vm.GiveUp()
+                                vm.giveUp()
                             }
                         } else{
                             //MARK: MultiChoice -----------------------------------------------------
@@ -98,7 +98,7 @@ struct GameMap: View {
                                         Text("\(vm.options[0])").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                                     }.padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
                                     .onTapGesture {
-                                        vm.ValidateAnswerMultiChoice(guessIn: vm.options[0], optionClicked: 0)
+                                        vm.validateAnswerMultiChoice(guessIn: vm.options[0], optionClicked: 0)
                                     }
                                     .onChange(of: vm.animate[0]){ newValue in
                                         vm.animationAmount[0] -= 1
@@ -111,7 +111,7 @@ struct GameMap: View {
                                         Text("\(vm.options[1])").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                                     }.padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
                                     .onTapGesture {
-                                        vm.ValidateAnswerMultiChoice(guessIn: vm.options[1], optionClicked: 1)
+                                        vm.validateAnswerMultiChoice(guessIn: vm.options[1], optionClicked: 1)
                                     }
                                     .onChange(of: vm.animate[1]){ newValue in
                                         vm.animationAmount[1] -= 1
@@ -126,7 +126,7 @@ struct GameMap: View {
                                         Text("\(vm.options[2])").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                                     }.padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
                                     .onTapGesture {
-                                        vm.ValidateAnswerMultiChoice(guessIn: vm.options[2], optionClicked: 2)
+                                        vm.validateAnswerMultiChoice(guessIn: vm.options[2], optionClicked: 2)
                                     }
                                     .onChange(of: vm.animate[2]){ newValue in
                                         vm.animationAmount[2] -= 1
@@ -139,7 +139,7 @@ struct GameMap: View {
                                         Text("\(vm.options[3])").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                                     }.padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
                                     .onTapGesture {
-                                        vm.ValidateAnswerMultiChoice(guessIn: vm.options[3], optionClicked: 3)
+                                        vm.validateAnswerMultiChoice(guessIn: vm.options[3], optionClicked: 3)
                                     }
                                     .onChange(of: vm.animate[3]){ newValue in
                                         vm.animationAmount[3] -= 1
@@ -176,15 +176,15 @@ struct GameMap: View {
         .background(alignment: .center){BackgroundView()}
         .navigationBarBackButtonHidden(true)
         .onAppear{
-            vm.GetInfo(gameInfo: gameInfo, roundInfo: roundInfo, coordinator: coordinator, vibOn: vibOn, volume: volume, timerGlobal: timerGlobal, audioPlayer: audioPlayer)
-            vm.SetUpView()
+            vm.getInfo(gameInfo: gameInfo, roundInfo: roundInfo, coordinator: coordinator, vibOn: vibOn, volume: volume, timerGlobal: timerGlobal, audioPlayer: audioPlayer)
+            vm.setUpView()
         }
     }
-    func InitPinLocations() -> Array <PinLocation>{
+    func initPinLocations() -> Array <PinLocation>{
         var pinLocations = [PinLocation]()
         var pinLocation = PinLocation(name: "", coordinate: CLLocationCoordinate2D(
             latitude: 0.0, longitude: 0.0))
-        
+
         for i in 0...roundInfo.roundNumber{
             pinLocation.coordinate = CLLocationCoordinate2D(
                 latitude: roundInfo.locations[i].lat, longitude: roundInfo.locations[i].lng)

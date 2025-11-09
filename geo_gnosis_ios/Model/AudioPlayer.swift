@@ -44,7 +44,7 @@ class AudioPlayer: ObservableObject{
         }
     }
 
-    func PlayBackground(volume: Double){
+    func playBackground(volume: Double){
         if let path = Bundle.main.path(forResource: Const.audioActionBackground, ofType: "mp3"){
             backgroundAudio = AVAudioPlayer()
             let url = URL(fileURLWithPath: path)
@@ -61,27 +61,27 @@ class AudioPlayer: ObservableObject{
         }
     }
 
-    func StopBackground(){
+    func stopBackground(){
         backgroundAudio.stop()
     }
 
-    func PauseBackground(){
+    func pauseBackground(){
         backgroundAudio.pause()
     }
 
-    func PlayCorrect(volume: Double) {
+    func playCorrect(volume: Double) {
         correctEffectPlayer?.volume = Float(volume/100)
         correctEffectPlayer?.currentTime = 0  // Restart from beginning
         correctEffectPlayer?.play()
     }
 
-    func PlayIncorrect(volume: Double) {
+    func playIncorrect(volume: Double) {
         incorrectEffectPlayer?.volume = Float(volume/100)
         incorrectEffectPlayer?.currentTime = 0  // Restart from beginning
         incorrectEffectPlayer?.play()
     }
 
-    func SetVolume(volume: Double){
+    func setVolume(volume: Double){
         self.volume = volume
     }
 }

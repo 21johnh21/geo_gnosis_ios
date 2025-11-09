@@ -22,11 +22,11 @@ extension MapView{
                 span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
             )
         }
-        func InitPinLocations() -> Array <PinLocation>{
+        func initPinLocations() -> Array <PinLocation>{
             var pinLocations = [PinLocation]()
             var pinLocation = PinLocation(name: "", coordinate: CLLocationCoordinate2D(
                 latitude: 0.0, longitude: 0.0))
-            
+
             for i in 0...roundInfo.roundNumber{
                 pinLocation.coordinate = CLLocationCoordinate2D(
                     latitude: roundInfo.locations[i].lat, longitude: roundInfo.locations[i].lng)

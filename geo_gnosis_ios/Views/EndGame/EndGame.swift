@@ -35,7 +35,7 @@ struct EndGame: View {
                 RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
             }
             
-            MapView2(pinLocations: InitPinLocations(), centerLat: $centerLat, centerLng: $centerLng)
+            MapView2(pinLocations: initPinLocations(), centerLat: $centerLat, centerLng: $centerLng)
             HStack{
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
@@ -63,16 +63,16 @@ struct EndGame: View {
         }.navigationBarBackButtonHidden(true)
         .background(alignment: .center){BackgroundView()}
         .onAppear(){
-            audioPlayer.StopBackground()
-            finalScore = CalcFinalScore()
+            audioPlayer.stopBackground()
+            finalScore = calcFinalScore()
         }
     }
     
-    func InitPinLocations() -> Array <PinLocation>{
+    func initPinLocations() -> Array <PinLocation>{
         var pinLocations = [PinLocation]()
         var pinLocation = PinLocation(name: "", coordinate: CLLocationCoordinate2D(
             latitude: 0.0, longitude: 0.0))
-        
+
         for i in 0...roundInfo.roundNumber{
             pinLocation.coordinate = CLLocationCoordinate2D(
                 latitude: roundInfo.locations[i].lat, longitude: roundInfo.locations[i].lng)
@@ -81,7 +81,7 @@ struct EndGame: View {
         }
         return pinLocations
     }
-    func CalcFinalScore() -> Int{
+    func calcFinalScore() -> Int{
         var finalScore: Int = 0
         for i in 0...roundInfo.roundNumber{
             if(roundInfo.times[i] != -1){

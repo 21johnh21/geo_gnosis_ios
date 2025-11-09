@@ -37,7 +37,7 @@ struct MapView: View, Equatable{
             penaltyDistance = Const.PenaltyDistance
         }
         .onChange(of: region.center.latitude) { value in
-            if(GetDistance() >= penaltyDistance){
+            if(getDistance() >= penaltyDistance){
                 penaltyDistance += Const.PenaltyDistance
                 timerGlobal.penalty.toggle()
                 print("Out of Bounds! \(penaltyDistance) penalty \(timerGlobal.penalty) centerLat: \(pinLocations[roundInfo.roundNumber].coordinate.latitude) centerLng: \(pinLocations[roundInfo.roundNumber].coordinate.longitude) currentLat: \(region.center.latitude) currentLng: \(region.center.longitude)")
@@ -51,25 +51,25 @@ struct MapView: View, Equatable{
             span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
         )
     }
-    func GetDistance() -> Double{
+    func getDistance() -> Double{
         let earthRadius: Double = 6371
         let centerLat = pinLocations[roundInfo.roundNumber].coordinate.latitude
         let centerLng = pinLocations[roundInfo.roundNumber].coordinate.longitude
         let curentLat = region.center.latitude
         let curentLng = region.center.longitude
-        
+
         let z = centerLat * Double.pi/180
         let y = curentLat * Double.pi/180
-        
-        
+
+
         let x = (curentLat - centerLat) * Double.pi/180
         let w = (curentLng - centerLng) * Double.pi/180
         let a = sin(x/2) * sin(x/2) +
         cos(z) * cos(y) * sin(w/2) * sin(w/2)
-        
+
         let c = 2 * atan2(sqrt(a), sqrt(1-a))
         let d = earthRadius * c //meters
-        
+
         return d
     }
 
