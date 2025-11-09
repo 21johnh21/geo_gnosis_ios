@@ -12,7 +12,6 @@ struct Settings: View {
 
     @AppStorage("vibOn") var vibOn: Bool = true
     @AppStorage("volume") var volume: Double = 100
-    @AppStorage("sateliteMapOn") var sateliteMapOn: Bool = false
     @AppStorage("darkMode") var darkMode: Bool = false
 
     @State var showPrivacyPolicy: Bool = false

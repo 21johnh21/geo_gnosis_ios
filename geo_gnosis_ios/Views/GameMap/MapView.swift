@@ -9,38 +9,63 @@ import SwiftUI
 import MapKit
 
 struct MapView: View, Equatable{
-    
+
     var coordinate: CLLocationCoordinate2D
     var pinLocations: [PinLocation]
-    
+
     @State private var region = MKCoordinateRegion()
     @State private var distanceFromPin: Double = 0
     @State private var penaltyDistance: Double = Const.PenaltyDistance
-    
+
+    @AppStorage("sateliteMapOn") var sateliteMapOn: Bool = false
+
     @EnvironmentObject var timerGlobal: TimerGlobal
     @EnvironmentObject var roundInfo : RoundInfo
 
     var body: some View {
-        Map(coordinateRegion: $region,
-            interactionModes: MapInteractionModes.pan,
-            annotationItems: pinLocations
-        ){
-            pinLocation in
-                MapAnnotation(coordinate: pinLocation.coordinate) {
-                    Image("customMapPin")
+        if #available(iOS 17.0, *) {
+            Map(coordinateRegion: $region,
+                interactionModes: MapInteractionModes.pan,
+                annotationItems: pinLocations
+            ){
+                pinLocation in
+                    MapAnnotation(coordinate: pinLocation.coordinate) {
+                        Image("customMapPin")
+                    }
+            }
+            .mapStyle(sateliteMapOn ? .imagery : .standard)
+            .onAppear {
+                setRegion(coordinate)
+                penaltyDistance = Const.PenaltyDistance
+            }
+            .onChange(of: region.center.latitude) { value in
+                if(getDistance() >= penaltyDistance){
+                    penaltyDistance += Const.PenaltyDistance
+                    timerGlobal.penalty.toggle()
+                    print("Out of Bounds! \(penaltyDistance) penalty \(timerGlobal.penalty) centerLat: \(pinLocations[roundInfo.roundNumber].coordinate.latitude) centerLng: \(pinLocations[roundInfo.roundNumber].coordinate.longitude) currentLat: \(region.center.latitude) currentLng: \(region.center.longitude)")
                 }
-        }
-        .onAppear {
-           //TODO: import MapKit.MKMapCameraZoomRange //this looks interesting
-            //mkMap type = .satletite to change
-            setRegion(coordinate)
-            penaltyDistance = Const.PenaltyDistance
-        }
-        .onChange(of: region.center.latitude) { value in
-            if(getDistance() >= penaltyDistance){
-                penaltyDistance += Const.PenaltyDistance
-                timerGlobal.penalty.toggle()
-                print("Out of Bounds! \(penaltyDistance) penalty \(timerGlobal.penalty) centerLat: \(pinLocations[roundInfo.roundNumber].coordinate.latitude) centerLng: \(pinLocations[roundInfo.roundNumber].coordinate.longitude) currentLat: \(region.center.latitude) currentLng: \(region.center.longitude)")
+            }
+        } else {
+            // Fallback for iOS 16 and earlier - standard map only
+            Map(coordinateRegion: $region,
+                interactionModes: MapInteractionModes.pan,
+                annotationItems: pinLocations
+            ){
+                pinLocation in
+                    MapAnnotation(coordinate: pinLocation.coordinate) {
+                        Image("customMapPin")
+                    }
+            }
+            .onAppear {
+                setRegion(coordinate)
+                penaltyDistance = Const.PenaltyDistance
+            }
+            .onChange(of: region.center.latitude) { value in
+                if(getDistance() >= penaltyDistance){
+                    penaltyDistance += Const.PenaltyDistance
+                    timerGlobal.penalty.toggle()
+                    print("Out of Bounds! \(penaltyDistance) penalty \(timerGlobal.penalty) centerLat: \(pinLocations[roundInfo.roundNumber].coordinate.latitude) centerLng: \(pinLocations[roundInfo.roundNumber].coordinate.longitude) currentLat: \(region.center.latitude) currentLng: \(region.center.longitude)")
+                }
             }
         }
     }

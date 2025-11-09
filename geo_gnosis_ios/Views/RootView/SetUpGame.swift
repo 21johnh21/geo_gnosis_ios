@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SetUpGame: View {
-    
+
     @Binding var multiChoice: String
     var multiChoiceModes = [Const.modeMultiChoiceText, Const.modeFillBlankText]
     @Binding var difficulty: String
@@ -16,7 +16,9 @@ struct SetUpGame: View {
     @Binding var regionMode: String
     var regionModes = [Const.modeRegCountryText, Const.modeRegRegionText, Const.modeRegCityText]
     @Binding var region: String
-    
+
+    @AppStorage("sateliteMapOn") var sateliteMapOn: Bool = false
+
     var body: some View {
         VStack(spacing: 0){
             Text("Game Mode:").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
@@ -40,6 +42,14 @@ struct SetUpGame: View {
             if(regionMode != Const.modeRegCountryText){
                 DropDown(region: $region).padding(.top)
             }
+
+            // Satellite Map Toggle
+            HStack {
+                Text("Satellite Map:").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                Spacer()
+                Toggle("", isOn: $sateliteMapOn)
+                    .labelsHidden()
+            }.padding(.top, 10)
         }.padding()
         .background(){
             RoundedRectangle(cornerRadius: 5) .fill(CustomColor.primary)

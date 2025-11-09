@@ -9,16 +9,16 @@ import SwiftUI
 import MapKit
 
 struct MapView2: View {
-    
+
     @EnvironmentObject var roundInfo : RoundInfo
     @EnvironmentObject var gameInfo: GameInfo
-    
+
     var pinLocations: [PinLocation]
     @Binding var centerLat: Double
     @Binding var centerLng: Double
-    
+
     @State private var mapRegion = MKCoordinateRegion()
-    
+
     var body: some View{
         Map(coordinateRegion: $mapRegion, annotationItems: pinLocations) { pinLocation in
                 MapAnnotation(coordinate: pinLocation.coordinate) {
