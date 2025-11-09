@@ -7,7 +7,6 @@
 
 import Foundation
 import CoreLocation
-import AVFAudio
 import UIKit
 
 extension GameMap{
@@ -20,11 +19,7 @@ extension GameMap{
 
         @Published var animate : [Bool] = [false, false, false, false, false ]
         @Published var animationAmount: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
-        
-        @Published var audioPlayer1:AVAudioPlayer?
-        @Published var audioPlayer2:AVAudioPlayer?
-        @Published var audioPlayer3:AVAudioPlayer?
-        
+
         @Published var showPenalty: Bool = false
         @Published var viewID: Int = 0
         @Published var penaltyAmount = 0
@@ -201,7 +196,7 @@ extension GameMap{
             }
             PlayCorrect()
             if(roundInfo.roundNumber == 4){
-                audioPlayer1?.pause()
+                audioPlayer.PauseBackground()
             }
             roundInfo.times[roundInfo.roundNumber] = timerGlobal.timerGlobal
             roundInfo.roundNumbers[roundInfo.roundNumber] = (roundInfo.roundNumber + 1)
@@ -230,34 +225,10 @@ extension GameMap{
             audioPlayer.PlayBackground(volume: volume)
         }
         func PlayCorrect(){
-            if let path = Bundle.main.path(forResource: Const.audioCorrectEffect, ofType: "mp3"){
-                self.audioPlayer2 = AVAudioPlayer()
-                let url = URL(fileURLWithPath: path)
-                
-                do {
-                    self.audioPlayer2 = try AVAudioPlayer(contentsOf: url)
-                    audioPlayer2?.volume = Float(volume/100)
-                    self.audioPlayer2?.prepareToPlay()
-                    self.audioPlayer2?.play()
-                }catch {
-                    print("Eror")
-                }
-            }
+            audioPlayer.PlayCorrect(volume: volume)
         }
         func PlayIncorrect(){
-            if let path = Bundle.main.path(forResource: Const.audioIncorrectEffect, ofType: "mp3"){
-                self.audioPlayer3 = AVAudioPlayer()
-                let url = URL(fileURLWithPath: path)
-                
-                do {
-                    self.audioPlayer3 = try AVAudioPlayer(contentsOf: url)
-                    audioPlayer3?.volume = Float(volume/100)
-                    self.audioPlayer3?.prepareToPlay()
-                    self.audioPlayer3?.play()
-                }catch {
-                    print("Error")
-                }
-            }
+            audioPlayer.PlayIncorrect(volume: volume)
         }
     }
 }
