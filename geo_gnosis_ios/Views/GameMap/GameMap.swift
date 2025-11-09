@@ -185,7 +185,13 @@ struct GameMap: View {
         var pinLocation = PinLocation(name: "", coordinate: CLLocationCoordinate2D(
             latitude: 0.0, longitude: 0.0))
 
-        for i in 0...roundInfo.roundNumber{
+        // Guard against accessing beyond available locations
+        let maxIndex = min(roundInfo.roundNumber, roundInfo.locations.count - 1)
+        guard maxIndex >= 0, !roundInfo.locations.isEmpty else {
+            return pinLocations
+        }
+
+        for i in 0...maxIndex{
             pinLocation.coordinate = CLLocationCoordinate2D(
                 latitude: roundInfo.locations[i].lat, longitude: roundInfo.locations[i].lng)
             pinLocation.name=""

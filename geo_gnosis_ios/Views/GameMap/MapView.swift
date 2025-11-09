@@ -52,6 +52,12 @@ struct MapView: View, Equatable{
         )
     }
     func getDistance() -> Double{
+        // Guard against invalid round number or empty pinLocations
+        guard roundInfo.roundNumber < pinLocations.count, !pinLocations.isEmpty else {
+            print("Error: Invalid round number or empty pinLocations")
+            return 0.0
+        }
+
         let earthRadius: Double = 6371
         let centerLat = pinLocations[roundInfo.roundNumber].coordinate.latitude
         let centerLng = pinLocations[roundInfo.roundNumber].coordinate.longitude

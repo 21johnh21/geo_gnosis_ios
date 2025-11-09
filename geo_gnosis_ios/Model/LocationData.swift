@@ -6,15 +6,19 @@
 //
 
 import Foundation
+import os.log
 
 public class LocationData{
     var difficulty: String
     var regionMode: String
     var region: String
-    
+
     var numOfRounds = 5
     var locationsByRegion = [Location]()
-    
+    var loadError: AppError?
+
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "geo_gnosis_ios", category: "LocationData")
+
     init(difficulty: String, regionMode: String, region: String){
         self.difficulty = difficulty
         self.regionMode = regionMode
@@ -23,29 +27,67 @@ public class LocationData{
     }
 
     func load(){
-        if let fileLocation = Bundle.main.url(forResource: Const.locationDataFile, withExtension: "json"){
-            do{
-                
-                let data = try Data(contentsOf: fileLocation) //try to get data from filelocation
-                let jsonDecoder = JSONDecoder() // create a json decoder
-                let jsonData = try jsonDecoder.decode([Location].self, from: data) //create array of objects from daata
-                locationsByRegion = filterLocations(locations: jsonData)
+        guard let fileLocation = Bundle.main.url(forResource: Const.locationDataFile, withExtension: "json") else {
+            let error = AppError.dataLoadFailed(Const.locationDataFile)
+            logger.error("\(error.localizedDescription)")
+            loadError = error
+            return
+        }
+
+        do{
+            let data = try Data(contentsOf: fileLocation)
+            let jsonDecoder = JSONDecoder()
+            let jsonData = try jsonDecoder.decode([Location].self, from: data)
+
+            if jsonData.isEmpty {
+                let error = AppError.emptyLocationData
+                logger.error("\(error.localizedDescription)")
+                loadError = error
+                return
             }
-            catch{
-                print("Error: error decoding json")
-            }
+
+            locationsByRegion = filterLocations(locations: jsonData)
+            logger.info("Successfully loaded \(self.locationsByRegion.count) locations")
+        }
+        catch{
+            let appError = AppError.dataLoadFailed("Failed to decode JSON: \(error.localizedDescription)")
+            logger.error("\(appError.localizedDescription)")
+            loadError = appError
         }
     }
     
     func filterLocations(locations: [Location]) ->[Location]{
-        var filteredLocations = filterByDifficulty(locations: filterByCountry(locations: locations))
-        if(filteredLocations.count > 4){
-            print("succesfuly returned \(filteredLocations.count) locations") //TODO: Delete
-            return filterByDifficulty(locations: filterByCountry(locations: locations))
-        }else{
-            let error = "Error: error filtering locations only \(filteredLocations.count) returned for Game Settings - Diff: \(difficulty), Reg Mode: \(regionMode), Region: \(region)"
-            print(error)
-            return locations
+        guard !locations.isEmpty else {
+            let error = AppError.emptyLocationData
+            logger.error("\(error.localizedDescription)")
+            loadError = error
+            return []
+        }
+
+        let filteredLocations = filterByDifficulty(locations: filterByCountry(locations: locations))
+        let minimumRequired = 5 // Need at least 5 for game rounds
+
+        if filteredLocations.count >= minimumRequired {
+            logger.info("Successfully filtered \(filteredLocations.count) locations")
+            return filteredLocations
+        } else {
+            let settings = "Difficulty: \(difficulty), Region Mode: \(regionMode), Region: \(region)"
+            let error = AppError.insufficientLocations(
+                count: filteredLocations.count,
+                required: minimumRequired,
+                settings: settings
+            )
+            logger.warning("\(error.localizedDescription)")
+            loadError = error
+
+            // Fall back to using all locations if filtered set is too small
+            if locations.count >= minimumRequired {
+                logger.info("Falling back to all \(locations.count) locations")
+                return locations
+            } else {
+                logger.error("Even unfiltered data has insufficient locations (\(locations.count))")
+                return locations
+            }
         }
     }
     func filterByCountry(locations: [Location]) ->[Location]{

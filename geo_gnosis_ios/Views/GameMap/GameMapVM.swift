@@ -176,15 +176,28 @@ extension GameMap{
             }
         }
         func getOption() {
+            // Guard against invalid round number or empty options
+            guard roundInfo.roundNumber < roundInfo.multiChoiceOptions.count,
+                  !roundInfo.multiChoiceOptions[roundInfo.roundNumber].isEmpty else {
+                print("Error: Invalid round number or empty multiple choice options")
+                return
+            }
+
             for i in 0...3{
-                let optionIndex = Int.random(in: 0...3-i)
+                let currentOptions = roundInfo.multiChoiceOptions[roundInfo.roundNumber]
+                guard !currentOptions.isEmpty else {
+                    print("Error: No more options available for round \(roundInfo.roundNumber)")
+                    break
+                }
+
+                let optionIndex = Int.random(in: 0...currentOptions.count-1)
 
                 if(gameInfo.regionMode == Const.modeRegCityText){
-                    options[i] = roundInfo.multiChoiceOptions[roundInfo.roundNumber][optionIndex].city_ascii
+                    options[i] = currentOptions[optionIndex].city_ascii
                 }else if(gameInfo.regionMode == Const.modeRegRegionText){
-                    options[i] = roundInfo.multiChoiceOptions[roundInfo.roundNumber][optionIndex].admin_name
+                    options[i] = currentOptions[optionIndex].admin_name
                 }else{
-                    options[i] = roundInfo.multiChoiceOptions[roundInfo.roundNumber][optionIndex].country
+                    options[i] = currentOptions[optionIndex].country
                 }
                 roundInfo.multiChoiceOptions[roundInfo.roundNumber].remove(at: optionIndex)
             }
@@ -203,6 +216,12 @@ extension GameMap{
             roundInfo.answers[roundInfo.roundNumber] = true
         }
         func getCorrectAnswer()-> String{
+            // Guard against invalid round number
+            guard roundInfo.roundNumber < roundInfo.locations.count else {
+                print("Error: Invalid round number \(roundInfo.roundNumber), only have \(roundInfo.locations.count) locations")
+                return ""
+            }
+
             var answer: String
 
             if(gameInfo.regionMode == Const.modeRegCityText){
