@@ -11,7 +11,7 @@ import SwiftUI
 struct CustomColor{
     static let primary = Color("colorPrimary")
     static let secondary = Color("colorSecond")
-    static let trim = Color("colorTrim")
+    static let trim = Color("colortrim") 
     static let backgrad1 = Color("colorBack")
     static let trim2 = Color("colorTrim2")
 }
