@@ -234,6 +234,25 @@ extension GameMap{
 
             return answer
         }
+        func skipRound(){
+            // Record skip with 0 points
+            roundInfo.answers[roundInfo.roundNumber] = false // Incorrect answer
+            roundInfo.roundNumbers[roundInfo.roundNumber] = (roundInfo.roundNumber + 1)
+            roundInfo.times[roundInfo.roundNumber] = 0 // 0 points for skipped round
+
+            // Check if this is the last round
+            if(roundInfo.roundNumber == 4){
+                timerGlobal.timerGlobal = Const.maxRoundScoreValue
+                audioPlayer.pauseBackground()
+                coordinator.show(EndGame.self)
+            } else {
+                // Move to next round
+                timerGlobal.timerGlobal = Const.maxRoundScoreValue
+                roundInfo.roundNumber += 1
+                coordinator.show(GameMap.self)
+            }
+        }
+
         func giveUp(){
             roundInfo.answers[roundInfo.roundNumber] =  true //so the last round will show on end game, may need to change this later
             roundInfo.roundNumbers[roundInfo.roundNumber] = (roundInfo.roundNumber + 1)

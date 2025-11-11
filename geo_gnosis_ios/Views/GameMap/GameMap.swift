@@ -47,12 +47,12 @@ struct GameMap: View {
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
                                             .shadow(color: .black, radius: 3, x: 2, y: 2)
-                                        Text("Give Up").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                        Text("Skip").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                                     }.padding(.bottom)
                                 }
                             }.onTapGesture {
                                 PlayDefaultFeedback().play()
-                                vm.giveUp()
+                                vm.skipRound()
                             }
                         }
                     }
@@ -82,12 +82,12 @@ struct GameMap: View {
                             }
                             
                             ZStack{
-                                RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
+                                RoundedRectangle(cornerRadius: 5).fill(.orange).frame(width: 100, height: 30)
                                     .shadow(color: .black, radius: 3, x: 2, y: 2)
-                                Text("Give Up").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding(.trailing)
+                                Text("Skip").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding(.trailing)
                             }.onTapGesture {
                                 PlayDefaultFeedback().play()
-                                vm.giveUp()
+                                vm.skipRound()
                             }
                         } else{
                             //MARK: MultiChoice -----------------------------------------------------
