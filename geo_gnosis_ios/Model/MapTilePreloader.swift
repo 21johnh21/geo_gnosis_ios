@@ -95,8 +95,4 @@ class MapTilePreloader: ObservableObject {
         preloadMapView = nil
         logger.debug("Preloader cleanup complete")
     }
-
-    deinit {
-        cleanup()
-    }
 }
