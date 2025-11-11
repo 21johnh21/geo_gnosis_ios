@@ -109,6 +109,7 @@ struct EndGame: View {
                 .padding(.horizontal, 8)
                 .padding(.bottom, 8)
             }
+            .padding(.top, 16)
         }
         .navigationBarBackButtonHidden(true)
         .background(alignment: .center){BackgroundView()}
