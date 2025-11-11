@@ -15,6 +15,9 @@ struct geo_gnosis_iosApp: App {
     @StateObject var gameInfo = GameInfo()
     @StateObject var timerGlobal = TimerGlobal()
     @StateObject var audioPlayer = AudioPlayer()
+    @StateObject var mapTilePreloader = MapTilePreloader()
+
+    @AppStorage("sateliteMapOn") var sateliteMapOn: Bool = false
 
     init() {
         // Pre-warm keyboard to reduce first-launch lag
@@ -28,6 +31,10 @@ struct geo_gnosis_iosApp: App {
                 .environmentObject(gameInfo)
                 .environmentObject(timerGlobal)
                 .environmentObject(audioPlayer)
+                .onAppear {
+                    // Start preloading map tiles in the background if satellite mode is enabled
+                    mapTilePreloader.startPreloading(sateliteMapOn: sateliteMapOn)
+                }
         }
     }
 }

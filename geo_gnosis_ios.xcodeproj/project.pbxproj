@@ -49,6 +49,7 @@
 		F8996FDC29AA97D50039C685 /* BebasNeue-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8996FDB29AA97D50039C685 /* BebasNeue-Regular.ttf */; };
 		F899700129BAD5CF0039C685 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899700029BAD5CF0039C685 /* Constants.swift */; };
 		F899701329BCC4C80039C685 /* SetUpGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899701229BCC4C80039C685 /* SetUpGame.swift */; };
+		F8TILE0200000000ABCD5678 /* MapTilePreloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8TILE0100000000ABCD1234 /* MapTilePreloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		F8996FFF29BAC0630039C685 /* geo_gnosis_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = geo_gnosis_ios.entitlements; sourceTree = "<group>"; };
 		F899700029BAD5CF0039C685 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F899701229BCC4C80039C685 /* SetUpGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpGame.swift; sourceTree = "<group>"; };
+		F8TILE0100000000ABCD1234 /* MapTilePreloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTilePreloader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +275,7 @@
 				F899700029BAD5CF0039C685 /* Constants.swift */,
 				F876507B29D3C56C00D7CCE6 /* TimerData.swift */,
 				F876507F29DD041D00D7CCE6 /* AudioPlayer.swift */,
+				F8TILE0100000000ABCD1234 /* MapTilePreloader.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				F87ABBC6298702F8007E2EA3 /* MapView2.swift in Sources */,
 				F87ABBCC2989F79B007E2EA3 /* GameInfo.swift in Sources */,
 				F876508029DD041D00D7CCE6 /* AudioPlayer.swift in Sources */,
+				F8TILE0200000000ABCD5678 /* MapTilePreloader.swift in Sources */,
 				F827D59229777AF4007DE110 /* geo_gnosis_iosApp.swift in Sources */,
 				F87ABBB62983671C007E2EA3 /* LocationData.swift in Sources */,
 				F84E7C9C29BD820400F60C34 /* PrivacyPolicy.swift in Sources */,
