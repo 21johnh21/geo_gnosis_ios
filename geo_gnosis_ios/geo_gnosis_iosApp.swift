@@ -15,7 +15,12 @@ struct geo_gnosis_iosApp: App {
     @StateObject var gameInfo = GameInfo()
     @StateObject var timerGlobal = TimerGlobal()
     @StateObject var audioPlayer = AudioPlayer()
-    
+
+    init() {
+        // Pre-warm keyboard to reduce first-launch lag
+        let _ = UITextField()
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()

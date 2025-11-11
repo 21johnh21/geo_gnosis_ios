@@ -68,6 +68,9 @@ struct GameMap: View {
                                     .padding(.leading)
                             TextField("Answer...",text: $vm.guessText)
                                 .background(CustomColor.primary)
+                                .autocorrectionDisabled()
+                                .textInputAutocapitalization(.words)
+                                .submitLabel(.done)
                                 .rotationEffect(.degrees(vm.animationAmount[4]))
                                 .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: vm.animationAmount[4])
                                 .onSubmit{

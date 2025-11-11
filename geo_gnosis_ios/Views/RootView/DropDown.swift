@@ -20,8 +20,12 @@ struct DropDown: View {
     var body: some View {
         //TODO: Make a Countries Data File to fill the Drop Down
         VStack(alignment: .leading){
-            TextField("Choose a Region", text: $countrySelection).font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).background(CustomColor.trim2)
-            
+            TextField("Choose a Region", text: $countrySelection)
+                .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                .background(CustomColor.trim2)
+                .autocorrectionDisabled()
+                .textInputAutocapitalization(.words)
+
             ZStack {
                 RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2).padding(.trailing)
                 ScrollView{
