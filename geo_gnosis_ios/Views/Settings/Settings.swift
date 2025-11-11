@@ -20,45 +20,92 @@ struct Settings: View {
         VStack{
             ZStack{
                 ScrollView{
+                    // Header
                     VStack{
-                        Text("Settings").font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg))
-                    }.frame(maxWidth: .infinity, minHeight: 80).background(){
+                        Text("Settings")
+                            .font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg))
+                            .fontWeight(.bold)
+                    }
+                    .frame(maxWidth: .infinity, minHeight: 80)
+                    .background(){
                         RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
                     }
-                    VStack{
-                        Slider(value: $volume, in: 0...100).tint(Color.green).padding()
-                        Text("Volume \(String(format: "%.0f", volume))")
-                        Divider()
-                        Toggle("Vibration On", isOn: $vibOn).padding(.leading)
-                        //TODO: tutorial
-//                        HStack {
-//                            ZStack{
-//                                RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: 150, height: 30)
-//                                Text("Play Tutorial").padding(.leading)
-//                            }.padding(.leading)
-//                                .onTapGesture {
-//                                    PlayDefaultFeedback().play()
-//                                }
-//                            Spacer()
-//                        }
-                        Divider()
-                        VStack{
-                            Text("Application Support")
-                                .background(RoundedRectangle(cornerRadius: 5, style: .continuous).fill(.green).frame(width: 215, height: 30))
-                                .padding()
-                                .onTapGesture {
-                                    let SupportURL = "https://sites.google.com/view/geognosis/home"
-                                    
-                                    if let url = URL(string: SupportURL) {
-                                        UIApplication.shared.open(url)
-                                    }
+                    .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
+
+                    // Settings Content
+                    VStack(spacing: 20){
+                        // Audio Section
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Audio")
+                                .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                .fontWeight(.semibold)
+
+                            VStack(spacing: 8) {
+                                HStack {
+                                    Text("Volume")
+                                        .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
+                                    Spacer()
+                                    Text("\(String(format: "%.0f", volume))%")
+                                        .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
+                                        .foregroundColor(.gray)
                                 }
+                                Slider(value: $volume, in: 0...100)
+                                    .tint(Color.green)
+                            }
                         }
-                    }.padding().background(){
-                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
-                    }.overlay(){
-                        RoundedRectangle(cornerRadius: 5).stroke( .gray, lineWidth: 2)
+
+                        Divider()
+                            .background(CustomColor.trim2)
+
+                        // Haptics Section
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Haptics")
+                                .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                .fontWeight(.semibold)
+
+                            Toggle("Vibration", isOn: $vibOn)
+                                .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
+                        }
+
+                        Divider()
+                            .background(CustomColor.trim2)
+
+                        // Support Section
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Support")
+                                .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                .fontWeight(.semibold)
+
+                            Button(action: {
+                                let SupportURL = "https://sites.google.com/view/geognosis/home"
+                                if let url = URL(string: SupportURL) {
+                                    UIApplication.shared.open(url)
+                                }
+                            }) {
+                                HStack {
+                                    Text("Application Support")
+                                        .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                    Spacer()
+                                    Image(systemName: "arrow.up.right.square")
+                                        .font(.system(size: 16))
+                                }
+                                .padding()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .fill(Color.green.opacity(0.9))
+                                )
+                                .foregroundColor(.white)
+                                .shadow(color: .black.opacity(0.15), radius: 3, x: 0, y: 2)
+                            }
+                        }
                     }
+                    .padding(20)
+                    .background(){
+                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
+                    }
+                    .shadow(color: .black.opacity(0.1), radius: 3, x: 0, y: 2)
+                    .padding(.top, 8)
+
                     Spacer()
                 }
                 .background(alignment: .center){BackgroundView()}
