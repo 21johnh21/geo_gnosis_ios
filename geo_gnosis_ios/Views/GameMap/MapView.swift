@@ -17,7 +17,7 @@ struct MapView: View, Equatable{
     @State private var distanceFromPin: Double = 0
     @State private var penaltyDistance: Double = Const.PenaltyDistance
 
-    @AppStorage("sateliteMapOn") var sateliteMapOn: Bool = false
+    @AppStorage("sateliteMapOn") var sateliteMapOn: Bool = true
 
     @EnvironmentObject var timerGlobal: TimerGlobal
     @EnvironmentObject var roundInfo : RoundInfo

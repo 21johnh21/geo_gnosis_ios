@@ -17,7 +17,7 @@ struct geo_gnosis_iosApp: App {
     @StateObject var audioPlayer = AudioPlayer()
     @StateObject var mapTilePreloader = MapTilePreloader()
 
-    @AppStorage("sateliteMapOn") var sateliteMapOn: Bool = false
+    @AppStorage("sateliteMapOn") var sateliteMapOn: Bool = true
 
     init() {
         // Pre-warm keyboard to reduce first-launch lag

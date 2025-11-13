@@ -17,7 +17,7 @@ struct SetUpGame: View {
     var regionModes = [Const.modeRegCountryText, Const.modeRegRegionText, Const.modeRegCityText]
     @Binding var region: String
 
-    @AppStorage("sateliteMapOn") var sateliteMapOn: Bool = false
+    @AppStorage("sateliteMapOn") var sateliteMapOn: Bool = true
 
     var body: some View {
         VStack(spacing: 16){
