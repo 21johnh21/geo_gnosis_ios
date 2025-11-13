@@ -14,7 +14,8 @@ struct RootView: View {
     @AppStorage("lastRegionMode") var lastRegionMode: String = ""
     @AppStorage("lastRegion") var lastRegion: String = ""
     @AppStorage("lastDifficulty") var lastDifficulty: String = ""
-    
+    @AppStorage("sateliteMapOn") var sateliteMapOn: Bool = true
+
     @EnvironmentObject var gameInfo: GameInfo
     @StateObject private var coordinator = Coordinator()
     @EnvironmentObject var timerGlobal: TimerGlobal
@@ -36,7 +37,10 @@ struct RootView: View {
                             Text("\(Image(systemName: "play.fill")) Play Again").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
                             let lastMultiChoiceText = lastMultiChoice ? Const.modeMultiChoiceText : Const.modeFillBlankText
                             let lastRegionText = lastRegion == Const.modeRegCountryText ? "World" : lastRegion
+                            let mapViewIcon = sateliteMapOn ? "globe.americas.fill" : "map"
                             Text("\(lastMultiChoiceText) \(Image(systemName: "circle.fill")) \(lastRegionMode) \(Image(systemName: "circle.fill")) \(lastRegionText) \(Image(systemName: "circle.fill")) \(lastDifficulty)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                            Text("\(Image(systemName: mapViewIcon)) \(sateliteMapOn ? "Satellite" : "Standard")").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
+                                .foregroundColor(.gray)
                         }.padding()
                     }.onTapGesture {
                         PlayDefaultFeedback().play()
