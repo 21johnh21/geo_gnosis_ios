@@ -82,7 +82,7 @@ struct GameMap: View {
                             }
                             
                             ZStack{
-                                RoundedRectangle(cornerRadius: 5).fill(.orange).frame(width: 100, height: 30)
+                                RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
                                     .shadow(color: .black, radius: 3, x: 2, y: 2)
                                 Text("Skip").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding(.trailing)
                             }.onTapGesture {
