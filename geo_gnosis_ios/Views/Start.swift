@@ -14,6 +14,7 @@ struct Start: View {
     @AppStorage("lastRegionMode") var lastRegionMode: String = Const.modeRegCountryText
     @AppStorage("lastRegion") var lastRegion: String = Const.modeRegCountryText
     @AppStorage("lastDifficulty") var lastDifficulty: String = Const.modeDiffEasyText
+    @AppStorage("sateliteMapOn") var sateliteMapOn: Bool = true
     
     @EnvironmentObject private var coordinator: Coordinator
     @EnvironmentObject var roundInfo: RoundInfo
@@ -39,17 +40,18 @@ struct Start: View {
                 if(!timerGlobal.showSetUp){
                     Image(Const.picLogo).resizable().frame(width: 255, height: 255).clipShape(Circle()).padding()
                     ZStack{
-                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
-                        VStack(alignment: .center){
-                            let gameMode = gameInfo.multiChoice == true ? Const.modeMultiChoiceText : Const.modeFillBlankText
-                            Text("Game Mode \(Image(systemName: "circle.fill")) \(gameMode)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                            Text("Region Mode \(Image(systemName: "circle.fill")) \(gameInfo.regionMode)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                            if(gameInfo.regionMode != Const.modeRegCountryText){
-                                Text("Region \(Image(systemName: "circle.fill")) \(gameInfo.region)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                            }
-                            Text("Difficulty \(Image(systemName: "circle.fill")) \(gameInfo.difficulty)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                        }.frame(maxWidth: .infinity)
-                            .background(RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(maxWidth: .infinity))
+                        RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
+                            .shadow(color: .black, radius: 3, x: 2, y: 2)
+                        VStack(spacing: 12){
+                            // Game settings display
+                            GameSettingsDisplay(
+                                multiChoice: gameInfo.multiChoice,
+                                difficulty: gameInfo.difficulty,
+                                regionMode: gameInfo.regionMode,
+                                region: gameInfo.region,
+                                sateliteMapOn: sateliteMapOn
+                            )
+                        }.padding()
                     }
                 }else{
                     SetUpGame(multiChoice: $multiChoice, difficulty: $difficulty, regionMode: $regionMode, region: $region)

@@ -37,59 +37,14 @@ struct RootView: View {
                             Text("\(Image(systemName: "play.fill")) Play Again")
                                 .font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
 
-                            // Game settings in a compact grid
-                            VStack(spacing: 6) {
-                                HStack(spacing: 16) {
-                                    // Game Mode
-                                    HStack(spacing: 4) {
-                                        let gameModeIcon = lastMultiChoice ? "checklist" : "keyboard"
-                                        let lastMultiChoiceText = lastMultiChoice ? Const.modeMultiChoiceText : Const.modeFillBlankText
-                                        Image(systemName: gameModeIcon)
-                                            .font(.system(size: Const.fontSizeNormStd - 3))
-                                        Text(lastMultiChoiceText)
-                                            .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
-                                    }
-                                    .foregroundColor(.gray)
-
-                                    // Difficulty
-                                    HStack(spacing: 4) {
-                                        let difficultyIcon = lastDifficulty == Const.modeDiffEasyText ? "star" : (lastDifficulty == Const.modeDiffMedText ? "star.leadinghalf.filled" : "star.fill")
-                                        Image(systemName: difficultyIcon)
-                                            .font(.system(size: Const.fontSizeNormStd - 3))
-                                        Text(lastDifficulty)
-                                            .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
-                                    }
-                                    .foregroundColor(.gray)
-                                }
-
-                                HStack(spacing: 16) {
-                                    // Region Mode & Region
-                                    HStack(spacing: 4) {
-                                        let regionIcon = lastRegionMode == Const.modeRegCountryText ? "globe" : (lastRegionMode == Const.modeRegRegionText ? "building.2" : "building.2.fill")
-                                        Image(systemName: regionIcon)
-                                            .font(.system(size: Const.fontSizeNormStd - 3))
-                                        if lastRegionMode == Const.modeRegCountryText {
-                                            Text(lastRegionMode)
-                                                .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
-                                        } else {
-                                            let lastRegionText = lastRegion == Const.modeRegCountryText ? "World" : lastRegion
-                                            Text("\(lastRegionMode) • \(lastRegionText)")
-                                                .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
-                                        }
-                                    }
-                                    .foregroundColor(.gray)
-
-                                    // Map Type
-                                    HStack(spacing: 4) {
-                                        let mapViewIcon = sateliteMapOn ? "globe.americas.fill" : "map"
-                                        Image(systemName: mapViewIcon)
-                                            .font(.system(size: Const.fontSizeNormStd - 3))
-                                        Text(sateliteMapOn ? "Satellite" : "Standard")
-                                            .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
-                                    }
-                                    .foregroundColor(.gray)
-                                }
-                            }
+                            // Game settings display
+                            GameSettingsDisplay(
+                                multiChoice: lastMultiChoice,
+                                difficulty: lastDifficulty,
+                                regionMode: lastRegionMode,
+                                region: lastRegion,
+                                sateliteMapOn: sateliteMapOn
+                            )
                         }.padding()
                     }.onTapGesture {
                         PlayDefaultFeedback().play()
