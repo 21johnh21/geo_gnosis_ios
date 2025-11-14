@@ -16,21 +16,33 @@ struct TimerView: View {
     @State var count: Int = 0
     
     var body: some View {
-        ZStack{
-            RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
-                .frame(width: 80, height: 30)
-            Text("\(timerGlobal.timerGlobal > 0 ? timerGlobal.timerGlobal : 0)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).onReceive(timer){ _ in
-                timerGlobal.timerGlobal -= 1
-                count = timerGlobal.timerGlobal
-                if(timerGlobal.timerGlobal <= 0){
-                    timer.upstream.connect().cancel()
-                    timerGlobal.timerGlobal = 0
+        HStack(spacing: 6) {
+            Image(systemName: "clock.fill")
+                .font(.system(size: Const.fontSizeNormStd - 2))
+                .foregroundColor(.primary)
+            Text("\(timerGlobal.timerGlobal > 0 ? timerGlobal.timerGlobal : 0)")
+                .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                .fontWeight(.semibold)
+                .onReceive(timer){ _ in
+                    timerGlobal.timerGlobal -= 1
+                    count = timerGlobal.timerGlobal
+                    if(timerGlobal.timerGlobal <= 0){
+                        timer.upstream.connect().cancel()
+                        timerGlobal.timerGlobal = 0
+                    }
                 }
-            }
-        }.padding(.trailing)
-            .onDisappear(){
-                timer.upstream.connect().cancel()
-            }
+        }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 8)
+        .background(
+            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                .fill(CustomColor.primary)
+                .shadow(color: .black.opacity(0.15), radius: 3, x: 0, y: 2)
+        )
+        .padding(.trailing, 12)
+        .onDisappear(){
+            timer.upstream.connect().cancel()
+        }
     }
 }
 

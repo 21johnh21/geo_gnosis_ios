@@ -42,17 +42,29 @@ struct GameMap: View {
                         Spacer()
                         HStack{
                             Spacer()
-                            ZStack{
-                                if(gameInfo.multiChoice){
-                                    ZStack{
-                                        RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
-                                            .shadow(color: .black, radius: 3, x: 2, y: 2)
-                                        Text("Skip").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                                    }.padding(.bottom)
+                            if(gameInfo.multiChoice){
+                                Button(action: {
+                                    PlayDefaultFeedback().play()
+                                    vm.skipRound()
+                                }) {
+                                    HStack(spacing: 6) {
+                                        Image(systemName: "forward.fill")
+                                            .font(.system(size: Const.fontSizeNormStd - 2))
+                                        Text("Skip")
+                                            .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                            .fontWeight(.semibold)
+                                    }
+                                    .foregroundColor(.white)
+                                    .padding(.horizontal, 16)
+                                    .padding(.vertical, 10)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                            .fill(.red.opacity(0.9))
+                                            .shadow(color: .black.opacity(0.2), radius: 3, x: 0, y: 2)
+                                    )
                                 }
-                            }.onTapGesture {
-                                PlayDefaultFeedback().play()
-                                vm.skipRound()
+                                .padding(.bottom, 16)
+                                .padding(.trailing, 16)
                             }
                         }
                     }
@@ -62,114 +74,194 @@ struct GameMap: View {
                     HStack{
                         //MARK: Fill The Blank --------------------------------------------------
                         if(gameInfo.multiChoice == false){ //if mode is typing
-                            ZStack{
-                            RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
-                                    .frame(height: 30)
-                                    .padding(.leading)
-                            TextField("Answer...",text: $vm.guessText)
-                                .background(CustomColor.primary)
-                                .autocorrectionDisabled()
-                                .textInputAutocapitalization(.words)
-                                .submitLabel(.done)
-                                .rotationEffect(.degrees(vm.animationAmount[4]))
-                                .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: vm.animationAmount[4])
-                                .onSubmit{
-                                    vm.validateAnswer(guessIn: vm.guessText)
-                                }.padding(.leading)
-                                .onChange(of: vm.animate[4]){ newValue in
-                                    vm.animationAmount[4] -= 1
+                            HStack(spacing: 12) {
+                                TextField("Enter your answer...", text: $vm.guessText)
+                                    .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                    .padding(.horizontal, 16)
+                                    .padding(.vertical, 12)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                            .fill(CustomColor.primary)
+                                            .shadow(color: .black.opacity(0.15), radius: 3, x: 0, y: 2)
+                                    )
+                                    .autocorrectionDisabled()
+                                    .textInputAutocapitalization(.words)
+                                    .submitLabel(.done)
+                                    .rotationEffect(.degrees(vm.animationAmount[4]))
+                                    .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: vm.animationAmount[4])
+                                    .onSubmit{
+                                        vm.validateAnswer(guessIn: vm.guessText)
+                                    }
+                                    .onChange(of: vm.animate[4]){ newValue in
+                                        vm.animationAmount[4] -= 1
+                                    }
+
+                                Button(action: {
+                                    PlayDefaultFeedback().play()
+                                    vm.skipRound()
+                                }) {
+                                    HStack(spacing: 6) {
+                                        Image(systemName: "forward.fill")
+                                            .font(.system(size: Const.fontSizeNormStd - 2))
+                                        Text("Skip")
+                                            .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                            .fontWeight(.semibold)
+                                    }
+                                    .foregroundColor(.white)
+                                    .padding(.horizontal, 16)
+                                    .padding(.vertical, 10)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                            .fill(.red.opacity(0.9))
+                                            .shadow(color: .black.opacity(0.2), radius: 3, x: 0, y: 2)
+                                    )
                                 }
                             }
-                            
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 5).fill(.red).frame(width: 100, height: 30)
-                                    .shadow(color: .black, radius: 3, x: 2, y: 2)
-                                Text("Skip").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)).padding(.trailing)
-                            }.onTapGesture {
-                                PlayDefaultFeedback().play()
-                                vm.skipRound()
-                            }
+                            .padding(.horizontal, 12)
+                            .padding(.bottom, 12)
                         } else{
                             //MARK: MultiChoice -----------------------------------------------------
-                            VStack(spacing: 0){
-                                HStack(spacing: 0){
-                                    ZStack{
-                                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
-                                            .shadow(color: .black, radius: 3, x: 2, y: 2)
+                            VStack(spacing: 8){
+                                HStack(spacing: 8){
+                                    Button(action: {
+                                        vm.validateAnswerMultiChoice(guessIn: vm.options[0], optionClicked: 0)
+                                    }) {
+                                        Text("\(vm.options[0])")
+                                            .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                            .fontWeight(.medium)
+                                            .foregroundColor(.primary)
+                                            .frame(maxWidth: .infinity)
+                                            .padding(.vertical, 12)
+                                            .background(
+                                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                                    .fill(CustomColor.primary)
+                                                    .shadow(color: .black.opacity(0.15), radius: 3, x: 0, y: 2)
+                                            )
                                             .rotationEffect(.degrees(vm.animationAmount[0]))
                                             .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: vm.animationAmount[0])
-                                        Text("\(vm.options[0])").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                                    }.padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
-                                    .onTapGesture {
-                                        vm.validateAnswerMultiChoice(guessIn: vm.options[0], optionClicked: 0)
                                     }
                                     .onChange(of: vm.animate[0]){ newValue in
                                         vm.animationAmount[0] -= 1
                                     }
-                                    ZStack{
-                                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
-                                            .shadow(color: .black, radius: 3, x: 2, y: 2)
+
+                                    Button(action: {
+                                        vm.validateAnswerMultiChoice(guessIn: vm.options[1], optionClicked: 1)
+                                    }) {
+                                        Text("\(vm.options[1])")
+                                            .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                            .fontWeight(.medium)
+                                            .foregroundColor(.primary)
+                                            .frame(maxWidth: .infinity)
+                                            .padding(.vertical, 12)
+                                            .background(
+                                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                                    .fill(CustomColor.primary)
+                                                    .shadow(color: .black.opacity(0.15), radius: 3, x: 0, y: 2)
+                                            )
                                             .rotationEffect(.degrees(vm.animationAmount[1]))
                                             .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: vm.animationAmount[1])
-                                        Text("\(vm.options[1])").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                                    }.padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
-                                    .onTapGesture {
-                                        vm.validateAnswerMultiChoice(guessIn: vm.options[1], optionClicked: 1)
                                     }
                                     .onChange(of: vm.animate[1]){ newValue in
                                         vm.animationAmount[1] -= 1
                                     }
                                 }
-                                HStack(spacing: 0){
-                                    ZStack{
-                                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
-                                            .shadow(color: .black, radius: 3, x: 2, y: 2)
+                                HStack(spacing: 8){
+                                    Button(action: {
+                                        vm.validateAnswerMultiChoice(guessIn: vm.options[2], optionClicked: 2)
+                                    }) {
+                                        Text("\(vm.options[2])")
+                                            .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                            .fontWeight(.medium)
+                                            .foregroundColor(.primary)
+                                            .frame(maxWidth: .infinity)
+                                            .padding(.vertical, 12)
+                                            .background(
+                                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                                    .fill(CustomColor.primary)
+                                                    .shadow(color: .black.opacity(0.15), radius: 3, x: 0, y: 2)
+                                            )
                                             .rotationEffect(.degrees(vm.animationAmount[2]))
                                             .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: vm.animationAmount[2])
-                                        Text("\(vm.options[2])").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                                    }.padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
-                                    .onTapGesture {
-                                        vm.validateAnswerMultiChoice(guessIn: vm.options[2], optionClicked: 2)
                                     }
                                     .onChange(of: vm.animate[2]){ newValue in
                                         vm.animationAmount[2] -= 1
                                     }
-                                    ZStack{
-                                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 30)
-                                            .shadow(color: .black, radius: 3, x: 2, y: 2)
+
+                                    Button(action: {
+                                        vm.validateAnswerMultiChoice(guessIn: vm.options[3], optionClicked: 3)
+                                    }) {
+                                        Text("\(vm.options[3])")
+                                            .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                            .fontWeight(.medium)
+                                            .foregroundColor(.primary)
+                                            .frame(maxWidth: .infinity)
+                                            .padding(.vertical, 12)
+                                            .background(
+                                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                                    .fill(CustomColor.primary)
+                                                    .shadow(color: .black.opacity(0.15), radius: 3, x: 0, y: 2)
+                                            )
                                             .rotationEffect(.degrees(vm.animationAmount[3]))
                                             .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 1,  initialVelocity: 20.0), value: vm.animationAmount[3])
-                                        Text("\(vm.options[3])").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                                    }.padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
-                                    .onTapGesture {
-                                        vm.validateAnswerMultiChoice(guessIn: vm.options[3], optionClicked: 3)
                                     }
                                     .onChange(of: vm.animate[3]){ newValue in
                                         vm.animationAmount[3] -= 1
                                     }
                                 }
                             }
+                            .padding(.horizontal, 12)
+                            .padding(.bottom, 12)
                         }
                         //MARK: End MultiChoice ---------------------------------------------------------
                     }
                 }
             }
             HStack {
-                ZStack{
-                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
-                        .frame(width: 80, height: 30)
-                    Text("Round: \(roundInfo.roundNumber + 1)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)) //Round number
-                }.padding(.leading).padding(.top)
+                // Round indicator
+                HStack(spacing: 6) {
+                    Image(systemName: "flag.fill")
+                        .font(.system(size: Const.fontSizeNormStd - 2))
+                        .foregroundColor(.primary)
+                    Text("Round \(roundInfo.roundNumber + 1)")
+                        .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                        .fontWeight(.semibold)
+                }
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
+                .background(
+                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                        .fill(CustomColor.primary)
+                        .shadow(color: .black.opacity(0.15), radius: 3, x: 0, y: 2)
+                )
+                .padding(.leading, 12)
+                .padding(.top, 12)
+
                 Spacer()
-                ZStack{
-                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
-                        .frame(width: 160, height: 30)
-                    Text("Guess the \(gameInfo.regionMode)").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd)) //Round number
-                }.padding(.top)
+
+                // Guess the X
+                HStack(spacing: 6) {
+                    let icon = gameInfo.regionMode == Const.modeRegCountryText ? "globe" : (gameInfo.regionMode == Const.modeRegRegionText ? "building.2" : "building.2.fill")
+                    Image(systemName: icon)
+                        .font(.system(size: Const.fontSizeNormStd - 2))
+                        .foregroundColor(.primary)
+                    Text("Guess the \(gameInfo.regionMode)")
+                        .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                        .fontWeight(.semibold)
+                }
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
+                .background(
+                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                        .fill(CustomColor.primary)
+                        .shadow(color: .black.opacity(0.15), radius: 3, x: 0, y: 2)
+                )
+                .padding(.top, 12)
+
                 Spacer()
-                TimerView().padding(.top)
+
+                TimerView().padding(.top, 12)
             }.safeAreaInset(edge: .bottom){
-                
+
             }
             
             if((vm.showPenalty || (timerGlobal.penalty)) && timerGlobal.timerGlobal > 0){
