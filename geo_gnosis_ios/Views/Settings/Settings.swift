@@ -21,90 +21,147 @@ struct Settings: View {
             ZStack{
                 ScrollView{
                     // Header
-                    VStack{
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
                         Text("Settings")
                             .font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg))
-                            .fontWeight(.bold)
+                            .padding(.top)
                     }
-                    .frame(maxWidth: .infinity, minHeight: 80)
-                    .background(){
-                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
-                    }
-                    .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
 
                     // Settings Content
-                    VStack(spacing: 20){
+                    VStack(spacing: 12){
                         // Audio Section
-                        VStack(alignment: .leading, spacing: 12) {
-                            Text("Audio")
-                                .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                                .fontWeight(.semibold)
+                        VStack(alignment: .leading, spacing: 10) {
+                            HStack(spacing: 6) {
+                                Image(systemName: "speaker.wave.2.fill")
+                                    .font(.system(size: Const.fontSizeNormStd - 2))
+                                    .foregroundColor(.gray)
+                                Text("Audio")
+                                    .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                    .fontWeight(.semibold)
+                            }
 
                             VStack(spacing: 8) {
                                 HStack {
                                     Text("Volume")
                                         .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
+                                        .foregroundColor(.gray)
                                     Spacer()
                                     Text("\(String(format: "%.0f", volume))%")
                                         .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
                                         .foregroundColor(.gray)
                                 }
                                 Slider(value: $volume, in: 0...100)
-                                    .tint(Color.green)
+                                    .tint(CustomColor.secondary)
                             }
                         }
-
-                        Divider()
-                            .background(CustomColor.trim2)
+                        .padding(12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                .fill(CustomColor.primary)
+                                .shadow(color: .black.opacity(0.1), radius: 2, x: 0, y: 2)
+                        )
 
                         // Haptics Section
-                        VStack(alignment: .leading, spacing: 12) {
-                            Text("Haptics")
-                                .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                                .fontWeight(.semibold)
+                        VStack(alignment: .leading, spacing: 10) {
+                            HStack(spacing: 6) {
+                                Image(systemName: "waveform")
+                                    .font(.system(size: Const.fontSizeNormStd - 2))
+                                    .foregroundColor(.gray)
+                                Text("Haptics")
+                                    .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                    .fontWeight(.semibold)
+                            }
 
-                            Toggle("Vibration", isOn: $vibOn)
-                                .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
+                            HStack(spacing: 8) {
+                                Button(action: {
+                                    PlayDefaultFeedback().play()
+                                    vibOn = true
+                                }) {
+                                    HStack(spacing: 4) {
+                                        Image(systemName: "waveform")
+                                            .font(.system(size: Const.fontSizeNormStd - 4))
+                                        Text("On")
+                                            .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 8)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 6, style: .continuous)
+                                            .fill(vibOn ? CustomColor.secondary : CustomColor.trim)
+                                    )
+                                    .foregroundColor(vibOn ? .primary : .secondary)
+                                }
+
+                                Button(action: {
+                                    vibOn = false
+                                }) {
+                                    HStack(spacing: 4) {
+                                        Image(systemName: "waveform.slash")
+                                            .font(.system(size: Const.fontSizeNormStd - 4))
+                                        Text("Off")
+                                            .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 8)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 6, style: .continuous)
+                                            .fill(!vibOn ? CustomColor.secondary : CustomColor.trim)
+                                    )
+                                    .foregroundColor(!vibOn ? .primary : .secondary)
+                                }
+                            }
                         }
-
-                        Divider()
-                            .background(CustomColor.trim2)
+                        .padding(12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                .fill(CustomColor.primary)
+                                .shadow(color: .black.opacity(0.1), radius: 2, x: 0, y: 2)
+                        )
 
                         // Support Section
-                        VStack(alignment: .leading, spacing: 12) {
-                            Text("Support")
-                                .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                                .fontWeight(.semibold)
+                        VStack(alignment: .leading, spacing: 10) {
+                            HStack(spacing: 6) {
+                                Image(systemName: "questionmark.circle.fill")
+                                    .font(.system(size: Const.fontSizeNormStd - 2))
+                                    .foregroundColor(.gray)
+                                Text("Support")
+                                    .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                    .fontWeight(.semibold)
+                            }
 
                             Button(action: {
+                                PlayDefaultFeedback().play()
                                 let SupportURL = "https://sites.google.com/view/geognosis/home"
                                 if let url = URL(string: SupportURL) {
                                     UIApplication.shared.open(url)
                                 }
                             }) {
                                 HStack {
+                                    Image(systemName: "link")
+                                        .font(.system(size: Const.fontSizeNormStd - 2))
                                     Text("Application Support")
-                                        .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                        .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
                                     Spacer()
-                                    Image(systemName: "arrow.up.right.square")
-                                        .font(.system(size: 16))
+                                    Image(systemName: "arrow.up.right")
+                                        .font(.system(size: Const.fontSizeNormStd - 4))
                                 }
-                                .padding()
+                                .padding(12)
                                 .background(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .fill(Color.green.opacity(0.9))
+                                    RoundedRectangle(cornerRadius: 6, style: .continuous)
+                                        .fill(CustomColor.secondary)
                                 )
-                                .foregroundColor(.white)
-                                .shadow(color: .black.opacity(0.15), radius: 3, x: 0, y: 2)
+                                .foregroundColor(.primary)
                             }
                         }
+                        .padding(12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                .fill(CustomColor.primary)
+                                .shadow(color: .black.opacity(0.1), radius: 2, x: 0, y: 2)
+                        )
                     }
-                    .padding(20)
-                    .background(){
-                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
-                    }
-                    .shadow(color: .black.opacity(0.1), radius: 3, x: 0, y: 2)
-                    .padding(.top, 8)
+                    .padding(16)
 
                     Spacer()
                 }
