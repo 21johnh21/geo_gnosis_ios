@@ -24,74 +24,98 @@ struct EndGame: View {
     var body: some View {
         VStack(spacing: 0) {
             // Header Section
-            VStack(spacing: 12){
-                Text("Game Over!")
-                    .font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg))
-                    .fontWeight(.bold)
-                    .padding(.top, 12)
-
-                HStack {
-                    Text("Final Score")
-                        .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                        .fontWeight(.semibold)
-                    Spacer()
-                    Text("\(finalScore)")
-                        .font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
-                        .fontWeight(.bold)
-                }
-                .padding(.horizontal, 20)
-                .padding(.bottom, 12)
-            }
-            .background(){
+            ZStack {
                 RoundedRectangle(cornerRadius: 5)
                     .fill(CustomColor.primary)
+                    .shadow(color: .black.opacity(0.15), radius: 4, x: 0, y: 2)
+
+                VStack(spacing: 16){
+                    HStack(spacing: 8) {
+                        Image(systemName: "trophy.fill")
+                            .font(.system(size: Const.fontSizeTitleLrg - 4))
+                            .foregroundColor(.yellow)
+                        Text("Game Over!")
+                            .font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg))
+                            .fontWeight(.bold)
+                    }
+                    .padding(.top, 16)
+
+                    // Final Score with prominence
+                    VStack(spacing: 8) {
+                        HStack(spacing: 6) {
+                            Image(systemName: "star.fill")
+                                .font(.system(size: Const.fontSizeNormStd))
+                                .foregroundColor(.yellow)
+                            Text("Final Score")
+                                .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                .fontWeight(.semibold)
+                                .foregroundColor(.gray)
+                        }
+                        Text("\(finalScore)")
+                            .font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg + 8))
+                            .fontWeight(.bold)
+                            .foregroundColor(.primary)
+                    }
+                    .padding(.bottom, 16)
+                }
             }
-            .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
 
             // Map Section
             MapView2(pinLocations: initPinLocations(), centerLat: $centerLat, centerLng: $centerLng)
                 .frame(height: 250)
-                .cornerRadius(5)
-                .padding(.top, 8)
+                .cornerRadius(8)
+                .padding(.top, 12)
                 .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 2)
 
             // Action Buttons
             HStack(spacing: 12){
+                // Play Again - Primary Action
                 Button(action: {
                     timerGlobal.showSetUp = false
                     PlayDefaultFeedback().play()
                     coordinator.show(Start.self)
                 }) {
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(CustomColor.primary)
-                            .frame(height: 44)
-                            .shadow(color: .black.opacity(0.2), radius: 3, x: 0, y: 2)
+                    HStack(spacing: 8) {
+                        Image(systemName: "play.fill")
+                            .font(.system(size: Const.fontSizeNormStd))
                         Text("Play Again")
                             .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                             .fontWeight(.semibold)
-                            .foregroundColor(.primary)
                     }
+                    .foregroundColor(.primary)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 14)
+                    .background(
+                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                            .fill(CustomColor.secondary)
+                            .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 3)
+                    )
                 }
 
+                // Return to Menu - Secondary Action
                 Button(action: {
                     PlayDefaultFeedback().play()
                     coordinator.popToRoot()
                 }) {
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(CustomColor.primary)
-                            .frame(height: 44)
-                            .shadow(color: .black.opacity(0.2), radius: 3, x: 0, y: 2)
-                        Text("Return to Menu")
+                    HStack(spacing: 8) {
+                        Image(systemName: "house.fill")
+                            .font(.system(size: Const.fontSizeNormStd))
+                        Text("Menu")
                             .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
                             .fontWeight(.semibold)
-                            .foregroundColor(.primary)
                     }
+                    .foregroundColor(.primary)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 14)
+                    .background(
+                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                            .fill(CustomColor.primary)
+                            .shadow(color: .black.opacity(0.15), radius: 3, x: 0, y: 2)
+                    )
                 }
             }
-            .padding(.top, 12)
-            .padding(.horizontal, 8)
+            .padding(.top, 16)
+            .padding(.horizontal, 12)
 
             // Scrollable Cards
             ScrollView{
