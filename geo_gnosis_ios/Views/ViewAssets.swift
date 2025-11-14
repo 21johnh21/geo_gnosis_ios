@@ -38,6 +38,7 @@ struct GameSettingsDisplay: View {
     let regionMode: String
     let region: String
     let sateliteMapOn: Bool
+    var textColor: Color = .gray
 
     var body: some View {
         VStack(spacing: 6) {
@@ -51,7 +52,7 @@ struct GameSettingsDisplay: View {
                     Text(gameModeText)
                         .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
                 }
-                .foregroundColor(.gray)
+                .foregroundColor(textColor)
 
                 // Difficulty
                 HStack(spacing: 4) {
@@ -61,7 +62,7 @@ struct GameSettingsDisplay: View {
                     Text(difficulty)
                         .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
                 }
-                .foregroundColor(.gray)
+                .foregroundColor(textColor)
             }
 
             HStack(spacing: 16) {
@@ -79,7 +80,7 @@ struct GameSettingsDisplay: View {
                             .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
                     }
                 }
-                .foregroundColor(.gray)
+                .foregroundColor(textColor)
 
                 // Map Type
                 HStack(spacing: 4) {
@@ -89,7 +90,7 @@ struct GameSettingsDisplay: View {
                     Text(sateliteMapOn ? "Satellite" : "Standard")
                         .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd - 2))
                 }
-                .foregroundColor(.gray)
+                .foregroundColor(textColor)
             }
         }
     }

@@ -23,59 +23,86 @@ struct RootView: View {
     var body: some View {
         NavigationStack(path: $coordinator.path) {
             ScrollView{
+                // Header with Settings button
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
-                    Text("Geo Gnosis").font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg)).padding(.top)
-                }
-                Image(Const.picLogo).resizable().frame(width: 255, height: 255).clipShape(Circle()).padding()
-                //MARK: Play Again Button ---------------------------------
-                if(isStorageSet()){
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
-                            .shadow(color: .black, radius: 3, x: 2, y: 2)
-                        VStack(spacing: 12){
-                            Text("\(Image(systemName: "play.fill")) Play Again")
-                                .font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
+                    Text("Geo Gnosis")
+                        .font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg))
+                        .padding(.top)
 
-                            // Game settings display
-                            GameSettingsDisplay(
-                                multiChoice: lastMultiChoice,
-                                difficulty: lastDifficulty,
-                                regionMode: lastRegionMode,
-                                region: lastRegion,
-                                sateliteMapOn: sateliteMapOn
-                            )
-                        }.padding()
+                    // Settings button in top-right
+                    HStack{
+                        Spacer()
+                        Button(action: {
+                            PlayDefaultFeedback().play()
+                            coordinator.show(Settings.self)
+                        }) {
+                            Image(systemName: "gearshape.fill")
+                                .font(.system(size: 24))
+                                .foregroundColor(.primary)
+                                .padding(.trailing, 20)
+                                .padding(.top, 8)
+                        }
+                    }
+                }
+
+                Image(Const.picLogo)
+                    .resizable()
+                    .frame(width: 200, height: 200)
+                    .clipShape(Circle())
+                    .padding(.vertical, 20)
+
+                VStack(spacing: 16) {
+                    //MARK: Play Again Button ---------------------------------
+                    if(isStorageSet()){
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                .fill(CustomColor.secondary)
+                                .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 3)
+                            VStack(spacing: 12){
+                                Text("\(Image(systemName: "play.fill")) Play Again")
+                                    .font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
+                                    .foregroundColor(.primary)
+
+                                // Game settings display
+                                GameSettingsDisplay(
+                                    multiChoice: lastMultiChoice,
+                                    difficulty: lastDifficulty,
+                                    regionMode: lastRegionMode,
+                                    region: lastRegion,
+                                    sateliteMapOn: sateliteMapOn,
+                                    textColor: .primary.opacity(0.8)
+                                )
+                            }.padding(16)
+                        }.onTapGesture {
+                            PlayDefaultFeedback().play()
+                            gameInfo.multiChoice = lastMultiChoice
+                            gameInfo.regionMode = lastRegionMode
+                            gameInfo.region = lastRegion
+                            gameInfo.difficulty = lastDifficulty
+                            timerGlobal.showSetUp = false
+                            coordinator.show(Start.self)
+                        }
+                        .padding(.horizontal, 16)
+                    }
+
+                    //MARK: Set Up Game ----------------------------
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                            .fill(CustomColor.primary)
+                            .shadow(color: .black.opacity(0.15), radius: 3, x: 0, y: 2)
+                        VStack{
+                            Text("\(Image(systemName: "slider.horizontal.3")) Set Up Game")
+                                .font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
+                        }.padding(16)
                     }.onTapGesture {
                         PlayDefaultFeedback().play()
-                        gameInfo.multiChoice = lastMultiChoice
-                        gameInfo.regionMode = lastRegionMode
-                        gameInfo.region = lastRegion
-                        gameInfo.difficulty = lastDifficulty
-                        timerGlobal.showSetUp = false
+                        timerGlobal.showSetUp = true
                         coordinator.show(Start.self)
                     }
+                    .padding(.horizontal, 16)
                 }
-                //MARK: Set Up Game ----------------------------
-                ZStack{
-                    RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary).shadow(color: .black, radius: 3, x: 2, y: 2)
-                    VStack{
-                        Text("\(Image(systemName: "gear")) Set Up Game").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
-                    }.padding()
-                }.onTapGesture {
-                    timerGlobal.showSetUp = true
-                    coordinator.show(Start.self)
-                }
-                //MARK: Other buttons ------------------------------------------
-                HStack{
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).shadow(color: .black, radius: 3, x: 2, y: 2)
-                        Text("Settings").font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
-                    }.onTapGesture {
-                        PlayDefaultFeedback().play()
-                        coordinator.show(Settings.self)
-                    }
-                }
+                .padding(.bottom, 20)
             }
             .navigationDestination(for: String.self) { id in
                 if id == String(describing: Start.self) {
