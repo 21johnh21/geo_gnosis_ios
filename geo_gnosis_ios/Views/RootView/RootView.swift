@@ -53,7 +53,7 @@ struct RootView: View {
 
                                     // Difficulty
                                     HStack(spacing: 4) {
-                                        let difficultyIcon = lastDifficulty == Const.modeDiffEasyText ? "star" : (lastDifficulty == Const.modeDiffMedText ? "star.fill" : "star.leadinghalf.filled")
+                                        let difficultyIcon = lastDifficulty == Const.modeDiffEasyText ? "star" : (lastDifficulty == Const.modeDiffMedText ? "star.leadinghalf.filled" : "star.fill")
                                         Image(systemName: difficultyIcon)
                                             .font(.system(size: Const.fontSizeNormStd - 3))
                                         Text(lastDifficulty)
