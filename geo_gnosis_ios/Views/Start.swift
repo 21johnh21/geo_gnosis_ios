@@ -31,48 +31,87 @@ struct Start: View {
     let numberOfRounds = 5
     
     var body: some View {
-        
+
             ScrollView{
+                // Header
                 ZStack{
                     RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
-                    Text("Geo Gnosis").font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg)).padding(.top).padding(.top)
+                    Text("Geo Gnosis")
+                        .font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg))
+                        .padding(.top)
                 }
-                if(!timerGlobal.showSetUp){
-                    Image(Const.picLogo).resizable().frame(width: 255, height: 255).clipShape(Circle()).padding()
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 5, style: .continuous).fill(CustomColor.primary)
-                            .shadow(color: .black, radius: 3, x: 2, y: 2)
-                        VStack(spacing: 12){
+
+                VStack(spacing: 20) {
+                    if(!timerGlobal.showSetUp){
+                        // Logo
+                        Image(Const.picLogo)
+                            .resizable()
+                            .frame(width: 200, height: 200)
+                            .clipShape(Circle())
+                            .padding(.vertical, 20)
+
+                        // Game Settings Card
+                        VStack(spacing: 12) {
+                            HStack {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .font(.system(size: Const.fontSizeNormStd))
+                                    .foregroundColor(.green)
+                                Text("Ready to Play!")
+                                    .font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
+                                    .fontWeight(.semibold)
+                            }
+
                             // Game settings display
                             GameSettingsDisplay(
                                 multiChoice: gameInfo.multiChoice,
                                 difficulty: gameInfo.difficulty,
                                 regionMode: gameInfo.regionMode,
                                 region: gameInfo.region,
-                                sateliteMapOn: sateliteMapOn
+                                sateliteMapOn: sateliteMapOn,
+                                textColor: .primary.opacity(0.8)
                             )
-                        }.padding()
+                        }
+                        .padding(16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                .fill(CustomColor.primary)
+                                .shadow(color: .black.opacity(0.15), radius: 3, x: 0, y: 2)
+                        )
+                        .padding(.horizontal, 16)
+                    } else {
+                        SetUpGame(multiChoice: $multiChoice, difficulty: $difficulty, regionMode: $regionMode, region: $region)
+                            .padding(.horizontal, 16)
+                            .padding(.top, 8)
                     }
-                }else{
-                    SetUpGame(multiChoice: $multiChoice, difficulty: $difficulty, regionMode: $regionMode, region: $region)
-                }
 
-                Spacer()
-                ZStack{
-                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary)
-                        .frame(width: 200, height: 80)
-                        .shadow(color: .black, radius: 3, x: 2, y: 2)
-                    Text("\(Image(systemName: "play.fill")) Start").font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg)).padding(.top)
-                }
-                .padding(.bottom)
-                .onTapGesture {
-                    if(!isGameInitiated){
-                        isGameInitiated = true
-                        PlayDefaultFeedback().play()
-                        startGame()
+                    // Start Button
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                            .fill(CustomColor.secondary)
+                            .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 3)
+                        HStack(spacing: 8) {
+                            Image(systemName: "play.fill")
+                                .font(.system(size: Const.fontSizeNormLrg))
+                            Text("Start Game")
+                                .font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
+                                .fontWeight(.semibold)
+                        }
+                        .foregroundColor(.primary)
+                        .padding(.vertical, 20)
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.top, 8)
+                    .onTapGesture {
+                        if(!isGameInitiated){
+                            isGameInitiated = true
+                            PlayDefaultFeedback().play()
+                            startGame()
+                        }
                     }
                 }
-            }.frame(maxWidth: .infinity)
+                .padding(.bottom, 20)
+            }
+            .frame(maxWidth: .infinity)
             .background(alignment: .center){BackgroundView()}
     }
     func startGame(){
