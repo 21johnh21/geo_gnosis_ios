@@ -52,6 +52,12 @@ extension GameMap{
             }
         }
         func validateAnswer (guessIn: String) {
+            // Light haptic feedback for submission
+            if(vibOn){
+                let generator = UIImpactFeedbackGenerator(style: .light)
+                generator.impactOccurred()
+            }
+
             showPenalty = false
 
             if(isCorrectGuess(guessIn: guessIn, answer: getCorrectAnswer())){
@@ -84,7 +90,12 @@ extension GameMap{
                 animationAmount[4] += 1
                 animate[4].toggle()
                 playIncorrect()
-                PlayDefaultFeedback().play()
+
+                // Error haptic feedback
+                if(vibOn){
+                    let generator = UINotificationFeedbackGenerator()
+                    generator.notificationOccurred(.error)
+                }
 
                 Task {
                     try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
@@ -208,6 +219,12 @@ extension GameMap{
             return false
         }
         func validateAnswerMultiChoice(guessIn: String, optionClicked: Int){
+            // Light haptic feedback for button tap
+            if(vibOn){
+                let generator = UIImpactFeedbackGenerator(style: .light)
+                generator.impactOccurred()
+            }
+
             showPenalty = false
             var answer: String
             answer = getCorrectAnswer()
@@ -241,7 +258,13 @@ extension GameMap{
                 animationAmount[optionClicked] += 1
                 animate[optionClicked].toggle()
                 playIncorrect()
-                PlayDefaultFeedback().play()
+
+                // Error haptic feedback
+                if(vibOn){
+                    let generator = UINotificationFeedbackGenerator()
+                    generator.notificationOccurred(.error)
+                }
+
                 viewID += 1
 
                 Task {
@@ -310,6 +333,12 @@ extension GameMap{
             return answer
         }
         func skipRound(){
+            // Medium haptic feedback for skip action
+            if(vibOn){
+                let generator = UIImpactFeedbackGenerator(style: .medium)
+                generator.impactOccurred()
+            }
+
             // Record skip with 0 points
             roundInfo.answers[roundInfo.roundNumber] = false // Incorrect answer
             roundInfo.roundNumbers[roundInfo.roundNumber] = (roundInfo.roundNumber + 1)
