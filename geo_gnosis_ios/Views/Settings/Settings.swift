@@ -22,7 +22,7 @@ struct Settings: View {
                 ScrollView{
                     // Header
                     ZStack{
-                        RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
+                        RoundedRectangle(cornerRadius: 8, style: .continuous).fill(CustomColor.primary).frame(height: 80)
                         Text("Settings")
                             .font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg))
                             .padding(.top)

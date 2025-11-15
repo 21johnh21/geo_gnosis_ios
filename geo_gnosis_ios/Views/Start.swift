@@ -35,20 +35,20 @@ struct Start: View {
             ScrollView{
                 // Header
                 ZStack{
-                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
+                    RoundedRectangle(cornerRadius: 8, style: .continuous).fill(CustomColor.primary).frame(height: 80)
                     Text("Geo Gnosis")
                         .font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg))
                         .padding(.top)
                 }
 
-                VStack(spacing: 20) {
+                VStack(spacing: 16) {
                     if(!timerGlobal.showSetUp){
                         // Logo
                         Image(Const.picLogo)
                             .resizable()
                             .frame(width: 200, height: 200)
                             .clipShape(Circle())
-                            .padding(.vertical, 20)
+                            .padding(.vertical, 16)
 
                         // Game Settings Card
                         VStack(spacing: 12) {
@@ -81,7 +81,6 @@ struct Start: View {
                     } else {
                         SetUpGame(multiChoice: $multiChoice, difficulty: $difficulty, regionMode: $regionMode, region: $region)
                             .padding(.horizontal, 16)
-                            .padding(.top, 8)
                     }
 
                     // Start Button
@@ -100,7 +99,6 @@ struct Start: View {
                         .padding(.vertical, 20)
                     }
                     .padding(.horizontal, 16)
-                    .padding(.top, 8)
                     .onTapGesture {
                         if(!isGameInitiated){
                             isGameInitiated = true
@@ -109,7 +107,7 @@ struct Start: View {
                         }
                     }
                 }
-                .padding(.bottom, 20)
+                .padding(.bottom, 16)
             }
             .frame(maxWidth: .infinity)
             .background(alignment: .center){BackgroundView()}

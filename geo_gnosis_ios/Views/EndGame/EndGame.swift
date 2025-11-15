@@ -25,7 +25,7 @@ struct EndGame: View {
         VStack(spacing: 0) {
             // Header Section
             ZStack {
-                RoundedRectangle(cornerRadius: 5)
+                RoundedRectangle(cornerRadius: 8, style: .continuous)
                     .fill(CustomColor.primary)
                     .shadow(color: .black.opacity(0.15), radius: 4, x: 0, y: 2)
 
@@ -68,7 +68,7 @@ struct EndGame: View {
                 .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 2)
 
             // Action Buttons
-            HStack(spacing: 12){
+            HStack(spacing: 16){
                 // Play Again - Primary Action
                 Button(action: {
                     timerGlobal.showSetUp = false
@@ -115,7 +115,7 @@ struct EndGame: View {
                 }
             }
             .padding(.top, 16)
-            .padding(.horizontal, 12)
+            .padding(.horizontal, 16)
 
             // Scrollable Cards
             ScrollView{
@@ -130,8 +130,8 @@ struct EndGame: View {
                             }
                     }
                 }
-                .padding(.horizontal, 8)
-                .padding(.bottom, 8)
+                .padding(.horizontal, 16)
+                .padding(.bottom, 16)
             }
             .padding(.top, 16)
         }

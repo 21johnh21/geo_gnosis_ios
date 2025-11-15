@@ -25,7 +25,7 @@ struct RootView: View {
             ScrollView{
                 // Header with Settings button
                 ZStack{
-                    RoundedRectangle(cornerRadius: 5).fill(CustomColor.primary).frame(height: 80)
+                    RoundedRectangle(cornerRadius: 8, style: .continuous).fill(CustomColor.primary).frame(height: 80)
                     Text("Geo Gnosis")
                         .font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg))
                         .padding(.top)
