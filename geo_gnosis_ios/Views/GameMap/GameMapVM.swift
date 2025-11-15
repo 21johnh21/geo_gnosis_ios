@@ -23,6 +23,8 @@ extension GameMap{
         @Published var showPenalty: Bool = false
         @Published var viewID: Int = 0
         @Published var penaltyAmount = 0
+        @Published var showSuccess: Bool = false
+        @Published var showError: Bool = false
         
         var gameInfo: GameInfo = GameInfo()
         var roundInfo: RoundInfo = RoundInfo()
@@ -54,19 +56,27 @@ extension GameMap{
 
 //           //TODO: somehow allow like 2 - 3 charachters mispelling
             if(isCorrectGuess(guessIn: guessIn, answer: getCorrectAnswer())){
+                showSuccess = true
 
-                if(roundInfo.roundNumber == 4){
-                    handleCorrectGuess()
-                    timerGlobal.timerGlobal = Const.maxRoundScoreValue
-                    coordinator.show(EndGame.self)
-                }else{
-                    handleCorrectGuess()
-                    timerGlobal.timerGlobal = Const.maxRoundScoreValue
-                    roundInfo.roundNumber += 1
-                    coordinator.show(GameMap.self)
+                Task {
+                    try? await Task.sleep(nanoseconds: 800_000_000) // 0.8 seconds
+
+                    if(roundInfo.roundNumber == 4){
+                        handleCorrectGuess()
+                        timerGlobal.timerGlobal = Const.maxRoundScoreValue
+                        showSuccess = false
+                        coordinator.show(EndGame.self)
+                    }else{
+                        handleCorrectGuess()
+                        timerGlobal.timerGlobal = Const.maxRoundScoreValue
+                        showSuccess = false
+                        roundInfo.roundNumber += 1
+                        coordinator.show(GameMap.self)
+                    }
                 }
             }
             else{
+                showError = true
                 timerGlobal.timerGlobal -= Const.PenaltyIncorrectFTB
                 penaltyAmount = Const.PenaltyIncorrectFTB
                 viewID += 1
@@ -76,6 +86,11 @@ extension GameMap{
                 animate[4].toggle()
                 playIncorrect()
                 PlayDefaultFeedback().play()
+
+                Task {
+                    try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
+                    showError = false
+                }
             }
         }
         func alternativeName(country: String) -> [String]{
@@ -150,20 +165,27 @@ extension GameMap{
             answer = getCorrectAnswer()
 
             if(guessIn == answer){
+                showSuccess = true
 
-                if(roundInfo.roundNumber == 4){
-                    handleCorrectGuess()
-                    timerGlobal.timerGlobal = Const.maxRoundScoreValue
-                    coordinator.show(EndGame.self)
-                }else{
-                    handleCorrectGuess()
-                    timerGlobal.timerGlobal = Const.maxRoundScoreValue
-                    roundInfo.roundNumber += 1
-                    coordinator.show(GameMap.self)
+                Task {
+                    try? await Task.sleep(nanoseconds: 800_000_000) // 0.8 seconds
+
+                    if(roundInfo.roundNumber == 4){
+                        handleCorrectGuess()
+                        timerGlobal.timerGlobal = Const.maxRoundScoreValue
+                        showSuccess = false
+                        coordinator.show(EndGame.self)
+                    }else{
+                        handleCorrectGuess()
+                        timerGlobal.timerGlobal = Const.maxRoundScoreValue
+                        showSuccess = false
+                        roundInfo.roundNumber += 1
+                        coordinator.show(GameMap.self)
+                    }
                 }
             }
             else{
-
+                showError = true
                 guessText = "" //clear text
                 timerGlobal.timerGlobal -= Const.PenaltyIncorrectMC
                 penaltyAmount = Const.PenaltyIncorrectMC
@@ -173,6 +195,11 @@ extension GameMap{
                 playIncorrect()
                 PlayDefaultFeedback().play()
                 viewID += 1
+
+                Task {
+                    try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
+                    showError = false
+                }
             }
         }
         func getOption() {

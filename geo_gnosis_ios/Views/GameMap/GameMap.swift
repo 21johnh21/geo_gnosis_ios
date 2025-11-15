@@ -267,6 +267,62 @@ struct GameMap: View {
             if((vm.showPenalty || (timerGlobal.penalty)) && timerGlobal.timerGlobal > 0){
                 Penalty(penaltyAmount: vm.penaltyAmount > 0 ? vm.penaltyAmount : 5).id(vm.viewID)
             }
+
+            // Success Animation
+            if vm.showSuccess {
+                ZStack {
+                    Color.green.opacity(0.3)
+                        .ignoresSafeArea()
+
+                    VStack(spacing: 20) {
+                        Image(systemName: "checkmark.circle.fill")
+                            .font(.system(size: 80))
+                            .foregroundColor(.green)
+                            .scaleEffect(vm.showSuccess ? 1.0 : 0.5)
+                            .animation(.spring(response: 0.4, dampingFraction: 0.6), value: vm.showSuccess)
+
+                        Text("Correct!")
+                            .font(.custom(Const.fontTitle, size: Const.fontSizeTitleLrg))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                    }
+                    .padding(40)
+                    .background(
+                        RoundedRectangle(cornerRadius: 20, style: .continuous)
+                            .fill(.green)
+                            .shadow(color: .black.opacity(0.3), radius: 20)
+                    )
+                }
+                .transition(.opacity)
+            }
+
+            // Error Animation
+            if vm.showError {
+                ZStack {
+                    Color.red.opacity(0.2)
+                        .ignoresSafeArea()
+
+                    VStack(spacing: 16) {
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.system(size: 60))
+                            .foregroundColor(.red)
+                            .scaleEffect(vm.showError ? 1.0 : 0.5)
+                            .animation(.spring(response: 0.3, dampingFraction: 0.7), value: vm.showError)
+
+                        Text("Try Again!")
+                            .font(.custom(Const.fontNormalText, size: Const.fontSizeNormLrg))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                    }
+                    .padding(30)
+                    .background(
+                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                            .fill(.red)
+                            .shadow(color: .black.opacity(0.3), radius: 15)
+                    )
+                }
+                .transition(.opacity)
+            }
         }
         .background(alignment: .center){BackgroundView()}
         .navigationBarBackButtonHidden(true)

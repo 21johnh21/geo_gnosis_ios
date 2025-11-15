@@ -27,7 +27,8 @@ struct Start: View {
     @State var regionMode = Const.modeRegCountryText
     @State var region = "World"
     @State var isGameInitiated: Bool = false
-    
+    @State var isLoading: Bool = false
+
     let numberOfRounds = 5
     
     var body: some View {
@@ -102,8 +103,29 @@ struct Start: View {
                     .onTapGesture {
                         if(!isGameInitiated){
                             isGameInitiated = true
+                            isLoading = true
                             PlayDefaultFeedback().play()
-                            startGame()
+
+                            // Small delay to show loading state
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                startGame()
+                            }
+                        }
+                    }
+                    .overlay {
+                        if isLoading {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                    .fill(.black.opacity(0.4))
+
+                                HStack(spacing: 12) {
+                                    ProgressView()
+                                        .tint(.white)
+                                    Text("Starting...")
+                                        .font(.custom(Const.fontNormalText, size: Const.fontSizeNormStd))
+                                        .foregroundColor(.white)
+                                }
+                            }
                         }
                     }
                 }
