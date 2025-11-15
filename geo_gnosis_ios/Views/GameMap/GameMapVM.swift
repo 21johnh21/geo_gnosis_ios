@@ -54,7 +54,6 @@ extension GameMap{
         func validateAnswer (guessIn: String) {
             showPenalty = false
 
-//           //TODO: somehow allow like 2 - 3 charachters mispelling
             if(isCorrectGuess(guessIn: guessIn, answer: getCorrectAnswer())){
                 showSuccess = true
 
@@ -146,18 +145,67 @@ extension GameMap{
             }
             return countryNames
         }
+        func levenshteinDistance(_ s1: String, _ s2: String) -> Int {
+            let s1 = Array(s1.lowercased())
+            let s2 = Array(s2.lowercased())
+
+            var matrix = [[Int]](repeating: [Int](repeating: 0, count: s2.count + 1), count: s1.count + 1)
+
+            for i in 0...s1.count {
+                matrix[i][0] = i
+            }
+            for j in 0...s2.count {
+                matrix[0][j] = j
+            }
+
+            for i in 1...s1.count {
+                for j in 1...s2.count {
+                    let cost = s1[i - 1] == s2[j - 1] ? 0 : 1
+                    matrix[i][j] = min(
+                        matrix[i - 1][j] + 1,      // deletion
+                        matrix[i][j - 1] + 1,      // insertion
+                        matrix[i - 1][j - 1] + cost // substitution
+                    )
+                }
+            }
+
+            return matrix[s1.count][s2.count]
+        }
+
         func isCorrectGuess(guessIn: String, answer: String) -> Bool{
-            if(guessIn.trimmingCharacters(in: .whitespaces).lowercased()
-               == answer.lowercased()){
+            let cleanGuess = guessIn.trimmingCharacters(in: .whitespaces).lowercased()
+            let cleanAnswer = answer.lowercased()
+
+            // Exact match
+            if cleanGuess == cleanAnswer {
                 return true
             }
 
-            if(alternativeName(country: answer).contains(guessIn)){
+            // Check alternative names
+            if alternativeName(country: answer).contains(where: { $0.lowercased() == cleanGuess }) {
                 return true
             }
 
-          return false
+            // Fuzzy match: Allow up to 3 character mistakes
+            // But require at least 4 characters to prevent too lenient matching on short words
+            if cleanGuess.count >= 4 {
+                let distance = levenshteinDistance(cleanGuess, cleanAnswer)
+                let threshold = min(3, cleanAnswer.count / 4) // Max 3 errors, or 25% of word length
 
+                if distance <= threshold {
+                    return true
+                }
+
+                // Also check fuzzy matching against alternative names
+                for altName in alternativeName(country: answer) {
+                    let altDistance = levenshteinDistance(cleanGuess, altName.lowercased())
+                    if altDistance <= threshold {
+                        return true
+                    }
+                }
+            }
+
+            return false
         }
         func validateAnswerMultiChoice(guessIn: String, optionClicked: Int){
             showPenalty = false
